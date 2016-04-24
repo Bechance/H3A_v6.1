@@ -1,0 +1,3278 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Sat Oct 09 16:16:06 2010                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("ucshell.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;**************************************************************
+      14              ;* CINIT RECORDS                                              *
+      15              ;**************************************************************
+      16 00000000               .sect   ".cinit"
+      17                      .align  1
+      18 00000000 FFFF          .field          -1,16
+      19 00000001 0000-         .field          _m_max_cpu_usage+0,32
+         00000002 0000 
+      20 00000003 0000          .field          0,16                    ; _m_max_cpu_usage @ 0
+      21              
+      22 00000004               .sect   ".cinit"
+      23                      .align  1
+      24 00000004 FFFE          .field          -2,16
+      25 00000005 0002-         .field          _m_ucshell_lock+0,32
+         00000006 0000 
+      26 00000007 0000          .field          0,32                    ; _m_ucshell_lock @ 0
+         00000008 0000 
+      27              
+      28              
+      29              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_psk_exit"), DW_AT_symbol_name("_ucshell_cmd_psk_ex
+      30                      .dwattr DW$1, DW_AT_declaration(0x01)
+      31                      .dwattr DW$1, DW_AT_external(0x01)
+      32              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      33                      .dwendtag DW$1
+      34              
+      35              
+      36              DW$3    .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_psk"), DW_AT_symbol_name("_ucshell_cmd_psk")
+      37                      .dwattr DW$3, DW_AT_declaration(0x01)
+      38                      .dwattr DW$3, DW_AT_external(0x01)
+      39              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      40                      .dwendtag DW$3
+      41              
+      42              
+      43              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_ps_exit"), DW_AT_symbol_name("_ucshell_cmd_ps_exit
+      44                      .dwattr DW$5, DW_AT_declaration(0x01)
+      45                      .dwattr DW$5, DW_AT_external(0x01)
+      46              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      47                      .dwendtag DW$5
+      48              
+      49              
+      50              DW$7    .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_ps"), DW_AT_symbol_name("_ucshell_cmd_ps")
+      51                      .dwattr DW$7, DW_AT_declaration(0x01)
+      52                      .dwattr DW$7, DW_AT_external(0x01)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    2
+
+      53              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      54                      .dwendtag DW$7
+      55              
+      56              
+      57              DW$9    .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_psd_exit"), DW_AT_symbol_name("_ucshell_cmd_psd_ex
+      58                      .dwattr DW$9, DW_AT_declaration(0x01)
+      59                      .dwattr DW$9, DW_AT_external(0x01)
+      60              DW$10   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      61                      .dwendtag DW$9
+      62              
+      63              
+      64              DW$11   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_psd"), DW_AT_symbol_name("_ucshell_cmd_psd")
+      65                      .dwattr DW$11, DW_AT_declaration(0x01)
+      66                      .dwattr DW$11, DW_AT_external(0x01)
+      67              DW$12   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      68                      .dwendtag DW$11
+      69              
+      70              
+      71              DW$13   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_eff_exit"), DW_AT_symbol_name("_ucshell_cmd_eff_ex
+      72                      .dwattr DW$13, DW_AT_declaration(0x01)
+      73                      .dwattr DW$13, DW_AT_external(0x01)
+      74              DW$14   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      75                      .dwendtag DW$13
+      76              
+      77              
+      78              DW$15   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_eff"), DW_AT_symbol_name("_ucshell_cmd_eff")
+      79                      .dwattr DW$15, DW_AT_declaration(0x01)
+      80                      .dwattr DW$15, DW_AT_external(0x01)
+      81              DW$16   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      82                      .dwendtag DW$15
+      83              
+      84              
+      85              DW$17   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_ps_cmd_init"), DW_AT_symbol_name("_ucshell_ps_cmd_init
+      86                      .dwattr DW$17, DW_AT_declaration(0x01)
+      87                      .dwattr DW$17, DW_AT_external(0x01)
+      88              
+      89              DW$18   .dwtag  DW_TAG_subprogram, DW_AT_name("global_memset"), DW_AT_symbol_name("_global_memset")
+      90                      .dwattr DW$18, DW_AT_declaration(0x01)
+      91                      .dwattr DW$18, DW_AT_external(0x01)
+      92              DW$19   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      93              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      94              DW$21   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+      95                      .dwendtag DW$18
+      96              
+      97              
+      98              DW$22   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTimeDly"), DW_AT_symbol_name("_OSTimeDly")
+      99                      .dwattr DW$22, DW_AT_declaration(0x01)
+     100                      .dwattr DW$22, DW_AT_external(0x01)
+     101              DW$23   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     102                      .dwendtag DW$22
+     103              
+     104              
+     105              DW$24   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock"), DW_AT_symbol_name("_os_lock")
+     106                      .dwattr DW$24, DW_AT_declaration(0x01)
+     107                      .dwattr DW$24, DW_AT_external(0x01)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    3
+
+     108              DW$25   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$39)
+     109                      .dwendtag DW$24
+     110              
+     111              
+     112              DW$26   .dwtag  DW_TAG_subprogram, DW_AT_name("os_unlock"), DW_AT_symbol_name("_os_unlock")
+     113                      .dwattr DW$26, DW_AT_declaration(0x01)
+     114                      .dwattr DW$26, DW_AT_external(0x01)
+     115              DW$27   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$39)
+     116                      .dwendtag DW$26
+     117              
+     118              
+     119              DW$28   .dwtag  DW_TAG_subprogram, DW_AT_name("log_printf"), DW_AT_symbol_name("_log_printf")
+     120                      .dwattr DW$28, DW_AT_declaration(0x01)
+     121                      .dwattr DW$28, DW_AT_external(0x01)
+     122              DW$29   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+     123              DW$30   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$44)
+     124                      .dwendtag DW$28
+     125              
+     126              
+     127              DW$31   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_pst"), DW_AT_symbol_name("_ucshell_cmd_pst")
+     128                      .dwattr DW$31, DW_AT_declaration(0x01)
+     129                      .dwattr DW$31, DW_AT_external(0x01)
+     130              DW$32   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     131                      .dwendtag DW$31
+     132              
+     133              
+     134              DW$33   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_pst_exit"), DW_AT_symbol_name("_ucshell_cmd_pst_ex
+     135                      .dwattr DW$33, DW_AT_declaration(0x01)
+     136                      .dwattr DW$33, DW_AT_external(0x01)
+     137              DW$34   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     138                      .dwendtag DW$33
+     139              
+     140              
+     141              DW$35   .dwtag  DW_TAG_subprogram, DW_AT_name("app_module_maneger_exit"), DW_AT_symbol_name("_app_module_mane
+     142                      .dwattr DW$35, DW_AT_declaration(0x01)
+     143                      .dwattr DW$35, DW_AT_external(0x01)
+     144              DW$36   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     145                      .dwendtag DW$35
+     146              
+     147              
+     148              DW$37   .dwtag  DW_TAG_subprogram, DW_AT_name("global_memcmp"), DW_AT_symbol_name("_global_memcmp")
+     149                      .dwattr DW$37, DW_AT_type(*DW$T$72)
+     150                      .dwattr DW$37, DW_AT_declaration(0x01)
+     151                      .dwattr DW$37, DW_AT_external(0x01)
+     152              DW$38   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     153              DW$39   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     154              DW$40   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     155                      .dwendtag DW$37
+     156              
+     157              
+     158              DW$41   .dwtag  DW_TAG_subprogram, DW_AT_name("global_decide_num"), DW_AT_symbol_name("_global_decide_num")
+     159                      .dwattr DW$41, DW_AT_type(*DW$T$72)
+     160                      .dwattr DW$41, DW_AT_declaration(0x01)
+     161                      .dwattr DW$41, DW_AT_external(0x01)
+     162              DW$42   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    4
+
+     163                      .dwendtag DW$41
+     164              
+     165              
+     166              DW$43   .dwtag  DW_TAG_subprogram, DW_AT_name("atoi"), DW_AT_symbol_name("_atoi")
+     167                      .dwattr DW$43, DW_AT_type(*DW$T$10)
+     168                      .dwattr DW$43, DW_AT_declaration(0x01)
+     169                      .dwattr DW$43, DW_AT_external(0x01)
+     170              DW$44   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$64)
+     171                      .dwendtag DW$43
+     172              
+     173              DW$45   .dwtag  DW_TAG_variable, DW_AT_name("m_null_pram"), DW_AT_symbol_name("_m_null_pram")
+     174                      .dwattr DW$45, DW_AT_type(*DW$T$25)
+     175                      .dwattr DW$45, DW_AT_declaration(0x01)
+     176                      .dwattr DW$45, DW_AT_external(0x01)
+     177              
+     178              DW$46   .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_name_set"), DW_AT_symbol_name("_os_task_name_set")
+     179                      .dwattr DW$46, DW_AT_type(*DW$T$25)
+     180                      .dwattr DW$46, DW_AT_declaration(0x01)
+     181                      .dwattr DW$46, DW_AT_external(0x01)
+     182              DW$47   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     183              DW$48   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+     184                      .dwendtag DW$46
+     185              
+     186              
+     187              DW$49   .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_assign_pro_build"), DW_AT_symbol_name("_os_task_assign
+     188                      .dwattr DW$49, DW_AT_type(*DW$T$72)
+     189                      .dwattr DW$49, DW_AT_declaration(0x01)
+     190                      .dwattr DW$49, DW_AT_external(0x01)
+     191              DW$50   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$29)
+     192              DW$51   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     193              DW$52   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     194                      .dwendtag DW$49
+     195              
+     196              
+     197              DW$53   .dwtag  DW_TAG_subprogram, DW_AT_name("log_wait_input_msg"), DW_AT_symbol_name("_log_wait_input_msg")
+     198                      .dwattr DW$53, DW_AT_type(*DW$T$34)
+     199                      .dwattr DW$53, DW_AT_declaration(0x01)
+     200                      .dwattr DW$53, DW_AT_external(0x01)
+     201              DW$54   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$60)
+     202                      .dwendtag DW$53
+     203              
+     204              
+     205              DW$55   .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_delete"), DW_AT_symbol_name("_os_task_delete")
+     206                      .dwattr DW$55, DW_AT_type(*DW$T$25)
+     207                      .dwattr DW$55, DW_AT_declaration(0x01)
+     208                      .dwattr DW$55, DW_AT_external(0x01)
+     209              DW$56   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     210                      .dwendtag DW$55
+     211              
+     212              
+     213              DW$57   .dwtag  DW_TAG_subprogram, DW_AT_name("global_decide_letter"), DW_AT_symbol_name("_global_decide_lett
+     214                      .dwattr DW$57, DW_AT_type(*DW$T$72)
+     215                      .dwattr DW$57, DW_AT_declaration(0x01)
+     216                      .dwattr DW$57, DW_AT_external(0x01)
+     217              DW$58   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    5
+
+     218                      .dwendtag DW$57
+     219              
+     220                      .global _m_max_cpu_usage
+     221 00000000       _m_max_cpu_usage:       .usect  ".ebss",1,1,0
+     222              DW$59   .dwtag  DW_TAG_variable, DW_AT_name("m_max_cpu_usage"), DW_AT_symbol_name("_m_max_cpu_usage")
+     223                      .dwattr DW$59, DW_AT_location[DW_OP_addr _m_max_cpu_usage]
+     224                      .dwattr DW$59, DW_AT_type(*DW$T$25)
+     225                      .dwattr DW$59, DW_AT_external(0x01)
+     226              
+     227              DW$60   .dwtag  DW_TAG_subprogram, DW_AT_name("global_adjust_letter_module"), DW_AT_symbol_name("_global_adju
+     228                      .dwattr DW$60, DW_AT_type(*DW$T$25)
+     229                      .dwattr DW$60, DW_AT_declaration(0x01)
+     230                      .dwattr DW$60, DW_AT_external(0x01)
+     231              DW$61   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+     232              DW$62   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     233                      .dwendtag DW$60
+     234              
+     235              
+     236              DW$63   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock_creat"), DW_AT_symbol_name("_os_lock_creat")
+     237                      .dwattr DW$63, DW_AT_type(*DW$T$25)
+     238                      .dwattr DW$63, DW_AT_declaration(0x01)
+     239                      .dwattr DW$63, DW_AT_external(0x01)
+     240              DW$64   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$53)
+     241                      .dwendtag DW$63
+     242              
+     243                      .global _m_ucshell_lock
+     244 00000002       _m_ucshell_lock:        .usect  ".ebss",2,1,1
+     245              DW$65   .dwtag  DW_TAG_variable, DW_AT_name("m_ucshell_lock"), DW_AT_symbol_name("_m_ucshell_lock")
+     246                      .dwattr DW$65, DW_AT_location[DW_OP_addr _m_ucshell_lock]
+     247                      .dwattr DW$65, DW_AT_type(*DW$T$39)
+     248                      .dwattr DW$65, DW_AT_external(0x01)
+     249              DW$66   .dwtag  DW_TAG_variable, DW_AT_name("m_log_pram"), DW_AT_symbol_name("_m_log_pram")
+     250                      .dwattr DW$66, DW_AT_type(*DW$T$43)
+     251                      .dwattr DW$66, DW_AT_declaration(0x01)
+     252                      .dwattr DW$66, DW_AT_external(0x01)
+     253                      .global _m_cmd_manege_tab
+     254 00000000               .sect   ".econst"
+     255                      .align  2
+     256 00000000       _m_cmd_manege_tab:
+     257 00000000 003C+         .field          FSL1,32         ; _m_cmd_manege_tab[0]._cmd @ 0
+         00000001 0000 
+     258 00000002 0000'         .field          _ucshell_cmd_exit,32            ; _m_cmd_manege_tab[0]._cmd_run_fun @ 32
+         00000003 0000 
+     259 00000004 0042+         .field          FSL2,32         ; _m_cmd_manege_tab[0]._cmd_explain @ 64
+         00000005 0000 
+     260 00000006 005C+         .field          FSL3,32         ; _m_cmd_manege_tab[1]._cmd @ 96
+         00000007 0000 
+     261 00000008 0091'         .field          _ucshell_cmd_help,32            ; _m_cmd_manege_tab[1]._cmd_run_fun @ 128
+         00000009 0000 
+     262 0000000a 0062+         .field          FSL4,32         ; _m_cmd_manege_tab[1]._cmd_explain @ 160
+         0000000b 0000 
+     263 0000000c 007A+         .field          FSL5,32         ; _m_cmd_manege_tab[2]._cmd @ 192
+         0000000d 0000 
+     264 0000000e 0000!         .field          _ucshell_cmd_pst,32             ; _m_cmd_manege_tab[2]._cmd_run_fun @ 224
+         0000000f 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    6
+
+     265 00000010 007E+         .field          FSL6,32         ; _m_cmd_manege_tab[2]._cmd_explain @ 256
+         00000011 0000 
+     266 00000012 009C+         .field          FSL7,32         ; _m_cmd_manege_tab[3]._cmd @ 288
+         00000013 0000 
+     267 00000014 0000!         .field          _ucshell_cmd_psd,32             ; _m_cmd_manege_tab[3]._cmd_run_fun @ 320
+         00000015 0000 
+     268 00000016 00A0+         .field          FSL8,32         ; _m_cmd_manege_tab[3]._cmd_explain @ 352
+         00000017 0000 
+     269 00000018 00BE+         .field          FSL9,32         ; _m_cmd_manege_tab[4]._cmd @ 384
+         00000019 0000 
+     270 0000001a 0000!         .field          _ucshell_cmd_eff,32             ; _m_cmd_manege_tab[4]._cmd_run_fun @ 416
+         0000001b 0000 
+     271 0000001c 00C2+         .field          FSL10,32                ; _m_cmd_manege_tab[4]._cmd_explain @ 448
+         0000001d 0000 
+     272 0000001e 00DA+         .field          FSL11,32                ; _m_cmd_manege_tab[5]._cmd @ 480
+         0000001f 0000 
+     273 00000020 0000!         .field          _ucshell_cmd_psk,32             ; _m_cmd_manege_tab[5]._cmd_run_fun @ 512
+         00000021 0000 
+     274 00000022 00DE+         .field          FSL12,32                ; _m_cmd_manege_tab[5]._cmd_explain @ 544
+         00000023 0000 
+     275 00000024 0102+         .field          FSL13,32                ; _m_cmd_manege_tab[6]._cmd @ 576
+         00000025 0000 
+     276 00000026 0000!         .field          _ucshell_cmd_ps,32              ; _m_cmd_manege_tab[6]._cmd_run_fun @ 608
+         00000027 0000 
+     277 00000028 0106+         .field          FSL14,32                ; _m_cmd_manege_tab[6]._cmd_explain @ 640
+         00000029 0000 
+     278 0000002a 012C+         .field          FSL15,32                ; _m_cmd_manege_tab[7]._cmd @ 672
+         0000002b 0000 
+     279 0000002c 0064'         .field          _ucshell_cmd_rst,32             ; _m_cmd_manege_tab[7]._cmd_run_fun @ 704
+         0000002d 0000 
+     280 0000002e 0134+         .field          FSL16,32                ; _m_cmd_manege_tab[7]._cmd_explain @ 736
+         0000002f 0000 
+     281 00000030 014C+         .field          FSL17,32                ; _m_cmd_manege_tab[8]._cmd @ 768
+         00000031 0000 
+     282 00000032 0072'         .field          _ucshell_cmd_kill,32            ; _m_cmd_manege_tab[8]._cmd_run_fun @ 800
+         00000033 0000 
+     283 00000034 0152+         .field          FSL18,32                ; _m_cmd_manege_tab[8]._cmd_explain @ 832
+         00000035 0000 
+     284 00000036 0176+         .field          FSL19,32                ; _m_cmd_manege_tab[9]._cmd @ 864
+         00000037 0000 
+     285 00000038 006B'         .field          _ucshell_cmd_config,32          ; _m_cmd_manege_tab[9]._cmd_run_fun @ 896
+         00000039 0000 
+     286 0000003a 017E+         .field          FSL20,32                ; _m_cmd_manege_tab[9]._cmd_explain @ 928
+         0000003b 0000 
+     287              
+     288              DW$67   .dwtag  DW_TAG_variable, DW_AT_name("m_cmd_manege_tab"), DW_AT_symbol_name("_m_cmd_manege_tab")
+     289                      .dwattr DW$67, DW_AT_location[DW_OP_addr _m_cmd_manege_tab]
+     290                      .dwattr DW$67, DW_AT_type(*DW$T$82)
+     291                      .dwattr DW$67, DW_AT_external(0x01)
+     292              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8207 
+     293 00000000               .sect   ".text"
+     294                      .global _ucshell_cmd_exit
+     295              
+     296              DW$68   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_exit"), DW_AT_symbol_name("_ucshell_cmd_exit")
+     297                      .dwattr DW$68, DW_AT_low_pc(_ucshell_cmd_exit)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    7
+
+     298                      .dwattr DW$68, DW_AT_high_pc(0x00)
+     299                      .dwattr DW$68, DW_AT_begin_file("ucshell.c")
+     300                      .dwattr DW$68, DW_AT_begin_line(0x2a)
+     301                      .dwattr DW$68, DW_AT_begin_column(0x06)
+     302                      .dwpsn  "ucshell.c",43,1
+     303              
+     304                      .dwfde DW$CIE
+     305              
+     306              ;***************************************************************
+     307              ;* FNAME: _ucshell_cmd_exit             FR SIZE:   4           *
+     308              ;*                                                             *
+     309              ;* FUNCTION ENVIRONMENT                                        *
+     310              ;*                                                             *
+     311              ;* FUNCTION PROPERTIES                                         *
+     312              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     313              ;***************************************************************
+     314              
+     315              _ucshell_cmd_exit:
+     316                      .dwcfa  0x1d, -2
+     317                      .dwcfa  0x1c, 26, 0
+     318                      .dwcfa  0x09, 40, 26
+     319 00000000 FE04          ADDB      SP,#4
+     320                      .dwcfa  0x1d, -6
+     321              ;* AR4   assigned to _arg
+     322              DW$69   .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     323                      .dwattr DW$69, DW_AT_type(*DW$T$3)
+     324                      .dwattr DW$69, DW_AT_location[DW_OP_reg12]
+     325              DW$70   .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     326                      .dwattr DW$70, DW_AT_type(*DW$T$3)
+     327                      .dwattr DW$70, DW_AT_location[DW_OP_breg20 -2]
+     328              DW$71   .dwtag  DW_TAG_variable, DW_AT_name("pch"), DW_AT_symbol_name("_pch")
+     329                      .dwattr DW$71, DW_AT_type(*DW$T$60)
+     330                      .dwattr DW$71, DW_AT_location[DW_OP_breg20 -4]
+     331 00000001 A842          MOVL      *-SP[2],XAR4          ; |43| 
+     332                      .dwpsn  "ucshell.c",44,11
+     333 00000002 0642          MOVL      ACC,*-SP[2]           ; |44| 
+     334 00000003 1E44          MOVL      *-SP[4],ACC           ; |44| 
+     335                      .dwpsn  "ucshell.c",45,2
+     336 00000004 6F04          B         L2,UNC                ; |45| 
+     337                      ; branch occurs ; |45| 
+     338              L1:    
+     339              DW$L$_ucshell_cmd_exit$2$B:
+     340                      .dwpsn  "ucshell.c",45,23
+     341 00000005 0201          MOVB      ACC,#1
+     342 00000006 5601          ADDL      *-SP[4],ACC           ; |45| 
+         00000007 0044 
+     343              DW$L$_ucshell_cmd_exit$2$E:
+     344              L2:    
+     345              DW$L$_ucshell_cmd_exit$3$B:
+     346                      .dwpsn  "ucshell.c",45,10
+     347 00000008 8A44          MOVL      XAR4,*-SP[4]          ; |45| 
+     348 00000009 92C4          MOV       AL,*+XAR4[0]          ; |45| 
+     349 0000000a 5220          CMPB      AL,#32                ; |45| 
+     350 0000000b EDFA          BF        L1,NEQ                ; |45| 
+     351                      ; branchcc occurs ; |45| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    8
+
+     352              DW$L$_ucshell_cmd_exit$3$E:
+     353                      .dwpsn  "ucshell.c",46,2
+     354 0000000c 6F04          B         L4,UNC                ; |46| 
+     355                      ; branch occurs ; |46| 
+     356              L3:    
+     357              DW$L$_ucshell_cmd_exit$5$B:
+     358                      .dwpsn  "ucshell.c",46,23
+     359 0000000d 0201          MOVB      ACC,#1
+     360 0000000e 5601          ADDL      *-SP[4],ACC           ; |46| 
+         0000000f 0044 
+     361              DW$L$_ucshell_cmd_exit$5$E:
+     362              L4:    
+     363              DW$L$_ucshell_cmd_exit$6$B:
+     364                      .dwpsn  "ucshell.c",46,10
+     365 00000010 8A44          MOVL      XAR4,*-SP[4]          ; |46| 
+     366 00000011 92C4          MOV       AL,*+XAR4[0]          ; |46| 
+     367 00000012 5220          CMPB      AL,#32                ; |46| 
+     368 00000013 ECFA          BF        L3,EQ                 ; |46| 
+     369                      ; branchcc occurs ; |46| 
+     370              DW$L$_ucshell_cmd_exit$6$E:
+     371                      .dwpsn  "ucshell.c",47,2
+     372 00000014 8A44          MOVL      XAR4,*-SP[4]          ; |47| 
+     373 00000015 92C4          MOV       AL,*+XAR4[0]          ; |47| 
+     374 00000016 EC4C          BF        L10,EQ                ; |47| 
+     375                      ; branchcc occurs ; |47| 
+     376                      .dwpsn  "ucshell.c",47,19
+     377                      .dwpsn  "ucshell.c",48,2
+     378 00000017 8A44          MOVL      XAR4,*-SP[4]          ; |48| 
+     379 00000018 9A04          MOVB      AL,#4                 ; |48| 
+     380 00000019 8F40+         MOVL      XAR5,#FSL9            ; |48| 
+         0000001a 00BE 
+     381 0000001b 7640!         LCR       #_global_memcmp       ; |48| 
+         0000001c 0000 
+     382                      ; call occurs [#_global_memcmp] ; |48| 
+     383 0000001d 5200          CMPB      AL,#0                 ; |48| 
+     384 0000001e EC08          BF        L5,EQ                 ; |48| 
+     385                      ; branchcc occurs ; |48| 
+     386                      .dwpsn  "ucshell.c",50,3
+     387 0000001f D400          MOVB      XAR4,#0
+     388 00000020 7640!         LCR       #_ucshell_cmd_eff_exit ; |50| 
+         00000021 0000 
+     389                      ; call occurs [#_ucshell_cmd_eff_exit] ; |50| 
+     390                      .dwpsn  "ucshell.c",51,3
+     391 00000022 761F-         MOVW      DP,#_m_max_cpu_usage
+         00000023 0000 
+     392 00000024 2B00-         MOV       @_m_max_cpu_usage,#0  ; |51| 
+     393                      .dwpsn  "ucshell.c",52,2
+     394 00000025 6F3D          B         L10,UNC               ; |52| 
+     395                      ; branch occurs ; |52| 
+     396              L5:    
+     397                      .dwpsn  "ucshell.c",53,7
+     398 00000026 8A44          MOVL      XAR4,*-SP[4]          ; |53| 
+     399 00000027 9A04          MOVB      AL,#4                 ; |53| 
+     400 00000028 8F40+         MOVL      XAR5,#FSL5            ; |53| 
+         00000029 007A 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE    9
+
+     401 0000002a 7640!         LCR       #_global_memcmp       ; |53| 
+         0000002b 0000 
+     402                      ; call occurs [#_global_memcmp] ; |53| 
+     403 0000002c 5200          CMPB      AL,#0                 ; |53| 
+     404 0000002d EC05          BF        L6,EQ                 ; |53| 
+     405                      ; branchcc occurs ; |53| 
+     406                      .dwpsn  "ucshell.c",55,3
+     407 0000002e D400          MOVB      XAR4,#0
+     408 0000002f 7640!         LCR       #_ucshell_cmd_pst_exit ; |55| 
+         00000030 0000 
+     409                      ; call occurs [#_ucshell_cmd_pst_exit] ; |55| 
+     410                      .dwpsn  "ucshell.c",56,2
+     411 00000031 6F31          B         L10,UNC               ; |56| 
+     412                      ; branch occurs ; |56| 
+     413              L6:    
+     414                      .dwpsn  "ucshell.c",57,7
+     415 00000032 8A44          MOVL      XAR4,*-SP[4]          ; |57| 
+     416 00000033 9A04          MOVB      AL,#4                 ; |57| 
+     417 00000034 8F40+         MOVL      XAR5,#FSL7            ; |57| 
+         00000035 009C 
+     418 00000036 7640!         LCR       #_global_memcmp       ; |57| 
+         00000037 0000 
+     419                      ; call occurs [#_global_memcmp] ; |57| 
+     420 00000038 5200          CMPB      AL,#0                 ; |57| 
+     421 00000039 EC05          BF        L7,EQ                 ; |57| 
+     422                      ; branchcc occurs ; |57| 
+     423                      .dwpsn  "ucshell.c",59,3
+     424 0000003a D400          MOVB      XAR4,#0
+     425 0000003b 7640!         LCR       #_ucshell_cmd_psd_exit ; |59| 
+         0000003c 0000 
+     426                      ; call occurs [#_ucshell_cmd_psd_exit] ; |59| 
+     427                      .dwpsn  "ucshell.c",60,2
+     428 0000003d 6F25          B         L10,UNC               ; |60| 
+     429                      ; branch occurs ; |60| 
+     430              L7:    
+     431                      .dwpsn  "ucshell.c",61,7
+     432 0000003e 8A44          MOVL      XAR4,*-SP[4]          ; |61| 
+     433 0000003f 9A04          MOVB      AL,#4                 ; |61| 
+     434 00000040 8F40+         MOVL      XAR5,#FSL11           ; |61| 
+         00000041 00DA 
+     435 00000042 7640!         LCR       #_global_memcmp       ; |61| 
+         00000043 0000 
+     436                      ; call occurs [#_global_memcmp] ; |61| 
+     437 00000044 5200          CMPB      AL,#0                 ; |61| 
+     438 00000045 EC05          BF        L8,EQ                 ; |61| 
+     439                      ; branchcc occurs ; |61| 
+     440                      .dwpsn  "ucshell.c",63,3
+     441 00000046 D400          MOVB      XAR4,#0
+     442 00000047 7640!         LCR       #_ucshell_cmd_psk_exit ; |63| 
+         00000048 0000 
+     443                      ; call occurs [#_ucshell_cmd_psk_exit] ; |63| 
+     444                      .dwpsn  "ucshell.c",64,2
+     445 00000049 6F19          B         L10,UNC               ; |64| 
+     446                      ; branch occurs ; |64| 
+     447              L8:    
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   10
+
+     448                      .dwpsn  "ucshell.c",65,7
+     449 0000004a 8A44          MOVL      XAR4,*-SP[4]          ; |65| 
+     450 0000004b 9A03          MOVB      AL,#3                 ; |65| 
+     451 0000004c 8F40+         MOVL      XAR5,#FSL13           ; |65| 
+         0000004d 0102 
+     452 0000004e 7640!         LCR       #_global_memcmp       ; |65| 
+         0000004f 0000 
+     453                      ; call occurs [#_global_memcmp] ; |65| 
+     454 00000050 5200          CMPB      AL,#0                 ; |65| 
+     455 00000051 EC05          BF        L9,EQ                 ; |65| 
+     456                      ; branchcc occurs ; |65| 
+     457                      .dwpsn  "ucshell.c",67,3
+     458 00000052 D400          MOVB      XAR4,#0
+     459 00000053 7640!         LCR       #_ucshell_cmd_ps_exit ; |67| 
+         00000054 0000 
+     460                      ; call occurs [#_ucshell_cmd_ps_exit] ; |67| 
+     461                      .dwpsn  "ucshell.c",68,2
+     462 00000055 6F0D          B         L10,UNC               ; |68| 
+     463                      ; branch occurs ; |68| 
+     464              L9:    
+     465                      .dwpsn  "ucshell.c",71,3
+     466 00000056 8F00!         MOVL      XAR4,#_m_null_pram    ; |71| 
+         00000057 0000 
+     467 00000058 761F!         MOVW      DP,#_m_log_pram+26
+         00000059 0000 
+     468 0000005a 8F40!         MOVL      XAR5,#_m_log_pram     ; |71| 
+         0000005b 0000 
+     469 0000005c A81A!         MOVL      @_m_log_pram+26,XAR4  ; |71| 
+     470 0000005d A81C!         MOVL      @_m_log_pram+28,XAR4  ; |71| 
+     471 0000005e 8F00+         MOVL      XAR4,#FSL21           ; |71| 
+         0000005f 01B0 
+     472 00000060 7640!         LCR       #_log_printf          ; |71| 
+         00000061 0000 
+     473                      ; call occurs [#_log_printf] ; |71| 
+     474                      .dwpsn  "ucshell.c",73,2
+     475              L10:    
+     476                      .dwpsn  "ucshell.c",74,1
+     477 00000062 FE84          SUBB      SP,#4
+     478                      .dwcfa  0x1d, -2
+     479 00000063 0006          LRETR
+     480                      ; return occurs
+     481              
+     482              DW$72   .dwtag  DW_TAG_loop
+     483                      .dwattr DW$72, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L4:1:1286612166")
+     484                      .dwattr DW$72, DW_AT_begin_file("ucshell.c")
+     485                      .dwattr DW$72, DW_AT_begin_line(0x2e)
+     486                      .dwattr DW$72, DW_AT_end_line(0x2e)
+     487              DW$73   .dwtag  DW_TAG_loop_range
+     488                      .dwattr DW$73, DW_AT_low_pc(DW$L$_ucshell_cmd_exit$6$B)
+     489                      .dwattr DW$73, DW_AT_high_pc(DW$L$_ucshell_cmd_exit$6$E)
+     490              DW$74   .dwtag  DW_TAG_loop_range
+     491                      .dwattr DW$74, DW_AT_low_pc(DW$L$_ucshell_cmd_exit$5$B)
+     492                      .dwattr DW$74, DW_AT_high_pc(DW$L$_ucshell_cmd_exit$5$E)
+     493                      .dwendtag DW$72
+     494              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   11
+
+     495              
+     496              DW$75   .dwtag  DW_TAG_loop
+     497                      .dwattr DW$75, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L2:1:1286612166")
+     498                      .dwattr DW$75, DW_AT_begin_file("ucshell.c")
+     499                      .dwattr DW$75, DW_AT_begin_line(0x2d)
+     500                      .dwattr DW$75, DW_AT_end_line(0x2d)
+     501              DW$76   .dwtag  DW_TAG_loop_range
+     502                      .dwattr DW$76, DW_AT_low_pc(DW$L$_ucshell_cmd_exit$3$B)
+     503                      .dwattr DW$76, DW_AT_high_pc(DW$L$_ucshell_cmd_exit$3$E)
+     504              DW$77   .dwtag  DW_TAG_loop_range
+     505                      .dwattr DW$77, DW_AT_low_pc(DW$L$_ucshell_cmd_exit$2$B)
+     506                      .dwattr DW$77, DW_AT_high_pc(DW$L$_ucshell_cmd_exit$2$E)
+     507                      .dwendtag DW$75
+     508              
+     509                      .dwattr DW$68, DW_AT_end_file("ucshell.c")
+     510                      .dwattr DW$68, DW_AT_end_line(0x4a)
+     511                      .dwattr DW$68, DW_AT_end_column(0x01)
+     512                      .dwendentry
+     513                      .dwendtag DW$68
+     514              
+     515 00000064               .sect   ".text"
+     516                      .global _ucshell_cmd_rst
+     517              
+     518              DW$78   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_rst"), DW_AT_symbol_name("_ucshell_cmd_rst")
+     519                      .dwattr DW$78, DW_AT_low_pc(_ucshell_cmd_rst)
+     520                      .dwattr DW$78, DW_AT_high_pc(0x00)
+     521                      .dwattr DW$78, DW_AT_begin_file("ucshell.c")
+     522                      .dwattr DW$78, DW_AT_begin_line(0x53)
+     523                      .dwattr DW$78, DW_AT_begin_column(0x06)
+     524                      .dwpsn  "ucshell.c",84,1
+     525              
+     526                      .dwfde DW$CIE
+     527              
+     528              ;***************************************************************
+     529              ;* FNAME: _ucshell_cmd_rst              FR SIZE:   2           *
+     530              ;*                                                             *
+     531              ;* FUNCTION ENVIRONMENT                                        *
+     532              ;*                                                             *
+     533              ;* FUNCTION PROPERTIES                                         *
+     534              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     535              ;***************************************************************
+     536              
+     537              _ucshell_cmd_rst:
+     538                      .dwcfa  0x1d, -2
+     539                      .dwcfa  0x1c, 26, 0
+     540                      .dwcfa  0x09, 40, 26
+     541 00000064 FE02          ADDB      SP,#2
+     542                      .dwcfa  0x1d, -4
+     543              ;* AR4   assigned to _arg
+     544              DW$79   .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     545                      .dwattr DW$79, DW_AT_type(*DW$T$3)
+     546                      .dwattr DW$79, DW_AT_location[DW_OP_reg12]
+     547              DW$80   .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     548                      .dwattr DW$80, DW_AT_type(*DW$T$3)
+     549                      .dwattr DW$80, DW_AT_location[DW_OP_breg20 -2]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   12
+
+     550 00000065 A842          MOVL      *-SP[2],XAR4          ; |84| 
+     551                      .dwpsn  "ucshell.c",85,2
+     552 00000066 9A00          MOVB      AL,#0
+     553 00000067 7640!         LCR       #_app_module_maneger_exit ; |85| 
+         00000068 0000 
+     554                      ; call occurs [#_app_module_maneger_exit] ; |85| 
+     555                      .dwpsn  "ucshell.c",86,2
+     556                      .dwpsn  "ucshell.c",87,1
+     557 00000069 FE82          SUBB      SP,#2
+     558                      .dwcfa  0x1d, -2
+     559 0000006a 0006          LRETR
+     560                      ; return occurs
+     561                      .dwattr DW$78, DW_AT_end_file("ucshell.c")
+     562                      .dwattr DW$78, DW_AT_end_line(0x57)
+     563                      .dwattr DW$78, DW_AT_end_column(0x01)
+     564                      .dwendentry
+     565                      .dwendtag DW$78
+     566              
+     567 0000006b               .sect   ".text"
+     568                      .global _ucshell_cmd_config
+     569              
+     570              DW$81   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_config"), DW_AT_symbol_name("_ucshell_cmd_config")
+     571                      .dwattr DW$81, DW_AT_low_pc(_ucshell_cmd_config)
+     572                      .dwattr DW$81, DW_AT_high_pc(0x00)
+     573                      .dwattr DW$81, DW_AT_begin_file("ucshell.c")
+     574                      .dwattr DW$81, DW_AT_begin_line(0x60)
+     575                      .dwattr DW$81, DW_AT_begin_column(0x06)
+     576                      .dwpsn  "ucshell.c",97,1
+     577              
+     578                      .dwfde DW$CIE
+     579              
+     580              ;***************************************************************
+     581              ;* FNAME: _ucshell_cmd_config           FR SIZE:   2           *
+     582              ;*                                                             *
+     583              ;* FUNCTION ENVIRONMENT                                        *
+     584              ;*                                                             *
+     585              ;* FUNCTION PROPERTIES                                         *
+     586              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     587              ;***************************************************************
+     588              
+     589              _ucshell_cmd_config:
+     590                      .dwcfa  0x1d, -2
+     591                      .dwcfa  0x1c, 26, 0
+     592                      .dwcfa  0x09, 40, 26
+     593 0000006b FE02          ADDB      SP,#2
+     594                      .dwcfa  0x1d, -4
+     595              ;* AR4   assigned to _arg
+     596              DW$82   .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     597                      .dwattr DW$82, DW_AT_type(*DW$T$3)
+     598                      .dwattr DW$82, DW_AT_location[DW_OP_reg12]
+     599              DW$83   .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     600                      .dwattr DW$83, DW_AT_type(*DW$T$3)
+     601                      .dwattr DW$83, DW_AT_location[DW_OP_breg20 -2]
+     602 0000006c A842          MOVL      *-SP[2],XAR4          ; |97| 
+     603                      .dwpsn  "ucshell.c",98,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   13
+
+     604 0000006d 9A02          MOVB      AL,#2                 ; |98| 
+     605 0000006e 7640!         LCR       #_app_module_maneger_exit ; |98| 
+         0000006f 0000 
+     606                      ; call occurs [#_app_module_maneger_exit] ; |98| 
+     607                      .dwpsn  "ucshell.c",99,2
+     608                      .dwpsn  "ucshell.c",100,1
+     609 00000070 FE82          SUBB      SP,#2
+     610                      .dwcfa  0x1d, -2
+     611 00000071 0006          LRETR
+     612                      ; return occurs
+     613                      .dwattr DW$81, DW_AT_end_file("ucshell.c")
+     614                      .dwattr DW$81, DW_AT_end_line(0x64)
+     615                      .dwattr DW$81, DW_AT_end_column(0x01)
+     616                      .dwendentry
+     617                      .dwendtag DW$81
+     618              
+     619 00000072               .sect   ".text"
+     620                      .global _ucshell_cmd_kill
+     621              
+     622              DW$84   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_kill"), DW_AT_symbol_name("_ucshell_cmd_kill")
+     623                      .dwattr DW$84, DW_AT_low_pc(_ucshell_cmd_kill)
+     624                      .dwattr DW$84, DW_AT_high_pc(0x00)
+     625                      .dwattr DW$84, DW_AT_begin_file("ucshell.c")
+     626                      .dwattr DW$84, DW_AT_begin_line(0x6d)
+     627                      .dwattr DW$84, DW_AT_begin_column(0x06)
+     628                      .dwpsn  "ucshell.c",110,1
+     629              
+     630                      .dwfde DW$CIE
+     631              
+     632              ;***************************************************************
+     633              ;* FNAME: _ucshell_cmd_kill             FR SIZE:   6           *
+     634              ;*                                                             *
+     635              ;* FUNCTION ENVIRONMENT                                        *
+     636              ;*                                                             *
+     637              ;* FUNCTION PROPERTIES                                         *
+     638              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+     639              ;***************************************************************
+     640              
+     641              _ucshell_cmd_kill:
+     642                      .dwcfa  0x1d, -2
+     643                      .dwcfa  0x1c, 26, 0
+     644                      .dwcfa  0x09, 40, 26
+     645 00000072 FE06          ADDB      SP,#6
+     646                      .dwcfa  0x1d, -8
+     647              ;* AR4   assigned to _arg
+     648              DW$85   .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     649                      .dwattr DW$85, DW_AT_type(*DW$T$3)
+     650                      .dwattr DW$85, DW_AT_location[DW_OP_reg12]
+     651              DW$86   .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     652                      .dwattr DW$86, DW_AT_type(*DW$T$3)
+     653                      .dwattr DW$86, DW_AT_location[DW_OP_breg20 -2]
+     654              DW$87   .dwtag  DW_TAG_variable, DW_AT_name("pch"), DW_AT_symbol_name("_pch")
+     655                      .dwattr DW$87, DW_AT_type(*DW$T$60)
+     656                      .dwattr DW$87, DW_AT_location[DW_OP_breg20 -4]
+     657              DW$88   .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   14
+
+     658                      .dwattr DW$88, DW_AT_type(*DW$T$25)
+     659                      .dwattr DW$88, DW_AT_location[DW_OP_breg20 -5]
+     660 00000073 A842          MOVL      *-SP[2],XAR4          ; |110| 
+     661                      .dwpsn  "ucshell.c",111,11
+     662 00000074 0642          MOVL      ACC,*-SP[2]           ; |111| 
+     663 00000075 1E44          MOVL      *-SP[4],ACC           ; |111| 
+     664                      .dwpsn  "ucshell.c",113,2
+     665 00000076 6F04          B         L12,UNC               ; |113| 
+     666                      ; branch occurs ; |113| 
+     667              L11:    
+     668              DW$L$_ucshell_cmd_kill$2$B:
+     669                      .dwpsn  "ucshell.c",113,23
+     670 00000077 0201          MOVB      ACC,#1
+     671 00000078 5601          ADDL      *-SP[4],ACC           ; |113| 
+         00000079 0044 
+     672              DW$L$_ucshell_cmd_kill$2$E:
+     673              L12:    
+     674              DW$L$_ucshell_cmd_kill$3$B:
+     675                      .dwpsn  "ucshell.c",113,10
+     676 0000007a 8A44          MOVL      XAR4,*-SP[4]          ; |113| 
+     677 0000007b 92C4          MOV       AL,*+XAR4[0]          ; |113| 
+     678 0000007c 5220          CMPB      AL,#32                ; |113| 
+     679 0000007d EDFA          BF        L11,NEQ               ; |113| 
+     680                      ; branchcc occurs ; |113| 
+     681              DW$L$_ucshell_cmd_kill$3$E:
+     682                      .dwpsn  "ucshell.c",114,2
+     683 0000007e 6F04          B         L14,UNC               ; |114| 
+     684                      ; branch occurs ; |114| 
+     685              L13:    
+     686              DW$L$_ucshell_cmd_kill$5$B:
+     687                      .dwpsn  "ucshell.c",114,23
+     688 0000007f 0201          MOVB      ACC,#1
+     689 00000080 5601          ADDL      *-SP[4],ACC           ; |114| 
+         00000081 0044 
+     690              DW$L$_ucshell_cmd_kill$5$E:
+     691              L14:    
+     692              DW$L$_ucshell_cmd_kill$6$B:
+     693                      .dwpsn  "ucshell.c",114,10
+     694 00000082 8A44          MOVL      XAR4,*-SP[4]          ; |114| 
+     695 00000083 92C4          MOV       AL,*+XAR4[0]          ; |114| 
+     696 00000084 5220          CMPB      AL,#32                ; |114| 
+     697 00000085 ECFA          BF        L13,EQ                ; |114| 
+     698                      ; branchcc occurs ; |114| 
+     699              DW$L$_ucshell_cmd_kill$6$E:
+     700                      .dwpsn  "ucshell.c",115,2
+     701 00000086 8A44          MOVL      XAR4,*-SP[4]          ; |115| 
+     702 00000087 92C4          MOV       AL,*+XAR4[0]          ; |115| 
+     703 00000088 EC07          BF        L15,EQ                ; |115| 
+     704                      ; branchcc occurs ; |115| 
+     705                      .dwpsn  "ucshell.c",115,19
+     706                      .dwpsn  "ucshell.c",116,2
+     707 00000089 8A44          MOVL      XAR4,*-SP[4]          ; |116| 
+     708 0000008a 7640!         LCR       #_atoi                ; |116| 
+         0000008b 0000 
+     709                      ; call occurs [#_atoi] ; |116| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   15
+
+     710 0000008c 9645          MOV       *-SP[5],AL            ; |116| 
+     711                      .dwpsn  "ucshell.c",117,2
+     712 0000008d 7640!         LCR       #_os_task_delete      ; |117| 
+         0000008e 0000 
+     713                      ; call occurs [#_os_task_delete] ; |117| 
+     714                      .dwpsn  "ucshell.c",118,2
+     715              L15:    
+     716                      .dwpsn  "ucshell.c",119,1
+     717 0000008f FE86          SUBB      SP,#6
+     718                      .dwcfa  0x1d, -2
+     719 00000090 0006          LRETR
+     720                      ; return occurs
+     721              
+     722              DW$89   .dwtag  DW_TAG_loop
+     723                      .dwattr DW$89, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L14:1:1286612166")
+     724                      .dwattr DW$89, DW_AT_begin_file("ucshell.c")
+     725                      .dwattr DW$89, DW_AT_begin_line(0x72)
+     726                      .dwattr DW$89, DW_AT_end_line(0x72)
+     727              DW$90   .dwtag  DW_TAG_loop_range
+     728                      .dwattr DW$90, DW_AT_low_pc(DW$L$_ucshell_cmd_kill$6$B)
+     729                      .dwattr DW$90, DW_AT_high_pc(DW$L$_ucshell_cmd_kill$6$E)
+     730              DW$91   .dwtag  DW_TAG_loop_range
+     731                      .dwattr DW$91, DW_AT_low_pc(DW$L$_ucshell_cmd_kill$5$B)
+     732                      .dwattr DW$91, DW_AT_high_pc(DW$L$_ucshell_cmd_kill$5$E)
+     733                      .dwendtag DW$89
+     734              
+     735              
+     736              DW$92   .dwtag  DW_TAG_loop
+     737                      .dwattr DW$92, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L12:1:1286612166")
+     738                      .dwattr DW$92, DW_AT_begin_file("ucshell.c")
+     739                      .dwattr DW$92, DW_AT_begin_line(0x71)
+     740                      .dwattr DW$92, DW_AT_end_line(0x71)
+     741              DW$93   .dwtag  DW_TAG_loop_range
+     742                      .dwattr DW$93, DW_AT_low_pc(DW$L$_ucshell_cmd_kill$3$B)
+     743                      .dwattr DW$93, DW_AT_high_pc(DW$L$_ucshell_cmd_kill$3$E)
+     744              DW$94   .dwtag  DW_TAG_loop_range
+     745                      .dwattr DW$94, DW_AT_low_pc(DW$L$_ucshell_cmd_kill$2$B)
+     746                      .dwattr DW$94, DW_AT_high_pc(DW$L$_ucshell_cmd_kill$2$E)
+     747                      .dwendtag DW$92
+     748              
+     749                      .dwattr DW$84, DW_AT_end_file("ucshell.c")
+     750                      .dwattr DW$84, DW_AT_end_line(0x77)
+     751                      .dwattr DW$84, DW_AT_end_column(0x01)
+     752                      .dwendentry
+     753                      .dwendtag DW$84
+     754              
+     755 00000091               .sect   ".text"
+     756                      .global _ucshell_cmd_help
+     757              
+     758              DW$95   .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_help"), DW_AT_symbol_name("_ucshell_cmd_help")
+     759                      .dwattr DW$95, DW_AT_low_pc(_ucshell_cmd_help)
+     760                      .dwattr DW$95, DW_AT_high_pc(0x00)
+     761                      .dwattr DW$95, DW_AT_begin_file("ucshell.c")
+     762                      .dwattr DW$95, DW_AT_begin_line(0x81)
+     763                      .dwattr DW$95, DW_AT_begin_column(0x06)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   16
+
+     764                      .dwpsn  "ucshell.c",130,1
+     765              
+     766                      .dwfde DW$CIE
+     767              
+     768              ;***************************************************************
+     769              ;* FNAME: _ucshell_cmd_help             FR SIZE:   4           *
+     770              ;*                                                             *
+     771              ;* FUNCTION ENVIRONMENT                                        *
+     772              ;*                                                             *
+     773              ;* FUNCTION PROPERTIES                                         *
+     774              ;*                            0 Parameter,  3 Auto,  0 SOE     *
+     775              ;***************************************************************
+     776              
+     777              _ucshell_cmd_help:
+     778                      .dwcfa  0x1d, -2
+     779                      .dwcfa  0x1c, 26, 0
+     780                      .dwcfa  0x09, 40, 26
+     781 00000091 FE04          ADDB      SP,#4
+     782                      .dwcfa  0x1d, -6
+     783              ;* AR4   assigned to _arg
+     784              DW$96   .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     785                      .dwattr DW$96, DW_AT_type(*DW$T$3)
+     786                      .dwattr DW$96, DW_AT_location[DW_OP_reg12]
+     787              DW$97   .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+     788                      .dwattr DW$97, DW_AT_type(*DW$T$3)
+     789                      .dwattr DW$97, DW_AT_location[DW_OP_breg20 -2]
+     790              DW$98   .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+     791                      .dwattr DW$98, DW_AT_type(*DW$T$34)
+     792                      .dwattr DW$98, DW_AT_location[DW_OP_breg20 -3]
+     793 00000092 A842          MOVL      *-SP[2],XAR4          ; |130| 
+     794                      .dwpsn  "ucshell.c",132,2
+     795 00000093 761F!         MOVW      DP,#_m_log_pram+26
+         00000094 0000 
+     796 00000095 8F00!         MOVL      XAR4,#_m_null_pram    ; |132| 
+         00000096 0000 
+     797 00000097 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |132| 
+     798 00000098 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |132| 
+     799 00000099 8F40!         MOVL      XAR5,#_m_log_pram     ; |132| 
+         0000009a 0000 
+     800 0000009b 8F00+         MOVL      XAR4,#FSL22           ; |132| 
+         0000009c 01C4 
+     801 0000009d 7640!         LCR       #_log_printf          ; |132| 
+         0000009e 0000 
+     802                      ; call occurs [#_log_printf] ; |132| 
+     803                      .dwpsn  "ucshell.c",133,8
+     804 0000009f 2B43          MOV       *-SP[3],#0            ; |133| 
+     805                      .dwpsn  "ucshell.c",133,18
+     806 000000a0 9243          MOV       AL,*-SP[3]            ; |133| 
+     807 000000a1 520A          CMPB      AL,#10                ; |133| 
+     808 000000a2 6719          B         L17,HIS               ; |133| 
+     809                      ; branchcc occurs ; |133| 
+     810              L16:    
+     811              DW$L$_ucshell_cmd_help$2$B:
+     812                      .dwpsn  "ucshell.c",135,3
+     813 000000a3 5CAD          MOVZ      AR4,SP                ; |135| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   17
+
+     814 000000a4 28AC          MOV       T,#6                  ; |135| 
+         000000a5 0006 
+     815 000000a6 761F!         MOVW      DP,#_m_log_pram+26
+         000000a7 0000 
+     816 000000a8 DC83          SUBB      XAR4,#3               ; |135| 
+     817 000000a9 3043          MPYXU     ACC,T,*-SP[3]         ; |135| 
+     818 000000aa A81A!         MOVL      @_m_log_pram+26,XAR4  ; |135| 
+     819 000000ab 8F00+         MOVL      XAR4,#_m_cmd_manege_tab+4 ; |135| 
+         000000ac 0004 
+     820 000000ad 5601          ADDL      XAR4,ACC
+         000000ae 00A4 
+     821 000000af 8F40!         MOVL      XAR5,#_m_log_pram     ; |135| 
+         000000b0 0000 
+     822 000000b1 06C4          MOVL      ACC,*+XAR4[0]         ; |135| 
+     823 000000b2 1E1C!         MOVL      @_m_log_pram+28,ACC   ; |135| 
+     824 000000b3 8F00+         MOVL      XAR4,#FSL23           ; |135| 
+         000000b4 01FA 
+     825 000000b5 7640!         LCR       #_log_printf          ; |135| 
+         000000b6 0000 
+     826                      ; call occurs [#_log_printf] ; |135| 
+     827                      .dwpsn  "ucshell.c",133,60
+     828 000000b7 0A43          INC       *-SP[3]               ; |133| 
+     829                      .dwpsn  "ucshell.c",133,18
+     830 000000b8 9243          MOV       AL,*-SP[3]            ; |133| 
+     831 000000b9 520A          CMPB      AL,#10                ; |133| 
+     832 000000ba 68E9          B         L16,LO                ; |133| 
+     833                      ; branchcc occurs ; |133| 
+     834              DW$L$_ucshell_cmd_help$2$E:
+     835              L17:    
+     836                      .dwpsn  "ucshell.c",137,2
+     837 000000bb 8F00!         MOVL      XAR4,#_m_null_pram    ; |137| 
+         000000bc 0000 
+     838 000000bd 761F!         MOVW      DP,#_m_log_pram+26
+         000000be 0000 
+     839 000000bf 8F40!         MOVL      XAR5,#_m_log_pram     ; |137| 
+         000000c0 0000 
+     840 000000c1 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |137| 
+     841 000000c2 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |137| 
+     842 000000c3 8F00+         MOVL      XAR4,#FSL24           ; |137| 
+         000000c4 0202 
+     843 000000c5 7640!         LCR       #_log_printf          ; |137| 
+         000000c6 0000 
+     844                      ; call occurs [#_log_printf] ; |137| 
+     845                      .dwpsn  "ucshell.c",138,2
+     846                      .dwpsn  "ucshell.c",139,1
+     847 000000c7 FE84          SUBB      SP,#4
+     848                      .dwcfa  0x1d, -2
+     849 000000c8 0006          LRETR
+     850                      ; return occurs
+     851              
+     852              DW$99   .dwtag  DW_TAG_loop
+     853                      .dwattr DW$99, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L16:1:1286612166")
+     854                      .dwattr DW$99, DW_AT_begin_file("ucshell.c")
+     855                      .dwattr DW$99, DW_AT_begin_line(0x85)
+     856                      .dwattr DW$99, DW_AT_end_line(0x88)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   18
+
+     857              DW$100  .dwtag  DW_TAG_loop_range
+     858                      .dwattr DW$100, DW_AT_low_pc(DW$L$_ucshell_cmd_help$2$B)
+     859                      .dwattr DW$100, DW_AT_high_pc(DW$L$_ucshell_cmd_help$2$E)
+     860                      .dwendtag DW$99
+     861              
+     862                      .dwattr DW$95, DW_AT_end_file("ucshell.c")
+     863                      .dwattr DW$95, DW_AT_end_line(0x8b)
+     864                      .dwattr DW$95, DW_AT_end_column(0x01)
+     865                      .dwendentry
+     866                      .dwendtag DW$95
+     867              
+     868 000000c9               .sect   ".text"
+     869                      .global _ucshell_cmd_prompt_msg
+     870              
+     871              DW$101  .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_cmd_prompt_msg"), DW_AT_symbol_name("_ucshell_cmd_prom
+     872                      .dwattr DW$101, DW_AT_low_pc(_ucshell_cmd_prompt_msg)
+     873                      .dwattr DW$101, DW_AT_high_pc(0x00)
+     874                      .dwattr DW$101, DW_AT_begin_file("ucshell.c")
+     875                      .dwattr DW$101, DW_AT_begin_line(0x94)
+     876                      .dwattr DW$101, DW_AT_begin_column(0x06)
+     877                      .dwpsn  "ucshell.c",149,1
+     878              
+     879                      .dwfde DW$CIE
+     880              
+     881              ;***************************************************************
+     882              ;* FNAME: _ucshell_cmd_prompt_msg       FR SIZE:   0           *
+     883              ;*                                                             *
+     884              ;* FUNCTION ENVIRONMENT                                        *
+     885              ;*                                                             *
+     886              ;* FUNCTION PROPERTIES                                         *
+     887              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     888              ;***************************************************************
+     889              
+     890              _ucshell_cmd_prompt_msg:
+     891                      .dwcfa  0x1d, -2
+     892                      .dwcfa  0x1c, 26, 0
+     893                      .dwcfa  0x09, 40, 26
+     894                      .dwpsn  "ucshell.c",150,2
+     895 000000c9 8F00!         MOVL      XAR4,#_m_null_pram    ; |150| 
+         000000ca 0000 
+     896 000000cb 761F!         MOVW      DP,#_m_log_pram+26
+         000000cc 0000 
+     897 000000cd 8F40!         MOVL      XAR5,#_m_log_pram     ; |150| 
+         000000ce 0000 
+     898 000000cf A81A!         MOVL      @_m_log_pram+26,XAR4  ; |150| 
+     899 000000d0 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |150| 
+     900 000000d1 8F00+         MOVL      XAR4,#FSL25           ; |150| 
+         000000d2 0238 
+     901 000000d3 7640!         LCR       #_log_printf          ; |150| 
+         000000d4 0000 
+     902                      ; call occurs [#_log_printf] ; |150| 
+     903                      .dwpsn  "ucshell.c",151,2
+     904 000000d5 761F!         MOVW      DP,#_m_log_pram+26
+         000000d6 0000 
+     905 000000d7 8F00!         MOVL      XAR4,#_m_null_pram    ; |151| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   19
+
+         000000d8 0000 
+     906 000000d9 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |151| 
+     907 000000da A81C!         MOVL      @_m_log_pram+28,XAR4  ; |151| 
+     908 000000db 8F40!         MOVL      XAR5,#_m_log_pram     ; |151| 
+         000000dc 0000 
+     909 000000dd 8F00+         MOVL      XAR4,#FSL24           ; |151| 
+         000000de 0202 
+     910 000000df 7640!         LCR       #_log_printf          ; |151| 
+         000000e0 0000 
+     911                      ; call occurs [#_log_printf] ; |151| 
+     912                      .dwpsn  "ucshell.c",152,2
+     913 000000e1 761F!         MOVW      DP,#_m_log_pram+26
+         000000e2 0000 
+     914 000000e3 8F00!         MOVL      XAR4,#_m_null_pram    ; |152| 
+         000000e4 0000 
+     915 000000e5 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |152| 
+     916 000000e6 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |152| 
+     917 000000e7 8F40!         MOVL      XAR5,#_m_log_pram     ; |152| 
+         000000e8 0000 
+     918 000000e9 8F00+         MOVL      XAR4,#FSL26           ; |152| 
+         000000ea 023C 
+     919 000000eb 7640!         LCR       #_log_printf          ; |152| 
+         000000ec 0000 
+     920                      ; call occurs [#_log_printf] ; |152| 
+     921                      .dwpsn  "ucshell.c",153,2
+     922 000000ed 761F!         MOVW      DP,#_m_log_pram+26
+         000000ee 0000 
+     923 000000ef 8F00!         MOVL      XAR4,#_m_null_pram    ; |153| 
+         000000f0 0000 
+     924 000000f1 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |153| 
+     925 000000f2 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |153| 
+     926 000000f3 8F40!         MOVL      XAR5,#_m_log_pram     ; |153| 
+         000000f4 0000 
+     927 000000f5 8F00+         MOVL      XAR4,#FSL27           ; |153| 
+         000000f6 025C 
+     928 000000f7 7640!         LCR       #_log_printf          ; |153| 
+         000000f8 0000 
+     929                      ; call occurs [#_log_printf] ; |153| 
+     930                      .dwpsn  "ucshell.c",154,2
+     931 000000f9 761F!         MOVW      DP,#_m_log_pram+26
+         000000fa 0000 
+     932 000000fb 8F00!         MOVL      XAR4,#_m_null_pram    ; |154| 
+         000000fc 0000 
+     933 000000fd A81A!         MOVL      @_m_log_pram+26,XAR4  ; |154| 
+     934 000000fe A81C!         MOVL      @_m_log_pram+28,XAR4  ; |154| 
+     935 000000ff 8F40!         MOVL      XAR5,#_m_log_pram     ; |154| 
+         00000100 0000 
+     936 00000101 8F00+         MOVL      XAR4,#FSL28           ; |154| 
+         00000102 0292 
+     937 00000103 7640!         LCR       #_log_printf          ; |154| 
+         00000104 0000 
+     938                      ; call occurs [#_log_printf] ; |154| 
+     939                      .dwpsn  "ucshell.c",155,2
+     940 00000105 761F!         MOVW      DP,#_m_log_pram+26
+         00000106 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   20
+
+     941 00000107 8F00!         MOVL      XAR4,#_m_null_pram    ; |155| 
+         00000108 0000 
+     942 00000109 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |155| 
+     943 0000010a A81C!         MOVL      @_m_log_pram+28,XAR4  ; |155| 
+     944 0000010b 8F40!         MOVL      XAR5,#_m_log_pram     ; |155| 
+         0000010c 0000 
+     945 0000010d 8F00+         MOVL      XAR4,#FSL24           ; |155| 
+         0000010e 0202 
+     946 0000010f 7640!         LCR       #_log_printf          ; |155| 
+         00000110 0000 
+     947                      ; call occurs [#_log_printf] ; |155| 
+     948                      .dwpsn  "ucshell.c",156,2
+     949 00000111 9A03          MOVB      AL,#3                 ; |156| 
+     950 00000112 7640!         LCR       #_OSTimeDly           ; |156| 
+         00000113 0000 
+     951                      ; call occurs [#_OSTimeDly] ; |156| 
+     952                      .dwpsn  "ucshell.c",157,2
+     953                      .dwpsn  "ucshell.c",158,1
+     954 00000114 0006          LRETR
+     955                      ; return occurs
+     956                      .dwattr DW$101, DW_AT_end_file("ucshell.c")
+     957                      .dwattr DW$101, DW_AT_end_line(0x9e)
+     958                      .dwattr DW$101, DW_AT_end_column(0x01)
+     959                      .dwendentry
+     960                      .dwendtag DW$101
+     961              
+     962 00000115               .sect   ".text"
+     963                      .global _ucshell_match_cmd
+     964              
+     965              DW$102  .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_match_cmd"), DW_AT_symbol_name("_ucshell_match_cmd")
+     966                      .dwattr DW$102, DW_AT_low_pc(_ucshell_match_cmd)
+     967                      .dwattr DW$102, DW_AT_high_pc(0x00)
+     968                      .dwattr DW$102, DW_AT_begin_file("ucshell.c")
+     969                      .dwattr DW$102, DW_AT_begin_line(0xa7)
+     970                      .dwattr DW$102, DW_AT_begin_column(0x09)
+     971                      .dwpsn  "ucshell.c",168,1
+     972              
+     973                      .dwfde DW$CIE
+     974              
+     975              ;***************************************************************
+     976              ;* FNAME: _ucshell_match_cmd            FR SIZE:  16           *
+     977              ;*                                                             *
+     978              ;* FUNCTION ENVIRONMENT                                        *
+     979              ;*                                                             *
+     980              ;* FUNCTION PROPERTIES                                         *
+     981              ;*                            0 Parameter, 16 Auto,  0 SOE     *
+     982              ;***************************************************************
+     983              
+     984              _ucshell_match_cmd:
+     985                      .dwcfa  0x1d, -2
+     986                      .dwcfa  0x1c, 26, 0
+     987                      .dwcfa  0x09, 40, 26
+     988 00000115 FE10          ADDB      SP,#16
+     989                      .dwcfa  0x1d, -18
+     990              ;* AR4   assigned to _pcmd
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   21
+
+     991              DW$103  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pcmd"), DW_AT_symbol_name("_pcmd")
+     992                      .dwattr DW$103, DW_AT_type(*DW$T$60)
+     993                      .dwattr DW$103, DW_AT_location[DW_OP_reg12]
+     994              ;* AL    assigned to _size
+     995              DW$104  .dwtag  DW_TAG_formal_parameter, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     996                      .dwattr DW$104, DW_AT_type(*DW$T$34)
+     997                      .dwattr DW$104, DW_AT_location[DW_OP_reg0]
+     998              DW$105  .dwtag  DW_TAG_variable, DW_AT_name("pcmd"), DW_AT_symbol_name("_pcmd")
+     999                      .dwattr DW$105, DW_AT_type(*DW$T$60)
+    1000                      .dwattr DW$105, DW_AT_location[DW_OP_breg20 -2]
+    1001              DW$106  .dwtag  DW_TAG_variable, DW_AT_name("size"), DW_AT_symbol_name("_size")
+    1002                      .dwattr DW$106, DW_AT_type(*DW$T$34)
+    1003                      .dwattr DW$106, DW_AT_location[DW_OP_breg20 -3]
+    1004              DW$107  .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+    1005                      .dwattr DW$107, DW_AT_type(*DW$T$34)
+    1006                      .dwattr DW$107, DW_AT_location[DW_OP_breg20 -4]
+    1007              DW$108  .dwtag  DW_TAG_variable, DW_AT_name("tbuf"), DW_AT_symbol_name("_tbuf")
+    1008                      .dwattr DW$108, DW_AT_type(*DW$T$61)
+    1009                      .dwattr DW$108, DW_AT_location[DW_OP_breg20 -16]
+    1010 00000116 9643          MOV       *-SP[3],AL            ; |168| 
+    1011 00000117 A842          MOVL      *-SP[2],XAR4          ; |168| 
+    1012                      .dwpsn  "ucshell.c",171,2
+    1013 00000118 9243          MOV       AL,*-SP[3]            ; |171| 
+    1014 00000119 ED03          BF        L18,NEQ               ; |171| 
+    1015                      ; branchcc occurs ; |171| 
+    1016                      .dwpsn  "ucshell.c",171,19
+    1017 0000011a 9AFF          MOVB      AL,#255               ; |171| 
+    1018 0000011b 6F61          B         L25,UNC               ; |171| 
+    1019                      ; branch occurs ; |171| 
+    1020              L18:    
+    1021                      .dwpsn  "ucshell.c",172,8
+    1022 0000011c 2B44          MOV       *-SP[4],#0            ; |172| 
+    1023                      .dwpsn  "ucshell.c",172,18
+    1024 0000011d 9243          MOV       AL,*-SP[3]            ; |172| 
+    1025 0000011e 5444          CMP       AL,*-SP[4]            ; |172| 
+    1026 0000011f 690F          B         L20,LOS               ; |172| 
+    1027                      ; branchcc occurs ; |172| 
+    1028              L19:    
+    1029              DW$L$_ucshell_match_cmd$4$B:
+    1030                      .dwpsn  "ucshell.c",174,3
+    1031 00000120 5844          MOVZ      AR0,*-SP[4]           ; |174| 
+    1032 00000121 8A42          MOVL      XAR4,*-SP[2]          ; |174| 
+    1033 00000122 9294          MOV       AL,*+XAR4[AR0]        ; |174| 
+    1034 00000123 9B01          MOVB      AH,#1                 ; |174| 
+    1035 00000124 7640!         LCR       #_global_adjust_letter_module ; |174| 
+         00000125 0000 
+    1036                      ; call occurs [#_global_adjust_letter_module] ; |174| 
+    1037 00000126 5CAD          MOVZ      AR4,SP                ; |174| 
+    1038 00000127 5844          MOVZ      AR0,*-SP[4]           ; |174| 
+    1039 00000128 DC90          SUBB      XAR4,#16              ; |174| 
+    1040 00000129 9694          MOV       *+XAR4[AR0],AL        ; |174| 
+    1041                      .dwpsn  "ucshell.c",172,31
+    1042 0000012a 0A44          INC       *-SP[4]               ; |172| 
+    1043                      .dwpsn  "ucshell.c",172,18
+    1044 0000012b 9243          MOV       AL,*-SP[3]            ; |172| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   22
+
+    1045 0000012c 5444          CMP       AL,*-SP[4]            ; |172| 
+    1046 0000012d 66F3          B         L19,HI                ; |172| 
+    1047                      ; branchcc occurs ; |172| 
+    1048              DW$L$_ucshell_match_cmd$4$E:
+    1049              L20:    
+    1050                      .dwpsn  "ucshell.c",177,8
+    1051 0000012e 2B44          MOV       *-SP[4],#0            ; |177| 
+    1052                      .dwpsn  "ucshell.c",177,18
+    1053 0000012f 9244          MOV       AL,*-SP[4]            ; |177| 
+    1054 00000130 520A          CMPB      AL,#10                ; |177| 
+    1055 00000131 673E          B         L24,HIS               ; |177| 
+    1056                      ; branchcc occurs ; |177| 
+    1057              L21:    
+    1058              DW$L$_ucshell_match_cmd$6$B:
+    1059                      .dwpsn  "ucshell.c",179,3
+    1060 00000132 28AC          MOV       T,#6                  ; |179| 
+         00000133 0006 
+    1061 00000134 8F00+         MOVL      XAR4,#_m_cmd_manege_tab ; |179| 
+         00000135 0000 
+    1062 00000136 3044          MPYXU     ACC,T,*-SP[4]         ; |179| 
+    1063 00000137 5601          ADDL      XAR4,ACC
+         00000138 00A4 
+    1064 00000139 83C4          MOVL      XAR5,*+XAR4[0]        ; |179| 
+    1065 0000013a 5CAD          MOVZ      AR4,SP                ; |179| 
+    1066 0000013b 9243          MOV       AL,*-SP[3]            ; |179| 
+    1067 0000013c DC90          SUBB      XAR4,#16              ; |179| 
+    1068 0000013d 7640!         LCR       #_global_memcmp       ; |179| 
+         0000013e 0000 
+    1069                      ; call occurs [#_global_memcmp] ; |179| 
+    1070 0000013f 5200          CMPB      AL,#0                 ; |179| 
+    1071 00000140 EC2B          BF        L23,EQ                ; |179| 
+    1072                      ; branchcc occurs ; |179| 
+    1073 00000141       DW$L$_ucshell_match_cmd$6$E:
+    1074 00000141       DW$L$_ucshell_match_cmd$7$B:
+    1075 00000141 28AC          MOV       T,#6                  ; |179| 
+         00000142 0006 
+    1076 00000143 8F00+         MOVL      XAR4,#_m_cmd_manege_tab ; |179| 
+         00000144 0000 
+    1077 00000145 3044          MPYXU     ACC,T,*-SP[4]         ; |179| 
+    1078 00000146 5601          ADDL      XAR4,ACC
+         00000147 00A4 
+    1079 00000148 5843          MOVZ      AR0,*-SP[3]           ; |179| 
+    1080 00000149 8AC4          MOVL      XAR4,*+XAR4[0]        ; |179| 
+    1081 0000014a 9294          MOV       AL,*+XAR4[AR0]        ; |179| 
+    1082 0000014b ED20          BF        L23,NEQ               ; |179| 
+    1083                      ; branchcc occurs ; |179| 
+    1084              DW$L$_ucshell_match_cmd$7$E:
+    1085                      .dwpsn  "ucshell.c",182,4
+    1086 0000014c 28AC          MOV       T,#6                  ; |182| 
+         0000014d 0006 
+    1087 0000014e 8F00+         MOVL      XAR4,#_m_cmd_manege_tab+2 ; |182| 
+         0000014f 0002 
+    1088 00000150 3044          MPYXU     ACC,T,*-SP[4]         ; |182| 
+    1089 00000151 5601          ADDL      XAR4,ACC
+         00000152 00A4 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   23
+
+    1090 00000153 06C4          MOVL      ACC,*+XAR4[0]         ; |182| 
+    1091 00000154 EC15          BF        L22,EQ                ; |182| 
+    1092                      ; branchcc occurs ; |182| 
+    1093                      .dwpsn  "ucshell.c",184,5
+    1094 00000155 761F-         MOVW      DP,#_m_ucshell_lock
+         00000156 0000 
+    1095 00000157 8A02-         MOVL      XAR4,@_m_ucshell_lock ; |184| 
+    1096 00000158 7640!         LCR       #_os_lock             ; |184| 
+         00000159 0000 
+    1097                      ; call occurs [#_os_lock] ; |184| 
+    1098                      .dwpsn  "ucshell.c",185,5
+    1099 0000015a 28AC          MOV       T,#6                  ; |185| 
+         0000015b 0006 
+    1100 0000015c 8F00+         MOVL      XAR4,#_m_cmd_manege_tab+2 ; |185| 
+         0000015d 0002 
+    1101 0000015e 3044          MPYXU     ACC,T,*-SP[4]         ; |185| 
+    1102 0000015f 5601          ADDL      XAR4,ACC
+         00000160 00A4 
+    1103 00000161 C5C4          MOVL      XAR7,*+XAR4[0]        ; |185| 
+    1104 00000162 8A42          MOVL      XAR4,*-SP[2]          ; |185| 
+    1105 00000163 3E67          LCR       *XAR7                 ; |185| 
+    1106                      ; call occurs [XAR7] ; |185| 
+    1107                      .dwpsn  "ucshell.c",186,5
+    1108 00000164 761F-         MOVW      DP,#_m_ucshell_lock
+         00000165 0000 
+    1109 00000166 8A02-         MOVL      XAR4,@_m_ucshell_lock ; |186| 
+    1110 00000167 7640!         LCR       #_os_unlock           ; |186| 
+         00000168 0000 
+    1111                      ; call occurs [#_os_unlock] ; |186| 
+    1112              L22:    
+    1113                      .dwpsn  "ucshell.c",188,4
+    1114 00000169 9244          MOV       AL,*-SP[4]            ; |188| 
+    1115 0000016a 6F12          B         L25,UNC               ; |188| 
+    1116                      ; branch occurs ; |188| 
+    1117              L23:    
+    1118              DW$L$_ucshell_match_cmd$11$B:
+    1119                      .dwpsn  "ucshell.c",177,60
+    1120 0000016b 0A44          INC       *-SP[4]               ; |177| 
+    1121                      .dwpsn  "ucshell.c",177,18
+    1122 0000016c 9244          MOV       AL,*-SP[4]            ; |177| 
+    1123 0000016d 520A          CMPB      AL,#10                ; |177| 
+    1124 0000016e 68C4          B         L21,LO                ; |177| 
+    1125                      ; branchcc occurs ; |177| 
+    1126              DW$L$_ucshell_match_cmd$11$E:
+    1127              L24:    
+    1128                      .dwpsn  "ucshell.c",191,2
+    1129 0000016f 8F00!         MOVL      XAR4,#_m_null_pram    ; |191| 
+         00000170 0000 
+    1130 00000171 761F!         MOVW      DP,#_m_log_pram+26
+         00000172 0000 
+    1131 00000173 8F40!         MOVL      XAR5,#_m_log_pram     ; |191| 
+         00000174 0000 
+    1132 00000175 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |191| 
+    1133 00000176 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |191| 
+    1134 00000177 8F00+         MOVL      XAR4,#FSL29           ; |191| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   24
+
+         00000178 02C8 
+    1135 00000179 7640!         LCR       #_log_printf          ; |191| 
+         0000017a 0000 
+    1136                      ; call occurs [#_log_printf] ; |191| 
+    1137                      .dwpsn  "ucshell.c",192,2
+    1138 0000017b 9AFF          MOVB      AL,#255               ; |192| 
+    1139              L25:    
+    1140                      .dwpsn  "ucshell.c",193,1
+    1141 0000017c FE90          SUBB      SP,#16                ; |192| 
+    1142                      .dwcfa  0x1d, -2
+    1143 0000017d 0006          LRETR
+    1144                      ; return occurs
+    1145              
+    1146              DW$109  .dwtag  DW_TAG_loop
+    1147                      .dwattr DW$109, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L21:1:1286612166")
+    1148                      .dwattr DW$109, DW_AT_begin_file("ucshell.c")
+    1149                      .dwattr DW$109, DW_AT_begin_line(0xb1)
+    1150                      .dwattr DW$109, DW_AT_end_line(0xbe)
+    1151              DW$110  .dwtag  DW_TAG_loop_range
+    1152                      .dwattr DW$110, DW_AT_low_pc(DW$L$_ucshell_match_cmd$6$B)
+    1153                      .dwattr DW$110, DW_AT_high_pc(DW$L$_ucshell_match_cmd$6$E)
+    1154              DW$111  .dwtag  DW_TAG_loop_range
+    1155                      .dwattr DW$111, DW_AT_low_pc(DW$L$_ucshell_match_cmd$7$B)
+    1156                      .dwattr DW$111, DW_AT_high_pc(DW$L$_ucshell_match_cmd$7$E)
+    1157              DW$112  .dwtag  DW_TAG_loop_range
+    1158                      .dwattr DW$112, DW_AT_low_pc(DW$L$_ucshell_match_cmd$11$B)
+    1159                      .dwattr DW$112, DW_AT_high_pc(DW$L$_ucshell_match_cmd$11$E)
+    1160                      .dwendtag DW$109
+    1161              
+    1162              
+    1163              DW$113  .dwtag  DW_TAG_loop
+    1164                      .dwattr DW$113, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L19:1:1286612166")
+    1165                      .dwattr DW$113, DW_AT_begin_file("ucshell.c")
+    1166                      .dwattr DW$113, DW_AT_begin_line(0xac)
+    1167                      .dwattr DW$113, DW_AT_end_line(0xb0)
+    1168              DW$114  .dwtag  DW_TAG_loop_range
+    1169                      .dwattr DW$114, DW_AT_low_pc(DW$L$_ucshell_match_cmd$4$B)
+    1170                      .dwattr DW$114, DW_AT_high_pc(DW$L$_ucshell_match_cmd$4$E)
+    1171                      .dwendtag DW$113
+    1172              
+    1173                      .dwattr DW$102, DW_AT_end_file("ucshell.c")
+    1174                      .dwattr DW$102, DW_AT_end_line(0xc1)
+    1175                      .dwattr DW$102, DW_AT_end_column(0x01)
+    1176                      .dwendentry
+    1177                      .dwendtag DW$102
+    1178              
+    1179 0000017e               .sect   ".text"
+    1180                      .global _ucshell_wait_cmd_task
+    1181              
+    1182              DW$115  .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_wait_cmd_task"), DW_AT_symbol_name("_ucshell_wait_cmd_
+    1183                      .dwattr DW$115, DW_AT_low_pc(_ucshell_wait_cmd_task)
+    1184                      .dwattr DW$115, DW_AT_high_pc(0x00)
+    1185                      .dwattr DW$115, DW_AT_begin_file("ucshell.c")
+    1186                      .dwattr DW$115, DW_AT_begin_line(0xca)
+    1187                      .dwattr DW$115, DW_AT_begin_column(0x06)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   25
+
+    1188                      .dwpsn  "ucshell.c",203,1
+    1189              
+    1190                      .dwfde DW$CIE
+    1191              
+    1192              ;***************************************************************
+    1193              ;* FNAME: _ucshell_wait_cmd_task        FR SIZE:  18           *
+    1194              ;*                                                             *
+    1195              ;* FUNCTION ENVIRONMENT                                        *
+    1196              ;*                                                             *
+    1197              ;* FUNCTION PROPERTIES                                         *
+    1198              ;*                            0 Parameter, 17 Auto,  0 SOE     *
+    1199              ;***************************************************************
+    1200              
+    1201              _ucshell_wait_cmd_task:
+    1202                      .dwcfa  0x1d, -2
+    1203                      .dwcfa  0x1c, 26, 0
+    1204                      .dwcfa  0x09, 40, 26
+    1205 0000017e FE12          ADDB      SP,#18
+    1206                      .dwcfa  0x1d, -20
+    1207              ;* AR4   assigned to _arg
+    1208              DW$116  .dwtag  DW_TAG_formal_parameter, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+    1209                      .dwattr DW$116, DW_AT_type(*DW$T$3)
+    1210                      .dwattr DW$116, DW_AT_location[DW_OP_reg12]
+    1211              DW$117  .dwtag  DW_TAG_variable, DW_AT_name("arg"), DW_AT_symbol_name("_arg")
+    1212                      .dwattr DW$117, DW_AT_type(*DW$T$3)
+    1213                      .dwattr DW$117, DW_AT_location[DW_OP_breg20 -2]
+    1214              DW$118  .dwtag  DW_TAG_variable, DW_AT_name("cmd_buf"), DW_AT_symbol_name("_cmd_buf")
+    1215                      .dwattr DW$118, DW_AT_type(*DW$T$61)
+    1216                      .dwattr DW$118, DW_AT_location[DW_OP_breg20 -14]
+    1217              DW$119  .dwtag  DW_TAG_variable, DW_AT_name("cmd_byte"), DW_AT_symbol_name("_cmd_byte")
+    1218                      .dwattr DW$119, DW_AT_type(*DW$T$25)
+    1219                      .dwattr DW$119, DW_AT_location[DW_OP_breg20 -15]
+    1220              DW$120  .dwtag  DW_TAG_variable, DW_AT_name("offset"), DW_AT_symbol_name("_offset")
+    1221                      .dwattr DW$120, DW_AT_type(*DW$T$34)
+    1222                      .dwattr DW$120, DW_AT_location[DW_OP_breg20 -16]
+    1223              DW$121  .dwtag  DW_TAG_variable, DW_AT_name("cmd_len"), DW_AT_symbol_name("_cmd_len")
+    1224                      .dwattr DW$121, DW_AT_type(*DW$T$34)
+    1225                      .dwattr DW$121, DW_AT_location[DW_OP_breg20 -17]
+    1226 0000017f A842          MOVL      *-SP[2],XAR4          ; |203| 
+    1227                      .dwpsn  "ucshell.c",206,10
+    1228 00000180 2B50          MOV       *-SP[16],#0           ; |206| 
+    1229                      .dwpsn  "ucshell.c",207,10
+    1230 00000181 2B51          MOV       *-SP[17],#0           ; |207| 
+    1231                      .dwpsn  "ucshell.c",208,2
+    1232 00000182 5CAD          MOVZ      AR4,SP                ; |208| 
+    1233 00000183 9A00          MOVB      AL,#0
+    1234 00000184 9B0C          MOVB      AH,#12                ; |208| 
+    1235 00000185 DC8E          SUBB      XAR4,#14              ; |208| 
+    1236 00000186 7640!         LCR       #_global_memset       ; |208| 
+         00000187 0000 
+    1237                      ; call occurs [#_global_memset] ; |208| 
+    1238                      .dwpsn  "ucshell.c",209,2
+    1239 00000188 9A03          MOVB      AL,#3                 ; |209| 
+    1240 00000189 7640!         LCR       #_OSTimeDly           ; |209| 
+         0000018a 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   26
+
+    1241                      ; call occurs [#_OSTimeDly] ; |209| 
+    1242                      .dwpsn  "ucshell.c",210,2
+    1243 0000018b 7640'         LCR       #_ucshell_cmd_prompt_msg ; |210| 
+         0000018c 00C9 
+    1244                      ; call occurs [#_ucshell_cmd_prompt_msg] ; |210| 
+    1245                      .dwpsn  "ucshell.c",211,2
+    1246 0000018d 761F!         MOVW      DP,#_m_log_pram+26
+         0000018e 0000 
+    1247 0000018f 8F00!         MOVL      XAR4,#_m_null_pram    ; |211| 
+         00000190 0000 
+    1248 00000191 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |211| 
+    1249 00000192 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |211| 
+    1250 00000193 8F40!         MOVL      XAR5,#_m_log_pram     ; |211| 
+         00000194 0000 
+    1251 00000195 8F00+         MOVL      XAR4,#FSL30           ; |211| 
+         00000196 02E4 
+    1252 00000197 7640!         LCR       #_log_printf          ; |211| 
+         00000198 0000 
+    1253                      ; call occurs [#_log_printf] ; |211| 
+    1254                      .dwpsn  "ucshell.c",212,10
+    1255              L26:    
+    1256              DW$L$_ucshell_wait_cmd_task$2$B:
+    1257                      .dwpsn  "ucshell.c",214,3
+    1258 00000199 5CAD          MOVZ      AR4,SP                ; |214| 
+    1259 0000019a DC8F          SUBB      XAR4,#15              ; |214| 
+    1260 0000019b 7640!         LCR       #_log_wait_input_msg  ; |214| 
+         0000019c 0000 
+    1261                      ; call occurs [#_log_wait_input_msg] ; |214| 
+    1262 0000019d 5201          CMPB      AL,#1                 ; |214| 
+    1263 0000019e EDFB          BF        L26,NEQ               ; |214| 
+    1264                      ; branchcc occurs ; |214| 
+    1265              DW$L$_ucshell_wait_cmd_task$2$E:
+    1266              DW$L$_ucshell_wait_cmd_task$3$B:
+    1267                      .dwpsn  "ucshell.c",216,4
+    1268 0000019f 924F          MOV       AL,*-SP[15]           ; |216| 
+    1269 000001a0 520D          CMPB      AL,#13                ; |216| 
+    1270 000001a1 ED1E          BF        L28,NEQ               ; |216| 
+    1271                      ; branchcc occurs ; |216| 
+    1272              DW$L$_ucshell_wait_cmd_task$3$E:
+    1273              DW$L$_ucshell_wait_cmd_task$4$B:
+    1274                      .dwpsn  "ucshell.c",218,5
+    1275 000001a2 9251          MOV       AL,*-SP[17]           ; |218| 
+    1276 000001a3 ED03          BF        L27,NEQ               ; |218| 
+    1277                      ; branchcc occurs ; |218| 
+    1278 000001a4       DW$L$_ucshell_wait_cmd_task$4$E:
+    1279 000001a4       DW$L$_ucshell_wait_cmd_task$5$B:
+    1280 000001a4 9250          MOV       AL,*-SP[16]           ; |218| 
+    1281 000001a5 9651          MOV       *-SP[17],AL           ; |218| 
+    1282              DW$L$_ucshell_wait_cmd_task$5$E:
+    1283              L27:    
+    1284              DW$L$_ucshell_wait_cmd_task$6$B:
+    1285                      .dwpsn  "ucshell.c",219,5
+    1286 000001a6 5CAD          MOVZ      AR4,SP                ; |219| 
+    1287 000001a7 DC8E          SUBB      XAR4,#14              ; |219| 
+    1288 000001a8 7640'         LCR       #_ucshell_match_cmd   ; |219| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   27
+
+         000001a9 0115 
+    1289                      ; call occurs [#_ucshell_match_cmd] ; |219| 
+    1290                      .dwpsn  "ucshell.c",220,5
+    1291 000001aa 5CAD          MOVZ      AR4,SP                ; |220| 
+    1292 000001ab 9A00          MOVB      AL,#0
+    1293 000001ac DC8E          SUBB      XAR4,#14              ; |220| 
+    1294 000001ad 9B0C          MOVB      AH,#12                ; |220| 
+    1295 000001ae 7640!         LCR       #_global_memset       ; |220| 
+         000001af 0000 
+    1296                      ; call occurs [#_global_memset] ; |220| 
+    1297                      .dwpsn  "ucshell.c",221,5
+    1298 000001b0 2B50          MOV       *-SP[16],#0           ; |221| 
+    1299                      .dwpsn  "ucshell.c",222,5
+    1300 000001b1 2B51          MOV       *-SP[17],#0           ; |222| 
+    1301                      .dwpsn  "ucshell.c",223,5
+    1302 000001b2 761F!         MOVW      DP,#_m_log_pram+26
+         000001b3 0000 
+    1303 000001b4 8F00!         MOVL      XAR4,#_m_null_pram    ; |223| 
+         000001b5 0000 
+    1304 000001b6 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |223| 
+    1305 000001b7 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |223| 
+    1306 000001b8 8F40!         MOVL      XAR5,#_m_log_pram     ; |223| 
+         000001b9 0000 
+    1307 000001ba 8F00+         MOVL      XAR4,#FSL30           ; |223| 
+         000001bb 02E4 
+    1308 000001bc 7640!         LCR       #_log_printf          ; |223| 
+         000001bd 0000 
+    1309                      ; call occurs [#_log_printf] ; |223| 
+    1310                      .dwpsn  "ucshell.c",224,4
+    1311 000001be 6FDB          B         L26,UNC               ; |224| 
+    1312                      ; branch occurs ; |224| 
+    1313              DW$L$_ucshell_wait_cmd_task$6$E:
+    1314              L28:    
+    1315              DW$L$_ucshell_wait_cmd_task$7$B:
+    1316                      .dwpsn  "ucshell.c",225,9
+    1317 000001bf 5220          CMPB      AL,#32                ; |225| 
+    1318 000001c0 ED1A          BF        L30,NEQ               ; |225| 
+    1319                      ; branchcc occurs ; |225| 
+    1320              DW$L$_ucshell_wait_cmd_task$7$E:
+    1321              DW$L$_ucshell_wait_cmd_task$8$B:
+    1322                      .dwpsn  "ucshell.c",227,5
+    1323 000001c1 9251          MOV       AL,*-SP[17]           ; |227| 
+    1324 000001c2 ED03          BF        L29,NEQ               ; |227| 
+    1325                      ; branchcc occurs ; |227| 
+    1326              DW$L$_ucshell_wait_cmd_task$8$E:
+    1327              DW$L$_ucshell_wait_cmd_task$9$B:
+    1328                      .dwpsn  "ucshell.c",229,6
+    1329 000001c3 9250          MOV       AL,*-SP[16]           ; |229| 
+    1330 000001c4 9651          MOV       *-SP[17],AL           ; |229| 
+    1331              DW$L$_ucshell_wait_cmd_task$9$E:
+    1332              L29:    
+    1333              DW$L$_ucshell_wait_cmd_task$10$B:
+    1334                      .dwpsn  "ucshell.c",231,5
+    1335 000001c5 5CAD          MOVZ      AR4,SP                ; |231| 
+    1336 000001c6 5850          MOVZ      AR0,*-SP[16]          ; |231| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   28
+
+    1337 000001c7 924F          MOV       AL,*-SP[15]           ; |231| 
+    1338 000001c8 DC8E          SUBB      XAR4,#14              ; |231| 
+    1339 000001c9 9694          MOV       *+XAR4[AR0],AL        ; |231| 
+    1340                      .dwpsn  "ucshell.c",232,5
+    1341 000001ca 0A50          INC       *-SP[16]              ; |232| 
+    1342                      .dwpsn  "ucshell.c",233,5
+    1343 000001cb 5CAD          MOVZ      AR4,SP                ; |233| 
+    1344 000001cc 761F!         MOVW      DP,#_m_log_pram+26
+         000001cd 0000 
+    1345 000001ce DC8F          SUBB      XAR4,#15              ; |233| 
+    1346 000001cf A81A!         MOVL      @_m_log_pram+26,XAR4  ; |233| 
+    1347 000001d0 8F00!         MOVL      XAR4,#_m_null_pram    ; |233| 
+         000001d1 0000 
+    1348 000001d2 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |233| 
+    1349 000001d3 8F40!         MOVL      XAR5,#_m_log_pram     ; |233| 
+         000001d4 0000 
+    1350 000001d5 8F00+         MOVL      XAR4,#FSL31           ; |233| 
+         000001d6 02EE 
+    1351 000001d7 7640!         LCR       #_log_printf          ; |233| 
+         000001d8 0000 
+    1352                      ; call occurs [#_log_printf] ; |233| 
+    1353                      .dwpsn  "ucshell.c",234,4
+    1354 000001d9 6FC0          B         L26,UNC               ; |234| 
+    1355                      ; branch occurs ; |234| 
+    1356              DW$L$_ucshell_wait_cmd_task$10$E:
+    1357              L30:    
+    1358              DW$L$_ucshell_wait_cmd_task$11$B:
+    1359                      .dwpsn  "ucshell.c",235,9
+    1360 000001da 924F          MOV       AL,*-SP[15]           ; |235| 
+    1361 000001db 7640!         LCR       #_global_decide_letter ; |235| 
+         000001dc 0000 
+    1362                      ; call occurs [#_global_decide_letter] ; |235| 
+    1363 000001dd 5200          CMPB      AL,#0                 ; |235| 
+    1364 000001de ED06          BF        L31,NEQ               ; |235| 
+    1365                      ; branchcc occurs ; |235| 
+    1366 000001df       DW$L$_ucshell_wait_cmd_task$11$E:
+    1367 000001df       DW$L$_ucshell_wait_cmd_task$12$B:
+    1368 000001df 924F          MOV       AL,*-SP[15]           ; |235| 
+    1369 000001e0 7640!         LCR       #_global_decide_num   ; |235| 
+         000001e1 0000 
+    1370                      ; call occurs [#_global_decide_num] ; |235| 
+    1371 000001e2 5200          CMPB      AL,#0                 ; |235| 
+    1372 000001e3 EC16          BF        L32,EQ                ; |235| 
+    1373                      ; branchcc occurs ; |235| 
+    1374              DW$L$_ucshell_wait_cmd_task$12$E:
+    1375              L31:    
+    1376              DW$L$_ucshell_wait_cmd_task$13$B:
+    1377                      .dwpsn  "ucshell.c",238,5
+    1378 000001e4 5CAD          MOVZ      AR4,SP                ; |238| 
+    1379 000001e5 5850          MOVZ      AR0,*-SP[16]          ; |238| 
+    1380 000001e6 924F          MOV       AL,*-SP[15]           ; |238| 
+    1381 000001e7 DC8E          SUBB      XAR4,#14              ; |238| 
+    1382 000001e8 9694          MOV       *+XAR4[AR0],AL        ; |238| 
+    1383                      .dwpsn  "ucshell.c",239,5
+    1384 000001e9 0A50          INC       *-SP[16]              ; |239| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   29
+
+    1385                      .dwpsn  "ucshell.c",240,5
+    1386 000001ea 5CAD          MOVZ      AR4,SP                ; |240| 
+    1387 000001eb 761F!         MOVW      DP,#_m_log_pram+26
+         000001ec 0000 
+    1388 000001ed DC8F          SUBB      XAR4,#15              ; |240| 
+    1389 000001ee A81A!         MOVL      @_m_log_pram+26,XAR4  ; |240| 
+    1390 000001ef 8F00!         MOVL      XAR4,#_m_null_pram    ; |240| 
+         000001f0 0000 
+    1391 000001f1 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |240| 
+    1392 000001f2 8F40!         MOVL      XAR5,#_m_log_pram     ; |240| 
+         000001f3 0000 
+    1393 000001f4 8F00+         MOVL      XAR4,#FSL31           ; |240| 
+         000001f5 02EE 
+    1394 000001f6 7640!         LCR       #_log_printf          ; |240| 
+         000001f7 0000 
+    1395                      ; call occurs [#_log_printf] ; |240| 
+    1396                      .dwpsn  "ucshell.c",241,4
+    1397 000001f8 6FA1          B         L26,UNC               ; |241| 
+    1398                      ; branch occurs ; |241| 
+    1399              DW$L$_ucshell_wait_cmd_task$13$E:
+    1400              L32:    
+    1401              DW$L$_ucshell_wait_cmd_task$14$B:
+    1402                      .dwpsn  "ucshell.c",242,9
+    1403 000001f9 924F          MOV       AL,*-SP[15]           ; |242| 
+    1404 000001fa 5208          CMPB      AL,#8                 ; |242| 
+    1405 000001fb ED9E          BF        L26,NEQ               ; |242| 
+    1406                      ; branchcc occurs ; |242| 
+    1407              DW$L$_ucshell_wait_cmd_task$14$E:
+    1408              DW$L$_ucshell_wait_cmd_task$15$B:
+    1409                      .dwpsn  "ucshell.c",244,5
+    1410 000001fc 9250          MOV       AL,*-SP[16]           ; |244| 
+    1411 000001fd EC9C          BF        L26,EQ                ; |244| 
+    1412                      ; branchcc occurs ; |244| 
+    1413              DW$L$_ucshell_wait_cmd_task$15$E:
+    1414              DW$L$_ucshell_wait_cmd_task$16$B:
+    1415                      .dwpsn  "ucshell.c",246,6
+    1416 000001fe 8F00!         MOVL      XAR4,#_m_null_pram    ; |246| 
+         000001ff 0000 
+    1417 00000200 761F!         MOVW      DP,#_m_log_pram+26
+         00000201 0000 
+    1418 00000202 8F40!         MOVL      XAR5,#_m_log_pram     ; |246| 
+         00000203 0000 
+    1419 00000204 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |246| 
+    1420 00000205 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |246| 
+    1421 00000206 8F00+         MOVL      XAR4,#FSL32           ; |246| 
+         00000207 02F2 
+    1422 00000208 7640!         LCR       #_log_printf          ; |246| 
+         00000209 0000 
+    1423                      ; call occurs [#_log_printf] ; |246| 
+    1424                      .dwpsn  "ucshell.c",247,6
+    1425 0000020a 761F!         MOVW      DP,#_m_log_pram+26
+         0000020b 0000 
+    1426 0000020c 8F00!         MOVL      XAR4,#_m_null_pram    ; |247| 
+         0000020d 0000 
+    1427 0000020e A81A!         MOVL      @_m_log_pram+26,XAR4  ; |247| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   30
+
+    1428 0000020f A81C!         MOVL      @_m_log_pram+28,XAR4  ; |247| 
+    1429 00000210 8F40!         MOVL      XAR5,#_m_log_pram     ; |247| 
+         00000211 0000 
+    1430 00000212 8F00+         MOVL      XAR4,#FSL33           ; |247| 
+         00000213 02F4 
+    1431 00000214 7640!         LCR       #_log_printf          ; |247| 
+         00000215 0000 
+    1432                      ; call occurs [#_log_printf] ; |247| 
+    1433                      .dwpsn  "ucshell.c",248,6
+    1434 00000216 761F!         MOVW      DP,#_m_log_pram+26
+         00000217 0000 
+    1435 00000218 8F00!         MOVL      XAR4,#_m_null_pram    ; |248| 
+         00000219 0000 
+    1436 0000021a A81A!         MOVL      @_m_log_pram+26,XAR4  ; |248| 
+    1437 0000021b A81C!         MOVL      @_m_log_pram+28,XAR4  ; |248| 
+    1438 0000021c 8F40!         MOVL      XAR5,#_m_log_pram     ; |248| 
+         0000021d 0000 
+    1439 0000021e 8F00+         MOVL      XAR4,#FSL32           ; |248| 
+         0000021f 02F2 
+    1440 00000220 7640!         LCR       #_log_printf          ; |248| 
+         00000221 0000 
+    1441                      ; call occurs [#_log_printf] ; |248| 
+    1442                      .dwpsn  "ucshell.c",249,6
+    1443 00000222 0B50          DEC       *-SP[16]              ; |249| 
+    1444                      .dwpsn  "ucshell.c",250,6
+    1445 00000223 5CAD          MOVZ      AR4,SP                ; |250| 
+    1446 00000224 5850          MOVZ      AR0,*-SP[16]          ; |250| 
+    1447 00000225 DC8E          SUBB      XAR4,#14              ; |250| 
+    1448 00000226 2B94          MOV       *+XAR4[AR0],#0        ; |250| 
+    1449                      .dwpsn  "ucshell.c",212,10
+    1450 00000227 FFEF          B         L26,UNC               ; |212| 
+         00000228 FF72 
+    1451                      ; branch occurs ; |212| 
+    1452              DW$L$_ucshell_wait_cmd_task$16$E:
+    1453                      .dwcfa  0x1d, -2
+    1454              
+    1455              DW$122  .dwtag  DW_TAG_loop
+    1456                      .dwattr DW$122, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204:L26:1:1286612166")
+    1457                      .dwattr DW$122, DW_AT_begin_file("ucshell.c")
+    1458                      .dwattr DW$122, DW_AT_begin_line(0xd4)
+    1459                      .dwattr DW$122, DW_AT_end_line(0xfe)
+    1460              DW$123  .dwtag  DW_TAG_loop_range
+    1461                      .dwattr DW$123, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$2$B)
+    1462                      .dwattr DW$123, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$2$E)
+    1463              DW$124  .dwtag  DW_TAG_loop_range
+    1464                      .dwattr DW$124, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$11$B)
+    1465                      .dwattr DW$124, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$11$E)
+    1466              DW$125  .dwtag  DW_TAG_loop_range
+    1467                      .dwattr DW$125, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$12$B)
+    1468                      .dwattr DW$125, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$12$E)
+    1469              DW$126  .dwtag  DW_TAG_loop_range
+    1470                      .dwattr DW$126, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$7$B)
+    1471                      .dwattr DW$126, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$7$E)
+    1472              DW$127  .dwtag  DW_TAG_loop_range
+    1473                      .dwattr DW$127, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$8$B)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   31
+
+    1474                      .dwattr DW$127, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$8$E)
+    1475              DW$128  .dwtag  DW_TAG_loop_range
+    1476                      .dwattr DW$128, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$9$B)
+    1477                      .dwattr DW$128, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$9$E)
+    1478              DW$129  .dwtag  DW_TAG_loop_range
+    1479                      .dwattr DW$129, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$3$B)
+    1480                      .dwattr DW$129, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$3$E)
+    1481              DW$130  .dwtag  DW_TAG_loop_range
+    1482                      .dwattr DW$130, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$4$B)
+    1483                      .dwattr DW$130, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$4$E)
+    1484              DW$131  .dwtag  DW_TAG_loop_range
+    1485                      .dwattr DW$131, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$5$B)
+    1486                      .dwattr DW$131, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$5$E)
+    1487              DW$132  .dwtag  DW_TAG_loop_range
+    1488                      .dwattr DW$132, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$16$B)
+    1489                      .dwattr DW$132, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$16$E)
+    1490              DW$133  .dwtag  DW_TAG_loop_range
+    1491                      .dwattr DW$133, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$15$B)
+    1492                      .dwattr DW$133, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$15$E)
+    1493              DW$134  .dwtag  DW_TAG_loop_range
+    1494                      .dwattr DW$134, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$14$B)
+    1495                      .dwattr DW$134, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$14$E)
+    1496              DW$135  .dwtag  DW_TAG_loop_range
+    1497                      .dwattr DW$135, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$13$B)
+    1498                      .dwattr DW$135, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$13$E)
+    1499              DW$136  .dwtag  DW_TAG_loop_range
+    1500                      .dwattr DW$136, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$10$B)
+    1501                      .dwattr DW$136, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$10$E)
+    1502              DW$137  .dwtag  DW_TAG_loop_range
+    1503                      .dwattr DW$137, DW_AT_low_pc(DW$L$_ucshell_wait_cmd_task$6$B)
+    1504                      .dwattr DW$137, DW_AT_high_pc(DW$L$_ucshell_wait_cmd_task$6$E)
+    1505                      .dwendtag DW$122
+    1506              
+    1507                      .dwattr DW$115, DW_AT_end_file("ucshell.c")
+    1508                      .dwattr DW$115, DW_AT_end_line(0xff)
+    1509                      .dwattr DW$115, DW_AT_end_column(0x01)
+    1510                      .dwendentry
+    1511                      .dwendtag DW$115
+    1512              
+    1513 00000229               .sect   ".text"
+    1514                      .global _ucshell_entery
+    1515              
+    1516              DW$138  .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_entery"), DW_AT_symbol_name("_ucshell_entery")
+    1517                      .dwattr DW$138, DW_AT_low_pc(_ucshell_entery)
+    1518                      .dwattr DW$138, DW_AT_high_pc(0x00)
+    1519                      .dwattr DW$138, DW_AT_begin_file("ucshell.c")
+    1520                      .dwattr DW$138, DW_AT_begin_line(0x108)
+    1521                      .dwattr DW$138, DW_AT_begin_column(0x06)
+    1522                      .dwpsn  "ucshell.c",265,1
+    1523              
+    1524                      .dwfde DW$CIE
+    1525              
+    1526              ;***************************************************************
+    1527              ;* FNAME: _ucshell_entery               FR SIZE:   0           *
+    1528              ;*                                                             *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   32
+
+    1529              ;* FUNCTION ENVIRONMENT                                        *
+    1530              ;*                                                             *
+    1531              ;* FUNCTION PROPERTIES                                         *
+    1532              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1533              ;***************************************************************
+    1534              
+    1535              _ucshell_entery:
+    1536                      .dwcfa  0x1d, -2
+    1537                      .dwcfa  0x1c, 26, 0
+    1538                      .dwcfa  0x09, 40, 26
+    1539                      .dwpsn  "ucshell.c",266,2
+    1540 00000229 7640!         LCR       #_ucshell_ps_cmd_init ; |266| 
+         0000022a 0000 
+    1541                      ; call occurs [#_ucshell_ps_cmd_init] ; |266| 
+    1542                      .dwpsn  "ucshell.c",267,2
+    1543 0000022b 761F-         MOVW      DP,#_m_max_cpu_usage
+         0000022c 0000 
+    1544 0000022d 2B00-         MOV       @_m_max_cpu_usage,#0  ; |267| 
+    1545                      .dwpsn  "ucshell.c",268,2
+    1546 0000022e 9A20          MOVB      AL,#32                ; |268| 
+    1547 0000022f 8F00'         MOVL      XAR4,#_ucshell_wait_cmd_task ; |268| 
+         00000230 017E 
+    1548 00000231 9B01          MOVB      AH,#1                 ; |268| 
+    1549 00000232 7640!         LCR       #_os_task_assign_pro_build ; |268| 
+         00000233 0000 
+    1550                      ; call occurs [#_os_task_assign_pro_build] ; |268| 
+    1551                      .dwpsn  "ucshell.c",269,2
+    1552 00000234 9A20          MOVB      AL,#32                ; |269| 
+    1553 00000235 8F00+         MOVL      XAR4,#FSL34           ; |269| 
+         00000236 02F6 
+    1554 00000237 7640!         LCR       #_os_task_name_set    ; |269| 
+         00000238 0000 
+    1555                      ; call occurs [#_os_task_name_set] ; |269| 
+    1556                      .dwpsn  "ucshell.c",270,2
+    1557 00000239 8F00-         MOVL      XAR4,#_m_ucshell_lock ; |270| 
+         0000023a 0002 
+    1558 0000023b 7640!         LCR       #_os_lock_creat       ; |270| 
+         0000023c 0000 
+    1559                      ; call occurs [#_os_lock_creat] ; |270| 
+    1560                      .dwpsn  "ucshell.c",271,2
+    1561                      .dwpsn  "ucshell.c",272,1
+    1562 0000023d 0006          LRETR
+    1563                      ; return occurs
+    1564                      .dwattr DW$138, DW_AT_end_file("ucshell.c")
+    1565                      .dwattr DW$138, DW_AT_end_line(0x110)
+    1566                      .dwattr DW$138, DW_AT_end_column(0x01)
+    1567                      .dwendentry
+    1568                      .dwendtag DW$138
+    1569              
+    1570 0000023e               .sect   ".text"
+    1571                      .global _ucshell_exit
+    1572              
+    1573              DW$139  .dwtag  DW_TAG_subprogram, DW_AT_name("ucshell_exit"), DW_AT_symbol_name("_ucshell_exit")
+    1574                      .dwattr DW$139, DW_AT_low_pc(_ucshell_exit)
+    1575                      .dwattr DW$139, DW_AT_high_pc(0x00)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   33
+
+    1576                      .dwattr DW$139, DW_AT_begin_file("ucshell.c")
+    1577                      .dwattr DW$139, DW_AT_begin_line(0x119)
+    1578                      .dwattr DW$139, DW_AT_begin_column(0x06)
+    1579                      .dwpsn  "ucshell.c",282,1
+    1580              
+    1581                      .dwfde DW$CIE
+    1582              
+    1583              ;***************************************************************
+    1584              ;* FNAME: _ucshell_exit                 FR SIZE:   0           *
+    1585              ;*                                                             *
+    1586              ;* FUNCTION ENVIRONMENT                                        *
+    1587              ;*                                                             *
+    1588              ;* FUNCTION PROPERTIES                                         *
+    1589              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1590              ;***************************************************************
+    1591              
+    1592              _ucshell_exit:
+    1593                      .dwcfa  0x1d, -2
+    1594                      .dwcfa  0x1c, 26, 0
+    1595                      .dwcfa  0x09, 40, 26
+    1596                      .dwpsn  "ucshell.c",283,2
+    1597 0000023e 9A20          MOVB      AL,#32                ; |283| 
+    1598 0000023f 7640!         LCR       #_os_task_delete      ; |283| 
+         00000240 0000 
+    1599                      ; call occurs [#_os_task_delete] ; |283| 
+    1600                      .dwpsn  "ucshell.c",284,2
+    1601                      .dwpsn  "ucshell.c",285,1
+    1602 00000241 0006          LRETR
+    1603                      ; return occurs
+    1604                      .dwattr DW$139, DW_AT_end_file("ucshell.c")
+    1605                      .dwattr DW$139, DW_AT_end_line(0x11d)
+    1606                      .dwattr DW$139, DW_AT_end_column(0x01)
+    1607                      .dwendentry
+    1608                      .dwendtag DW$139
+    1609              
+    1610              ;***************************************************************
+    1611              ;* FAR STRINGS                                                 *
+    1612              ;***************************************************************
+    1613 0000003c               .sect   ".econst"
+    1614                      .align  2
+    1615 0000003c 0065  FSL1:   .string "exit",0
+         0000003d 0078 
+         0000003e 0069 
+         0000003f 0074 
+         00000040 0000 
+    1616                      .align  2
+    1617 00000042 0045  FSL2:   .string "EXIT +",195,252,193,238,"+",187,216,179,181,163,172,205,203
+         00000043 0058 
+         00000044 0049 
+         00000045 0054 
+         00000046 0020 
+         00000047 002B 
+         00000048 00C3 
+         00000049 00FC 
+         0000004a 00C1 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   34
+
+         0000004b 00EE 
+         0000004c 002B 
+         0000004d 00BB 
+         0000004e 00D8 
+         0000004f 00B3 
+         00000050 00B5 
+         00000051 00A3 
+         00000052 00AC 
+         00000053 00CD 
+         00000054 00CB 
+    1618 00000055 00B3          .string 179,246,195,252,193,238,0
+         00000056 00F6 
+         00000057 00C3 
+         00000058 00FC 
+         00000059 00C1 
+         0000005a 00EE 
+         0000005b 0000 
+    1619                      .align  2
+    1620 0000005c 0068  FSL3:   .string "help",0
+         0000005d 0065 
+         0000005e 006C 
+         0000005f 0070 
+         00000060 0000 
+    1621                      .align  2
+    1622 00000062 0048  FSL4:   .string "HELP +",187,216,179,181,163,172,178,233,191,180,176,239,214
+         00000063 0045 
+         00000064 004C 
+         00000065 0050 
+         00000066 0020 
+         00000067 002B 
+         00000068 00BB 
+         00000069 00D8 
+         0000006a 00B3 
+         0000006b 00B5 
+         0000006c 00A3 
+         0000006d 00AC 
+         0000006e 00B2 
+         0000006f 00E9 
+         00000070 00BF 
+         00000071 00B4 
+         00000072 00B0 
+         00000073 00EF 
+         00000074 00D6 
+    1623 00000075 00FA          .string 250,161,163,0
+         00000076 00A1 
+         00000077 00A3 
+         00000078 0000 
+    1624                      .align  2
+    1625 0000007a 0070  FSL5:   .string "pst",0
+         0000007b 0073 
+         0000007c 0074 
+         0000007d 0000 
+    1626                      .align  2
+    1627 0000007e 0070  FSL6:   .string "pst+",187,216,179,181,163,172,178,233,191,180,181,177,199,176
+         0000007f 0073 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   35
+
+         00000080 0074 
+         00000081 002B 
+         00000082 00BB 
+         00000083 00D8 
+         00000084 00B3 
+         00000085 00B5 
+         00000086 00A3 
+         00000087 00AC 
+         00000088 00B2 
+         00000089 00E9 
+         0000008a 00BF 
+         0000008b 00B4 
+         0000008c 00B5 
+         0000008d 00B1 
+         0000008e 00C7 
+         0000008f 00B0 
+    1628 00000090 00D4          .string 212,203,208,208,181,196,200,206,206,241,0
+         00000091 00CB 
+         00000092 00D0 
+         00000093 00D0 
+         00000094 00B5 
+         00000095 00C4 
+         00000096 00C8 
+         00000097 00CE 
+         00000098 00CE 
+         00000099 00F1 
+         0000009a 0000 
+    1629                      .align  2
+    1630 0000009c 0070  FSL7:   .string "psd",0
+         0000009d 0073 
+         0000009e 0064 
+         0000009f 0000 
+    1631                      .align  2
+    1632 000000a0 0070  FSL8:   .string "psd+",187,216,179,181,163,172,178,233,191,180,181,177,199,176
+         000000a1 0073 
+         000000a2 0064 
+         000000a3 002B 
+         000000a4 00BB 
+         000000a5 00D8 
+         000000a6 00B3 
+         000000a7 00B5 
+         000000a8 00A3 
+         000000a9 00AC 
+         000000aa 00B2 
+         000000ab 00E9 
+         000000ac 00BF 
+         000000ad 00B4 
+         000000ae 00B5 
+         000000af 00B1 
+         000000b0 00C7 
+         000000b1 00B0 
+    1633 000000b2 00D4          .string 212,203,208,208,181,196,199,253,182,175,0
+         000000b3 00CB 
+         000000b4 00D0 
+         000000b5 00D0 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   36
+
+         000000b6 00B5 
+         000000b7 00C4 
+         000000b8 00C7 
+         000000b9 00FD 
+         000000ba 00B6 
+         000000bb 00AF 
+         000000bc 0000 
+    1634                      .align  2
+    1635 000000be 0065  FSL9:   .string "eff",0
+         000000bf 0066 
+         000000c0 0066 
+         000000c1 0000 
+    1636                      .align  2
+    1637 000000c2 0065  FSL10:  .string "eff+",187,216,179,181,163,172,178,233,191,180,"CPU",213,188
+         000000c3 0066 
+         000000c4 0066 
+         000000c5 002B 
+         000000c6 00BB 
+         000000c7 00D8 
+         000000c8 00B3 
+         000000c9 00B5 
+         000000ca 00A3 
+         000000cb 00AC 
+         000000cc 00B2 
+         000000cd 00E9 
+         000000ce 00BF 
+         000000cf 00B4 
+         000000d0 0043 
+         000000d1 0050 
+         000000d2 0055 
+         000000d3 00D5 
+         000000d4 00BC 
+    1638 000000d5 00D3          .string 211,195,194,202,0
+         000000d6 00C3 
+         000000d7 00C2 
+         000000d8 00CA 
+         000000d9 0000 
+    1639                      .align  2
+    1640 000000da 0070  FSL11:  .string "psk",0
+         000000db 0073 
+         000000dc 006B 
+         000000dd 0000 
+    1641                      .align  2
+    1642 000000de 0070  FSL12:  .string "psk+",187,216,179,181,163,172,178,233,191,180,181,177,199,176
+         000000df 0073 
+         000000e0 006B 
+         000000e1 002B 
+         000000e2 00BB 
+         000000e3 00D8 
+         000000e4 00B3 
+         000000e5 00B5 
+         000000e6 00A3 
+         000000e7 00AC 
+         000000e8 00B2 
+         000000e9 00E9 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   37
+
+         000000ea 00BF 
+         000000eb 00B4 
+         000000ec 00B5 
+         000000ed 00B1 
+         000000ee 00C7 
+         000000ef 00B0 
+    1643 000000f0 00C3          .string 195,191,184,246,200,206,206,241,182,209,213,187,199,233,191,246
+         000000f1 00BF 
+         000000f2 00B8 
+         000000f3 00F6 
+         000000f4 00C8 
+         000000f5 00CE 
+         000000f6 00CE 
+         000000f7 00F1 
+         000000f8 00B6 
+         000000f9 00D1 
+         000000fa 00D5 
+         000000fb 00BB 
+         000000fc 00C7 
+         000000fd 00E9 
+         000000fe 00BF 
+         000000ff 00F6 
+    1644 00000100 0000          .string 0
+    1645                      .align  2
+    1646 00000102 0070  FSL13:  .string "ps",0
+         00000103 0073 
+         00000104 0000 
+    1647                      .align  2
+    1648 00000106 0070  FSL14:  .string "ps+",187,216,179,181,163,172,191,170,198,244,203,249,211,208
+         00000107 0073 
+         00000108 002B 
+         00000109 00BB 
+         0000010a 00D8 
+         0000010b 00B3 
+         0000010c 00B5 
+         0000010d 00A3 
+         0000010e 00AC 
+         0000010f 00BF 
+         00000110 00AA 
+         00000111 00C6 
+         00000112 00F4 
+         00000113 00CB 
+         00000114 00F9 
+         00000115 00D3 
+         00000116 00D0 
+    1649 00000117 00B2          .string 178,233,191,180,185,166,196,220,",",178,187,202,181,202,177,184
+         00000118 00E9 
+         00000119 00BF 
+         0000011a 00B4 
+         0000011b 00B9 
+         0000011c 00A6 
+         0000011d 00C4 
+         0000011e 00DC 
+         0000011f 002C 
+         00000120 00B2 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   38
+
+         00000121 00BB 
+         00000122 00CA 
+         00000123 00B5 
+         00000124 00CA 
+         00000125 00B1 
+         00000126 00B8 
+    1650 00000127 00FC          .string 252,208,194,0
+         00000128 00D0 
+         00000129 00C2 
+         0000012a 0000 
+    1651                      .align  2
+    1652 0000012c 0072  FSL15:  .string "reboot",0
+         0000012d 0065 
+         0000012e 0062 
+         0000012f 006F 
+         00000130 006F 
+         00000131 0074 
+         00000132 0000 
+    1653                      .align  2
+    1654 00000134 0072  FSL16:  .string "reboot+",187,216,179,181,163,172,207,181,205,179,200,200,198
+         00000135 0065 
+         00000136 0062 
+         00000137 006F 
+         00000138 006F 
+         00000139 0074 
+         0000013a 002B 
+         0000013b 00BB 
+         0000013c 00D8 
+         0000013d 00B3 
+         0000013e 00B5 
+         0000013f 00A3 
+         00000140 00AC 
+         00000141 00CF 
+         00000142 00B5 
+         00000143 00CD 
+         00000144 00B3 
+         00000145 00C8 
+         00000146 00C8 
+         00000147 00C6 
+    1655 00000148 00F4          .string 244,182,175,0
+         00000149 00B6 
+         0000014a 00AF 
+         0000014b 0000 
+    1656                      .align  2
+    1657 0000014c 006B  FSL17:  .string "kill",0
+         0000014d 0069 
+         0000014e 006C 
+         0000014f 006C 
+         00000150 0000 
+    1658                      .align  2
+    1659 00000152 006B  FSL18:  .string "kill+",200,206,206,241,211,197,207,200,188,182,"+",187,216,179
+         00000153 0069 
+         00000154 006C 
+         00000155 006C 
+         00000156 002B 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   39
+
+         00000157 00C8 
+         00000158 00CE 
+         00000159 00CE 
+         0000015a 00F1 
+         0000015b 00D3 
+         0000015c 00C5 
+         0000015d 00CF 
+         0000015e 00C8 
+         0000015f 00BC 
+         00000160 00B6 
+         00000161 002B 
+         00000162 00BB 
+         00000163 00D8 
+         00000164 00B3 
+    1660 00000165 00B5          .string 181,163,172,199,191,208,208,185,216,177,213,200,206,206,241,0
+         00000166 00A3 
+         00000167 00AC 
+         00000168 00C7 
+         00000169 00BF 
+         0000016a 00D0 
+         0000016b 00D0 
+         0000016c 00B9 
+         0000016d 00D8 
+         0000016e 00B1 
+         0000016f 00D5 
+         00000170 00C8 
+         00000171 00CE 
+         00000172 00CE 
+         00000173 00F1 
+         00000174 0000 
+    1661                      .align  2
+    1662 00000176 0063  FSL19:  .string "config",0
+         00000177 006F 
+         00000178 006E 
+         00000179 0066 
+         0000017a 0069 
+         0000017b 0067 
+         0000017c 0000 
+    1663                      .align  2
+    1664 0000017e 0063  FSL20:  .string "config+",187,216,179,181,163,172,189,248,200,235,214,247,197
+         0000017f 006F 
+         00000180 006E 
+         00000181 0066 
+         00000182 0069 
+         00000183 0067 
+         00000184 002B 
+         00000185 00BB 
+         00000186 00D8 
+         00000187 00B3 
+         00000188 00B5 
+         00000189 00A3 
+         0000018a 00AC 
+         0000018b 00BD 
+         0000018c 00F8 
+         0000018d 00C8 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   40
+
+         0000018e 00EB 
+         0000018f 00D6 
+         00000190 00F7 
+         00000191 00C5 
+    1665 00000192 00E4          .string 228,214,195,189,231,195,230,163,172,197,228,214,195,205,234,179
+         00000193 00D6 
+         00000194 00C3 
+         00000195 00BD 
+         00000196 00E7 
+         00000197 00C3 
+         00000198 00E6 
+         00000199 00A3 
+         0000019a 00AC 
+         0000019b 00C5 
+         0000019c 00E4 
+         0000019d 00D6 
+         0000019e 00C3 
+         0000019f 00CD 
+         000001a0 00EA 
+         000001a1 00B3 
+    1666 000001a2 00C9          .string 201,189,171,215,212,182,175,214,216,198,244,182,175,0
+         000001a3 00BD 
+         000001a4 00AB 
+         000001a5 00D7 
+         000001a6 00D4 
+         000001a7 00B6 
+         000001a8 00AF 
+         000001a9 00D6 
+         000001aa 00D8 
+         000001ab 00C6 
+         000001ac 00F4 
+         000001ad 00B6 
+         000001ae 00AF 
+         000001af 0000 
+    1667                      .align  2
+    1668 000001b0 000A  FSL21:  .string 10,196,250,202,228,200,235,181,196,178,206,202,253,211,208,206
+         000001b1 00C4 
+         000001b2 00FA 
+         000001b3 00CA 
+         000001b4 00E4 
+         000001b5 00C8 
+         000001b6 00EB 
+         000001b7 00B5 
+         000001b8 00C4 
+         000001b9 00B2 
+         000001ba 00CE 
+         000001bb 00CA 
+         000001bc 00FD 
+         000001bd 00D3 
+         000001be 00D0 
+         000001bf 00CE 
+    1669 000001c0 00F3          .string 243,10,0
+         000001c1 000A 
+         000001c2 0000 
+    1670                      .align  2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   41
+
+    1671 000001c4 000A  FSL22:  .string 10,"***************************************************",10,0
+         000001c5 002A 
+         000001c6 002A 
+         000001c7 002A 
+         000001c8 002A 
+         000001c9 002A 
+         000001ca 002A 
+         000001cb 002A 
+         000001cc 002A 
+         000001cd 002A 
+         000001ce 002A 
+         000001cf 002A 
+         000001d0 002A 
+         000001d1 002A 
+         000001d2 002A 
+         000001d3 002A 
+         000001d4 002A 
+         000001d5 002A 
+         000001d6 002A 
+         000001d7 002A 
+         000001d8 002A 
+         000001d9 002A 
+         000001da 002A 
+         000001db 002A 
+         000001dc 002A 
+         000001dd 002A 
+         000001de 002A 
+         000001df 002A 
+         000001e0 002A 
+         000001e1 002A 
+         000001e2 002A 
+         000001e3 002A 
+         000001e4 002A 
+         000001e5 002A 
+         000001e6 002A 
+         000001e7 002A 
+         000001e8 002A 
+         000001e9 002A 
+         000001ea 002A 
+         000001eb 002A 
+         000001ec 002A 
+         000001ed 002A 
+         000001ee 002A 
+         000001ef 002A 
+         000001f0 002A 
+         000001f1 002A 
+         000001f2 002A 
+         000001f3 002A 
+         000001f4 002A 
+         000001f5 002A 
+         000001f6 002A 
+         000001f7 002A 
+         000001f8 000A 
+         000001f9 0000 
+    1672                      .align  2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   42
+
+    1673 000001fa 0025  FSL23:  .string "%d. %s",10,0
+         000001fb 0064 
+         000001fc 002E 
+         000001fd 0020 
+         000001fe 0025 
+         000001ff 0073 
+         00000200 000A 
+         00000201 0000 
+    1674                      .align  2
+    1675 00000202 002A  FSL24:  .string "***************************************************",10,0
+         00000203 002A 
+         00000204 002A 
+         00000205 002A 
+         00000206 002A 
+         00000207 002A 
+         00000208 002A 
+         00000209 002A 
+         0000020a 002A 
+         0000020b 002A 
+         0000020c 002A 
+         0000020d 002A 
+         0000020e 002A 
+         0000020f 002A 
+         00000210 002A 
+         00000211 002A 
+         00000212 002A 
+         00000213 002A 
+         00000214 002A 
+         00000215 002A 
+         00000216 002A 
+         00000217 002A 
+         00000218 002A 
+         00000219 002A 
+         0000021a 002A 
+         0000021b 002A 
+         0000021c 002A 
+         0000021d 002A 
+         0000021e 002A 
+         0000021f 002A 
+         00000220 002A 
+         00000221 002A 
+         00000222 002A 
+         00000223 002A 
+         00000224 002A 
+         00000225 002A 
+         00000226 002A 
+         00000227 002A 
+         00000228 002A 
+         00000229 002A 
+         0000022a 002A 
+         0000022b 002A 
+         0000022c 002A 
+         0000022d 002A 
+         0000022e 002A 
+         0000022f 002A 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   43
+
+         00000230 002A 
+         00000231 002A 
+         00000232 002A 
+         00000233 002A 
+         00000234 002A 
+         00000235 000A 
+         00000236 0000 
+    1676                      .align  2
+    1677 00000238 000A  FSL25:  .string 10,10,0
+         00000239 000A 
+         0000023a 0000 
+    1678                      .align  2
+    1679 0000023c 002A  FSL26:  .string "*",202,228,200,235,195,252,193,238,186,243,176,180,187,216,179
+         0000023d 00CA 
+         0000023e 00E4 
+         0000023f 00C8 
+         00000240 00EB 
+         00000241 00C3 
+         00000242 00FC 
+         00000243 00C1 
+         00000244 00EE 
+         00000245 00BA 
+         00000246 00F3 
+         00000247 00B0 
+         00000248 00B4 
+         00000249 00BB 
+         0000024a 00D8 
+         0000024b 00B3 
+    1680 0000024c 00B5          .string 181,200,183,200,207,161,163,9,9,9,9,"  *",10,0
+         0000024d 00C8 
+         0000024e 00B7 
+         0000024f 00C8 
+         00000250 00CF 
+         00000251 00A1 
+         00000252 00A3 
+         00000253 0009 
+         00000254 0009 
+         00000255 0009 
+         00000256 0009 
+         00000257 0020 
+         00000258 0020 
+         00000259 002A 
+         0000025a 000A 
+         0000025b 0000 
+    1681                      .align  2
+    1682 0000025c 002A  FSL27:  .string "*",195,252,193,238,202,228,200,235,178,187,199,248,183,214,180
+         0000025d 00C3 
+         0000025e 00FC 
+         0000025f 00C1 
+         00000260 00EE 
+         00000261 00CA 
+         00000262 00E4 
+         00000263 00C8 
+         00000264 00EB 
+         00000265 00B2 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   44
+
+         00000266 00BB 
+         00000267 00C7 
+         00000268 00F8 
+         00000269 00B7 
+         0000026a 00D6 
+         0000026b 00B4 
+    1683 0000026c 00F3          .string 243,208,161,208,180,"  ",161,163,"                         *"
+         0000026d 00D0 
+         0000026e 00A1 
+         0000026f 00D0 
+         00000270 00B4 
+         00000271 0020 
+         00000272 0020 
+         00000273 00A1 
+         00000274 00A3 
+         00000275 0020 
+         00000276 0020 
+         00000277 0020 
+         00000278 0020 
+         00000279 0020 
+         0000027a 0020 
+         0000027b 0020 
+         0000027c 0020 
+         0000027d 0020 
+         0000027e 0020 
+         0000027f 0020 
+         00000280 0020 
+         00000281 0020 
+         00000282 0020 
+         00000283 0020 
+         00000284 0020 
+         00000285 0020 
+         00000286 0020 
+         00000287 0020 
+         00000288 0020 
+         00000289 0020 
+         0000028a 0020 
+         0000028b 0020 
+         0000028c 0020 
+         0000028d 0020 
+         0000028e 002A 
+    1684 0000028f 000A          .string 10,0
+         00000290 0000 
+    1685                      .align  2
+    1686 00000292 002A  FSL28:  .string "*",202,228,200,235,"help",178,233,191,180,203,249,211,208,195
+         00000293 00CA 
+         00000294 00E4 
+         00000295 00C8 
+         00000296 00EB 
+         00000297 0068 
+         00000298 0065 
+         00000299 006C 
+         0000029a 0070 
+         0000029b 00B2 
+         0000029c 00E9 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   45
+
+         0000029d 00BF 
+         0000029e 00B4 
+         0000029f 00CB 
+         000002a0 00F9 
+         000002a1 00D3 
+         000002a2 00D0 
+         000002a3 00C3 
+    1687 000002a4 00FC          .string 252,193,238," ",161,163,"                          *",10,0
+         000002a5 00C1 
+         000002a6 00EE 
+         000002a7 0020 
+         000002a8 00A1 
+         000002a9 00A3 
+         000002aa 0020 
+         000002ab 0020 
+         000002ac 0020 
+         000002ad 0020 
+         000002ae 0020 
+         000002af 0020 
+         000002b0 0020 
+         000002b1 0020 
+         000002b2 0020 
+         000002b3 0020 
+         000002b4 0020 
+         000002b5 0020 
+         000002b6 0020 
+         000002b7 0020 
+         000002b8 0020 
+         000002b9 0020 
+         000002ba 0020 
+         000002bb 0020 
+         000002bc 0020 
+         000002bd 0020 
+         000002be 0020 
+         000002bf 0020 
+         000002c0 0020 
+         000002c1 0020 
+         000002c2 0020 
+         000002c3 0020 
+         000002c4 002A 
+         000002c5 000A 
+         000002c6 0000 
+    1688                      .align  2
+    1689 000002c8 000A  FSL29:  .string 10,196,250,202,228,200,235,181,196,195,252,193,238,211,208,206
+         000002c9 00C4 
+         000002ca 00FA 
+         000002cb 00CA 
+         000002cc 00E4 
+         000002cd 00C8 
+         000002ce 00EB 
+         000002cf 00B5 
+         000002d0 00C4 
+         000002d1 00C3 
+         000002d2 00FC 
+         000002d3 00C1 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   46
+
+         000002d4 00EE 
+         000002d5 00D3 
+         000002d6 00D0 
+         000002d7 00CE 
+    1690 000002d8 00F3          .string 243,199,235,214,216,208,194,202,228,200,235,0
+         000002d9 00C7 
+         000002da 00EB 
+         000002db 00D6 
+         000002dc 00D8 
+         000002dd 00D0 
+         000002de 00C2 
+         000002df 00CA 
+         000002e0 00E4 
+         000002e1 00C8 
+         000002e2 00EB 
+         000002e3 0000 
+    1691                      .align  2
+    1692 000002e4 000A  FSL30:  .string 10,"root:",92,">",0
+         000002e5 0072 
+         000002e6 006F 
+         000002e7 006F 
+         000002e8 0074 
+         000002e9 003A 
+         000002ea 005C 
+         000002eb 003E 
+         000002ec 0000 
+    1693                      .align  2
+    1694 000002ee 0025  FSL31:  .string "%c",0
+         000002ef 0063 
+         000002f0 0000 
+    1695                      .align  2
+    1696 000002f2 0008  FSL32:  .string 8,0
+         000002f3 0000 
+    1697                      .align  2
+    1698 000002f4 0020  FSL33:  .string " ",0
+         000002f5 0000 
+    1699                      .align  2
+    1700 000002f6 0053  FSL34:  .string "Support--Shell manege",0
+         000002f7 0075 
+         000002f8 0070 
+         000002f9 0070 
+         000002fa 006F 
+         000002fb 0072 
+         000002fc 0074 
+         000002fd 002D 
+         000002fe 002D 
+         000002ff 0053 
+         00000300 0068 
+         00000301 0065 
+         00000302 006C 
+         00000303 006C 
+         00000304 0020 
+         00000305 006D 
+         00000306 0061 
+         00000307 006E 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   47
+
+         00000308 0065 
+         00000309 0067 
+         0000030a 0065 
+         0000030b 0000 
+    1701              ;***************************************************************
+    1702              ;* UNDEFINED EXTERNAL REFERENCES                               *
+    1703              ;***************************************************************
+    1704                      .global _ucshell_cmd_psk_exit
+    1705                      .global _ucshell_cmd_psk
+    1706                      .global _ucshell_cmd_ps_exit
+    1707                      .global _ucshell_cmd_ps
+    1708                      .global _ucshell_cmd_psd_exit
+    1709                      .global _ucshell_cmd_psd
+    1710                      .global _ucshell_cmd_eff_exit
+    1711                      .global _ucshell_cmd_eff
+    1712                      .global _ucshell_ps_cmd_init
+    1713                      .global _global_memset
+    1714                      .global _OSTimeDly
+    1715                      .global _os_lock
+    1716                      .global _os_unlock
+    1717                      .global _log_printf
+    1718                      .global _ucshell_cmd_pst
+    1719                      .global _ucshell_cmd_pst_exit
+    1720                      .global _app_module_maneger_exit
+    1721                      .global _global_memcmp
+    1722                      .global _global_decide_num
+    1723                      .global _atoi
+    1724                      .global _m_null_pram
+    1725                      .global _os_task_name_set
+    1726                      .global _os_task_assign_pro_build
+    1727                      .global _log_wait_input_msg
+    1728                      .global _os_task_delete
+    1729                      .global _global_decide_letter
+    1730                      .global _global_adjust_letter_module
+    1731                      .global _os_lock_creat
+    1732                      .global _m_log_pram
+    1733              
+    1734              ;***************************************************************
+    1735              ;* TYPE INFORMATION                                            *
+    1736              ;***************************************************************
+    1737              DW$T$3  .dwtag  DW_TAG_pointer_type
+    1738                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+    1739              
+    1740              DW$T$28 .dwtag  DW_TAG_subroutine_type
+    1741                      .dwattr DW$T$28, DW_AT_language(DW_LANG_C)
+    1742              DW$140  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1743                      .dwendtag DW$T$28
+    1744              
+    1745              DW$T$29 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$28)
+    1746                      .dwattr DW$T$29, DW_AT_address_class(0x16)
+    1747              
+    1748              DW$T$31 .dwtag  DW_TAG_subroutine_type
+    1749                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+    1750              DW$141  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    1751                      .dwendtag DW$T$31
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   48
+
+    1752              
+    1753              
+    1754              DW$T$35 .dwtag  DW_TAG_subroutine_type
+    1755                      .dwattr DW$T$35, DW_AT_language(DW_LANG_C)
+    1756              DW$142  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1757              DW$143  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1758              DW$144  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+    1759                      .dwendtag DW$T$35
+    1760              
+    1761              
+    1762              DW$T$40 .dwtag  DW_TAG_subroutine_type
+    1763                      .dwattr DW$T$40, DW_AT_language(DW_LANG_C)
+    1764              DW$145  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$39)
+    1765                      .dwendtag DW$T$40
+    1766              
+    1767              
+    1768              DW$T$45 .dwtag  DW_TAG_subroutine_type
+    1769                      .dwattr DW$T$45, DW_AT_language(DW_LANG_C)
+    1770              DW$146  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+    1771              DW$147  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$44)
+    1772                      .dwendtag DW$T$45
+    1773              
+    1774              
+    1775              DW$T$47 .dwtag  DW_TAG_subroutine_type
+    1776                      .dwattr DW$T$47, DW_AT_language(DW_LANG_C)
+    1777              DW$148  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+    1778                      .dwendtag DW$T$47
+    1779              
+    1780              
+    1781              DW$T$49 .dwtag  DW_TAG_subroutine_type
+    1782                      .dwattr DW$T$49, DW_AT_language(DW_LANG_C)
+    1783              DW$T$25 .dwtag  DW_TAG_typedef, DW_AT_name("uint8_t"), DW_AT_type(*DW$T$6)
+    1784                      .dwattr DW$T$25, DW_AT_language(DW_LANG_C)
+    1785              
+    1786              DW$T$51 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    1787                      .dwattr DW$T$51, DW_AT_language(DW_LANG_C)
+    1788              DW$149  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+    1789              DW$150  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1790                      .dwendtag DW$T$51
+    1791              
+    1792              
+    1793              DW$T$54 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    1794                      .dwattr DW$T$54, DW_AT_language(DW_LANG_C)
+    1795              DW$151  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$53)
+    1796                      .dwendtag DW$T$54
+    1797              
+    1798              
+    1799              DW$T$56 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    1800                      .dwattr DW$T$56, DW_AT_language(DW_LANG_C)
+    1801              DW$152  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1802              DW$153  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+    1803                      .dwendtag DW$T$56
+    1804              
+    1805              
+    1806              DW$T$58 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   49
+
+    1807                      .dwattr DW$T$58, DW_AT_language(DW_LANG_C)
+    1808              DW$154  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1809                      .dwendtag DW$T$58
+    1810              
+    1811              DW$T$60 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$25)
+    1812                      .dwattr DW$T$60, DW_AT_address_class(0x16)
+    1813              
+    1814              DW$T$61 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$25)
+    1815                      .dwattr DW$T$61, DW_AT_language(DW_LANG_C)
+    1816                      .dwattr DW$T$61, DW_AT_byte_size(0x0c)
+    1817              DW$155  .dwtag  DW_TAG_subrange_type
+    1818                      .dwattr DW$155, DW_AT_upper_bound(0x0b)
+    1819                      .dwendtag DW$T$61
+    1820              
+    1821              DW$T$10 .dwtag  DW_TAG_base_type, DW_AT_name("int")
+    1822                      .dwattr DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1823                      .dwattr DW$T$10, DW_AT_byte_size(0x01)
+    1824              
+    1825              DW$T$65 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$10)
+    1826                      .dwattr DW$T$65, DW_AT_language(DW_LANG_C)
+    1827              DW$156  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$64)
+    1828                      .dwendtag DW$T$65
+    1829              
+    1830              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("INT16U"), DW_AT_type(*DW$T$11)
+    1831                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+    1832              DW$T$34 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$33)
+    1833                      .dwattr DW$T$34, DW_AT_language(DW_LANG_C)
+    1834              
+    1835              DW$T$67 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$34)
+    1836                      .dwattr DW$T$67, DW_AT_language(DW_LANG_C)
+    1837              DW$157  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$60)
+    1838                      .dwendtag DW$T$67
+    1839              
+    1840              
+    1841              DW$T$69 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$34)
+    1842                      .dwattr DW$T$69, DW_AT_language(DW_LANG_C)
+    1843              DW$158  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$60)
+    1844              DW$159  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+    1845                      .dwendtag DW$T$69
+    1846              
+    1847              DW$T$72 .dwtag  DW_TAG_typedef, DW_AT_name("BOOL"), DW_AT_type(*DW$T$33)
+    1848                      .dwattr DW$T$72, DW_AT_language(DW_LANG_C)
+    1849              
+    1850              DW$T$73 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$72)
+    1851                      .dwattr DW$T$73, DW_AT_language(DW_LANG_C)
+    1852              DW$160  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1853              DW$161  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1854              DW$162  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+    1855                      .dwendtag DW$T$73
+    1856              
+    1857              
+    1858              DW$T$75 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$72)
+    1859                      .dwattr DW$T$75, DW_AT_language(DW_LANG_C)
+    1860              DW$163  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+    1861                      .dwendtag DW$T$75
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   50
+
+    1862              
+    1863              
+    1864              DW$T$77 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$72)
+    1865                      .dwattr DW$T$77, DW_AT_language(DW_LANG_C)
+    1866              DW$164  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$29)
+    1867              DW$165  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1868              DW$166  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+    1869                      .dwendtag DW$T$77
+    1870              
+    1871              DW$T$39 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$38)
+    1872                      .dwattr DW$T$39, DW_AT_address_class(0x16)
+    1873              DW$T$53 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$39)
+    1874                      .dwattr DW$T$53, DW_AT_address_class(0x16)
+    1875              DW$T$23 .dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+    1876                      .dwattr DW$T$23, DW_AT_encoding(DW_ATE_signed_char)
+    1877                      .dwattr DW$T$23, DW_AT_byte_size(0x01)
+    1878              DW$T$27 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$23)
+    1879                      .dwattr DW$T$27, DW_AT_address_class(0x16)
+    1880              DW$T$64 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$63)
+    1881                      .dwattr DW$T$64, DW_AT_address_class(0x16)
+    1882              DW$T$43 .dwtag  DW_TAG_typedef, DW_AT_name("log_param"), DW_AT_type(*DW$T$26)
+    1883                      .dwattr DW$T$43, DW_AT_language(DW_LANG_C)
+    1884              DW$T$44 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$43)
+    1885                      .dwattr DW$T$44, DW_AT_address_class(0x16)
+    1886              
+    1887              DW$T$82 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$81)
+    1888                      .dwattr DW$T$82, DW_AT_language(DW_LANG_C)
+    1889                      .dwattr DW$T$82, DW_AT_byte_size(0x3c)
+    1890              DW$167  .dwtag  DW_TAG_subrange_type
+    1891                      .dwattr DW$167, DW_AT_upper_bound(0x09)
+    1892                      .dwendtag DW$T$82
+    1893              
+    1894              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+    1895                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1896                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+    1897              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+    1898                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1899                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+    1900              DW$T$33 .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t"), DW_AT_type(*DW$T$11)
+    1901                      .dwattr DW$T$33, DW_AT_language(DW_LANG_C)
+    1902              DW$T$38 .dwtag  DW_TAG_typedef, DW_AT_name("a_lock_t"), DW_AT_type(*DW$T$37)
+    1903                      .dwattr DW$T$38, DW_AT_language(DW_LANG_C)
+    1904              DW$168  .dwtag  DW_TAG_far_type
+    1905                      .dwattr DW$168, DW_AT_type(*DW$T$23)
+    1906              DW$T$63 .dwtag  DW_TAG_const_type
+    1907                      .dwattr DW$T$63, DW_AT_type(*DW$168)
+    1908              
+    1909              DW$T$26 .dwtag  DW_TAG_structure_type
+    1910                      .dwattr DW$T$26, DW_AT_byte_size(0x28)
+    1911              DW$169  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$24)
+    1912                      .dwattr DW$169, DW_AT_name("pram_buf"), DW_AT_symbol_name("_pram_buf")
+    1913                      .dwattr DW$169, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1914                      .dwattr DW$169, DW_AT_accessibility(DW_ACCESS_public)
+    1915              DW$170  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$25)
+    1916                      .dwattr DW$170, DW_AT_name("cur_off"), DW_AT_symbol_name("_cur_off")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   51
+
+    1917                      .dwattr DW$170, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+    1918                      .dwattr DW$170, DW_AT_accessibility(DW_ACCESS_public)
+    1919              DW$171  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1920                      .dwattr DW$171, DW_AT_name("parm_0"), DW_AT_symbol_name("_parm_0")
+    1921                      .dwattr DW$171, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+    1922                      .dwattr DW$171, DW_AT_accessibility(DW_ACCESS_public)
+    1923              DW$172  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1924                      .dwattr DW$172, DW_AT_name("parm_1"), DW_AT_symbol_name("_parm_1")
+    1925                      .dwattr DW$172, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+    1926                      .dwattr DW$172, DW_AT_accessibility(DW_ACCESS_public)
+    1927              DW$173  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1928                      .dwattr DW$173, DW_AT_name("parm_2"), DW_AT_symbol_name("_parm_2")
+    1929                      .dwattr DW$173, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+    1930                      .dwattr DW$173, DW_AT_accessibility(DW_ACCESS_public)
+    1931              DW$174  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1932                      .dwattr DW$174, DW_AT_name("parm_3"), DW_AT_symbol_name("_parm_3")
+    1933                      .dwattr DW$174, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+    1934                      .dwattr DW$174, DW_AT_accessibility(DW_ACCESS_public)
+    1935              DW$175  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1936                      .dwattr DW$175, DW_AT_name("parm_4"), DW_AT_symbol_name("_parm_4")
+    1937                      .dwattr DW$175, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+    1938                      .dwattr DW$175, DW_AT_accessibility(DW_ACCESS_public)
+    1939              DW$176  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1940                      .dwattr DW$176, DW_AT_name("parm_5"), DW_AT_symbol_name("_parm_5")
+    1941                      .dwattr DW$176, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+    1942                      .dwattr DW$176, DW_AT_accessibility(DW_ACCESS_public)
+    1943              DW$177  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1944                      .dwattr DW$177, DW_AT_name("end_pram"), DW_AT_symbol_name("_end_pram")
+    1945                      .dwattr DW$177, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+    1946                      .dwattr DW$177, DW_AT_accessibility(DW_ACCESS_public)
+    1947                      .dwendtag DW$T$26
+    1948              
+    1949              DW$178  .dwtag  DW_TAG_far_type
+    1950                      .dwattr DW$178, DW_AT_type(*DW$T$80)
+    1951              DW$T$81 .dwtag  DW_TAG_const_type
+    1952                      .dwattr DW$T$81, DW_AT_type(*DW$178)
+    1953              DW$T$37 .dwtag  DW_TAG_typedef, DW_AT_name("OS_EVENT"), DW_AT_type(*DW$T$22)
+    1954                      .dwattr DW$T$37, DW_AT_language(DW_LANG_C)
+    1955              
+    1956              DW$T$24 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$23)
+    1957                      .dwattr DW$T$24, DW_AT_language(DW_LANG_C)
+    1958                      .dwattr DW$T$24, DW_AT_byte_size(0x18)
+    1959              DW$179  .dwtag  DW_TAG_subrange_type
+    1960                      .dwattr DW$179, DW_AT_upper_bound(0x17)
+    1961                      .dwendtag DW$T$24
+    1962              
+    1963              DW$T$80 .dwtag  DW_TAG_typedef, DW_AT_name("ucshell_cmd_manege_t"), DW_AT_type(*DW$T$30)
+    1964                      .dwattr DW$T$80, DW_AT_language(DW_LANG_C)
+    1965              
+    1966              DW$T$22 .dwtag  DW_TAG_structure_type
+    1967                      .dwattr DW$T$22, DW_AT_name("os_event")
+    1968                      .dwattr DW$T$22, DW_AT_byte_size(0x0e)
+    1969              DW$180  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    1970                      .dwattr DW$180, DW_AT_name("OSEventType"), DW_AT_symbol_name("_OSEventType")
+    1971                      .dwattr DW$180, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   52
+
+    1972                      .dwattr DW$180, DW_AT_accessibility(DW_ACCESS_public)
+    1973              DW$181  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1974                      .dwattr DW$181, DW_AT_name("OSEventPtr"), DW_AT_symbol_name("_OSEventPtr")
+    1975                      .dwattr DW$181, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1976                      .dwattr DW$181, DW_AT_accessibility(DW_ACCESS_public)
+    1977              DW$182  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+    1978                      .dwattr DW$182, DW_AT_name("OSEventCnt"), DW_AT_symbol_name("_OSEventCnt")
+    1979                      .dwattr DW$182, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1980                      .dwattr DW$182, DW_AT_accessibility(DW_ACCESS_public)
+    1981              DW$183  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    1982                      .dwattr DW$183, DW_AT_name("OSEventGrp"), DW_AT_symbol_name("_OSEventGrp")
+    1983                      .dwattr DW$183, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1984                      .dwattr DW$183, DW_AT_accessibility(DW_ACCESS_public)
+    1985              DW$184  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$21)
+    1986                      .dwattr DW$184, DW_AT_name("OSEventTbl"), DW_AT_symbol_name("_OSEventTbl")
+    1987                      .dwattr DW$184, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1988                      .dwattr DW$184, DW_AT_accessibility(DW_ACCESS_public)
+    1989                      .dwendtag DW$T$22
+    1990              
+    1991              
+    1992              DW$T$30 .dwtag  DW_TAG_structure_type
+    1993                      .dwattr DW$T$30, DW_AT_byte_size(0x06)
+    1994              DW$185  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$27)
+    1995                      .dwattr DW$185, DW_AT_name("cmd"), DW_AT_symbol_name("_cmd")
+    1996                      .dwattr DW$185, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1997                      .dwattr DW$185, DW_AT_accessibility(DW_ACCESS_public)
+    1998              DW$186  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$29)
+    1999                      .dwattr DW$186, DW_AT_name("cmd_run_fun"), DW_AT_symbol_name("_cmd_run_fun")
+    2000                      .dwattr DW$186, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    2001                      .dwattr DW$186, DW_AT_accessibility(DW_ACCESS_public)
+    2002              DW$187  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$27)
+    2003                      .dwattr DW$187, DW_AT_name("cmd_explain"), DW_AT_symbol_name("_cmd_explain")
+    2004                      .dwattr DW$187, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    2005                      .dwattr DW$187, DW_AT_accessibility(DW_ACCESS_public)
+    2006                      .dwendtag DW$T$30
+    2007              
+    2008              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("INT8U"), DW_AT_type(*DW$T$6)
+    2009                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+    2010              
+    2011              DW$T$21 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$19)
+    2012                      .dwattr DW$T$21, DW_AT_language(DW_LANG_C)
+    2013                      .dwattr DW$T$21, DW_AT_byte_size(0x08)
+    2014              DW$188  .dwtag  DW_TAG_subrange_type
+    2015                      .dwattr DW$188, DW_AT_upper_bound(0x07)
+    2016                      .dwendtag DW$T$21
+    2017              
+    2018              
+    2019                      .dwattr DW$81, DW_AT_external(0x01)
+    2020                      .dwattr DW$68, DW_AT_external(0x01)
+    2021                      .dwattr DW$95, DW_AT_external(0x01)
+    2022                      .dwattr DW$84, DW_AT_external(0x01)
+    2023                      .dwattr DW$101, DW_AT_external(0x01)
+    2024                      .dwattr DW$78, DW_AT_external(0x01)
+    2025                      .dwattr DW$138, DW_AT_external(0x01)
+    2026                      .dwattr DW$139, DW_AT_external(0x01)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   53
+
+    2027                      .dwattr DW$102, DW_AT_external(0x01)
+    2028                      .dwattr DW$102, DW_AT_type(*DW$T$34)
+    2029                      .dwattr DW$115, DW_AT_external(0x01)
+    2030                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+    2031              
+    2032              ;***************************************************************
+    2033              ;* DWARF CIE ENTRIES                                           *
+    2034              ;***************************************************************
+    2035              
+    2036              DW$CIE  .dwcie 1, 40
+    2037                      .dwcfa  0x0c, 20, 0
+    2038                      .dwcfa  0x07, 0
+    2039                      .dwcfa  0x07, 1
+    2040                      .dwcfa  0x07, 2
+    2041                      .dwcfa  0x07, 3
+    2042                      .dwcfa  0x07, 4
+    2043                      .dwcfa  0x07, 5
+    2044                      .dwcfa  0x08, 6
+    2045                      .dwcfa  0x08, 7
+    2046                      .dwcfa  0x08, 8
+    2047                      .dwcfa  0x08, 9
+    2048                      .dwcfa  0x08, 10
+    2049                      .dwcfa  0x08, 11
+    2050                      .dwcfa  0x07, 12
+    2051                      .dwcfa  0x07, 13
+    2052                      .dwcfa  0x07, 14
+    2053                      .dwcfa  0x07, 15
+    2054                      .dwcfa  0x07, 16
+    2055                      .dwcfa  0x07, 17
+    2056                      .dwcfa  0x07, 18
+    2057                      .dwcfa  0x07, 19
+    2058                      .dwcfa  0x07, 20
+    2059                      .dwcfa  0x07, 21
+    2060                      .dwcfa  0x07, 22
+    2061                      .dwcfa  0x07, 23
+    2062                      .dwcfa  0x07, 24
+    2063                      .dwcfa  0x07, 25
+    2064                      .dwcfa  0x07, 26
+    2065                      .dwcfa  0x08, 27
+    2066                      .dwcfa  0x07, 28
+    2067                      .dwcfa  0x07, 29
+    2068                      .dwcfa  0x07, 30
+    2069                      .dwcfa  0x07, 31
+    2070                      .dwcfa  0x07, 32
+    2071                      .dwcfa  0x07, 33
+    2072                      .dwcfa  0x07, 34
+    2073                      .dwcfa  0x07, 35
+    2074                      .dwcfa  0x07, 36
+    2075                      .dwcfa  0x07, 37
+    2076                      .dwcfa  0x07, 38
+    2077                      .dwcfa  0x07, 39
+    2078                      .dwcfa  0x07, 40
+    2079              
+    2080              ;***************************************************************
+    2081              ;* DWARF REGISTER MAP                                          *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   54
+
+    2082              ;***************************************************************
+    2083              
+    2084              DW$189  .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+    2085                      .dwattr DW$189, DW_AT_location[DW_OP_reg0]
+    2086              DW$190  .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+    2087                      .dwattr DW$190, DW_AT_location[DW_OP_reg1]
+    2088              DW$191  .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+    2089                      .dwattr DW$191, DW_AT_location[DW_OP_reg2]
+    2090              DW$192  .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+    2091                      .dwattr DW$192, DW_AT_location[DW_OP_reg3]
+    2092              DW$193  .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+    2093                      .dwattr DW$193, DW_AT_location[DW_OP_reg4]
+    2094              DW$194  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+    2095                      .dwattr DW$194, DW_AT_location[DW_OP_reg5]
+    2096              DW$195  .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+    2097                      .dwattr DW$195, DW_AT_location[DW_OP_reg6]
+    2098              DW$196  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+    2099                      .dwattr DW$196, DW_AT_location[DW_OP_reg7]
+    2100              DW$197  .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+    2101                      .dwattr DW$197, DW_AT_location[DW_OP_reg8]
+    2102              DW$198  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+    2103                      .dwattr DW$198, DW_AT_location[DW_OP_reg9]
+    2104              DW$199  .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+    2105                      .dwattr DW$199, DW_AT_location[DW_OP_reg10]
+    2106              DW$200  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+    2107                      .dwattr DW$200, DW_AT_location[DW_OP_reg11]
+    2108              DW$201  .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+    2109                      .dwattr DW$201, DW_AT_location[DW_OP_reg12]
+    2110              DW$202  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+    2111                      .dwattr DW$202, DW_AT_location[DW_OP_reg13]
+    2112              DW$203  .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+    2113                      .dwattr DW$203, DW_AT_location[DW_OP_reg14]
+    2114              DW$204  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+    2115                      .dwattr DW$204, DW_AT_location[DW_OP_reg15]
+    2116              DW$205  .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+    2117                      .dwattr DW$205, DW_AT_location[DW_OP_reg16]
+    2118              DW$206  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+    2119                      .dwattr DW$206, DW_AT_location[DW_OP_reg17]
+    2120              DW$207  .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+    2121                      .dwattr DW$207, DW_AT_location[DW_OP_reg18]
+    2122              DW$208  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+    2123                      .dwattr DW$208, DW_AT_location[DW_OP_reg19]
+    2124              DW$209  .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+    2125                      .dwattr DW$209, DW_AT_location[DW_OP_reg20]
+    2126              DW$210  .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+    2127                      .dwattr DW$210, DW_AT_location[DW_OP_reg21]
+    2128              DW$211  .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+    2129                      .dwattr DW$211, DW_AT_location[DW_OP_reg22]
+    2130              DW$212  .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+    2131                      .dwattr DW$212, DW_AT_location[DW_OP_reg23]
+    2132              DW$213  .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+    2133                      .dwattr DW$213, DW_AT_location[DW_OP_reg24]
+    2134              DW$214  .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+    2135                      .dwattr DW$214, DW_AT_location[DW_OP_reg25]
+    2136              DW$215  .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:07 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8204                            PAGE   55
+
+    2137                      .dwattr DW$215, DW_AT_location[DW_OP_reg26]
+    2138              DW$216  .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+    2139                      .dwattr DW$216, DW_AT_location[DW_OP_reg27]
+    2140              DW$217  .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+    2141                      .dwattr DW$217, DW_AT_location[DW_OP_reg28]
+    2142              DW$218  .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+    2143                      .dwattr DW$218, DW_AT_location[DW_OP_reg29]
+    2144              DW$219  .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+    2145                      .dwattr DW$219, DW_AT_location[DW_OP_reg30]
+    2146              DW$220  .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+    2147                      .dwattr DW$220, DW_AT_location[DW_OP_reg31]
+    2148              DW$221  .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+    2149                      .dwattr DW$221, DW_AT_location[DW_OP_regx 0x20]
+    2150              DW$222  .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+    2151                      .dwattr DW$222, DW_AT_location[DW_OP_regx 0x21]
+    2152              DW$223  .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+    2153                      .dwattr DW$223, DW_AT_location[DW_OP_regx 0x22]
+    2154              DW$224  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    2155                      .dwattr DW$224, DW_AT_location[DW_OP_regx 0x23]
+    2156              DW$225  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    2157                      .dwattr DW$225, DW_AT_location[DW_OP_regx 0x24]
+    2158              DW$226  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+    2159                      .dwattr DW$226, DW_AT_location[DW_OP_regx 0x25]
+    2160              DW$227  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+    2161                      .dwattr DW$227, DW_AT_location[DW_OP_regx 0x26]
+    2162              DW$228  .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+    2163                      .dwattr DW$228, DW_AT_location[DW_OP_regx 0x27]
+    2164              DW$229  .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+    2165                      .dwattr DW$229, DW_AT_location[DW_OP_regx 0x28]
+    2166                      .dwendtag DW$CU
+    2167              
+
+No Assembly Errors, No Assembly Warnings

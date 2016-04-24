@@ -1,0 +1,599 @@
+------------------------  28335platform.pjt - Release  ------------------------
+[os_cpu_a.asm] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "os_cpu_a.asm"
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0004] Illegal operand combination
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 77: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	        SETFLG  RNDF32 =1,RNDF64=1
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0003] Syntax error - Operand 1
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0002] Invalid instruction for specified
+                                             floating point accelerator
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 94: [E0004] Illegal operand combination
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0003] Syntax error - Operand 1
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 134: [E0004] Illegal operand combination
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0003] Syntax error - Operand 1
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 151: [E0004] Illegal operand combination
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,STF
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R0H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R1H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R2H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R3H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R4H
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R5H       
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0003] Syntax error - Operand 2
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0004] Illegal operand combination
+	        MOV32   *SP++,R6H  
+
+"os_cpu_a.asm", ERROR!   at line 160: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	        SETFLG  RNDF32 =1,RNDF64=1
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R6H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R5H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R4H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R3H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R2H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R1H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   R0H,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0003] Syntax error - Operand 1
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0002] Invalid instruction for specified
+                                              floating point accelerator
+	     	MOV32   STF,*--SP
+
+"os_cpu_a.asm", ERROR!   at line 187: [E0004] Illegal operand combination
+	     	MOV32   STF,*--SP
+
+146 Assembly Errors, No Assembly Warnings
+
+Errors in Source - Assembler Aborted
+
+>> Compilation failure
+
+[os_cpu_c.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "os_cpu_c.c"
+
+[uCOS_II.C] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../BSP/Release.lkf" "uCOS_II.C"
+
+[app_BBmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_BBmod.c"
+
+[app_ERRmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_ERRmod.c"
+"src\app_ERRmod_Icorrect.c", line 31: warning: variable "qs" was declared but never referenced
+
+[app_global_buz.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_buz.c"
+
+[app_global_DLarg.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_DLarg.c"
+
+[app_global_e2prom.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_e2prom.c"
+
+[app_global_extend.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_extend.c"
+
+[app_global_flash.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_flash.c"
+
+[app_global_help.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_help.c"
+
+[app_global_key.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_global_key.c"
+
+[GBcode_search.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../../BSP/Release.lkf" "GBcode_search.c"
+
+[hand_write_input.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../../BSP/Release.lkf" "hand_write_input.c"
+
+[key_input_method.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../../BSP/Release.lkf" "key_input_method.c"
+
+[app_PTCTmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_PTCTmod.c"
+
+[app_metermod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_metermod.c"
+
+[app_Savemod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_Savemod.c"
+
+[app_Searchmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_Searchmod.c"
+
+[app_startmod_connect.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_connect.c"
+
+[app_startmod_double_fun.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_double_fun.c"
+
+[app_startmod_double_interface.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_double_interface.c"
+
+[app_startmod_fun.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_fun.c"
+
+[app_startmod_interface.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_interface.c"
+
+[app_startmod_LJT.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_LJT.c"
+
+[app_startmod_UIrise.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_UIrise.c"
+
+[app_startmod_WIR.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_WIR.c"
+
+[app_startmod_XNFZ.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../BSP/Release.lkf" "app_startmod_XNFZ.c"
+
+[app_Sysmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_Sysmod.c"
+
+[app_SZGLmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_SZGLmod.c"
+"src\app_SZGLmod_fun.c", line 121: warning: function declared implicitly
+
+[app_USBmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_USBmod.c"
+
+[app_wavemod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_wavemod.c"
+
+[app_WIRmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_WIRmod.c"
+
+[app_XBmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_XBmod.c"
+
+[app_ZZmod.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "app_ZZmod.c"
+
+[OSdriver.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "OSdriver.c"
+
+[fft_R1024.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../../../BSP/Release.lkf" "fft_R1024.c"
+
+[measuredriver.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../../BSP/Release.lkf" "measuredriver.c"
+"measure\measure_correct_self.c", line 142: warning: variable "cur_pos" was declared but never referenced
+"measure\measure_GetData.c", line 265: warning: nested comment is not allowed
+
+[FatFs.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "FatFs.c"
+
+[goble.asm] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../BSP/Release.lkf" "goble.asm"
+
+[Gui.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "Gui.c"
+
+[main.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../BSP/Release.lkf" "main.c"
+
+[os_connect.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "os_connect.c"
+
+[app_support.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "app_support.c"
+
+[USB_connect.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../../BSP/Release.lkf" "USB_connect.c"
+
+[bsp.c] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"Release.lkf" "bsp.c"
+"SRC\DSP2833x_CpuTimers.c", line 20: fatal error: could not open source file "DSP2833x_Device.h"
+1 fatal error detected in the compilation of "bsp.c".
+Compilation terminated.
+
+>> Compilation failure
+
+[DSP2833x_CodeStartBranch.asm] "C:\Program Files\C2000 Code Generation Tools 5.0.0\bin\cl2000" -pdsw225 -o3 -fr"E:/PEC_10/BSP/Release" -d"LARGE_MODEL" -ml -v28 -@"../Release.lkf" "DSP2833x_CodeStartBranch.asm"
+
+Build Complete,
+  147 Errors, 4 Warnings, 0 Remarks.

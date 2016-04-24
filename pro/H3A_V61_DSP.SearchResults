@@ -1,0 +1,466 @@
+---- union Matches (465 in 21 files) ----
+Common.h (d:\bechance\h3a_dsp_v61\bsp\include):typedef union __FLAGS
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCTRL1_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCTRL2_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCASEQSR_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCMAXCONV_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCCHSELSEQ1_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCCHSELSEQ2_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCCHSELSEQ3_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCCHSELSEQ4_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCTRL3_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  ADCST_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCREFSEL_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ADCOFFTRIM_REG
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCTRL1_REG      ADCTRL1;       // ADC Control 1
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCTRL2_REG      ADCTRL2;       // ADC Control 2
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCMAXCONV_REG   ADCMAXCONV;    // Max conversions
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCCHSELSEQ1_REG ADCCHSELSEQ1;  // Channel select sequencing control 1
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCCHSELSEQ2_REG ADCCHSELSEQ2;  // Channel select sequencing control 2
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCCHSELSEQ3_REG ADCCHSELSEQ3;  // Channel select sequencing control 3
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCCHSELSEQ4_REG ADCCHSELSEQ4;  // Channel select sequencing control 4
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCASEQSR_REG    ADCASEQSR;     // Autosequence status register
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCTRL3_REG      ADCTRL3;       // ADC Control 3
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCST_REG        ADCST;         // ADC Status Register
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCREFSEL_REG    ADCREFSEL;     // Reference Select Register
+DSP2833x_Adc.h (d:\bechance\h3a_dsp_v61\bsp\include):		union ADCOFFTRIM_REG   ADCOFFTRIM;    // Offset Trim Register
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TCR_REG
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TPR_REG
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TPRH_REG
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TIM_GROUP
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PRD_GROUP
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):		union TIM_GROUP TIM;   // Timer counter register
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PRD_GROUP PRD;   // Period register
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):		union TCR_REG   TCR;   // Timer control register
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):		union TPR_REG   TPR;   // Timer pre-scale low
+DSP2833x_CpuTimers.h (d:\bechance\h3a_dsp_v61\bsp\include):		union TPRH_REG  TPRH;  // Timer pre-scale high
+DSP2833x_DevEmu.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DEVICECNF_REG
+DSP2833x_DevEmu.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PARTID_REG
+DSP2833x_DevEmu.h (d:\bechance\h3a_dsp_v61\bsp\include):		union DEVICECNF_REG DEVICECNF;  // device configuration
+DSP2833x_DevEmu.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PARTID_REG    PARTID;     // Part ID
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union MODE_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CONTROL_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DMACTRL_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DEBUGCTRL_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PRIORITYCTRL1_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PRIORITYSTAT_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union BURST_SIZE_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):	union BURST_COUNT_REG
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  MODE_REG            MODE;                 // Mode Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  CONTROL_REG         CONTROL;              // Control Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  BURST_SIZE_REG      BURST_SIZE;           // Burst Size Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  BURST_COUNT_REG     BURST_COUNT;          // Burst Count Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  DMACTRL_REG         DMACTRL;              // DMA Control Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  DEBUGCTRL_REG       DEBUGCTRL;            // Debug Control Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  PRIORITYCTRL1_REG   PRIORITYCTRL1;        // Priority Control 1 Register
+DSP2833x_DMA.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  PRIORITYSTAT_REG    PRIORITYSTAT;         // Priority Status Register
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANME_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMD_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTRS_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTRR_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTA_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANAA_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANRMP_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANRML_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANRFP_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANGAM_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANBTC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANES_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTEC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANREC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANGIF0_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANGIM_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANGIF1_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMIM_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMIL_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANOPC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTIOC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANRIOC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTOC_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANTOS_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANME_REG   CANME;          // Mailbox Enable
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMD_REG   CANMD;          // Mailbox Direction
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTRS_REG  CANTRS;         // Transmit Request Set
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTRR_REG  CANTRR;         // Transmit Request Reset
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTA_REG   CANTA;          // Transmit Acknowledge
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANAA_REG   CANAA;          // Abort Acknowledge
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANRMP_REG  CANRMP;         // Received Message Pending
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANRML_REG  CANRML;         // Received Message Lost
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANRFP_REG  CANRFP;         // Remote Frame Pending
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANGAM_REG  CANGAM;         // Global Acceptance Mask
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMC_REG   CANMC;          // Master Control
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANBTC_REG  CANBTC;         // Bit Timing
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANES_REG   CANES;          // Error Status
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTEC_REG  CANTEC;         // Transmit Error Counter
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANREC_REG  CANREC;         // Receive Error Counter
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANGIF0_REG CANGIF0;        // Global Interrupt Flag 0
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANGIM_REG  CANGIM;         // Global Interrupt Mask 0
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANGIF1_REG CANGIF1;        // Global Interrupt Flag 1
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMIM_REG  CANMIM;         // Mailbox Interrupt Mask
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMIL_REG  CANMIL;         // Mailbox Interrupt Level
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANOPC_REG  CANOPC;         // Overwrite Protection Control
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTIOC_REG CANTIOC;        // TX I/O Control
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANRIOC_REG CANRIOC;        // RX I/O Control
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTOC_REG  CANTOC;         // Time-out Control
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANTOS_REG  CANTOS;         // Time-out Status
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMSGID_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMSGCTRL_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMDL_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANMDH_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMSGID_REG     MSGID;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMSGCTRL_REG   MSGCTRL;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMDL_REG       MDL;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANMDH_REG       MDH;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CANLAM_REG
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM0;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM1;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM2;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM3;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM4;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM5;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM6;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM7;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM8;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM9;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM10;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM11;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM12;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM13;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM14;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM15;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM16;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM17;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM18;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM19;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM20;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM21;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM22;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM23;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM24;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM25;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM26;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM27;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM28;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM29;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM30;
+DSP2833x_ECan.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CANLAM_REG LAM31;
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ECCTL1_REG
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ECCTL2_REG
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ECEINT_REG
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ECFLG_REG
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECCTL1_REG  ECCTL1;   // Capture Control Reg 1
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECCTL2_REG  ECCTL2;   // Capture Control Reg 2
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECEINT_REG  ECEINT;   // ECAP interrupt enable
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECFLG_REG   ECFLG;    // ECAP interrupt flags
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECFLG_REG   ECCLR;    // ECAP interrupt clear
+DSP2833x_ECap.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   ECEINT_REG  ECFRC;    // ECAP interrupt force
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TBCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TBSTS_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CMPCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union AQCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union AQSFRC_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union AQCSFRC_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DBCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZSEL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZEINT_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZFLG_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZCLR_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TZFRC_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ETSEL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ETPS_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ETFLG_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ETCLR_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union ETFRC_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PCCTL_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union HRCNFG_REG
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union TBPHS_HRPWM_GROUP
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CMPA_HRPWM_GROUP
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TBCTL_REG           TBCTL;   //
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TBSTS_REG           TBSTS;   //
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TBPHS_HRPWM_GROUP   TBPHS;   // Union of TBPHS:TBPHSHR
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  CMPCTL_REG          CMPCTL;  // Compare control
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  CMPA_HRPWM_GROUP    CMPA;    // Union of CMPA:CMPAHR
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  AQCTL_REG           AQCTLA;  // Action qual output A
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  AQCTL_REG           AQCTLB;  // Action qual output B
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  AQSFRC_REG          AQSFRC;  // Action qual SW force
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  AQCSFRC_REG         AQCSFRC; // Action qualifier continuous SW force
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  DBCTL_REG           DBCTL;   // Dead-band control
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZSEL_REG           TZSEL;   // Trip zone select
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZCTL_REG           TZCTL;   // Trip zone control
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZEINT_REG          TZEINT;  // Trip zone interrupt enable
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZFLG_REG           TZFLG;   // Trip zone interrupt flags
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZCLR_REG           TZCLR;   // Trip zone clear
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  TZFRC_REG    	      TZFRC;   // Trip zone force interrupt
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  ETSEL_REG           ETSEL;   // Event trigger selection
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  ETPS_REG            ETPS;    // Event trigger pre-scaler
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  ETFLG_REG           ETFLG;   // Event trigger flags
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  ETCLR_REG           ETCLR;   // Event trigger clear
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  ETFRC_REG           ETFRC;   // Event trigger force
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  PCCTL_REG           PCCTL;   // PWM chopper control
+DSP2833x_EPwm.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  HRCNFG_REG          HRCNFG;  // HRPWM Config Reg
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QDECCTL_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QEPCTL_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QCAPCTL_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QPOSCTL_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QEINT_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QFLG_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QFRC_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):	union QEPSTS_REG
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QDECCTL_REG  QDECCTL;   // Quadrature decoder control
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QEPCTL_REG   QEPCTL;    // QEP control
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QCAPCTL_REG  QCAPCTL;   // Quadrature capture control
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QPOSCTL_REG  QPOSCTL;   // Position compare control
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QEINT_REG    QEINT;     // QEP interrupt control
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QFLG_REG     QFLG;      // QEP interrupt flag
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QFLG_REG     QCLR;      // QEP interrupt clear
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QFRC_REG     QFRC;      // QEP interrupt force
+DSP2833x_EQep.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  QEPSTS_REG   QEPSTS;    // QEP status
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPACTRL_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPBCTRL_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPA1_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPA2_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPB1_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPB2_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPC1_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPC2_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPADAT_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPBDAT_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPCDAT_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):	union GPIOXINT_REG
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPACTRL_REG  GPACTRL;   // GPIO A Control Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPA1_REG     GPAQSEL1;  // GPIO A Qualifier Select 1 Register (GPIO0 to 15)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPA2_REG     GPAQSEL2;  // GPIO A Qualifier Select 2 Register (GPIO16 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPA1_REG     GPAMUX1;   // GPIO A Mux 1 Register (GPIO0 to 15)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPA2_REG     GPAMUX2;   // GPIO A Mux 2 Register (GPIO16 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG   GPADIR;    // GPIO A Direction Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG   GPAPUD;    // GPIO A Pull Up Disable Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBCTRL_REG  GPBCTRL;   // GPIO B Control Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPB1_REG     GPBQSEL1;  // GPIO B Qualifier Select 1 Register (GPIO32 to 47)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPB2_REG     GPBQSEL2;  // GPIO B Qualifier Select 2 Register (GPIO48 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPB1_REG     GPBMUX1;   // GPIO B Mux 1 Register (GPIO32 to 47)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPB2_REG     GPBMUX2;   // GPIO B Mux 2 Register (GPIO48 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG   GPBDIR;    // GPIO B Direction Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG   GPBPUD;    // GPIO B Pull Up Disable Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPC1_REG     GPCMUX1;   // GPIO C Mux 1 Register (GPIO64 to 79)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPC2_REG     GPCMUX2;   // GPIO C Mux 2 Register (GPIO80 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG   GPCDIR;    // GPIO C Direction Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG   GPCPUD;    // GPIO C Pull Up Disable Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG       GPADAT;       // GPIO Data Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG       GPASET;       // GPIO Data Set Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG       GPACLEAR;     // GPIO Data Clear Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG       GPATOGGLE;    // GPIO Data Toggle Register (GPIO0 to 31)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG       GPBDAT;       // GPIO Data Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG       GPBSET;       // GPIO Data Set Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG       GPBCLEAR;     // GPIO Data Clear Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPBDAT_REG       GPBTOGGLE;    // GPIO Data Toggle Register (GPIO32 to 63)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG       GPCDAT;       // GPIO Data Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG       GPCSET;       // GPIO Data Set Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG       GPCCLEAR;     // GPIO Data Clear Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPCDAT_REG       GPCTOGGLE;    // GPIO Data Toggle Register (GPIO64 to 95)
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT1SEL; // XINT1 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT2SEL; // XINT2 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXNMISEL;  // XNMI_Xint13 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT3SEL; // XINT3 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT4SEL; // XINT4 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT5SEL; // XINT5 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT6SEL; // XINT6 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPIOXINT_REG     GPIOXINT7SEL; // XINT7 GPIO Input Selection
+DSP2833x_Gpio.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  GPADAT_REG       GPIOLPMSEL;   // Low power modes GP I/O input select
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CISRC_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CIER_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CSTR_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CMDR_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CPSC_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CFFTX_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):	union I2CFFRX_REG
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CIER_REG   I2CIER;    // Interrupt enable
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CSTR_REG   I2CSTR;    // Interrupt status
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CMDR_REG   I2CMDR;    // Mode
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CISRC_REG  I2CISRC;   // Interrupt source
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CPSC_REG   I2CPSC;    // Pre-scaler
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CFFTX_REG  I2CFFTX;   // Transmit FIFO
+DSP2833x_I2c.h (d:\bechance\h3a_dsp_v61\bsp\include):		union  I2CFFRX_REG  I2CFFRX;   // Recieve FIFO
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DRR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DRR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DXR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union DXR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPCR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPCR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  SRGR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  SRGR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  MCR2_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union  MCR1_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERA_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERB_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERA_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERB_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PCR_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERC_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERD_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERC_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERD_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERE_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERF_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERE_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERF_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERG_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union RCERH_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERG_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XCERH_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):	union MFFINT_REG
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union DRR2_REG    DRR2;       // MCBSP Data receive register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union DRR1_REG    DRR1;       // MCBSP Data receive register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union DXR2_REG    DXR2;       // MCBSP Data transmit register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union DXR1_REG    DXR1;       // MCBSP Data transmit register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPCR2_REG   SPCR2;      // MCBSP control register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPCR1_REG   SPCR1;      // MCBSP control register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCR2_REG    RCR2;       // MCBSP receive control register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCR1_REG    RCR1;       // MCBSP receive control register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCR2_REG    XCR2;       // MCBSP transmit control register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCR1_REG    XCR1;       // MCBSP transmit control register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SRGR2_REG   SRGR2;      // MCBSP sample rate gen register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SRGR1_REG   SRGR1;      // MCBSP sample rate gen register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union MCR2_REG    MCR2;       // MCBSP multichannel register bits 31-16
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union MCR1_REG    MCR1;       // MCBSP multichannel register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERA_REG   RCERA;      // MCBSP Receive channel enable partition A
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERB_REG   RCERB;      // MCBSP Receive channel enable partition B
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERA_REG   XCERA;      // MCBSP Transmit channel enable partition A
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERB_REG   XCERB;      // MCBSP Transmit channel enable partition B
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PCR_REG     PCR;        // MCBSP Pin control register bits 15-0
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERC_REG   RCERC;      // MCBSP Receive channel enable partition C
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERD_REG   RCERD;      // MCBSP Receive channel enable partition D
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERC_REG   XCERC;      // MCBSP Transmit channel enable partition C
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERD_REG   XCERD;      // MCBSP Transmit channel enable partition D
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERE_REG   RCERE;      // MCBSP Receive channel enable partition E
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERF_REG   RCERF;      // MCBSP Receive channel enable partition F
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERE_REG   XCERE;      // MCBSP Transmit channel enable partition E
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERF_REG   XCERF;      // MCBSP Transmit channel enable partition F
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERG_REG   RCERG;      // MCBSP Receive channel enable partition G
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union RCERH_REG   RCERH;      // MCBSP Receive channel enable partition H
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERG_REG   XCERG;      // MCBSP Transmit channel enable partition G
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XCERH_REG   XCERH;      // MCBSP Transmit channel enable partition H
+DSP2833x_Mcbsp.h (d:\bechance\h3a_dsp_v61\bsp\include):		union MFFINT_REG  MFFINT;     // MCBSP Interrupt enable register for RINT/XINT
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PIECTRL_REG
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PIEIER_REG
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PIEIFR_REG
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PIEACK_REG
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIECTRL_REG PIECTRL;       // PIE control register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEACK_REG  PIEACK;        // PIE acknowledge
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER1;       // PIE int1 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR1;       // PIE int1 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER2;       // PIE INT2 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR2;       // PIE INT2 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER3;       // PIE INT3 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR3;       // PIE INT3 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER4;       // PIE INT4 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR4;       // PIE INT4 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER5;       // PIE INT5 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR5;       // PIE INT5 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER6;       // PIE INT6 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR6;       // PIE INT6 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER7;       // PIE INT7 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR7;       // PIE INT7 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER8;       // PIE INT8 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR8;       // PIE INT8 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER9;       // PIE INT9 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR9;       // PIE INT9 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER10;      // PIE int10 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR10;      // PIE int10 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER11;      // PIE int11 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR11;      // PIE int11 IFR register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIER_REG  PIEIER12;      // PIE int12 IER register
+DSP2833x_PieCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union PIEIFR_REG  PIEIFR12;      // PIE int12 IFR register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCICCR_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCICTL1_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCICTL2_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIRXST_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIRXBUF_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIPRI_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIFFTX_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIFFRX_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SCIFFCT_REG
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCICCR_REG     SCICCR;     // Communications control register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCICTL1_REG    SCICTL1;    // Control register 1
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCICTL2_REG    SCICTL2;    // Control register 2
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIRXST_REG    SCIRXST;    // Recieve status register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIRXBUF_REG   SCIRXBUF;   // Recieve data buffer
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIFFTX_REG    SCIFFTX;    // FIFO transmit register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIFFRX_REG    SCIFFRX;    // FIFO recieve register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIFFCT_REG    SCIFFCT;    // FIFO control register
+DSP2833x_Sci.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SCIPRI_REG     SCIPRI;     // FIFO Priority control
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPIFFTX_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPIFFRX_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPIFFCT_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPICCR_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPICTL_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPISTS_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):	union SPIPRI_REG
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPICCR_REG     SPICCR;      // Configuration register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPICTL_REG     SPICTL;      // Operation control register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPISTS_REG     SPISTS;      // Status register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPIFFTX_REG    SPIFFTX;     // FIFO transmit register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPIFFRX_REG    SPIFFRX;     // FIFO recieve register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPIFFCT_REG    SPIFFCT;     // FIFO control register
+DSP2833x_Spi.h (d:\bechance\h3a_dsp_v61\bsp\include):		union SPIPRI_REG     SPIPRI;      // FIFO Priority control
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PLLSTS_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union HISPCP_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union LOSPCP_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PCLKCR0_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PCLKCR1_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PCLKCR3_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union PLLCR_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union LPMCR0_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   PLLSTS_REG  PLLSTS;    // 1
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   HISPCP_REG  HISPCP;    // 10: High-speed peripheral clock pre-scaler
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   LOSPCP_REG  LOSPCP;    // 11: Low-speed peripheral clock pre-scaler
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   PCLKCR0_REG PCLKCR0;   // 12: Peripheral clock control register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   PCLKCR1_REG PCLKCR1;   // 13: Peripheral clock control register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   LPMCR0_REG  LPMCR0;    // 14: Low-power mode control register 0
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   PCLKCR3_REG PCLKCR3;   // 16: Peripheral clock control register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union   PLLCR_REG   PLLCR;     // 17: PLL control register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union CSMSCR_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union CSMSCR_REG CSMSCR;  // CSM Status & Control register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FOPT_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FPWR_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FSTATUS_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FSTDBYWAIT_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FACTIVEWAIT_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FBANKWAIT_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):	union FOTPWAIT_REG
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FOPT_REG        FOPT;        // Option Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FPWR_REG        FPWR;        // Power Modes Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FSTATUS_REG     FSTATUS;     // Status Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FSTDBYWAIT_REG  FSTDBYWAIT;  // Pump/Bank Sleep to Standby Wait State Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FACTIVEWAIT_REG FACTIVEWAIT; // Pump/Bank Standby to Active Wait State Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FBANKWAIT_REG   FBANKWAIT;   // Bank Read Access Wait State Register
+DSP2833x_SysCtrl.h (d:\bechance\h3a_dsp_v61\bsp\include):		union FOTPWAIT_REG    FOTPWAIT;    // OTP Read Access Wait State Register
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XTIMING_REG
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XINTCNF2_REG
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XBANK_REG
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XRESET_REG
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XTIMING_REG XTIMING0;
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XTIMING_REG XTIMING6;
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XTIMING_REG XTIMING7;
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCNF2_REG XINTCNF2;
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XBANK_REG    XBANK;
+DSP2833x_Xintf.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XRESET_REG   XRESET;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XINTCR_REG
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):	union XNMICR_REG
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT1CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT2CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT3CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT4CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT5CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT6CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XINTCR_REG XINT7CR;
+DSP2833x_XIntrupt.h (d:\bechance\h3a_dsp_v61\bsp\include):		union XNMICR_REG XNMICR;
+Measure.h (d:\bechance\h3a_dsp_v61\user\drivers\src\measure):typedef union
+Measure.h (d:\bechance\h3a_dsp_v61\user\drivers\src\measure):typedef union
+Osdriver.h (d:\bechance\h3a_dsp_v61\user\drivers):typedef union
+Sht11driver.c (d:\bechance\h3a_dsp_v61\user\drivers\src):typedef union  

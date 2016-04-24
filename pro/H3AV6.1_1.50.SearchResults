@@ -1,0 +1,8 @@
+---- m_battery_win Matches (7 in 1 files) ----
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):7:hwin_t*		m_battery_win		= 0;
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):93:	GUI_window_hwin_req( m_battery_win );
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):123:			GUI_window_hwin_release( m_battery_win );
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):128:	GUI_window_hwin_release( m_battery_win );
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):301:	m_battery_win	=	GUI_edit_creat( 615, 435, 20, 40, 0, GET_GUIWIN );
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):344:	m_battery_win	=	GUI_edit_creat( 615, 435, 20, 40, 0, GET_GUIWIN );
+app_XCERRmod_interface.c (d:\h3anew\h3a_dsp-v61(ver1.150)\user\app\app_xcerr_mod\src):355:   GUI_window_destory(m_battery_win);

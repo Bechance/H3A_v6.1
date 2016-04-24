@@ -1,0 +1,5 @@
+---- DELAY_4_NOP Matches (4 in 2 files) ----
+GUI_lcd_driver.c (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp-v61(ver1.1)\user\gui\src):50:	DELAY_4_NOP();
+GUI_lcd_driver.c (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp-v61(ver1.1)\user\gui\src):52:	DELAY_4_NOP();
+GUI_lcd_driver.h (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp-v61(ver1.1)\user\gui\src):4:#define DELAY_4_NOP() {asm( "	nop" );asm( "	nop" );asm( "	nop" );asm( "	nop" );asm( "	nop" );}
+GUI_lcd_driver.h (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp-v61(ver1.1)\user\gui\src):9:///#define DELAY_4_NOP() {asm( "	nop" );asm( "	nop" );asm( "	nop" );asm( "	nop" );asm( "	nop" );}

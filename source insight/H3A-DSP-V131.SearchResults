@@ -1,0 +1,3 @@
+---- app_startmod_time_display Matches (2 in 2 files) ----
+App_startmod_inside.h (e:\company work\release history\pec-h3a\released\h3a-dsp\released\h3a_dsp-v61(ver1.131)\user\app\app_start_mod\src):void	 app_startmod_time_display( char*hour_min, char*date );
+App_startmod_interface.c (e:\company work\release history\pec-h3a\released\h3a-dsp\released\h3a_dsp-v61(ver1.131)\user\app\app_start_mod\src):void app_startmod_time_display( char *date_and_time )

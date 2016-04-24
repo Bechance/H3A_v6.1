@@ -1,0 +1,645 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Thu May 05 10:06:01 2011                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("syscall.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              
+      14              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemPend"), DW_AT_symbol_name("_OSSemPend")
+      15                      .dwattr DW$1, DW_AT_declaration(0x01)
+      16                      .dwattr DW$1, DW_AT_external(0x01)
+      17              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+      18              DW$3    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+      19              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      20                      .dwendtag DW$1
+      21              
+      22              
+      23              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemPost"), DW_AT_symbol_name("_OSSemPost")
+      24                      .dwattr DW$5, DW_AT_type(*DW$T$19)
+      25                      .dwattr DW$5, DW_AT_declaration(0x01)
+      26                      .dwattr DW$5, DW_AT_external(0x01)
+      27              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+      28                      .dwendtag DW$5
+      29              
+      30              
+      31              DW$7    .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemCreate"), DW_AT_symbol_name("_OSSemCreate")
+      32                      .dwattr DW$7, DW_AT_type(*DW$T$24)
+      33                      .dwattr DW$7, DW_AT_declaration(0x01)
+      34                      .dwattr DW$7, DW_AT_external(0x01)
+      35              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+      36                      .dwendtag DW$7
+      37              
+      38              
+      39              DW$9    .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemDel"), DW_AT_symbol_name("_OSSemDel")
+      40                      .dwattr DW$9, DW_AT_type(*DW$T$24)
+      41                      .dwattr DW$9, DW_AT_declaration(0x01)
+      42                      .dwattr DW$9, DW_AT_external(0x01)
+      43              DW$10   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+      44              DW$11   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+      45              DW$12   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      46                      .dwendtag DW$9
+      47              
+      48              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4284 
+      49 00000000               .sect   ".text"
+      50                      .global _ff_cre_syncobj
+      51              
+      52              DW$13   .dwtag  DW_TAG_subprogram, DW_AT_name("ff_cre_syncobj"), DW_AT_symbol_name("_ff_cre_syncobj")
+      53                      .dwattr DW$13, DW_AT_low_pc(_ff_cre_syncobj)
+      54                      .dwattr DW$13, DW_AT_high_pc(0x00)
+      55                      .dwattr DW$13, DW_AT_begin_file("syscall.c")
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    2
+
+      56                      .dwattr DW$13, DW_AT_begin_line(0x14)
+      57                      .dwattr DW$13, DW_AT_begin_column(0x06)
+      58                      .dwpsn  "syscall.c",24,1
+      59              
+      60                      .dwfde DW$CIE
+      61              
+      62              ;***************************************************************
+      63              ;* FNAME: _ff_cre_syncobj               FR SIZE:   6           *
+      64              ;*                                                             *
+      65              ;* FUNCTION ENVIRONMENT                                        *
+      66              ;*                                                             *
+      67              ;* FUNCTION PROPERTIES                                         *
+      68              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+      69              ;***************************************************************
+      70              
+      71              _ff_cre_syncobj:
+      72                      .dwcfa  0x1d, -2
+      73                      .dwcfa  0x1c, 26, 0
+      74                      .dwcfa  0x09, 40, 26
+      75 00000000 FE06          ADDB      SP,#6
+      76                      .dwcfa  0x1d, -8
+      77              ;* AL    assigned to _vol
+      78              DW$14   .dwtag  DW_TAG_formal_parameter, DW_AT_name("vol"), DW_AT_symbol_name("_vol")
+      79                      .dwattr DW$14, DW_AT_type(*DW$T$32)
+      80                      .dwattr DW$14, DW_AT_location[DW_OP_reg0]
+      81              ;* AR4   assigned to _sobj
+      82              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+      83                      .dwattr DW$15, DW_AT_type(*DW$T$33)
+      84                      .dwattr DW$15, DW_AT_location[DW_OP_reg12]
+      85              DW$16   .dwtag  DW_TAG_variable, DW_AT_name("vol"), DW_AT_symbol_name("_vol")
+      86                      .dwattr DW$16, DW_AT_type(*DW$T$32)
+      87                      .dwattr DW$16, DW_AT_location[DW_OP_breg20 -1]
+      88              DW$17   .dwtag  DW_TAG_variable, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+      89                      .dwattr DW$17, DW_AT_type(*DW$T$33)
+      90                      .dwattr DW$17, DW_AT_location[DW_OP_breg20 -4]
+      91              DW$18   .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+      92                      .dwattr DW$18, DW_AT_type(*DW$T$31)
+      93                      .dwattr DW$18, DW_AT_location[DW_OP_breg20 -5]
+      94 00000001 A844          MOVL      *-SP[4],XAR4          ; |24| 
+      95 00000002 9641          MOV       *-SP[1],AL            ; |24| 
+      96                      .dwpsn  "syscall.c",27,2
+      97 00000003 9A01          MOVB      AL,#1                 ; |27| 
+      98 00000004 7640!         LCR       #_OSSemCreate         ; |27| 
+         00000005 0000 
+      99                      ; call occurs [#_OSSemCreate] ; |27| 
+     100 00000006 8344          MOVL      XAR5,*-SP[4]          ; |27| 
+     101 00000007 A8C5          MOVL      *+XAR5[0],XAR4        ; |27| 
+     102                      .dwpsn  "syscall.c",28,2
+     103 00000008 8A44          MOVL      XAR4,*-SP[4]          ; |28| 
+     104 00000009 06C4          MOVL      ACC,*+XAR4[0]         ; |28| 
+     105 0000000a EC03          BF        L1,EQ                 ; |28| 
+     106                      ; branchcc occurs ; |28| 
+     107 0000000b 9A01          MOVB      AL,#1                 ; |28| 
+     108 0000000c 6F02          B         L2,UNC                ; |28| 
+     109                      ; branch occurs ; |28| 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    3
+
+     110 0000000d       L1:    
+     111 0000000d 9A00          MOVB      AL,#0
+     112 0000000e       L2:    
+     113 0000000e 9645          MOV       *-SP[5],AL            ; |28| 
+     114                      .dwpsn  "syscall.c",29,2
+     115                      .dwpsn  "syscall.c",30,1
+     116 0000000f FE86          SUBB      SP,#6                 ; |29| 
+     117                      .dwcfa  0x1d, -2
+     118 00000010 0006          LRETR
+     119                      ; return occurs
+     120                      .dwattr DW$13, DW_AT_end_file("syscall.c")
+     121                      .dwattr DW$13, DW_AT_end_line(0x1e)
+     122                      .dwattr DW$13, DW_AT_end_column(0x01)
+     123                      .dwendentry
+     124                      .dwendtag DW$13
+     125              
+     126 00000011               .sect   ".text"
+     127                      .global _ff_del_syncobj
+     128              
+     129              DW$19   .dwtag  DW_TAG_subprogram, DW_AT_name("ff_del_syncobj"), DW_AT_symbol_name("_ff_del_syncobj")
+     130                      .dwattr DW$19, DW_AT_low_pc(_ff_del_syncobj)
+     131                      .dwattr DW$19, DW_AT_high_pc(0x00)
+     132                      .dwattr DW$19, DW_AT_begin_file("syscall.c")
+     133                      .dwattr DW$19, DW_AT_begin_line(0x28)
+     134                      .dwattr DW$19, DW_AT_begin_column(0x06)
+     135                      .dwpsn  "syscall.c",43,1
+     136              
+     137                      .dwfde DW$CIE
+     138              
+     139              ;***************************************************************
+     140              ;* FNAME: _ff_del_syncobj               FR SIZE:   4           *
+     141              ;*                                                             *
+     142              ;* FUNCTION ENVIRONMENT                                        *
+     143              ;*                                                             *
+     144              ;* FUNCTION PROPERTIES                                         *
+     145              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     146              ;***************************************************************
+     147              
+     148              _ff_del_syncobj:
+     149                      .dwcfa  0x1d, -2
+     150                      .dwcfa  0x1c, 26, 0
+     151                      .dwcfa  0x09, 40, 26
+     152 00000011 FE04          ADDB      SP,#4
+     153                      .dwcfa  0x1d, -6
+     154              ;* AR4   assigned to _sobj
+     155              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     156                      .dwattr DW$20, DW_AT_type(*DW$T$24)
+     157                      .dwattr DW$20, DW_AT_location[DW_OP_reg12]
+     158              DW$21   .dwtag  DW_TAG_variable, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     159                      .dwattr DW$21, DW_AT_type(*DW$T$24)
+     160                      .dwattr DW$21, DW_AT_location[DW_OP_breg20 -2]
+     161              DW$22   .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+     162                      .dwattr DW$22, DW_AT_type(*DW$T$31)
+     163                      .dwattr DW$22, DW_AT_location[DW_OP_breg20 -3]
+     164              DW$23   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    4
+
+     165                      .dwattr DW$23, DW_AT_type(*DW$T$6)
+     166                      .dwattr DW$23, DW_AT_location[DW_OP_breg20 -4]
+     167 00000012 A842          MOVL      *-SP[2],XAR4          ; |43| 
+     168                      .dwpsn  "syscall.c",46,2
+     169 00000013 5DAD          MOVZ      AR5,SP                ; |46| 
+     170 00000014 8A42          MOVL      XAR4,*-SP[2]          ; |46| 
+     171 00000015 9A01          MOVB      AL,#1                 ; |46| 
+     172 00000016 DD84          SUBB      XAR5,#4               ; |46| 
+     173 00000017 7640!         LCR       #_OSSemDel            ; |46| 
+         00000018 0000 
+     174                      ; call occurs [#_OSSemDel] ; |46| 
+     175                      .dwpsn  "syscall.c",47,2
+     176 00000019 9244          MOV       AL,*-SP[4]            ; |47| 
+     177 0000001a ED03          BF        L3,NEQ                ; |47| 
+     178                      ; branchcc occurs ; |47| 
+     179 0000001b 9A01          MOVB      AL,#1                 ; |47| 
+     180 0000001c 6F02          B         L4,UNC                ; |47| 
+     181                      ; branch occurs ; |47| 
+     182 0000001d       L3:    
+     183 0000001d 9A00          MOVB      AL,#0
+     184 0000001e       L4:    
+     185 0000001e 9643          MOV       *-SP[3],AL            ; |47| 
+     186                      .dwpsn  "syscall.c",48,2
+     187                      .dwpsn  "syscall.c",49,1
+     188 0000001f FE84          SUBB      SP,#4                 ; |48| 
+     189                      .dwcfa  0x1d, -2
+     190 00000020 0006          LRETR
+     191                      ; return occurs
+     192                      .dwattr DW$19, DW_AT_end_file("syscall.c")
+     193                      .dwattr DW$19, DW_AT_end_line(0x31)
+     194                      .dwattr DW$19, DW_AT_end_column(0x01)
+     195                      .dwendentry
+     196                      .dwendtag DW$19
+     197              
+     198 00000021               .sect   ".text"
+     199                      .global _ff_req_grant
+     200              
+     201              DW$24   .dwtag  DW_TAG_subprogram, DW_AT_name("ff_req_grant"), DW_AT_symbol_name("_ff_req_grant")
+     202                      .dwattr DW$24, DW_AT_low_pc(_ff_req_grant)
+     203                      .dwattr DW$24, DW_AT_high_pc(0x00)
+     204                      .dwattr DW$24, DW_AT_begin_file("syscall.c")
+     205                      .dwattr DW$24, DW_AT_begin_line(0x39)
+     206                      .dwattr DW$24, DW_AT_begin_column(0x06)
+     207                      .dwpsn  "syscall.c",60,1
+     208              
+     209                      .dwfde DW$CIE
+     210              
+     211              ;***************************************************************
+     212              ;* FNAME: _ff_req_grant                 FR SIZE:   4           *
+     213              ;*                                                             *
+     214              ;* FUNCTION ENVIRONMENT                                        *
+     215              ;*                                                             *
+     216              ;* FUNCTION PROPERTIES                                         *
+     217              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     218              ;***************************************************************
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    5
+
+     219              
+     220              _ff_req_grant:
+     221                      .dwcfa  0x1d, -2
+     222                      .dwcfa  0x1c, 26, 0
+     223                      .dwcfa  0x09, 40, 26
+     224 00000021 FE04          ADDB      SP,#4
+     225                      .dwcfa  0x1d, -6
+     226              ;* AR4   assigned to _sobj
+     227              DW$25   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     228                      .dwattr DW$25, DW_AT_type(*DW$T$24)
+     229                      .dwattr DW$25, DW_AT_location[DW_OP_reg12]
+     230              DW$26   .dwtag  DW_TAG_variable, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     231                      .dwattr DW$26, DW_AT_type(*DW$T$24)
+     232                      .dwattr DW$26, DW_AT_location[DW_OP_breg20 -2]
+     233              DW$27   .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+     234                      .dwattr DW$27, DW_AT_type(*DW$T$31)
+     235                      .dwattr DW$27, DW_AT_location[DW_OP_breg20 -3]
+     236              DW$28   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+     237                      .dwattr DW$28, DW_AT_type(*DW$T$6)
+     238                      .dwattr DW$28, DW_AT_location[DW_OP_breg20 -4]
+     239 00000022 A842          MOVL      *-SP[2],XAR4          ; |60| 
+     240                      .dwpsn  "syscall.c",63,2
+     241 00000023 5DAD          MOVZ      AR5,SP                ; |63| 
+     242 00000024 8A42          MOVL      XAR4,*-SP[2]          ; |63| 
+     243 00000025 28A9          MOV       AL,#1000              ; |63| 
+         00000026 03E8 
+     244 00000027 DD84          SUBB      XAR5,#4               ; |63| 
+     245 00000028 7640!         LCR       #_OSSemPend           ; |63| 
+         00000029 0000 
+     246                      ; call occurs [#_OSSemPend] ; |63| 
+     247                      .dwpsn  "syscall.c",64,2
+     248 0000002a 9244          MOV       AL,*-SP[4]            ; |64| 
+     249 0000002b ED03          BF        L5,NEQ                ; |64| 
+     250                      ; branchcc occurs ; |64| 
+     251 0000002c 9A01          MOVB      AL,#1                 ; |64| 
+     252 0000002d 6F02          B         L6,UNC                ; |64| 
+     253                      ; branch occurs ; |64| 
+     254 0000002e       L5:    
+     255 0000002e 9A00          MOVB      AL,#0
+     256 0000002f       L6:    
+     257 0000002f 9643          MOV       *-SP[3],AL            ; |64| 
+     258                      .dwpsn  "syscall.c",65,2
+     259                      .dwpsn  "syscall.c",66,1
+     260 00000030 FE84          SUBB      SP,#4                 ; |65| 
+     261                      .dwcfa  0x1d, -2
+     262 00000031 0006          LRETR
+     263                      ; return occurs
+     264                      .dwattr DW$24, DW_AT_end_file("syscall.c")
+     265                      .dwattr DW$24, DW_AT_end_line(0x42)
+     266                      .dwattr DW$24, DW_AT_end_column(0x01)
+     267                      .dwendentry
+     268                      .dwendtag DW$24
+     269              
+     270 00000032               .sect   ".text"
+     271                      .global _ff_rel_grant
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    6
+
+     272              
+     273              DW$29   .dwtag  DW_TAG_subprogram, DW_AT_name("ff_rel_grant"), DW_AT_symbol_name("_ff_rel_grant")
+     274                      .dwattr DW$29, DW_AT_low_pc(_ff_rel_grant)
+     275                      .dwattr DW$29, DW_AT_high_pc(0x00)
+     276                      .dwattr DW$29, DW_AT_begin_file("syscall.c")
+     277                      .dwattr DW$29, DW_AT_begin_line(0x49)
+     278                      .dwattr DW$29, DW_AT_begin_column(0x06)
+     279                      .dwpsn  "syscall.c",76,1
+     280              
+     281                      .dwfde DW$CIE
+     282              
+     283              ;***************************************************************
+     284              ;* FNAME: _ff_rel_grant                 FR SIZE:   2           *
+     285              ;*                                                             *
+     286              ;* FUNCTION ENVIRONMENT                                        *
+     287              ;*                                                             *
+     288              ;* FUNCTION PROPERTIES                                         *
+     289              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     290              ;***************************************************************
+     291              
+     292              _ff_rel_grant:
+     293                      .dwcfa  0x1d, -2
+     294                      .dwcfa  0x1c, 26, 0
+     295                      .dwcfa  0x09, 40, 26
+     296 00000032 FE02          ADDB      SP,#2
+     297                      .dwcfa  0x1d, -4
+     298              ;* AR4   assigned to _sobj
+     299              DW$30   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     300                      .dwattr DW$30, DW_AT_type(*DW$T$24)
+     301                      .dwattr DW$30, DW_AT_location[DW_OP_reg12]
+     302              DW$31   .dwtag  DW_TAG_variable, DW_AT_name("sobj"), DW_AT_symbol_name("_sobj")
+     303                      .dwattr DW$31, DW_AT_type(*DW$T$24)
+     304                      .dwattr DW$31, DW_AT_location[DW_OP_breg20 -2]
+     305 00000033 A842          MOVL      *-SP[2],XAR4          ; |76| 
+     306                      .dwpsn  "syscall.c",79,2
+     307 00000034 8A42          MOVL      XAR4,*-SP[2]          ; |79| 
+     308 00000035 7640!         LCR       #_OSSemPost           ; |79| 
+         00000036 0000 
+     309                      ; call occurs [#_OSSemPost] ; |79| 
+     310                      .dwpsn  "syscall.c",81,2
+     311                      .dwpsn  "syscall.c",82,1
+     312 00000037 FE82          SUBB      SP,#2
+     313                      .dwcfa  0x1d, -2
+     314 00000038 0006          LRETR
+     315                      ; return occurs
+     316                      .dwattr DW$29, DW_AT_end_file("syscall.c")
+     317                      .dwattr DW$29, DW_AT_end_line(0x52)
+     318                      .dwattr DW$29, DW_AT_end_column(0x01)
+     319                      .dwendentry
+     320                      .dwendtag DW$29
+     321              
+     322              ;***************************************************************
+     323              ;* UNDEFINED EXTERNAL REFERENCES                               *
+     324              ;***************************************************************
+     325                      .global _OSSemPend
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    7
+
+     326                      .global _OSSemPost
+     327                      .global _OSSemCreate
+     328                      .global _OSSemDel
+     329              
+     330              ;***************************************************************
+     331              ;* TYPE INFORMATION                                            *
+     332              ;***************************************************************
+     333              
+     334              DW$T$26 .dwtag  DW_TAG_subroutine_type
+     335                      .dwattr DW$T$26, DW_AT_language(DW_LANG_C)
+     336              DW$32   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     337              DW$33   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     338              DW$34   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     339                      .dwendtag DW$T$26
+     340              
+     341              
+     342              DW$T$28 .dwtag  DW_TAG_subroutine_type
+     343                      .dwattr DW$T$28, DW_AT_language(DW_LANG_C)
+     344              DW$35   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     345                      .dwendtag DW$T$28
+     346              
+     347              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+     348                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     349                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+     350              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("INT8U"), DW_AT_type(*DW$T$6)
+     351                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     352              DW$T$25 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$19)
+     353                      .dwattr DW$T$25, DW_AT_address_class(0x16)
+     354              
+     355              DW$T$29 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+     356                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+     357              DW$36   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     358                      .dwendtag DW$T$29
+     359              
+     360              DW$T$31 .dwtag  DW_TAG_typedef, DW_AT_name("BOOL"), DW_AT_type(*DW$T$6)
+     361                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+     362              
+     363              DW$T$34 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$31)
+     364                      .dwattr DW$T$34, DW_AT_language(DW_LANG_C)
+     365              DW$37   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+     366              DW$38   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$33)
+     367                      .dwendtag DW$T$34
+     368              
+     369              
+     370              DW$T$35 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$31)
+     371                      .dwattr DW$T$35, DW_AT_language(DW_LANG_C)
+     372              DW$39   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     373                      .dwendtag DW$T$35
+     374              
+     375              DW$T$32 .dwtag  DW_TAG_typedef, DW_AT_name("BYTE"), DW_AT_type(*DW$T$6)
+     376                      .dwattr DW$T$32, DW_AT_language(DW_LANG_C)
+     377              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("INT16U"), DW_AT_type(*DW$T$11)
+     378                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+     379              DW$T$24 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$23)
+     380                      .dwattr DW$T$24, DW_AT_address_class(0x16)
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    8
+
+     381              DW$T$33 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$24)
+     382                      .dwattr DW$T$33, DW_AT_address_class(0x16)
+     383              
+     384              DW$T$37 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$24)
+     385                      .dwattr DW$T$37, DW_AT_language(DW_LANG_C)
+     386              DW$40   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     387                      .dwendtag DW$T$37
+     388              
+     389              
+     390              DW$T$39 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$24)
+     391                      .dwattr DW$T$39, DW_AT_language(DW_LANG_C)
+     392              DW$41   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     393              DW$42   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+     394              DW$43   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     395                      .dwendtag DW$T$39
+     396              
+     397              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+     398                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     399                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+     400              DW$T$23 .dwtag  DW_TAG_typedef, DW_AT_name("OS_EVENT"), DW_AT_type(*DW$T$22)
+     401                      .dwattr DW$T$23, DW_AT_language(DW_LANG_C)
+     402              
+     403              DW$T$22 .dwtag  DW_TAG_structure_type
+     404                      .dwattr DW$T$22, DW_AT_name("os_event")
+     405                      .dwattr DW$T$22, DW_AT_byte_size(0x0e)
+     406              DW$44   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+     407                      .dwattr DW$44, DW_AT_name("OSEventType"), DW_AT_symbol_name("_OSEventType")
+     408                      .dwattr DW$44, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     409                      .dwattr DW$44, DW_AT_accessibility(DW_ACCESS_public)
+     410              DW$45   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     411                      .dwattr DW$45, DW_AT_name("OSEventPtr"), DW_AT_symbol_name("_OSEventPtr")
+     412                      .dwattr DW$45, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     413                      .dwattr DW$45, DW_AT_accessibility(DW_ACCESS_public)
+     414              DW$46   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+     415                      .dwattr DW$46, DW_AT_name("OSEventCnt"), DW_AT_symbol_name("_OSEventCnt")
+     416                      .dwattr DW$46, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     417                      .dwattr DW$46, DW_AT_accessibility(DW_ACCESS_public)
+     418              DW$47   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+     419                      .dwattr DW$47, DW_AT_name("OSEventGrp"), DW_AT_symbol_name("_OSEventGrp")
+     420                      .dwattr DW$47, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+     421                      .dwattr DW$47, DW_AT_accessibility(DW_ACCESS_public)
+     422              DW$48   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$21)
+     423                      .dwattr DW$48, DW_AT_name("OSEventTbl"), DW_AT_symbol_name("_OSEventTbl")
+     424                      .dwattr DW$48, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     425                      .dwattr DW$48, DW_AT_accessibility(DW_ACCESS_public)
+     426                      .dwendtag DW$T$22
+     427              
+     428              DW$T$3  .dwtag  DW_TAG_pointer_type
+     429                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+     430              
+     431              DW$T$21 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$19)
+     432                      .dwattr DW$T$21, DW_AT_language(DW_LANG_C)
+     433                      .dwattr DW$T$21, DW_AT_byte_size(0x08)
+     434              DW$49   .dwtag  DW_TAG_subrange_type
+     435                      .dwattr DW$49, DW_AT_upper_bound(0x07)
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE    9
+
+     436                      .dwendtag DW$T$21
+     437              
+     438              
+     439                      .dwattr DW$13, DW_AT_external(0x01)
+     440                      .dwattr DW$13, DW_AT_type(*DW$T$31)
+     441                      .dwattr DW$19, DW_AT_external(0x01)
+     442                      .dwattr DW$19, DW_AT_type(*DW$T$31)
+     443                      .dwattr DW$29, DW_AT_external(0x01)
+     444                      .dwattr DW$24, DW_AT_external(0x01)
+     445                      .dwattr DW$24, DW_AT_type(*DW$T$31)
+     446                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     447              
+     448              ;***************************************************************
+     449              ;* DWARF CIE ENTRIES                                           *
+     450              ;***************************************************************
+     451              
+     452              DW$CIE  .dwcie 1, 40
+     453                      .dwcfa  0x0c, 20, 0
+     454                      .dwcfa  0x07, 0
+     455                      .dwcfa  0x07, 1
+     456                      .dwcfa  0x07, 2
+     457                      .dwcfa  0x07, 3
+     458                      .dwcfa  0x07, 4
+     459                      .dwcfa  0x07, 5
+     460                      .dwcfa  0x08, 6
+     461                      .dwcfa  0x08, 7
+     462                      .dwcfa  0x08, 8
+     463                      .dwcfa  0x08, 9
+     464                      .dwcfa  0x08, 10
+     465                      .dwcfa  0x08, 11
+     466                      .dwcfa  0x07, 12
+     467                      .dwcfa  0x07, 13
+     468                      .dwcfa  0x07, 14
+     469                      .dwcfa  0x07, 15
+     470                      .dwcfa  0x07, 16
+     471                      .dwcfa  0x07, 17
+     472                      .dwcfa  0x07, 18
+     473                      .dwcfa  0x07, 19
+     474                      .dwcfa  0x07, 20
+     475                      .dwcfa  0x07, 21
+     476                      .dwcfa  0x07, 22
+     477                      .dwcfa  0x07, 23
+     478                      .dwcfa  0x07, 24
+     479                      .dwcfa  0x07, 25
+     480                      .dwcfa  0x07, 26
+     481                      .dwcfa  0x08, 27
+     482                      .dwcfa  0x07, 28
+     483                      .dwcfa  0x07, 29
+     484                      .dwcfa  0x07, 30
+     485                      .dwcfa  0x07, 31
+     486                      .dwcfa  0x07, 32
+     487                      .dwcfa  0x07, 33
+     488                      .dwcfa  0x07, 34
+     489                      .dwcfa  0x07, 35
+     490                      .dwcfa  0x07, 36
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE   10
+
+     491                      .dwcfa  0x07, 37
+     492                      .dwcfa  0x07, 38
+     493                      .dwcfa  0x07, 39
+     494                      .dwcfa  0x07, 40
+     495              
+     496              ;***************************************************************
+     497              ;* DWARF REGISTER MAP                                          *
+     498              ;***************************************************************
+     499              
+     500              DW$50   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     501                      .dwattr DW$50, DW_AT_location[DW_OP_reg0]
+     502              DW$51   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     503                      .dwattr DW$51, DW_AT_location[DW_OP_reg1]
+     504              DW$52   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     505                      .dwattr DW$52, DW_AT_location[DW_OP_reg2]
+     506              DW$53   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     507                      .dwattr DW$53, DW_AT_location[DW_OP_reg3]
+     508              DW$54   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     509                      .dwattr DW$54, DW_AT_location[DW_OP_reg4]
+     510              DW$55   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     511                      .dwattr DW$55, DW_AT_location[DW_OP_reg5]
+     512              DW$56   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     513                      .dwattr DW$56, DW_AT_location[DW_OP_reg6]
+     514              DW$57   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     515                      .dwattr DW$57, DW_AT_location[DW_OP_reg7]
+     516              DW$58   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     517                      .dwattr DW$58, DW_AT_location[DW_OP_reg8]
+     518              DW$59   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     519                      .dwattr DW$59, DW_AT_location[DW_OP_reg9]
+     520              DW$60   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     521                      .dwattr DW$60, DW_AT_location[DW_OP_reg10]
+     522              DW$61   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+     523                      .dwattr DW$61, DW_AT_location[DW_OP_reg11]
+     524              DW$62   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     525                      .dwattr DW$62, DW_AT_location[DW_OP_reg12]
+     526              DW$63   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+     527                      .dwattr DW$63, DW_AT_location[DW_OP_reg13]
+     528              DW$64   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     529                      .dwattr DW$64, DW_AT_location[DW_OP_reg14]
+     530              DW$65   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     531                      .dwattr DW$65, DW_AT_location[DW_OP_reg15]
+     532              DW$66   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     533                      .dwattr DW$66, DW_AT_location[DW_OP_reg16]
+     534              DW$67   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     535                      .dwattr DW$67, DW_AT_location[DW_OP_reg17]
+     536              DW$68   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     537                      .dwattr DW$68, DW_AT_location[DW_OP_reg18]
+     538              DW$69   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     539                      .dwattr DW$69, DW_AT_location[DW_OP_reg19]
+     540              DW$70   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     541                      .dwattr DW$70, DW_AT_location[DW_OP_reg20]
+     542              DW$71   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     543                      .dwattr DW$71, DW_AT_location[DW_OP_reg21]
+     544              DW$72   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     545                      .dwattr DW$72, DW_AT_location[DW_OP_reg22]
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:06:02 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI4282                            PAGE   11
+
+     546              DW$73   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     547                      .dwattr DW$73, DW_AT_location[DW_OP_reg23]
+     548              DW$74   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     549                      .dwattr DW$74, DW_AT_location[DW_OP_reg24]
+     550              DW$75   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     551                      .dwattr DW$75, DW_AT_location[DW_OP_reg25]
+     552              DW$76   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     553                      .dwattr DW$76, DW_AT_location[DW_OP_reg26]
+     554              DW$77   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     555                      .dwattr DW$77, DW_AT_location[DW_OP_reg27]
+     556              DW$78   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     557                      .dwattr DW$78, DW_AT_location[DW_OP_reg28]
+     558              DW$79   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     559                      .dwattr DW$79, DW_AT_location[DW_OP_reg29]
+     560              DW$80   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     561                      .dwattr DW$80, DW_AT_location[DW_OP_reg30]
+     562              DW$81   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     563                      .dwattr DW$81, DW_AT_location[DW_OP_reg31]
+     564              DW$82   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     565                      .dwattr DW$82, DW_AT_location[DW_OP_regx 0x20]
+     566              DW$83   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     567                      .dwattr DW$83, DW_AT_location[DW_OP_regx 0x21]
+     568              DW$84   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     569                      .dwattr DW$84, DW_AT_location[DW_OP_regx 0x22]
+     570              DW$85   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     571                      .dwattr DW$85, DW_AT_location[DW_OP_regx 0x23]
+     572              DW$86   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     573                      .dwattr DW$86, DW_AT_location[DW_OP_regx 0x24]
+     574              DW$87   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     575                      .dwattr DW$87, DW_AT_location[DW_OP_regx 0x25]
+     576              DW$88   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     577                      .dwattr DW$88, DW_AT_location[DW_OP_regx 0x26]
+     578              DW$89   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     579                      .dwattr DW$89, DW_AT_location[DW_OP_regx 0x27]
+     580              DW$90   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     581                      .dwattr DW$90, DW_AT_location[DW_OP_regx 0x28]
+     582                      .dwendtag DW$CU
+     583              
+
+No Assembly Errors, No Assembly Warnings

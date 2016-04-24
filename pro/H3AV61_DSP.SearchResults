@@ -1,0 +1,4 @@
+---- key_input_method_wait_set Matches (3 in 1 files) ----
+Key_input_method.c (d:\h3anew\h3a_dsp-v61\user\keyinput_method):static void key_input_method_wait_set( void )
+Key_input_method.c (d:\h3anew\h3a_dsp-v61\user\keyinput_method):	key_input_method_wait_set();
+Key_input_method.c (d:\h3anew\h3a_dsp-v61\user\keyinput_method):			key_input_method_wait_set();              		/*È·ÈÏµÈ´ý*/

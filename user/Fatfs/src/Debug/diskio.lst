@@ -1,0 +1,1057 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Thu May 05 10:05:56 2011                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("diskio.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              
+      14              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_cs_enable"), DW_AT_symbol_name("_SD_cs_enable")
+      15                      .dwattr DW$1, DW_AT_declaration(0x01)
+      16                      .dwattr DW$1, DW_AT_external(0x01)
+      17              
+      18              DW$2    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_cs_disable"), DW_AT_symbol_name("_SD_cs_disable")
+      19                      .dwattr DW$2, DW_AT_declaration(0x01)
+      20                      .dwattr DW$2, DW_AT_external(0x01)
+      21              
+      22              DW$3    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_spi_config"), DW_AT_symbol_name("_SD_spi_config")
+      23                      .dwattr DW$3, DW_AT_declaration(0x01)
+      24                      .dwattr DW$3, DW_AT_external(0x01)
+      25              
+      26              DW$4    .dwtag  DW_TAG_subprogram, DW_AT_name("BSP_Dly_ms"), DW_AT_symbol_name("_BSP_Dly_ms")
+      27                      .dwattr DW$4, DW_AT_type(*DW$T$10)
+      28                      .dwattr DW$4, DW_AT_declaration(0x01)
+      29                      .dwattr DW$4, DW_AT_external(0x01)
+      30              
+      31              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_Init"), DW_AT_symbol_name("_SD_Init")
+      32                      .dwattr DW$5, DW_AT_type(*DW$T$6)
+      33                      .dwattr DW$5, DW_AT_declaration(0x01)
+      34                      .dwattr DW$5, DW_AT_external(0x01)
+      35              
+      36              DW$6    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_WriteSingleBlock"), DW_AT_symbol_name("_SD_WriteSingleBlock
+      37                      .dwattr DW$6, DW_AT_type(*DW$T$6)
+      38                      .dwattr DW$6, DW_AT_declaration(0x01)
+      39                      .dwattr DW$6, DW_AT_external(0x01)
+      40              DW$7    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+      41              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+      42                      .dwendtag DW$6
+      43              
+      44              
+      45              DW$9    .dwtag  DW_TAG_subprogram, DW_AT_name("SD_ReadSingleBlock"), DW_AT_symbol_name("_SD_ReadSingleBlock")
+      46                      .dwattr DW$9, DW_AT_type(*DW$T$6)
+      47                      .dwattr DW$9, DW_AT_declaration(0x01)
+      48                      .dwattr DW$9, DW_AT_external(0x01)
+      49              DW$10   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+      50              DW$11   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+      51                      .dwendtag DW$9
+      52              
+      53              
+      54              DW$12   .dwtag  DW_TAG_subprogram, DW_AT_name("SD_ReadMultiBlock"), DW_AT_symbol_name("_SD_ReadMultiBlock")
+      55                      .dwattr DW$12, DW_AT_type(*DW$T$6)
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    2
+
+      56                      .dwattr DW$12, DW_AT_declaration(0x01)
+      57                      .dwattr DW$12, DW_AT_external(0x01)
+      58              DW$13   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+      59              DW$14   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+      60              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+      61                      .dwendtag DW$12
+      62              
+      63              
+      64              DW$16   .dwtag  DW_TAG_subprogram, DW_AT_name("SD_wait_ready"), DW_AT_symbol_name("_SD_wait_ready")
+      65                      .dwattr DW$16, DW_AT_type(*DW$T$6)
+      66                      .dwattr DW$16, DW_AT_declaration(0x01)
+      67                      .dwattr DW$16, DW_AT_external(0x01)
+      68              
+      69              DW$17   .dwtag  DW_TAG_subprogram, DW_AT_name("SD_WriteMultiBlock"), DW_AT_symbol_name("_SD_WriteMultiBlock")
+      70                      .dwattr DW$17, DW_AT_type(*DW$T$6)
+      71                      .dwattr DW$17, DW_AT_declaration(0x01)
+      72                      .dwattr DW$17, DW_AT_external(0x01)
+      73              DW$18   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+      74              DW$19   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+      75              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+      76                      .dwendtag DW$17
+      77              
+      78              
+      79              DW$21   .dwtag  DW_TAG_subprogram, DW_AT_name("SD_GetCapacity"), DW_AT_symbol_name("_SD_GetCapacity")
+      80                      .dwattr DW$21, DW_AT_type(*DW$T$13)
+      81                      .dwattr DW$21, DW_AT_declaration(0x01)
+      82                      .dwattr DW$21, DW_AT_external(0x01)
+      83              
+      84              DW$22   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTimeGet"), DW_AT_symbol_name("_OSTimeGet")
+      85                      .dwattr DW$22, DW_AT_type(*DW$T$46)
+      86                      .dwattr DW$22, DW_AT_declaration(0x01)
+      87                      .dwattr DW$22, DW_AT_external(0x01)
+      88              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0484 
+      89 00000000               .sect   ".text"
+      90                      .global _disk_initialize
+      91              
+      92              DW$23   .dwtag  DW_TAG_subprogram, DW_AT_name("disk_initialize"), DW_AT_symbol_name("_disk_initialize")
+      93                      .dwattr DW$23, DW_AT_low_pc(_disk_initialize)
+      94                      .dwattr DW$23, DW_AT_high_pc(0x00)
+      95                      .dwattr DW$23, DW_AT_begin_file("diskio.c")
+      96                      .dwattr DW$23, DW_AT_begin_line(0x0d)
+      97                      .dwattr DW$23, DW_AT_begin_column(0x09)
+      98                      .dwpsn  "diskio.c",16,1
+      99              
+     100                      .dwfde DW$CIE
+     101              
+     102              ;***************************************************************
+     103              ;* FNAME: _disk_initialize              FR SIZE:   2           *
+     104              ;*                                                             *
+     105              ;* FUNCTION ENVIRONMENT                                        *
+     106              ;*                                                             *
+     107              ;* FUNCTION PROPERTIES                                         *
+     108              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     109              ;***************************************************************
+     110              
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    3
+
+     111              _disk_initialize:
+     112                      .dwcfa  0x1d, -2
+     113                      .dwcfa  0x1c, 26, 0
+     114                      .dwcfa  0x09, 40, 26
+     115 00000000 FE02          ADDB      SP,#2
+     116                      .dwcfa  0x1d, -4
+     117              ;* AL    assigned to _drv
+     118              DW$24   .dwtag  DW_TAG_formal_parameter, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     119                      .dwattr DW$24, DW_AT_type(*DW$T$34)
+     120                      .dwattr DW$24, DW_AT_location[DW_OP_reg0]
+     121              DW$25   .dwtag  DW_TAG_variable, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     122                      .dwattr DW$25, DW_AT_type(*DW$T$34)
+     123                      .dwattr DW$25, DW_AT_location[DW_OP_breg20 -1]
+     124              DW$26   .dwtag  DW_TAG_variable, DW_AT_name("state"), DW_AT_symbol_name("_state")
+     125                      .dwattr DW$26, DW_AT_type(*DW$T$6)
+     126                      .dwattr DW$26, DW_AT_location[DW_OP_breg20 -2]
+     127 00000001 9641          MOV       *-SP[1],AL            ; |16| 
+     128                      .dwpsn  "diskio.c",19,2
+     129 00000002 5200          CMPB      AL,#0                 ; |19| 
+     130 00000003 EC03          BF        L1,EQ                 ; |19| 
+     131                      ; branchcc occurs ; |19| 
+     132                      .dwpsn  "diskio.c",21,3
+     133 00000004 9A01          MOVB      AL,#1                 ; |21| 
+     134 00000005 6F12          B         L4,UNC                ; |21| 
+     135                      ; branch occurs ; |21| 
+     136              L1:    
+     137                      .dwpsn  "diskio.c",23,2
+     138 00000006 7640!         LCR       #_SD_spi_config       ; |23| 
+         00000007 0000 
+     139                      ; call occurs [#_SD_spi_config] ; |23| 
+     140                      .dwpsn  "diskio.c",24,2
+     141 00000008 9A01          MOVB      AL,#1                 ; |24| 
+     142 00000009 7640!         LCR       #_BSP_Dly_ms          ; |24| 
+         0000000a 0000 
+     143                      ; call occurs [#_BSP_Dly_ms] ; |24| 
+     144                      .dwpsn  "diskio.c",25,2
+     145 0000000b 7640!         LCR       #_SD_Init             ; |25| 
+         0000000c 0000 
+     146                      ; call occurs [#_SD_Init] ; |25| 
+     147 0000000d 9642          MOV       *-SP[2],AL            ; |25| 
+     148                      .dwpsn  "diskio.c",26,2
+     149 0000000e 5202          CMPB      AL,#2                 ; |26| 
+     150 0000000f ED03          BF        L2,NEQ                ; |26| 
+     151                      ; branchcc occurs ; |26| 
+     152                      .dwpsn  "diskio.c",28,3
+     153 00000010 9A02          MOVB      AL,#2                 ; |28| 
+     154 00000011 6F06          B         L4,UNC                ; |28| 
+     155                      ; branch occurs ; |28| 
+     156              L2:    
+     157                      .dwpsn  "diskio.c",30,7
+     158 00000012 5200          CMPB      AL,#0                 ; |30| 
+     159 00000013 EC03          BF        L3,EQ                 ; |30| 
+     160                      ; branchcc occurs ; |30| 
+     161                      .dwpsn  "diskio.c",32,3
+     162 00000014 9A01          MOVB      AL,#1                 ; |32| 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    4
+
+     163 00000015 6F02          B         L4,UNC                ; |32| 
+     164                      ; branch occurs ; |32| 
+     165              L3:    
+     166                      .dwpsn  "diskio.c",36,3
+     167 00000016 9A00          MOVB      AL,#0
+     168              L4:    
+     169                      .dwpsn  "diskio.c",38,1
+     170 00000017 FE82          SUBB      SP,#2                 ; |36| 
+     171                      .dwcfa  0x1d, -2
+     172 00000018 0006          LRETR
+     173                      ; return occurs
+     174                      .dwattr DW$23, DW_AT_end_file("diskio.c")
+     175                      .dwattr DW$23, DW_AT_end_line(0x26)
+     176                      .dwattr DW$23, DW_AT_end_column(0x01)
+     177                      .dwendentry
+     178                      .dwendtag DW$23
+     179              
+     180 00000019               .sect   ".text"
+     181                      .global _disk_status
+     182              
+     183              DW$27   .dwtag  DW_TAG_subprogram, DW_AT_name("disk_status"), DW_AT_symbol_name("_disk_status")
+     184                      .dwattr DW$27, DW_AT_low_pc(_disk_status)
+     185                      .dwattr DW$27, DW_AT_high_pc(0x00)
+     186                      .dwattr DW$27, DW_AT_begin_file("diskio.c")
+     187                      .dwattr DW$27, DW_AT_begin_line(0x2d)
+     188                      .dwattr DW$27, DW_AT_begin_column(0x09)
+     189                      .dwpsn  "diskio.c",48,1
+     190              
+     191                      .dwfde DW$CIE
+     192              
+     193              ;***************************************************************
+     194              ;* FNAME: _disk_status                  FR SIZE:   2           *
+     195              ;*                                                             *
+     196              ;* FUNCTION ENVIRONMENT                                        *
+     197              ;*                                                             *
+     198              ;* FUNCTION PROPERTIES                                         *
+     199              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+     200              ;***************************************************************
+     201              
+     202              _disk_status:
+     203                      .dwcfa  0x1d, -2
+     204                      .dwcfa  0x1c, 26, 0
+     205                      .dwcfa  0x09, 40, 26
+     206 00000019 FE02          ADDB      SP,#2
+     207                      .dwcfa  0x1d, -4
+     208              ;* AL    assigned to _drv
+     209              DW$28   .dwtag  DW_TAG_formal_parameter, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     210                      .dwattr DW$28, DW_AT_type(*DW$T$34)
+     211                      .dwattr DW$28, DW_AT_location[DW_OP_reg0]
+     212              DW$29   .dwtag  DW_TAG_variable, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     213                      .dwattr DW$29, DW_AT_type(*DW$T$34)
+     214                      .dwattr DW$29, DW_AT_location[DW_OP_breg20 -1]
+     215 0000001a 9641          MOV       *-SP[1],AL            ; |48| 
+     216                      .dwpsn  "diskio.c",49,2
+     217 0000001b 5200          CMPB      AL,#0                 ; |49| 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    5
+
+     218 0000001c EC03          BF        L5,EQ                 ; |49| 
+     219                      ; branchcc occurs ; |49| 
+     220                      .dwpsn  "diskio.c",51,3
+     221 0000001d 9A01          MOVB      AL,#1                 ; |51| 
+     222 0000001e 6F02          B         L6,UNC                ; |51| 
+     223                      ; branch occurs ; |51| 
+     224              L5:    
+     225                      .dwpsn  "diskio.c",59,2
+     226 0000001f 9A00          MOVB      AL,#0
+     227              L6:    
+     228                      .dwpsn  "diskio.c",60,1
+     229 00000020 FE82          SUBB      SP,#2                 ; |59| 
+     230                      .dwcfa  0x1d, -2
+     231 00000021 0006          LRETR
+     232                      ; return occurs
+     233                      .dwattr DW$27, DW_AT_end_file("diskio.c")
+     234                      .dwattr DW$27, DW_AT_end_line(0x3c)
+     235                      .dwattr DW$27, DW_AT_end_column(0x01)
+     236                      .dwendentry
+     237                      .dwendtag DW$27
+     238              
+     239 00000022               .sect   ".text"
+     240                      .global _disk_read
+     241              
+     242              DW$30   .dwtag  DW_TAG_subprogram, DW_AT_name("disk_read"), DW_AT_symbol_name("_disk_read")
+     243                      .dwattr DW$30, DW_AT_low_pc(_disk_read)
+     244                      .dwattr DW$30, DW_AT_high_pc(0x00)
+     245                      .dwattr DW$30, DW_AT_begin_file("diskio.c")
+     246                      .dwattr DW$30, DW_AT_begin_line(0x43)
+     247                      .dwattr DW$30, DW_AT_begin_column(0x09)
+     248                      .dwpsn  "diskio.c",73,1
+     249              
+     250                      .dwfde DW$CIE
+     251              
+     252              ;***************************************************************
+     253              ;* FNAME: _disk_read                    FR SIZE:   8           *
+     254              ;*                                                             *
+     255              ;* FUNCTION ENVIRONMENT                                        *
+     256              ;*                                                             *
+     257              ;* FUNCTION PROPERTIES                                         *
+     258              ;*                            0 Parameter,  7 Auto,  0 SOE     *
+     259              ;***************************************************************
+     260              
+     261              _disk_read:
+     262                      .dwcfa  0x1d, -2
+     263                      .dwcfa  0x1c, 26, 0
+     264                      .dwcfa  0x09, 40, 26
+     265 00000022 FE08          ADDB      SP,#8
+     266                      .dwcfa  0x1d, -10
+     267              ;* AR5   assigned to _drv
+     268              DW$31   .dwtag  DW_TAG_formal_parameter, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     269                      .dwattr DW$31, DW_AT_type(*DW$T$34)
+     270                      .dwattr DW$31, DW_AT_location[DW_OP_reg14]
+     271              ;* AR4   assigned to _buff
+     272              DW$32   .dwtag  DW_TAG_formal_parameter, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    6
+
+     273                      .dwattr DW$32, DW_AT_type(*DW$T$37)
+     274                      .dwattr DW$32, DW_AT_location[DW_OP_reg12]
+     275              ;* AL    assigned to _sector
+     276              DW$33   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sector"), DW_AT_symbol_name("_sector")
+     277                      .dwattr DW$33, DW_AT_type(*DW$T$49)
+     278                      .dwattr DW$33, DW_AT_location[DW_OP_reg0]
+     279              DW$34   .dwtag  DW_TAG_formal_parameter, DW_AT_name("count"), DW_AT_symbol_name("_count")
+     280                      .dwattr DW$34, DW_AT_type(*DW$T$34)
+     281                      .dwattr DW$34, DW_AT_location[DW_OP_breg20 -11]
+     282              DW$35   .dwtag  DW_TAG_variable, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     283                      .dwattr DW$35, DW_AT_type(*DW$T$34)
+     284                      .dwattr DW$35, DW_AT_location[DW_OP_breg20 -1]
+     285              DW$36   .dwtag  DW_TAG_variable, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+     286                      .dwattr DW$36, DW_AT_type(*DW$T$37)
+     287                      .dwattr DW$36, DW_AT_location[DW_OP_breg20 -4]
+     288              DW$37   .dwtag  DW_TAG_variable, DW_AT_name("sector"), DW_AT_symbol_name("_sector")
+     289                      .dwattr DW$37, DW_AT_type(*DW$T$49)
+     290                      .dwattr DW$37, DW_AT_location[DW_OP_breg20 -6]
+     291              DW$38   .dwtag  DW_TAG_variable, DW_AT_name("res"), DW_AT_symbol_name("_res")
+     292                      .dwattr DW$38, DW_AT_type(*DW$T$6)
+     293                      .dwattr DW$38, DW_AT_location[DW_OP_breg20 -7]
+     294 00000023 1E46          MOVL      *-SP[6],ACC           ; |73| 
+     295 00000024 A844          MOVL      *-SP[4],XAR4          ; |73| 
+     296 00000025 7D41          MOV       *-SP[1],AR5           ; |73| 
+     297                      .dwpsn  "diskio.c",74,16
+     298 00000026 2B47          MOV       *-SP[7],#0            ; |74| 
+     299                      .dwpsn  "diskio.c",75,2
+     300 00000027 9241          MOV       AL,*-SP[1]            ; |75| 
+     301 00000028 ED03          BF        L7,NEQ                ; |75| 
+     302                      ; branchcc occurs ; |75| 
+     303 00000029 924B          MOV       AL,*-SP[11]           ; |75| 
+     304 0000002a ED03          BF        L8,NEQ                ; |75| 
+     305                      ; branchcc occurs ; |75| 
+     306              L7:    
+     307                      .dwpsn  "diskio.c",77,3
+     308 0000002b 9A04          MOVB      AL,#4                 ; |77| 
+     309 0000002c 6F14          B         L12,UNC               ; |77| 
+     310                      ; branch occurs ; |77| 
+     311              L8:    
+     312                      .dwpsn  "diskio.c",84,2
+     313 0000002d 5201          CMPB      AL,#1                 ; |84| 
+     314 0000002e ED07          BF        L9,NEQ                ; |84| 
+     315                      ; branchcc occurs ; |84| 
+     316                      .dwpsn  "diskio.c",86,3
+     317 0000002f 8A44          MOVL      XAR4,*-SP[4]          ; |86| 
+     318 00000030 0646          MOVL      ACC,*-SP[6]           ; |86| 
+     319 00000031 7640!         LCR       #_SD_ReadSingleBlock  ; |86| 
+         00000032 0000 
+     320                      ; call occurs [#_SD_ReadSingleBlock] ; |86| 
+     321 00000033 9647          MOV       *-SP[7],AL            ; |86| 
+     322                      .dwpsn  "diskio.c",87,2
+     323 00000034 6F07          B         L10,UNC               ; |87| 
+     324                      ; branch occurs ; |87| 
+     325              L9:    
+     326                      .dwpsn  "diskio.c",90,3
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    7
+
+     327 00000035 8A44          MOVL      XAR4,*-SP[4]          ; |90| 
+     328 00000036 5D4B          MOVZ      AR5,*-SP[11]          ; |90| 
+     329 00000037 0646          MOVL      ACC,*-SP[6]           ; |90| 
+     330 00000038 7640!         LCR       #_SD_ReadMultiBlock   ; |90| 
+         00000039 0000 
+     331                      ; call occurs [#_SD_ReadMultiBlock] ; |90| 
+     332 0000003a 9647          MOV       *-SP[7],AL            ; |90| 
+     333              L10:    
+     334                      .dwpsn  "diskio.c",94,2
+     335 0000003b 5200          CMPB      AL,#0                 ; |94| 
+     336 0000003c ED03          BF        L11,NEQ               ; |94| 
+     337                      ; branchcc occurs ; |94| 
+     338                      .dwpsn  "diskio.c",96,3
+     339 0000003d 9A00          MOVB      AL,#0
+     340 0000003e 6F02          B         L12,UNC               ; |96| 
+     341                      ; branch occurs ; |96| 
+     342              L11:    
+     343                      .dwpsn  "diskio.c",100,3
+     344 0000003f 9A01          MOVB      AL,#1                 ; |100| 
+     345              L12:    
+     346                      .dwpsn  "diskio.c",102,1
+     347 00000040 FE88          SUBB      SP,#8                 ; |100| 
+     348                      .dwcfa  0x1d, -2
+     349 00000041 0006          LRETR
+     350                      ; return occurs
+     351                      .dwattr DW$30, DW_AT_end_file("diskio.c")
+     352                      .dwattr DW$30, DW_AT_end_line(0x66)
+     353                      .dwattr DW$30, DW_AT_end_column(0x01)
+     354                      .dwendentry
+     355                      .dwendtag DW$30
+     356              
+     357 00000042               .sect   ".text"
+     358                      .global _disk_write
+     359              
+     360              DW$39   .dwtag  DW_TAG_subprogram, DW_AT_name("disk_write"), DW_AT_symbol_name("_disk_write")
+     361                      .dwattr DW$39, DW_AT_low_pc(_disk_write)
+     362                      .dwattr DW$39, DW_AT_high_pc(0x00)
+     363                      .dwattr DW$39, DW_AT_begin_file("diskio.c")
+     364                      .dwattr DW$39, DW_AT_begin_line(0x6c)
+     365                      .dwattr DW$39, DW_AT_begin_column(0x09)
+     366                      .dwpsn  "diskio.c",114,1
+     367              
+     368                      .dwfde DW$CIE
+     369              
+     370              ;***************************************************************
+     371              ;* FNAME: _disk_write                   FR SIZE:   8           *
+     372              ;*                                                             *
+     373              ;* FUNCTION ENVIRONMENT                                        *
+     374              ;*                                                             *
+     375              ;* FUNCTION PROPERTIES                                         *
+     376              ;*                            0 Parameter,  7 Auto,  0 SOE     *
+     377              ;***************************************************************
+     378              
+     379              _disk_write:
+     380                      .dwcfa  0x1d, -2
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    8
+
+     381                      .dwcfa  0x1c, 26, 0
+     382                      .dwcfa  0x09, 40, 26
+     383 00000042 FE08          ADDB      SP,#8
+     384                      .dwcfa  0x1d, -10
+     385              ;* AR5   assigned to _drv
+     386              DW$40   .dwtag  DW_TAG_formal_parameter, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     387                      .dwattr DW$40, DW_AT_type(*DW$T$34)
+     388                      .dwattr DW$40, DW_AT_location[DW_OP_reg14]
+     389              ;* AR4   assigned to _buff
+     390              DW$41   .dwtag  DW_TAG_formal_parameter, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+     391                      .dwattr DW$41, DW_AT_type(*DW$T$39)
+     392                      .dwattr DW$41, DW_AT_location[DW_OP_reg12]
+     393              ;* AL    assigned to _sector
+     394              DW$42   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sector"), DW_AT_symbol_name("_sector")
+     395                      .dwattr DW$42, DW_AT_type(*DW$T$49)
+     396                      .dwattr DW$42, DW_AT_location[DW_OP_reg0]
+     397              DW$43   .dwtag  DW_TAG_formal_parameter, DW_AT_name("count"), DW_AT_symbol_name("_count")
+     398                      .dwattr DW$43, DW_AT_type(*DW$T$34)
+     399                      .dwattr DW$43, DW_AT_location[DW_OP_breg20 -11]
+     400              DW$44   .dwtag  DW_TAG_variable, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     401                      .dwattr DW$44, DW_AT_type(*DW$T$34)
+     402                      .dwattr DW$44, DW_AT_location[DW_OP_breg20 -1]
+     403              DW$45   .dwtag  DW_TAG_variable, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+     404                      .dwattr DW$45, DW_AT_type(*DW$T$39)
+     405                      .dwattr DW$45, DW_AT_location[DW_OP_breg20 -4]
+     406              DW$46   .dwtag  DW_TAG_variable, DW_AT_name("sector"), DW_AT_symbol_name("_sector")
+     407                      .dwattr DW$46, DW_AT_type(*DW$T$49)
+     408                      .dwattr DW$46, DW_AT_location[DW_OP_breg20 -6]
+     409              DW$47   .dwtag  DW_TAG_variable, DW_AT_name("res"), DW_AT_symbol_name("_res")
+     410                      .dwattr DW$47, DW_AT_type(*DW$T$6)
+     411                      .dwattr DW$47, DW_AT_location[DW_OP_breg20 -7]
+     412 00000043 1E46          MOVL      *-SP[6],ACC           ; |114| 
+     413 00000044 A844          MOVL      *-SP[4],XAR4          ; |114| 
+     414 00000045 7D41          MOV       *-SP[1],AR5           ; |114| 
+     415                      .dwpsn  "diskio.c",117,2
+     416 00000046 9241          MOV       AL,*-SP[1]            ; |117| 
+     417 00000047 ED03          BF        L13,NEQ               ; |117| 
+     418                      ; branchcc occurs ; |117| 
+     419 00000048 924B          MOV       AL,*-SP[11]           ; |117| 
+     420 00000049 ED03          BF        L14,NEQ               ; |117| 
+     421                      ; branchcc occurs ; |117| 
+     422              L13:    
+     423                      .dwpsn  "diskio.c",119,3
+     424 0000004a 9A04          MOVB      AL,#4                 ; |119| 
+     425 0000004b 6F14          B         L18,UNC               ; |119| 
+     426                      ; branch occurs ; |119| 
+     427              L14:    
+     428                      .dwpsn  "diskio.c",129,2
+     429 0000004c 5201          CMPB      AL,#1                 ; |129| 
+     430 0000004d ED07          BF        L15,NEQ               ; |129| 
+     431                      ; branchcc occurs ; |129| 
+     432                      .dwpsn  "diskio.c",131,3
+     433 0000004e 8A44          MOVL      XAR4,*-SP[4]          ; |131| 
+     434 0000004f 0646          MOVL      ACC,*-SP[6]           ; |131| 
+     435 00000050 7640!         LCR       #_SD_WriteSingleBlock ; |131| 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE    9
+
+         00000051 0000 
+     436                      ; call occurs [#_SD_WriteSingleBlock] ; |131| 
+     437 00000052 9647          MOV       *-SP[7],AL            ; |131| 
+     438                      .dwpsn  "diskio.c",132,2
+     439 00000053 6F07          B         L16,UNC               ; |132| 
+     440                      ; branch occurs ; |132| 
+     441              L15:    
+     442                      .dwpsn  "diskio.c",135,3
+     443 00000054 8A44          MOVL      XAR4,*-SP[4]          ; |135| 
+     444 00000055 5D4B          MOVZ      AR5,*-SP[11]          ; |135| 
+     445 00000056 0646          MOVL      ACC,*-SP[6]           ; |135| 
+     446 00000057 7640!         LCR       #_SD_WriteMultiBlock  ; |135| 
+         00000058 0000 
+     447                      ; call occurs [#_SD_WriteMultiBlock] ; |135| 
+     448 00000059 9647          MOV       *-SP[7],AL            ; |135| 
+     449              L16:    
+     450                      .dwpsn  "diskio.c",138,2
+     451 0000005a 5200          CMPB      AL,#0                 ; |138| 
+     452 0000005b ED03          BF        L17,NEQ               ; |138| 
+     453                      ; branchcc occurs ; |138| 
+     454                      .dwpsn  "diskio.c",140,3
+     455 0000005c 9A00          MOVB      AL,#0
+     456 0000005d 6F02          B         L18,UNC               ; |140| 
+     457                      ; branch occurs ; |140| 
+     458              L17:    
+     459                      .dwpsn  "diskio.c",144,3
+     460 0000005e 9A01          MOVB      AL,#1                 ; |144| 
+     461              L18:    
+     462                      .dwpsn  "diskio.c",146,1
+     463 0000005f FE88          SUBB      SP,#8                 ; |144| 
+     464                      .dwcfa  0x1d, -2
+     465 00000060 0006          LRETR
+     466                      ; return occurs
+     467                      .dwattr DW$39, DW_AT_end_file("diskio.c")
+     468                      .dwattr DW$39, DW_AT_end_line(0x92)
+     469                      .dwattr DW$39, DW_AT_end_column(0x01)
+     470                      .dwendentry
+     471                      .dwendtag DW$39
+     472              
+     473 00000061               .sect   ".text"
+     474                      .global _disk_ioctl
+     475              
+     476              DW$48   .dwtag  DW_TAG_subprogram, DW_AT_name("disk_ioctl"), DW_AT_symbol_name("_disk_ioctl")
+     477                      .dwattr DW$48, DW_AT_low_pc(_disk_ioctl)
+     478                      .dwattr DW$48, DW_AT_high_pc(0x00)
+     479                      .dwattr DW$48, DW_AT_begin_file("diskio.c")
+     480                      .dwattr DW$48, DW_AT_begin_line(0x9a)
+     481                      .dwattr DW$48, DW_AT_begin_column(0x09)
+     482                      .dwpsn  "diskio.c",160,1
+     483              
+     484                      .dwfde DW$CIE
+     485              
+     486              ;***************************************************************
+     487              ;* FNAME: _disk_ioctl                   FR SIZE:   6           *
+     488              ;*                                                             *
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   10
+
+     489              ;* FUNCTION ENVIRONMENT                                        *
+     490              ;*                                                             *
+     491              ;* FUNCTION PROPERTIES                                         *
+     492              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+     493              ;***************************************************************
+     494              
+     495              _disk_ioctl:
+     496                      .dwcfa  0x1d, -2
+     497                      .dwcfa  0x1c, 26, 0
+     498                      .dwcfa  0x09, 40, 26
+     499 00000061 FE06          ADDB      SP,#6
+     500                      .dwcfa  0x1d, -8
+     501              ;* AL    assigned to _drv
+     502              DW$49   .dwtag  DW_TAG_formal_parameter, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     503                      .dwattr DW$49, DW_AT_type(*DW$T$34)
+     504                      .dwattr DW$49, DW_AT_location[DW_OP_reg0]
+     505              ;* AH    assigned to _ctrl
+     506              DW$50   .dwtag  DW_TAG_formal_parameter, DW_AT_name("ctrl"), DW_AT_symbol_name("_ctrl")
+     507                      .dwattr DW$50, DW_AT_type(*DW$T$34)
+     508                      .dwattr DW$50, DW_AT_location[DW_OP_reg1]
+     509              ;* AR4   assigned to _buff
+     510              DW$51   .dwtag  DW_TAG_formal_parameter, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+     511                      .dwattr DW$51, DW_AT_type(*DW$T$3)
+     512                      .dwattr DW$51, DW_AT_location[DW_OP_reg12]
+     513              DW$52   .dwtag  DW_TAG_variable, DW_AT_name("drv"), DW_AT_symbol_name("_drv")
+     514                      .dwattr DW$52, DW_AT_type(*DW$T$34)
+     515                      .dwattr DW$52, DW_AT_location[DW_OP_breg20 -1]
+     516              DW$53   .dwtag  DW_TAG_variable, DW_AT_name("ctrl"), DW_AT_symbol_name("_ctrl")
+     517                      .dwattr DW$53, DW_AT_type(*DW$T$34)
+     518                      .dwattr DW$53, DW_AT_location[DW_OP_breg20 -2]
+     519              DW$54   .dwtag  DW_TAG_variable, DW_AT_name("buff"), DW_AT_symbol_name("_buff")
+     520                      .dwattr DW$54, DW_AT_type(*DW$T$3)
+     521                      .dwattr DW$54, DW_AT_location[DW_OP_breg20 -4]
+     522              DW$55   .dwtag  DW_TAG_variable, DW_AT_name("res"), DW_AT_symbol_name("_res")
+     523                      .dwattr DW$55, DW_AT_type(*DW$T$53)
+     524                      .dwattr DW$55, DW_AT_location[DW_OP_breg20 -5]
+     525 00000062 A844          MOVL      *-SP[4],XAR4          ; |160| 
+     526 00000063 9742          MOV       *-SP[2],AH            ; |160| 
+     527 00000064 9641          MOV       *-SP[1],AL            ; |160| 
+     528                      .dwpsn  "diskio.c",164,2
+     529 00000065 5200          CMPB      AL,#0                 ; |164| 
+     530 00000066 EC1E          BF        L25,EQ                ; |164| 
+     531                      ; branchcc occurs ; |164| 
+     532                      .dwpsn  "diskio.c",166,3
+     533 00000067 9A04          MOVB      AL,#4                 ; |166| 
+     534 00000068 6F25          B         L27,UNC               ; |166| 
+     535                      ; branch occurs ; |166| 
+     536              L19:    
+     537                      .dwpsn  "diskio.c",173,3
+     538 00000069 7640!         LCR       #_SD_cs_enable        ; |173| 
+         0000006a 0000 
+     539                      ; call occurs [#_SD_cs_enable] ; |173| 
+     540                      .dwpsn  "diskio.c",174,3
+     541 0000006b 7640!         LCR       #_SD_wait_ready       ; |174| 
+         0000006c 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   11
+
+     542                      ; call occurs [#_SD_wait_ready] ; |174| 
+     543 0000006d 5200          CMPB      AL,#0                 ; |174| 
+     544 0000006e ED03          BF        L20,NEQ               ; |174| 
+     545                      ; branchcc occurs ; |174| 
+     546                      .dwpsn  "diskio.c",176,4
+     547 0000006f 2B45          MOV       *-SP[5],#0            ; |176| 
+     548                      .dwpsn  "diskio.c",177,3
+     549 00000070 6F03          B         L21,UNC               ; |177| 
+     550                      ; branch occurs ; |177| 
+     551              L20:    
+     552                      .dwpsn  "diskio.c",180,4
+     553 00000071 2845          MOV       *-SP[5],#1            ; |180| 
+         00000072 0001 
+     554              L21:    
+     555                      .dwpsn  "diskio.c",182,3
+     556 00000073 7640!         LCR       #_SD_cs_disable       ; |182| 
+         00000074 0000 
+     557                      ; call occurs [#_SD_cs_disable] ; |182| 
+     558                      .dwpsn  "diskio.c",183,8
+     559 00000075 6F17          B         L26,UNC               ; |183| 
+     560                      ; branch occurs ; |183| 
+     561              L22:    
+     562                      .dwpsn  "diskio.c",187,3
+     563 00000076 8A44          MOVL      XAR4,*-SP[4]          ; |187| 
+     564 00000077 28C4          MOV       *+XAR4[0],#512        ; |187| 
+         00000078 0200 
+     565                      .dwpsn  "diskio.c",188,3
+     566 00000079 2B45          MOV       *-SP[5],#0            ; |188| 
+     567                      .dwpsn  "diskio.c",189,8
+     568 0000007a 6F12          B         L26,UNC               ; |189| 
+     569                      ; branch occurs ; |189| 
+     570              L23:    
+     571                      .dwpsn  "diskio.c",192,3
+     572 0000007b 7640!         LCR       #_SD_GetCapacity      ; |192| 
+         0000007c 0000 
+     573                      ; call occurs [#_SD_GetCapacity] ; |192| 
+     574 0000007d 8A44          MOVL      XAR4,*-SP[4]          ; |192| 
+     575 0000007e 1EC4          MOVL      *+XAR4[0],ACC         ; |192| 
+     576                      .dwpsn  "diskio.c",193,3
+     577 0000007f 2B45          MOV       *-SP[5],#0            ; |193| 
+     578                      .dwpsn  "diskio.c",194,8
+     579 00000080 6F0C          B         L26,UNC               ; |194| 
+     580                      ; branch occurs ; |194| 
+     581              L24:    
+     582                      .dwpsn  "diskio.c",196,3
+     583 00000081 2845          MOV       *-SP[5],#4            ; |196| 
+         00000082 0004 
+     584                      .dwpsn  "diskio.c",197,8
+     585 00000083 6F09          B         L26,UNC               ; |197| 
+     586                      ; branch occurs ; |197| 
+     587              L25:    
+     588                      .dwpsn  "diskio.c",170,2
+     589 00000084 9242          MOV       AL,*-SP[2]            ; |170| 
+     590 00000085 ECE4          BF        L19,EQ                ; |170| 
+     591                      ; branchcc occurs ; |170| 
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   12
+
+     592 00000086 5201          CMPB      AL,#1                 ; |170| 
+     593 00000087 ECF4          BF        L23,EQ                ; |170| 
+     594                      ; branchcc occurs ; |170| 
+     595 00000088 9CFE          ADDB      AL,#-2
+     596 00000089 5201          CMPB      AL,#1                 ; |170| 
+     597 0000008a 69EC          B         L22,LOS               ; |170| 
+     598                      ; branchcc occurs ; |170| 
+     599 0000008b 6FF6          B         L24,UNC               ; |170| 
+     600                      ; branch occurs ; |170| 
+     601              L26:    
+     602                      .dwpsn  "diskio.c",200,2
+     603 0000008c 9245          MOV       AL,*-SP[5]            ; |200| 
+     604              L27:    
+     605                      .dwpsn  "diskio.c",201,1
+     606 0000008d FE86          SUBB      SP,#6                 ; |200| 
+     607                      .dwcfa  0x1d, -2
+     608 0000008e 0006          LRETR
+     609                      ; return occurs
+     610                      .dwattr DW$48, DW_AT_end_file("diskio.c")
+     611                      .dwattr DW$48, DW_AT_end_line(0xc9)
+     612                      .dwattr DW$48, DW_AT_end_column(0x01)
+     613                      .dwendentry
+     614                      .dwendtag DW$48
+     615              
+     616 0000008f               .sect   ".text"
+     617                      .global _get_fattime
+     618              
+     619              DW$56   .dwtag  DW_TAG_subprogram, DW_AT_name("get_fattime"), DW_AT_symbol_name("_get_fattime")
+     620                      .dwattr DW$56, DW_AT_low_pc(_get_fattime)
+     621                      .dwattr DW$56, DW_AT_high_pc(0x00)
+     622                      .dwattr DW$56, DW_AT_begin_file("diskio.c")
+     623                      .dwattr DW$56, DW_AT_begin_line(0xd1)
+     624                      .dwattr DW$56, DW_AT_begin_column(0x07)
+     625                      .dwpsn  "diskio.c",210,1
+     626              
+     627                      .dwfde DW$CIE
+     628              
+     629              ;***************************************************************
+     630              ;* FNAME: _get_fattime                  FR SIZE:   0           *
+     631              ;*                                                             *
+     632              ;* FUNCTION ENVIRONMENT                                        *
+     633              ;*                                                             *
+     634              ;* FUNCTION PROPERTIES                                         *
+     635              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     636              ;***************************************************************
+     637              
+     638              _get_fattime:
+     639                      .dwcfa  0x1d, -2
+     640                      .dwcfa  0x1c, 26, 0
+     641                      .dwcfa  0x09, 40, 26
+     642                      .dwpsn  "diskio.c",211,2
+     643 0000008f 7640!         LCR       #_OSTimeGet           ; |211| 
+         00000090 0000 
+     644                      ; call occurs [#_OSTimeGet] ; |211| 
+     645                      .dwpsn  "diskio.c",212,1
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   13
+
+     646 00000091 0006          LRETR
+     647                      ; return occurs
+     648                      .dwattr DW$56, DW_AT_end_file("diskio.c")
+     649                      .dwattr DW$56, DW_AT_end_line(0xd4)
+     650                      .dwattr DW$56, DW_AT_end_column(0x01)
+     651                      .dwendentry
+     652                      .dwendtag DW$56
+     653              
+     654              ;***************************************************************
+     655              ;* UNDEFINED EXTERNAL REFERENCES                               *
+     656              ;***************************************************************
+     657                      .global _SD_cs_enable
+     658                      .global _SD_cs_disable
+     659                      .global _SD_spi_config
+     660                      .global _BSP_Dly_ms
+     661                      .global _SD_Init
+     662                      .global _SD_WriteSingleBlock
+     663                      .global _SD_ReadSingleBlock
+     664                      .global _SD_ReadMultiBlock
+     665                      .global _SD_wait_ready
+     666                      .global _SD_WriteMultiBlock
+     667                      .global _SD_GetCapacity
+     668                      .global _OSTimeGet
+     669              
+     670              ;***************************************************************
+     671              ;* TYPE INFORMATION                                            *
+     672              ;***************************************************************
+     673              DW$T$3  .dwtag  DW_TAG_pointer_type
+     674                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+     675              
+     676              DW$T$19 .dwtag  DW_TAG_subroutine_type
+     677                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     678              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+     679                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     680                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+     681              
+     682              DW$T$21 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+     683                      .dwattr DW$T$21, DW_AT_language(DW_LANG_C)
+     684              DW$T$23 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$6)
+     685                      .dwattr DW$T$23, DW_AT_address_class(0x16)
+     686              
+     687              DW$T$24 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+     688                      .dwattr DW$T$24, DW_AT_language(DW_LANG_C)
+     689              DW$57   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+     690              DW$58   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+     691                      .dwendtag DW$T$24
+     692              
+     693              DW$T$27 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$26)
+     694                      .dwattr DW$T$27, DW_AT_address_class(0x16)
+     695              
+     696              DW$T$28 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+     697                      .dwattr DW$T$28, DW_AT_language(DW_LANG_C)
+     698              DW$59   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+     699              DW$60   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+     700                      .dwendtag DW$T$28
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   14
+
+     701              
+     702              
+     703              DW$T$30 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+     704                      .dwattr DW$T$30, DW_AT_language(DW_LANG_C)
+     705              DW$61   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+     706              DW$62   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+     707              DW$63   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+     708                      .dwendtag DW$T$30
+     709              
+     710              
+     711              DW$T$32 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+     712                      .dwattr DW$T$32, DW_AT_language(DW_LANG_C)
+     713              DW$64   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$13)
+     714              DW$65   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$27)
+     715              DW$66   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+     716                      .dwendtag DW$T$32
+     717              
+     718              DW$T$34 .dwtag  DW_TAG_typedef, DW_AT_name("BYTE"), DW_AT_type(*DW$T$6)
+     719                      .dwattr DW$T$34, DW_AT_language(DW_LANG_C)
+     720              
+     721              DW$T$36 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$35)
+     722                      .dwattr DW$T$36, DW_AT_language(DW_LANG_C)
+     723              DW$67   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     724                      .dwendtag DW$T$36
+     725              
+     726              DW$T$37 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$34)
+     727                      .dwattr DW$T$37, DW_AT_address_class(0x16)
+     728              DW$T$39 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$38)
+     729                      .dwattr DW$T$39, DW_AT_address_class(0x16)
+     730              DW$T$10 .dwtag  DW_TAG_base_type, DW_AT_name("int")
+     731                      .dwattr DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     732                      .dwattr DW$T$10, DW_AT_byte_size(0x01)
+     733              
+     734              DW$T$42 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$10)
+     735                      .dwattr DW$T$42, DW_AT_language(DW_LANG_C)
+     736              DW$T$13 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned long")
+     737                      .dwattr DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     738                      .dwattr DW$T$13, DW_AT_byte_size(0x02)
+     739              
+     740              DW$T$44 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$13)
+     741                      .dwattr DW$T$44, DW_AT_language(DW_LANG_C)
+     742              DW$T$46 .dwtag  DW_TAG_typedef, DW_AT_name("INT32U"), DW_AT_type(*DW$T$13)
+     743                      .dwattr DW$T$46, DW_AT_language(DW_LANG_C)
+     744              
+     745              DW$T$47 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$46)
+     746                      .dwattr DW$T$47, DW_AT_language(DW_LANG_C)
+     747              DW$T$49 .dwtag  DW_TAG_typedef, DW_AT_name("DWORD"), DW_AT_type(*DW$T$13)
+     748                      .dwattr DW$T$49, DW_AT_language(DW_LANG_C)
+     749              
+     750              DW$T$50 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$49)
+     751                      .dwattr DW$T$50, DW_AT_language(DW_LANG_C)
+     752              DW$T$53 .dwtag  DW_TAG_typedef, DW_AT_name("DRESULT"), DW_AT_type(*DW$T$52)
+     753                      .dwattr DW$T$53, DW_AT_language(DW_LANG_C)
+     754              
+     755              DW$T$54 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$53)
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   15
+
+     756                      .dwattr DW$T$54, DW_AT_language(DW_LANG_C)
+     757              DW$68   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     758              DW$69   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+     759              DW$70   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$49)
+     760              DW$71   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     761                      .dwendtag DW$T$54
+     762              
+     763              
+     764              DW$T$55 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$53)
+     765                      .dwattr DW$T$55, DW_AT_language(DW_LANG_C)
+     766              DW$72   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     767              DW$73   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$39)
+     768              DW$74   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$49)
+     769              DW$75   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     770                      .dwendtag DW$T$55
+     771              
+     772              
+     773              DW$T$56 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$53)
+     774                      .dwattr DW$T$56, DW_AT_language(DW_LANG_C)
+     775              DW$76   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     776              DW$77   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$34)
+     777              DW$78   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     778                      .dwendtag DW$T$56
+     779              
+     780              DW$79   .dwtag  DW_TAG_far_type
+     781                      .dwattr DW$79, DW_AT_type(*DW$T$6)
+     782              DW$T$26 .dwtag  DW_TAG_const_type
+     783                      .dwattr DW$T$26, DW_AT_type(*DW$79)
+     784              DW$T$35 .dwtag  DW_TAG_typedef, DW_AT_name("DSTATUS"), DW_AT_type(*DW$T$34)
+     785                      .dwattr DW$T$35, DW_AT_language(DW_LANG_C)
+     786              DW$80   .dwtag  DW_TAG_far_type
+     787                      .dwattr DW$80, DW_AT_type(*DW$T$34)
+     788              DW$T$38 .dwtag  DW_TAG_const_type
+     789                      .dwattr DW$T$38, DW_AT_type(*DW$80)
+     790              
+     791              DW$T$52 .dwtag  DW_TAG_enumeration_type
+     792                      .dwattr DW$T$52, DW_AT_byte_size(0x01)
+     793              DW$81   .dwtag  DW_TAG_enumerator, DW_AT_name("RES_OK"), DW_AT_const_value(0x00)
+     794              DW$82   .dwtag  DW_TAG_enumerator, DW_AT_name("RES_ERROR"), DW_AT_const_value(0x01)
+     795              DW$83   .dwtag  DW_TAG_enumerator, DW_AT_name("RES_WRPRT"), DW_AT_const_value(0x02)
+     796              DW$84   .dwtag  DW_TAG_enumerator, DW_AT_name("RES_NOTRDY"), DW_AT_const_value(0x03)
+     797              DW$85   .dwtag  DW_TAG_enumerator, DW_AT_name("RES_PARERR"), DW_AT_const_value(0x04)
+     798                      .dwendtag DW$T$52
+     799              
+     800              
+     801                      .dwattr DW$23, DW_AT_external(0x01)
+     802                      .dwattr DW$23, DW_AT_type(*DW$T$35)
+     803                      .dwattr DW$48, DW_AT_external(0x01)
+     804                      .dwattr DW$48, DW_AT_type(*DW$T$53)
+     805                      .dwattr DW$30, DW_AT_external(0x01)
+     806                      .dwattr DW$30, DW_AT_type(*DW$T$53)
+     807                      .dwattr DW$27, DW_AT_external(0x01)
+     808                      .dwattr DW$27, DW_AT_type(*DW$T$35)
+     809                      .dwattr DW$39, DW_AT_external(0x01)
+     810                      .dwattr DW$39, DW_AT_type(*DW$T$53)
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   16
+
+     811                      .dwattr DW$56, DW_AT_external(0x01)
+     812                      .dwattr DW$56, DW_AT_type(*DW$T$49)
+     813                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     814              
+     815              ;***************************************************************
+     816              ;* DWARF CIE ENTRIES                                           *
+     817              ;***************************************************************
+     818              
+     819              DW$CIE  .dwcie 1, 40
+     820                      .dwcfa  0x0c, 20, 0
+     821                      .dwcfa  0x07, 0
+     822                      .dwcfa  0x07, 1
+     823                      .dwcfa  0x07, 2
+     824                      .dwcfa  0x07, 3
+     825                      .dwcfa  0x07, 4
+     826                      .dwcfa  0x07, 5
+     827                      .dwcfa  0x08, 6
+     828                      .dwcfa  0x08, 7
+     829                      .dwcfa  0x08, 8
+     830                      .dwcfa  0x08, 9
+     831                      .dwcfa  0x08, 10
+     832                      .dwcfa  0x08, 11
+     833                      .dwcfa  0x07, 12
+     834                      .dwcfa  0x07, 13
+     835                      .dwcfa  0x07, 14
+     836                      .dwcfa  0x07, 15
+     837                      .dwcfa  0x07, 16
+     838                      .dwcfa  0x07, 17
+     839                      .dwcfa  0x07, 18
+     840                      .dwcfa  0x07, 19
+     841                      .dwcfa  0x07, 20
+     842                      .dwcfa  0x07, 21
+     843                      .dwcfa  0x07, 22
+     844                      .dwcfa  0x07, 23
+     845                      .dwcfa  0x07, 24
+     846                      .dwcfa  0x07, 25
+     847                      .dwcfa  0x07, 26
+     848                      .dwcfa  0x08, 27
+     849                      .dwcfa  0x07, 28
+     850                      .dwcfa  0x07, 29
+     851                      .dwcfa  0x07, 30
+     852                      .dwcfa  0x07, 31
+     853                      .dwcfa  0x07, 32
+     854                      .dwcfa  0x07, 33
+     855                      .dwcfa  0x07, 34
+     856                      .dwcfa  0x07, 35
+     857                      .dwcfa  0x07, 36
+     858                      .dwcfa  0x07, 37
+     859                      .dwcfa  0x07, 38
+     860                      .dwcfa  0x07, 39
+     861                      .dwcfa  0x07, 40
+     862              
+     863              ;***************************************************************
+     864              ;* DWARF REGISTER MAP                                          *
+     865              ;***************************************************************
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   17
+
+     866              
+     867              DW$86   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     868                      .dwattr DW$86, DW_AT_location[DW_OP_reg0]
+     869              DW$87   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     870                      .dwattr DW$87, DW_AT_location[DW_OP_reg1]
+     871              DW$88   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     872                      .dwattr DW$88, DW_AT_location[DW_OP_reg2]
+     873              DW$89   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     874                      .dwattr DW$89, DW_AT_location[DW_OP_reg3]
+     875              DW$90   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     876                      .dwattr DW$90, DW_AT_location[DW_OP_reg4]
+     877              DW$91   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     878                      .dwattr DW$91, DW_AT_location[DW_OP_reg5]
+     879              DW$92   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     880                      .dwattr DW$92, DW_AT_location[DW_OP_reg6]
+     881              DW$93   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     882                      .dwattr DW$93, DW_AT_location[DW_OP_reg7]
+     883              DW$94   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     884                      .dwattr DW$94, DW_AT_location[DW_OP_reg8]
+     885              DW$95   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     886                      .dwattr DW$95, DW_AT_location[DW_OP_reg9]
+     887              DW$96   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     888                      .dwattr DW$96, DW_AT_location[DW_OP_reg10]
+     889              DW$97   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+     890                      .dwattr DW$97, DW_AT_location[DW_OP_reg11]
+     891              DW$98   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     892                      .dwattr DW$98, DW_AT_location[DW_OP_reg12]
+     893              DW$99   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+     894                      .dwattr DW$99, DW_AT_location[DW_OP_reg13]
+     895              DW$100  .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     896                      .dwattr DW$100, DW_AT_location[DW_OP_reg14]
+     897              DW$101  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     898                      .dwattr DW$101, DW_AT_location[DW_OP_reg15]
+     899              DW$102  .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     900                      .dwattr DW$102, DW_AT_location[DW_OP_reg16]
+     901              DW$103  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     902                      .dwattr DW$103, DW_AT_location[DW_OP_reg17]
+     903              DW$104  .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     904                      .dwattr DW$104, DW_AT_location[DW_OP_reg18]
+     905              DW$105  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     906                      .dwattr DW$105, DW_AT_location[DW_OP_reg19]
+     907              DW$106  .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     908                      .dwattr DW$106, DW_AT_location[DW_OP_reg20]
+     909              DW$107  .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     910                      .dwattr DW$107, DW_AT_location[DW_OP_reg21]
+     911              DW$108  .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     912                      .dwattr DW$108, DW_AT_location[DW_OP_reg22]
+     913              DW$109  .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     914                      .dwattr DW$109, DW_AT_location[DW_OP_reg23]
+     915              DW$110  .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     916                      .dwattr DW$110, DW_AT_location[DW_OP_reg24]
+     917              DW$111  .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     918                      .dwattr DW$111, DW_AT_location[DW_OP_reg25]
+     919              DW$112  .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     920                      .dwattr DW$112, DW_AT_location[DW_OP_reg26]
+TMS320C2000 COFF Assembler PC v4.1.3 Thu May 05 10:05:56 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI0482                            PAGE   18
+
+     921              DW$113  .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     922                      .dwattr DW$113, DW_AT_location[DW_OP_reg27]
+     923              DW$114  .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     924                      .dwattr DW$114, DW_AT_location[DW_OP_reg28]
+     925              DW$115  .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     926                      .dwattr DW$115, DW_AT_location[DW_OP_reg29]
+     927              DW$116  .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     928                      .dwattr DW$116, DW_AT_location[DW_OP_reg30]
+     929              DW$117  .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     930                      .dwattr DW$117, DW_AT_location[DW_OP_reg31]
+     931              DW$118  .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     932                      .dwattr DW$118, DW_AT_location[DW_OP_regx 0x20]
+     933              DW$119  .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     934                      .dwattr DW$119, DW_AT_location[DW_OP_regx 0x21]
+     935              DW$120  .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     936                      .dwattr DW$120, DW_AT_location[DW_OP_regx 0x22]
+     937              DW$121  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     938                      .dwattr DW$121, DW_AT_location[DW_OP_regx 0x23]
+     939              DW$122  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     940                      .dwattr DW$122, DW_AT_location[DW_OP_regx 0x24]
+     941              DW$123  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     942                      .dwattr DW$123, DW_AT_location[DW_OP_regx 0x25]
+     943              DW$124  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     944                      .dwattr DW$124, DW_AT_location[DW_OP_regx 0x26]
+     945              DW$125  .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     946                      .dwattr DW$125, DW_AT_location[DW_OP_regx 0x27]
+     947              DW$126  .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     948                      .dwattr DW$126, DW_AT_location[DW_OP_regx 0x28]
+     949                      .dwendtag DW$CU
+     950              
+
+No Assembly Errors, No Assembly Warnings

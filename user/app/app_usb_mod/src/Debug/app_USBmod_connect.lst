@@ -1,0 +1,489 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Tue Oct 18 16:50:05 2011                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("app_USBmod_connect.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              
+      14              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_fun_exit"), DW_AT_symbol_name("_app_USBmod_fun_exit
+      15                      .dwattr DW$1, DW_AT_declaration(0x01)
+      16                      .dwattr DW$1, DW_AT_external(0x01)
+      17              
+      18              DW$2    .dwtag  DW_TAG_subprogram, DW_AT_name("app_global_resouce_release"), DW_AT_symbol_name("_app_global_r
+      19                      .dwattr DW$2, DW_AT_declaration(0x01)
+      20                      .dwattr DW$2, DW_AT_external(0x01)
+      21              DW$3    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      22                      .dwendtag DW$2
+      23              
+      24              
+      25              DW$4    .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_fun_entry"), DW_AT_symbol_name("_app_USBmod_fun_ent
+      26                      .dwattr DW$4, DW_AT_declaration(0x01)
+      27                      .dwattr DW$4, DW_AT_external(0x01)
+      28              
+      29              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("app_global_resouce_req"), DW_AT_symbol_name("_app_global_resou
+      30                      .dwattr DW$5, DW_AT_declaration(0x01)
+      31                      .dwattr DW$5, DW_AT_external(0x01)
+      32              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      33                      .dwendtag DW$5
+      34              
+      35              
+      36              DW$7    .dwtag  DW_TAG_subprogram, DW_AT_name("app_module_add"), DW_AT_symbol_name("_app_module_add")
+      37                      .dwattr DW$7, DW_AT_type(*DW$T$19)
+      38                      .dwattr DW$7, DW_AT_declaration(0x01)
+      39                      .dwattr DW$7, DW_AT_external(0x01)
+      40              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+      41                      .dwendtag DW$7
+      42              
+      43              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9284 
+      44 00000000               .sect   ".text"
+      45                      .global _app_USBmod_resource_init
+      46              
+      47              DW$9    .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_resource_init"), DW_AT_symbol_name("_app_USBmod_res
+      48                      .dwattr DW$9, DW_AT_low_pc(_app_USBmod_resource_init)
+      49                      .dwattr DW$9, DW_AT_high_pc(0x00)
+      50                      .dwattr DW$9, DW_AT_begin_file("app_USBmod_connect.c")
+      51                      .dwattr DW$9, DW_AT_begin_line(0x16)
+      52                      .dwattr DW$9, DW_AT_begin_column(0x06)
+      53                      .dwpsn  "app_USBmod_connect.c",23,1
+      54              
+      55                      .dwfde DW$CIE
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    2
+
+      56              
+      57              ;***************************************************************
+      58              ;* FNAME: _app_USBmod_resource_init     FR SIZE:   0           *
+      59              ;*                                                             *
+      60              ;* FUNCTION ENVIRONMENT                                        *
+      61              ;*                                                             *
+      62              ;* FUNCTION PROPERTIES                                         *
+      63              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      64              ;***************************************************************
+      65              
+      66              _app_USBmod_resource_init:
+      67                      .dwcfa  0x1d, -2
+      68                      .dwcfa  0x1c, 26, 0
+      69                      .dwcfa  0x09, 40, 26
+      70                      .dwpsn  "app_USBmod_connect.c",24,2
+      71                      .dwpsn  "app_USBmod_connect.c",25,1
+      72 00000000 0006          LRETR
+      73                      ; return occurs
+      74                      .dwattr DW$9, DW_AT_end_file("app_USBmod_connect.c")
+      75                      .dwattr DW$9, DW_AT_end_line(0x19)
+      76                      .dwattr DW$9, DW_AT_end_column(0x01)
+      77                      .dwendentry
+      78                      .dwendtag DW$9
+      79              
+      80 00000001               .sect   ".text"
+      81                      .global _app_USBmod_insmod
+      82              
+      83              DW$10   .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_insmod"), DW_AT_symbol_name("_app_USBmod_insmod")
+      84                      .dwattr DW$10, DW_AT_low_pc(_app_USBmod_insmod)
+      85                      .dwattr DW$10, DW_AT_high_pc(0x00)
+      86                      .dwattr DW$10, DW_AT_begin_file("app_USBmod_connect.c")
+      87                      .dwattr DW$10, DW_AT_begin_line(0x22)
+      88                      .dwattr DW$10, DW_AT_begin_column(0x06)
+      89                      .dwpsn  "app_USBmod_connect.c",35,1
+      90              
+      91                      .dwfde DW$CIE
+      92              
+      93              ;***************************************************************
+      94              ;* FNAME: _app_USBmod_insmod            FR SIZE:   0           *
+      95              ;*                                                             *
+      96              ;* FUNCTION ENVIRONMENT                                        *
+      97              ;*                                                             *
+      98              ;* FUNCTION PROPERTIES                                         *
+      99              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     100              ;***************************************************************
+     101              
+     102              _app_USBmod_insmod:
+     103                      .dwcfa  0x1d, -2
+     104                      .dwcfa  0x1c, 26, 0
+     105                      .dwcfa  0x09, 40, 26
+     106                      .dwpsn  "app_USBmod_connect.c",36,2
+     107 00000001 D400          MOVB      XAR4,#0
+     108 00000002 7640!         LCR       #_app_global_resouce_req ; |36| 
+         00000003 0000 
+     109                      ; call occurs [#_app_global_resouce_req] ; |36| 
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    3
+
+     110                      .dwpsn  "app_USBmod_connect.c",37,2
+     111 00000004 7640'         LCR       #_app_USBmod_resource_init ; |37| 
+         00000005 0000 
+     112                      ; call occurs [#_app_USBmod_resource_init] ; |37| 
+     113                      .dwpsn  "app_USBmod_connect.c",38,2
+     114 00000006 7640!         LCR       #_app_USBmod_fun_entry ; |38| 
+         00000007 0000 
+     115                      ; call occurs [#_app_USBmod_fun_entry] ; |38| 
+     116                      .dwpsn  "app_USBmod_connect.c",40,2
+     117                      .dwpsn  "app_USBmod_connect.c",41,1
+     118 00000008 0006          LRETR
+     119                      ; return occurs
+     120                      .dwattr DW$10, DW_AT_end_file("app_USBmod_connect.c")
+     121                      .dwattr DW$10, DW_AT_end_line(0x29)
+     122                      .dwattr DW$10, DW_AT_end_column(0x01)
+     123                      .dwendentry
+     124                      .dwendtag DW$10
+     125              
+     126 00000009               .sect   ".text"
+     127                      .global _app_USBmod_exit
+     128              
+     129              DW$11   .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_exit"), DW_AT_symbol_name("_app_USBmod_exit")
+     130                      .dwattr DW$11, DW_AT_low_pc(_app_USBmod_exit)
+     131                      .dwattr DW$11, DW_AT_high_pc(0x00)
+     132                      .dwattr DW$11, DW_AT_begin_file("app_USBmod_connect.c")
+     133                      .dwattr DW$11, DW_AT_begin_line(0x32)
+     134                      .dwattr DW$11, DW_AT_begin_column(0x06)
+     135                      .dwpsn  "app_USBmod_connect.c",51,1
+     136              
+     137                      .dwfde DW$CIE
+     138              
+     139              ;***************************************************************
+     140              ;* FNAME: _app_USBmod_exit              FR SIZE:   0           *
+     141              ;*                                                             *
+     142              ;* FUNCTION ENVIRONMENT                                        *
+     143              ;*                                                             *
+     144              ;* FUNCTION PROPERTIES                                         *
+     145              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     146              ;***************************************************************
+     147              
+     148              _app_USBmod_exit:
+     149                      .dwcfa  0x1d, -2
+     150                      .dwcfa  0x1c, 26, 0
+     151                      .dwcfa  0x09, 40, 26
+     152                      .dwpsn  "app_USBmod_connect.c",52,2
+     153 00000009 D400          MOVB      XAR4,#0
+     154 0000000a 7640!         LCR       #_app_global_resouce_release ; |52| 
+         0000000b 0000 
+     155                      ; call occurs [#_app_global_resouce_release] ; |52| 
+     156                      .dwpsn  "app_USBmod_connect.c",53,2
+     157 0000000c 7640!         LCR       #_app_USBmod_fun_exit ; |53| 
+         0000000d 0000 
+     158                      ; call occurs [#_app_USBmod_fun_exit] ; |53| 
+     159                      .dwpsn  "app_USBmod_connect.c",55,2
+     160                      .dwpsn  "app_USBmod_connect.c",56,1
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    4
+
+     161 0000000e 0006          LRETR
+     162                      ; return occurs
+     163                      .dwattr DW$11, DW_AT_end_file("app_USBmod_connect.c")
+     164                      .dwattr DW$11, DW_AT_end_line(0x38)
+     165                      .dwattr DW$11, DW_AT_end_column(0x01)
+     166                      .dwendentry
+     167                      .dwendtag DW$11
+     168              
+     169 0000000f               .sect   ".text"
+     170                      .global _app_USBmod_add
+     171              
+     172              DW$12   .dwtag  DW_TAG_subprogram, DW_AT_name("app_USBmod_add"), DW_AT_symbol_name("_app_USBmod_add")
+     173                      .dwattr DW$12, DW_AT_low_pc(_app_USBmod_add)
+     174                      .dwattr DW$12, DW_AT_high_pc(0x00)
+     175                      .dwattr DW$12, DW_AT_begin_file("app_USBmod_connect.c")
+     176                      .dwattr DW$12, DW_AT_begin_line(0x41)
+     177                      .dwattr DW$12, DW_AT_begin_column(0x09)
+     178                      .dwpsn  "app_USBmod_connect.c",66,1
+     179              
+     180                      .dwfde DW$CIE
+     181              
+     182              ;***************************************************************
+     183              ;* FNAME: _app_USBmod_add               FR SIZE:   8           *
+     184              ;*                                                             *
+     185              ;* FUNCTION ENVIRONMENT                                        *
+     186              ;*                                                             *
+     187              ;* FUNCTION PROPERTIES                                         *
+     188              ;*                            0 Parameter,  7 Auto,  0 SOE     *
+     189              ;***************************************************************
+     190              
+     191              _app_USBmod_add:
+     192                      .dwcfa  0x1d, -2
+     193                      .dwcfa  0x1c, 26, 0
+     194                      .dwcfa  0x09, 40, 26
+     195 0000000f FE08          ADDB      SP,#8
+     196                      .dwcfa  0x1d, -10
+     197              DW$13   .dwtag  DW_TAG_variable, DW_AT_name("temp"), DW_AT_symbol_name("_temp")
+     198                      .dwattr DW$13, DW_AT_type(*DW$T$27)
+     199                      .dwattr DW$13, DW_AT_location[DW_OP_breg20 -6]
+     200              DW$14   .dwtag  DW_TAG_variable, DW_AT_name("mod_id"), DW_AT_symbol_name("_mod_id")
+     201                      .dwattr DW$14, DW_AT_type(*DW$T$19)
+     202                      .dwattr DW$14, DW_AT_location[DW_OP_breg20 -7]
+     203                      .dwpsn  "app_USBmod_connect.c",69,2
+     204 00000010 8F00'         MOVL      XAR4,#_app_USBmod_insmod ; |69| 
+         00000011 0001 
+     205 00000012 A844          MOVL      *-SP[4],XAR4          ; |69| 
+     206                      .dwpsn  "app_USBmod_connect.c",70,2
+     207 00000013 8F00'         MOVL      XAR4,#_app_USBmod_exit ; |70| 
+         00000014 0009 
+     208 00000015 A842          MOVL      *-SP[2],XAR4          ; |70| 
+     209                      .dwpsn  "app_USBmod_connect.c",71,2
+     210 00000016 5CAD          MOVZ      AR4,SP                ; |71| 
+     211 00000017 DC86          SUBB      XAR4,#6               ; |71| 
+     212 00000018 7640!         LCR       #_app_module_add      ; |71| 
+         00000019 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    5
+
+     213                      ; call occurs [#_app_module_add] ; |71| 
+     214 0000001a 9647          MOV       *-SP[7],AL            ; |71| 
+     215                      .dwpsn  "app_USBmod_connect.c",72,2
+     216                      .dwpsn  "app_USBmod_connect.c",73,1
+     217 0000001b FE88          SUBB      SP,#8                 ; |72| 
+     218                      .dwcfa  0x1d, -2
+     219 0000001c 0006          LRETR
+     220                      ; return occurs
+     221                      .dwattr DW$12, DW_AT_end_file("app_USBmod_connect.c")
+     222                      .dwattr DW$12, DW_AT_end_line(0x49)
+     223                      .dwattr DW$12, DW_AT_end_column(0x01)
+     224                      .dwendentry
+     225                      .dwendtag DW$12
+     226              
+     227              ;***************************************************************
+     228              ;* UNDEFINED EXTERNAL REFERENCES                               *
+     229              ;***************************************************************
+     230                      .global _app_USBmod_fun_exit
+     231                      .global _app_global_resouce_release
+     232                      .global _app_USBmod_fun_entry
+     233                      .global _app_global_resouce_req
+     234                      .global _app_module_add
+     235              
+     236              ;***************************************************************
+     237              ;* TYPE INFORMATION                                            *
+     238              ;***************************************************************
+     239              DW$T$3  .dwtag  DW_TAG_pointer_type
+     240                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+     241              
+     242              DW$T$20 .dwtag  DW_TAG_subroutine_type
+     243                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+     244              
+     245              DW$T$25 .dwtag  DW_TAG_subroutine_type
+     246                      .dwattr DW$T$25, DW_AT_language(DW_LANG_C)
+     247              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     248                      .dwendtag DW$T$25
+     249              
+     250              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$11)
+     251                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     252              
+     253              DW$T$29 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+     254                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+     255              DW$16   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+     256                      .dwendtag DW$T$29
+     257              
+     258              
+     259              DW$T$31 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+     260                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+     261              DW$T$27 .dwtag  DW_TAG_typedef, DW_AT_name("app_mod_inlet_t"), DW_AT_type(*DW$T$24)
+     262                      .dwattr DW$T$27, DW_AT_language(DW_LANG_C)
+     263              DW$T$28 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$27)
+     264                      .dwattr DW$T$28, DW_AT_address_class(0x16)
+     265              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+     266                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     267                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    6
+
+     268              
+     269              DW$T$24 .dwtag  DW_TAG_structure_type
+     270                      .dwattr DW$T$24, DW_AT_byte_size(0x06)
+     271              DW$17   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+     272                      .dwattr DW$17, DW_AT_name("mod_id"), DW_AT_symbol_name("_mod_id")
+     273                      .dwattr DW$17, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     274                      .dwattr DW$17, DW_AT_accessibility(DW_ACCESS_public)
+     275              DW$18   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$22)
+     276                      .dwattr DW$18, DW_AT_name("insmod_fun"), DW_AT_symbol_name("_insmod_fun")
+     277                      .dwattr DW$18, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     278                      .dwattr DW$18, DW_AT_accessibility(DW_ACCESS_public)
+     279              DW$19   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$23)
+     280                      .dwattr DW$19, DW_AT_name("exitmod_fun"), DW_AT_symbol_name("_exitmod_fun")
+     281                      .dwattr DW$19, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     282                      .dwattr DW$19, DW_AT_accessibility(DW_ACCESS_public)
+     283                      .dwendtag DW$T$24
+     284              
+     285              DW$T$22 .dwtag  DW_TAG_typedef, DW_AT_name("app_insmod_t"), DW_AT_type(*DW$T$21)
+     286                      .dwattr DW$T$22, DW_AT_language(DW_LANG_C)
+     287              DW$T$23 .dwtag  DW_TAG_typedef, DW_AT_name("app_exitmod_t"), DW_AT_type(*DW$T$21)
+     288                      .dwattr DW$T$23, DW_AT_language(DW_LANG_C)
+     289              DW$T$21 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$20)
+     290                      .dwattr DW$T$21, DW_AT_address_class(0x16)
+     291              
+     292                      .dwattr DW$12, DW_AT_external(0x01)
+     293                      .dwattr DW$12, DW_AT_type(*DW$T$19)
+     294                      .dwattr DW$11, DW_AT_external(0x01)
+     295                      .dwattr DW$10, DW_AT_external(0x01)
+     296                      .dwattr DW$9, DW_AT_external(0x01)
+     297                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     298              
+     299              ;***************************************************************
+     300              ;* DWARF CIE ENTRIES                                           *
+     301              ;***************************************************************
+     302              
+     303              DW$CIE  .dwcie 1, 40
+     304                      .dwcfa  0x0c, 20, 0
+     305                      .dwcfa  0x07, 0
+     306                      .dwcfa  0x07, 1
+     307                      .dwcfa  0x07, 2
+     308                      .dwcfa  0x07, 3
+     309                      .dwcfa  0x07, 4
+     310                      .dwcfa  0x07, 5
+     311                      .dwcfa  0x08, 6
+     312                      .dwcfa  0x08, 7
+     313                      .dwcfa  0x08, 8
+     314                      .dwcfa  0x08, 9
+     315                      .dwcfa  0x08, 10
+     316                      .dwcfa  0x08, 11
+     317                      .dwcfa  0x07, 12
+     318                      .dwcfa  0x07, 13
+     319                      .dwcfa  0x07, 14
+     320                      .dwcfa  0x07, 15
+     321                      .dwcfa  0x07, 16
+     322                      .dwcfa  0x07, 17
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    7
+
+     323                      .dwcfa  0x07, 18
+     324                      .dwcfa  0x07, 19
+     325                      .dwcfa  0x07, 20
+     326                      .dwcfa  0x07, 21
+     327                      .dwcfa  0x07, 22
+     328                      .dwcfa  0x07, 23
+     329                      .dwcfa  0x07, 24
+     330                      .dwcfa  0x07, 25
+     331                      .dwcfa  0x07, 26
+     332                      .dwcfa  0x08, 27
+     333                      .dwcfa  0x07, 28
+     334                      .dwcfa  0x07, 29
+     335                      .dwcfa  0x07, 30
+     336                      .dwcfa  0x07, 31
+     337                      .dwcfa  0x07, 32
+     338                      .dwcfa  0x07, 33
+     339                      .dwcfa  0x07, 34
+     340                      .dwcfa  0x07, 35
+     341                      .dwcfa  0x07, 36
+     342                      .dwcfa  0x07, 37
+     343                      .dwcfa  0x07, 38
+     344                      .dwcfa  0x07, 39
+     345                      .dwcfa  0x07, 40
+     346              
+     347              ;***************************************************************
+     348              ;* DWARF REGISTER MAP                                          *
+     349              ;***************************************************************
+     350              
+     351              DW$20   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     352                      .dwattr DW$20, DW_AT_location[DW_OP_reg0]
+     353              DW$21   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     354                      .dwattr DW$21, DW_AT_location[DW_OP_reg1]
+     355              DW$22   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     356                      .dwattr DW$22, DW_AT_location[DW_OP_reg2]
+     357              DW$23   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     358                      .dwattr DW$23, DW_AT_location[DW_OP_reg3]
+     359              DW$24   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     360                      .dwattr DW$24, DW_AT_location[DW_OP_reg4]
+     361              DW$25   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     362                      .dwattr DW$25, DW_AT_location[DW_OP_reg5]
+     363              DW$26   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     364                      .dwattr DW$26, DW_AT_location[DW_OP_reg6]
+     365              DW$27   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     366                      .dwattr DW$27, DW_AT_location[DW_OP_reg7]
+     367              DW$28   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     368                      .dwattr DW$28, DW_AT_location[DW_OP_reg8]
+     369              DW$29   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     370                      .dwattr DW$29, DW_AT_location[DW_OP_reg9]
+     371              DW$30   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     372                      .dwattr DW$30, DW_AT_location[DW_OP_reg10]
+     373              DW$31   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+     374                      .dwattr DW$31, DW_AT_location[DW_OP_reg11]
+     375              DW$32   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     376                      .dwattr DW$32, DW_AT_location[DW_OP_reg12]
+     377              DW$33   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    8
+
+     378                      .dwattr DW$33, DW_AT_location[DW_OP_reg13]
+     379              DW$34   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     380                      .dwattr DW$34, DW_AT_location[DW_OP_reg14]
+     381              DW$35   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     382                      .dwattr DW$35, DW_AT_location[DW_OP_reg15]
+     383              DW$36   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     384                      .dwattr DW$36, DW_AT_location[DW_OP_reg16]
+     385              DW$37   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     386                      .dwattr DW$37, DW_AT_location[DW_OP_reg17]
+     387              DW$38   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     388                      .dwattr DW$38, DW_AT_location[DW_OP_reg18]
+     389              DW$39   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     390                      .dwattr DW$39, DW_AT_location[DW_OP_reg19]
+     391              DW$40   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     392                      .dwattr DW$40, DW_AT_location[DW_OP_reg20]
+     393              DW$41   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     394                      .dwattr DW$41, DW_AT_location[DW_OP_reg21]
+     395              DW$42   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     396                      .dwattr DW$42, DW_AT_location[DW_OP_reg22]
+     397              DW$43   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     398                      .dwattr DW$43, DW_AT_location[DW_OP_reg23]
+     399              DW$44   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     400                      .dwattr DW$44, DW_AT_location[DW_OP_reg24]
+     401              DW$45   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     402                      .dwattr DW$45, DW_AT_location[DW_OP_reg25]
+     403              DW$46   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     404                      .dwattr DW$46, DW_AT_location[DW_OP_reg26]
+     405              DW$47   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     406                      .dwattr DW$47, DW_AT_location[DW_OP_reg27]
+     407              DW$48   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     408                      .dwattr DW$48, DW_AT_location[DW_OP_reg28]
+     409              DW$49   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     410                      .dwattr DW$49, DW_AT_location[DW_OP_reg29]
+     411              DW$50   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     412                      .dwattr DW$50, DW_AT_location[DW_OP_reg30]
+     413              DW$51   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     414                      .dwattr DW$51, DW_AT_location[DW_OP_reg31]
+     415              DW$52   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     416                      .dwattr DW$52, DW_AT_location[DW_OP_regx 0x20]
+     417              DW$53   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     418                      .dwattr DW$53, DW_AT_location[DW_OP_regx 0x21]
+     419              DW$54   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     420                      .dwattr DW$54, DW_AT_location[DW_OP_regx 0x22]
+     421              DW$55   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     422                      .dwattr DW$55, DW_AT_location[DW_OP_regx 0x23]
+     423              DW$56   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     424                      .dwattr DW$56, DW_AT_location[DW_OP_regx 0x24]
+     425              DW$57   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     426                      .dwattr DW$57, DW_AT_location[DW_OP_regx 0x25]
+     427              DW$58   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     428                      .dwattr DW$58, DW_AT_location[DW_OP_regx 0x26]
+     429              DW$59   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     430                      .dwattr DW$59, DW_AT_location[DW_OP_regx 0x27]
+     431              DW$60   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     432                      .dwattr DW$60, DW_AT_location[DW_OP_regx 0x28]
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Oct 18 16:50:05 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9282                            PAGE    9
+
+     433                      .dwendtag DW$CU
+     434              
+
+No Assembly Errors, No Assembly Warnings

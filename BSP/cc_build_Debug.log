@@ -1,0 +1,37 @@
+---------------------------  H3Av61-AS.pjt - Debug  ---------------------------
+[Linking...] "C:\Program Files\C2000 Code Generation Tools 5.0.0 Beta2\bin\cl2000" -@"Debug.lkf"
+<Linking>
+>> warning: entry point other than _c_int00 specified
+
+.\Convert_Cmd\PEC-10Flash.bat
+
+E:\zbq\H3A_DSP_V61_4_23\H3A_DSP_V61\BSP>cd Convert_Cmd 
+
+E:\zbq\H3A_DSP_V61_4_23\H3A_DSP_V61\BSP\Convert_Cmd>hex2000 PEC-10R.cmd 
+Translating ..\Debug\PEC_10.out to Intel format...
+   "..\Debug\PEC_10.out"   ==> codestart
+>> WARNING: section 'codestart' at 0140000h falls in unconfigured memory
+            (skipped)
+   "..\Debug\PEC_10.out"   ==> MOD_LIST_ADDR
+>> WARNING: section 'MOD_LIST_ADDR' at 0140110h falls in unconfigured memory
+            (skipped)
+   "..\Debug\PEC_10.out"   ==> DR_LIST_ADDR
+>> WARNING: section 'DR_LIST_ADDR' at 0140310h falls in unconfigured memory
+            (skipped)
+   "..\Debug\PEC_10.out"   ==> .text
+>> WARNING: section '.text' at 0140500h falls in unconfigured memory (skipped)
+   "..\Debug\PEC_10.out"   ==> .econst
+>> WARNING: section '.econst' at 0164226h falls in unconfigured memory (skipped)
+   "..\Debug\PEC_10.out"   ==> .cinit
+>> WARNING: section '.cinit' at 016f4d5h falls in unconfigured memory (skipped)
+   "..\Debug\PEC_10.out"   ==> ramfuncs
+>> WARNING: section 'ramfuncs' at 01706e3h falls in unconfigured memory
+            (skipped)
+   "..\Debug\PEC_10.out"   ==> .switch
+>> WARNING: section '.switch' at 0171246h falls in unconfigured memory (skipped)
+   "..\Debug\PEC_10.out"   ==> IQmath
+>> WARNING: section 'IQmath' at 0171284h falls in unconfigured memory (skipped)
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.
+  Please view the build output for errors and warnings for any custom steps.

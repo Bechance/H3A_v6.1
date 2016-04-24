@@ -1,0 +1,12 @@
+#include  "src\gpiodriver.c"       /*GPIO驱动*/
+#include  "src\SPIdriver.c"        /*spi驱动*/
+#include  "src\touchdriver.c"      /*I2C驱动*/
+#include  "src\serialBdriver.c"    /*serialB驱动*/
+#include  "src\serialCdriver.c"    /*serialC驱动*/
+#include  "src\serialDdriver.c"    /*serialD驱动*/
+#include  "src\ExtINTdriver.c"      /*PIC32驱动*/
+#include  "src\ht1380driver.c"     /*时钟芯片支持驱动*/
+#include  "src\keydriver.c"        /*按键驱动*/
+#include  "src\sht11driver.c"      /*温湿度传感器驱动*/
+#include  "src\bluetoothdriver.c"  /*蓝牙模块驱动*/
+#include  "src\GPSdriver.c"      	/*GPS驱动*/

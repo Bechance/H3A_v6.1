@@ -1,0 +1,122 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="E:\zbq\H3A_DSP_V61_4_23\H3A_DSP_V61\BSP\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\kernel\cpu\os_cpu_a.asm"
+Source="..\kernel\cpu\os_cpu_c.c"
+Source="..\kernel\uCOS_II.C"
+Source="..\user\app\app_BB_mod\app_BBmod.c"
+Source="..\user\app\app_DLparamJY_mod\app_DLparamJYmod.c"
+Source="..\user\app\app_err_correct\app_ERRmod.c"
+Source="..\user\app\app_FIL_mod\app_FIL.c"
+Source="..\user\app\app_PTCT_mod\app_PTCTmod.c"
+Source="..\user\app\app_RM_mod\app_RMmod.c"
+Source="..\user\app\app_search_mod\app_Searchmod.c"
+Source="..\user\app\app_start_mod\app_startmod.c"
+Source="..\user\app\app_TIME_ERR_mod\app_TIME_ERRmod.c"
+Source="..\user\app\app_VM_mod\app_VMmod.c"
+Source="..\user\app\app_wave_mod\app_wavemod.c"
+Source="..\user\app\app_XCERR_mod\app_XCERRmod.c"
+Source="..\user\app\app_xiebo_mod\app_XBmod.c"
+Source="..\user\app\app_YDWIR_mod\app_WIRmod.c"
+Source="..\user\app\app_ZZ_mod\app_ZZmod.c"
+Source="..\user\drivers\OSdriver.c"
+Source="..\user\drivers\src\measure\fft\lib\cfft32c.od"
+Source="..\user\drivers\src\measure\fft\lib\cfft32i.od"
+Source="..\user\drivers\src\measure\fft\lib\rfft32br.od"
+Source="..\user\drivers\src\measure\fft\lib\rfft32m.od"
+Source="..\user\drivers\src\measure\fft\lib\rfft32s.od"
+Source="..\user\drivers\src\measure\fft\lib\rfft32w.od"
+Source="..\user\drivers\src\measure\fft\lib\sel_q.od"
+Source="..\user\drivers\src\measuredriver.c"
+Source="..\user\Fatfs\FatFs.c"
+Source="..\user\Gui\src\Front\GUI_libext.c"
+Source="..\user\Gui\src\Front\GUI_liblocal.c"
+Source="..\user\Gui\src\GUI_arrow.c"
+Source="..\user\Gui\src\GUI_circle.c"
+Source="..\user\Gui\src\Gui_core.c"
+Source="..\user\Gui\src\Gui_cursor.c"
+Source="..\user\Gui\src\Gui_front_connect.c"
+Source="..\user\Gui\src\GUI_hook.c"
+Source="..\user\Gui\src\Gui_lcd_connect.c"
+Source="..\user\Gui\src\GUI_lcd_driver.c"
+Source="..\user\Gui\src\GUI_mem.c"
+Source="..\user\Gui\src\GUI_Memdev.c"
+Source="..\user\Gui\src\GUI_Msg.c"
+Source="..\user\Gui\src\GUI_OS.c"
+Source="..\user\Gui\src\GUI_Polygon.c"
+Source="..\user\Gui\src\GUI_str.c"
+Source="..\user\Gui\src\Gui_touch.c"
+Source="..\user\Gui\src\Gui_widget.c"
+Source="..\user\Keyinput_method\key_GBcode.c"
+Source="..\user\Keyinput_method\key_input_method.c"
+Source="..\user\Keyinput_method\key_layer.c"
+Source="..\user\main.c"
+Source="..\user\main_ext.c"
+Source="..\user\os_connect\os_connect.c"
+Source="..\user\support\N_support.c"
+Source="..\user\USBstack\USB_connect.c"
+Source="..\user\voice\voice_buz.c"
+Source="bsp.c"
+Source="bspLIB\DSP2833x_ADC_cal.od"
+Source="bspLIB\DSP2833x_usDelay.od"
+Source="IQmath_fpu32.lib"
+Source="rts2800_fpu32.lib"
+Source="SRC\DSP2833x_CodeStartBranch.asm"
+Source="Watchdog.asm"
+Source="CMD\28335_FLASH_lnk.cmd"
+Source="CMD\28335_RAM1_lnk.cmd"
+Source="CMD\28335_RAM_lnk.cmd"
+Source="CMD\DSP2833x_Headers_nonBIOS.cmd"
+
+["Debug" Settings]
+FinalBuildCmd=.\Convert_Cmd\PEC-10Flash.bat;Run=Always
+
+["Compiler" Settings: "Debug"]
+Options=-g -pdsw225 -fr"$(Proj_dir)\Debug" -i"include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-c -ecode_start -heap0xD000 -m".\Debug\PEC_10.map" -o".\Debug\PEC_10.out" -stack0x3B0 -w -x -l"rts2800_fpu32.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\UFatSystem.map" -o".\Release\UFatSystem.out" -w -x
+
+["CMD\28335_FLASH_lnk.cmd" Settings: "Debug"]
+ExcludeFromBuild=true
+LinkOrder=2
+
+["CMD\28335_FLASH_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+
+["CMD\28335_RAM1_lnk.cmd" Settings: "Debug"]
+ExcludeFromBuild=true
+LinkOrder=3
+
+["CMD\28335_RAM1_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+
+["CMD\28335_RAM_lnk.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["CMD\28335_RAM_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+
+["CMD\DSP2833x_Headers_nonBIOS.cmd" Settings: "Debug"]
+LinkOrder=4
+
+["CMD\DSP2833x_Headers_nonBIOS.cmd" Settings: "Release"]
+LinkOrder=1
+

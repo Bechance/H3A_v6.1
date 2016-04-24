@@ -1,0 +1,172 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Wed Jul 14 17:06:08 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7242                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Wed Jul 14 17:06:08 2010                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("os_mem.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7244 
+      14              
+      15              ;***************************************************************
+      16              ;* TYPE INFORMATION                                            *
+      17              ;***************************************************************
+      18              
+      19              
+      20              ;***************************************************************
+      21              ;* DWARF CIE ENTRIES                                           *
+      22              ;***************************************************************
+      23              
+      24              DW$CIE  .dwcie 1, 40
+      25                      .dwcfa  0x0c, 20, 0
+      26                      .dwcfa  0x07, 0
+      27                      .dwcfa  0x07, 1
+      28                      .dwcfa  0x07, 2
+      29                      .dwcfa  0x07, 3
+      30                      .dwcfa  0x07, 4
+      31                      .dwcfa  0x07, 5
+      32                      .dwcfa  0x07, 6
+      33                      .dwcfa  0x07, 7
+      34                      .dwcfa  0x07, 8
+      35                      .dwcfa  0x07, 9
+      36                      .dwcfa  0x07, 10
+      37                      .dwcfa  0x07, 11
+      38                      .dwcfa  0x07, 12
+      39                      .dwcfa  0x07, 13
+      40                      .dwcfa  0x07, 14
+      41                      .dwcfa  0x07, 15
+      42                      .dwcfa  0x07, 16
+      43                      .dwcfa  0x07, 17
+      44                      .dwcfa  0x07, 18
+      45                      .dwcfa  0x07, 19
+      46                      .dwcfa  0x07, 20
+      47                      .dwcfa  0x07, 21
+      48                      .dwcfa  0x07, 22
+      49                      .dwcfa  0x07, 23
+      50                      .dwcfa  0x07, 24
+      51                      .dwcfa  0x07, 25
+      52                      .dwcfa  0x07, 26
+      53                      .dwcfa  0x07, 27
+      54                      .dwcfa  0x07, 28
+      55                      .dwcfa  0x07, 29
+TMS320C2000 COFF Assembler PC v4.1.3 Wed Jul 14 17:06:08 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7242                            PAGE    2
+
+      56                      .dwcfa  0x07, 30
+      57                      .dwcfa  0x07, 31
+      58                      .dwcfa  0x07, 32
+      59                      .dwcfa  0x07, 33
+      60                      .dwcfa  0x07, 34
+      61                      .dwcfa  0x07, 35
+      62                      .dwcfa  0x07, 36
+      63                      .dwcfa  0x07, 37
+      64                      .dwcfa  0x07, 38
+      65                      .dwcfa  0x07, 39
+      66                      .dwcfa  0x07, 40
+      67              
+      68              ;***************************************************************
+      69              ;* DWARF REGISTER MAP                                          *
+      70              ;***************************************************************
+      71              
+      72              DW$1    .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+      73                      .dwattr DW$1, DW_AT_location[DW_OP_reg0]
+      74              DW$2    .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+      75                      .dwattr DW$2, DW_AT_location[DW_OP_reg1]
+      76              DW$3    .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+      77                      .dwattr DW$3, DW_AT_location[DW_OP_reg2]
+      78              DW$4    .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+      79                      .dwattr DW$4, DW_AT_location[DW_OP_reg3]
+      80              DW$5    .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+      81                      .dwattr DW$5, DW_AT_location[DW_OP_reg4]
+      82              DW$6    .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+      83                      .dwattr DW$6, DW_AT_location[DW_OP_reg5]
+      84              DW$7    .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+      85                      .dwattr DW$7, DW_AT_location[DW_OP_reg6]
+      86              DW$8    .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+      87                      .dwattr DW$8, DW_AT_location[DW_OP_reg7]
+      88              DW$9    .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+      89                      .dwattr DW$9, DW_AT_location[DW_OP_reg8]
+      90              DW$10   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+      91                      .dwattr DW$10, DW_AT_location[DW_OP_reg9]
+      92              DW$11   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+      93                      .dwattr DW$11, DW_AT_location[DW_OP_reg10]
+      94              DW$12   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+      95                      .dwattr DW$12, DW_AT_location[DW_OP_reg11]
+      96              DW$13   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+      97                      .dwattr DW$13, DW_AT_location[DW_OP_reg12]
+      98              DW$14   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+      99                      .dwattr DW$14, DW_AT_location[DW_OP_reg13]
+     100              DW$15   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     101                      .dwattr DW$15, DW_AT_location[DW_OP_reg14]
+     102              DW$16   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     103                      .dwattr DW$16, DW_AT_location[DW_OP_reg15]
+     104              DW$17   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     105                      .dwattr DW$17, DW_AT_location[DW_OP_reg16]
+     106              DW$18   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     107                      .dwattr DW$18, DW_AT_location[DW_OP_reg17]
+     108              DW$19   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     109                      .dwattr DW$19, DW_AT_location[DW_OP_reg18]
+     110              DW$20   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+TMS320C2000 COFF Assembler PC v4.1.3 Wed Jul 14 17:06:08 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7242                            PAGE    3
+
+     111                      .dwattr DW$20, DW_AT_location[DW_OP_reg19]
+     112              DW$21   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     113                      .dwattr DW$21, DW_AT_location[DW_OP_reg20]
+     114              DW$22   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     115                      .dwattr DW$22, DW_AT_location[DW_OP_reg21]
+     116              DW$23   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     117                      .dwattr DW$23, DW_AT_location[DW_OP_reg22]
+     118              DW$24   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     119                      .dwattr DW$24, DW_AT_location[DW_OP_reg23]
+     120              DW$25   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     121                      .dwattr DW$25, DW_AT_location[DW_OP_reg24]
+     122              DW$26   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     123                      .dwattr DW$26, DW_AT_location[DW_OP_reg25]
+     124              DW$27   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     125                      .dwattr DW$27, DW_AT_location[DW_OP_reg26]
+     126              DW$28   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     127                      .dwattr DW$28, DW_AT_location[DW_OP_reg27]
+     128              DW$29   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     129                      .dwattr DW$29, DW_AT_location[DW_OP_reg28]
+     130              DW$30   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     131                      .dwattr DW$30, DW_AT_location[DW_OP_reg29]
+     132              DW$31   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     133                      .dwattr DW$31, DW_AT_location[DW_OP_reg30]
+     134              DW$32   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     135                      .dwattr DW$32, DW_AT_location[DW_OP_reg31]
+     136              DW$33   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     137                      .dwattr DW$33, DW_AT_location[DW_OP_regx 0x20]
+     138              DW$34   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     139                      .dwattr DW$34, DW_AT_location[DW_OP_regx 0x21]
+     140              DW$35   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     141                      .dwattr DW$35, DW_AT_location[DW_OP_regx 0x22]
+     142              DW$36   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     143                      .dwattr DW$36, DW_AT_location[DW_OP_regx 0x23]
+     144              DW$37   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     145                      .dwattr DW$37, DW_AT_location[DW_OP_regx 0x24]
+     146              DW$38   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     147                      .dwattr DW$38, DW_AT_location[DW_OP_regx 0x25]
+     148              DW$39   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     149                      .dwattr DW$39, DW_AT_location[DW_OP_regx 0x26]
+     150              DW$40   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     151                      .dwattr DW$40, DW_AT_location[DW_OP_regx 0x27]
+     152              DW$41   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     153                      .dwattr DW$41, DW_AT_location[DW_OP_regx 0x28]
+     154                      .dwendtag DW$CU
+     155              
+
+No Assembly Errors, No Assembly Warnings

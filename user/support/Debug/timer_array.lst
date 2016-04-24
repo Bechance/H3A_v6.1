@@ -1,0 +1,1858 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Sat Oct 09 16:16:05 2010                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("timer_array.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;**************************************************************
+      14              ;* CINIT RECORDS                                              *
+      15              ;**************************************************************
+      16 00000000               .sect   ".cinit"
+      17                      .align  1
+      18 00000000 FFFE          .field          -2,16
+      19 00000001 0000-         .field          _m_timer_lock+0,32
+         00000002 0000 
+      20 00000003 0000          .field          0,32                    ; _m_timer_lock @ 0
+         00000004 0000 
+      21              
+      22 00000005               .sect   ".cinit"
+      23                      .align  1
+      24 00000005 FFFE          .field          -2,16
+      25 00000006 0002-         .field          _m_timer_array_jiffies+0,32
+         00000007 0000 
+      26 00000008 0000          .field          0,32                    ; _m_timer_array_jiffies @ 0
+         00000009 0000 
+      27              
+      28 0000000a               .sect   ".cinit"
+      29                      .align  1
+      30 0000000a FFFF          .field          -IR_1,16
+      31 0000000b 0040-         .field          _m_timer_array+0,32
+         0000000c 0000 
+      32 0000000d 0000          .field          0,16                    ; _m_timer_array._ture_size @ 0
+      33        0001  IR_1:   .set    1
+      34              
+      35              
+      36              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock"), DW_AT_symbol_name("_os_lock")
+      37                      .dwattr DW$1, DW_AT_declaration(0x01)
+      38                      .dwattr DW$1, DW_AT_external(0x01)
+      39              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$43)
+      40                      .dwendtag DW$1
+      41              
+      42              
+      43              DW$3    .dwtag  DW_TAG_subprogram, DW_AT_name("os_unlock"), DW_AT_symbol_name("_os_unlock")
+      44                      .dwattr DW$3, DW_AT_declaration(0x01)
+      45                      .dwattr DW$3, DW_AT_external(0x01)
+      46              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$43)
+      47                      .dwendtag DW$3
+      48              
+      49              
+      50              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("OSTimeDly"), DW_AT_symbol_name("_OSTimeDly")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    2
+
+      51                      .dwattr DW$5, DW_AT_declaration(0x01)
+      52                      .dwattr DW$5, DW_AT_external(0x01)
+      53              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+      54                      .dwendtag DW$5
+      55              
+      56              
+      57              DW$7    .dwtag  DW_TAG_subprogram, DW_AT_name("global_memset"), DW_AT_symbol_name("_global_memset")
+      58                      .dwattr DW$7, DW_AT_declaration(0x01)
+      59                      .dwattr DW$7, DW_AT_external(0x01)
+      60              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      61              DW$9    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      62              DW$10   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+      63                      .dwendtag DW$7
+      64              
+      65              
+      66              DW$11   .dwtag  DW_TAG_subprogram, DW_AT_name("log_printf"), DW_AT_symbol_name("_log_printf")
+      67                      .dwattr DW$11, DW_AT_declaration(0x01)
+      68                      .dwattr DW$11, DW_AT_external(0x01)
+      69              DW$12   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$46)
+      70              DW$13   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$48)
+      71                      .dwendtag DW$11
+      72              
+      73              
+      74              DW$14   .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_assign_pro_build"), DW_AT_symbol_name("_os_task_assign
+      75                      .dwattr DW$14, DW_AT_type(*DW$T$65)
+      76                      .dwattr DW$14, DW_AT_declaration(0x01)
+      77                      .dwattr DW$14, DW_AT_external(0x01)
+      78              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+      79              DW$16   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      80              DW$17   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+      81                      .dwendtag DW$14
+      82              
+      83              DW$18   .dwtag  DW_TAG_variable, DW_AT_name("m_null_pram"), DW_AT_symbol_name("_m_null_pram")
+      84                      .dwattr DW$18, DW_AT_type(*DW$T$25)
+      85                      .dwattr DW$18, DW_AT_declaration(0x01)
+      86                      .dwattr DW$18, DW_AT_external(0x01)
+      87              
+      88              DW$19   .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_name_set"), DW_AT_symbol_name("_os_task_name_set")
+      89                      .dwattr DW$19, DW_AT_type(*DW$T$25)
+      90                      .dwattr DW$19, DW_AT_declaration(0x01)
+      91                      .dwattr DW$19, DW_AT_external(0x01)
+      92              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      93              DW$21   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$46)
+      94                      .dwendtag DW$19
+      95              
+      96              
+      97              DW$22   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock_creat"), DW_AT_symbol_name("_os_lock_creat")
+      98                      .dwattr DW$22, DW_AT_type(*DW$T$25)
+      99                      .dwattr DW$22, DW_AT_declaration(0x01)
+     100                      .dwattr DW$22, DW_AT_external(0x01)
+     101              DW$23   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$59)
+     102                      .dwendtag DW$22
+     103              
+     104                      .global _m_timer_lock
+     105 00000000       _m_timer_lock:  .usect  ".ebss",2,1,1
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    3
+
+     106              DW$24   .dwtag  DW_TAG_variable, DW_AT_name("m_timer_lock"), DW_AT_symbol_name("_m_timer_lock")
+     107                      .dwattr DW$24, DW_AT_location[DW_OP_addr _m_timer_lock]
+     108                      .dwattr DW$24, DW_AT_type(*DW$T$43)
+     109                      .dwattr DW$24, DW_AT_external(0x01)
+     110                      .global _m_timer_array_jiffies
+     111 00000002       _m_timer_array_jiffies: .usect  ".ebss",2,1,1
+     112              DW$25   .dwtag  DW_TAG_variable, DW_AT_name("m_timer_array_jiffies"), DW_AT_symbol_name("_m_timer_array_jiffi
+     113                      .dwattr DW$25, DW_AT_location[DW_OP_addr _m_timer_array_jiffies]
+     114                      .dwattr DW$25, DW_AT_type(*DW$T$68)
+     115                      .dwattr DW$25, DW_AT_external(0x01)
+     116              DW$26   .dwtag  DW_TAG_variable, DW_AT_name("m_log_pram"), DW_AT_symbol_name("_m_log_pram")
+     117                      .dwattr DW$26, DW_AT_type(*DW$T$47)
+     118                      .dwattr DW$26, DW_AT_declaration(0x01)
+     119                      .dwattr DW$26, DW_AT_external(0x01)
+     120                      .global _m_timer_array
+     121 00000040       _m_timer_array: .usect  ".ebss",102,1,1
+     122              DW$27   .dwtag  DW_TAG_variable, DW_AT_name("m_timer_array"), DW_AT_symbol_name("_m_timer_array")
+     123                      .dwattr DW$27, DW_AT_location[DW_OP_addr _m_timer_array]
+     124                      .dwattr DW$27, DW_AT_type(*DW$T$71)
+     125                      .dwattr DW$27, DW_AT_external(0x01)
+     126              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8724 
+     127 00000000               .sect   ".text"
+     128                      .global _timer_array_lock
+     129              
+     130              DW$28   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_array_lock"), DW_AT_symbol_name("_timer_array_lock")
+     131                      .dwattr DW$28, DW_AT_low_pc(_timer_array_lock)
+     132                      .dwattr DW$28, DW_AT_high_pc(0x00)
+     133                      .dwattr DW$28, DW_AT_begin_file("timer_array.c")
+     134                      .dwattr DW$28, DW_AT_begin_line(0xfb)
+     135                      .dwattr DW$28, DW_AT_begin_column(0x06)
+     136                      .dwpsn  "timer_array.c",252,1
+     137              
+     138                      .dwfde DW$CIE
+     139              
+     140              ;***************************************************************
+     141              ;* FNAME: _timer_array_lock             FR SIZE:   0           *
+     142              ;*                                                             *
+     143              ;* FUNCTION ENVIRONMENT                                        *
+     144              ;*                                                             *
+     145              ;* FUNCTION PROPERTIES                                         *
+     146              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     147              ;***************************************************************
+     148              
+     149              _timer_array_lock:
+     150                      .dwcfa  0x1d, -2
+     151                      .dwcfa  0x1c, 26, 0
+     152                      .dwcfa  0x09, 40, 26
+     153                      .dwpsn  "timer_array.c",253,2
+     154 00000000 761F-         MOVW      DP,#_m_timer_lock
+         00000001 0000 
+     155 00000002 8A00-         MOVL      XAR4,@_m_timer_lock   ; |253| 
+     156 00000003 7640!         LCR       #_os_lock             ; |253| 
+         00000004 0000 
+     157                      ; call occurs [#_os_lock] ; |253| 
+     158                      .dwpsn  "timer_array.c",254,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    4
+
+     159                      .dwpsn  "timer_array.c",255,1
+     160 00000005 0006          LRETR
+     161                      ; return occurs
+     162                      .dwattr DW$28, DW_AT_end_file("timer_array.c")
+     163                      .dwattr DW$28, DW_AT_end_line(0xff)
+     164                      .dwattr DW$28, DW_AT_end_column(0x01)
+     165                      .dwendentry
+     166                      .dwendtag DW$28
+     167              
+     168 00000006               .sect   ".text"
+     169                      .global _timer_array_unlock
+     170              
+     171              DW$29   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_array_unlock"), DW_AT_symbol_name("_timer_array_unlock")
+     172                      .dwattr DW$29, DW_AT_low_pc(_timer_array_unlock)
+     173                      .dwattr DW$29, DW_AT_high_pc(0x00)
+     174                      .dwattr DW$29, DW_AT_begin_file("timer_array.c")
+     175                      .dwattr DW$29, DW_AT_begin_line(0x100)
+     176                      .dwattr DW$29, DW_AT_begin_column(0x06)
+     177                      .dwpsn  "timer_array.c",257,1
+     178              
+     179                      .dwfde DW$CIE
+     180              
+     181              ;***************************************************************
+     182              ;* FNAME: _timer_array_unlock           FR SIZE:   0           *
+     183              ;*                                                             *
+     184              ;* FUNCTION ENVIRONMENT                                        *
+     185              ;*                                                             *
+     186              ;* FUNCTION PROPERTIES                                         *
+     187              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     188              ;***************************************************************
+     189              
+     190              _timer_array_unlock:
+     191                      .dwcfa  0x1d, -2
+     192                      .dwcfa  0x1c, 26, 0
+     193                      .dwcfa  0x09, 40, 26
+     194                      .dwpsn  "timer_array.c",258,2
+     195 00000006 761F-         MOVW      DP,#_m_timer_lock
+         00000007 0000 
+     196 00000008 8A00-         MOVL      XAR4,@_m_timer_lock   ; |258| 
+     197 00000009 7640!         LCR       #_os_unlock           ; |258| 
+         0000000a 0000 
+     198                      ; call occurs [#_os_unlock] ; |258| 
+     199                      .dwpsn  "timer_array.c",259,2
+     200                      .dwpsn  "timer_array.c",260,1
+     201 0000000b 0006          LRETR
+     202                      ; return occurs
+     203                      .dwattr DW$29, DW_AT_end_file("timer_array.c")
+     204                      .dwattr DW$29, DW_AT_end_line(0x104)
+     205                      .dwattr DW$29, DW_AT_end_column(0x01)
+     206                      .dwendentry
+     207                      .dwendtag DW$29
+     208              
+     209 0000000c               .sect   ".text"
+     210                      .global _timer_array_lock_creat
+     211              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    5
+
+     212              DW$30   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_array_lock_creat"), DW_AT_symbol_name("_timer_array_lock
+     213                      .dwattr DW$30, DW_AT_low_pc(_timer_array_lock_creat)
+     214                      .dwattr DW$30, DW_AT_high_pc(0x00)
+     215                      .dwattr DW$30, DW_AT_begin_file("timer_array.c")
+     216                      .dwattr DW$30, DW_AT_begin_line(0x105)
+     217                      .dwattr DW$30, DW_AT_begin_column(0x06)
+     218                      .dwpsn  "timer_array.c",262,1
+     219              
+     220                      .dwfde DW$CIE
+     221              
+     222              ;***************************************************************
+     223              ;* FNAME: _timer_array_lock_creat       FR SIZE:   0           *
+     224              ;*                                                             *
+     225              ;* FUNCTION ENVIRONMENT                                        *
+     226              ;*                                                             *
+     227              ;* FUNCTION PROPERTIES                                         *
+     228              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     229              ;***************************************************************
+     230              
+     231              _timer_array_lock_creat:
+     232                      .dwcfa  0x1d, -2
+     233                      .dwcfa  0x1c, 26, 0
+     234                      .dwcfa  0x09, 40, 26
+     235                      .dwpsn  "timer_array.c",263,2
+     236 0000000c 8F00-         MOVL      XAR4,#_m_timer_lock   ; |263| 
+         0000000d 0000 
+     237 0000000e 7640!         LCR       #_os_lock_creat       ; |263| 
+         0000000f 0000 
+     238                      ; call occurs [#_os_lock_creat] ; |263| 
+     239                      .dwpsn  "timer_array.c",264,2
+     240                      .dwpsn  "timer_array.c",265,1
+     241 00000010 0006          LRETR
+     242                      ; return occurs
+     243                      .dwattr DW$30, DW_AT_end_file("timer_array.c")
+     244                      .dwattr DW$30, DW_AT_end_line(0x109)
+     245                      .dwattr DW$30, DW_AT_end_column(0x01)
+     246                      .dwendentry
+     247                      .dwendtag DW$30
+     248              
+     249 00000011               .sect   ".text"
+     250                      .global _timer_member_create
+     251              
+     252              DW$31   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_member_create"), DW_AT_symbol_name("_timer_member_create
+     253                      .dwattr DW$31, DW_AT_low_pc(_timer_member_create)
+     254                      .dwattr DW$31, DW_AT_high_pc(0x00)
+     255                      .dwattr DW$31, DW_AT_begin_file("timer_array.c")
+     256                      .dwattr DW$31, DW_AT_begin_line(0x114)
+     257                      .dwattr DW$31, DW_AT_begin_column(0x0e)
+     258                      .dwpsn  "timer_array.c",280,1
+     259              
+     260                      .dwfde DW$CIE
+     261              
+     262              ;***************************************************************
+     263              ;* FNAME: _timer_member_create          FR SIZE:  10           *
+     264              ;*                                                             *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    6
+
+     265              ;* FUNCTION ENVIRONMENT                                        *
+     266              ;*                                                             *
+     267              ;* FUNCTION PROPERTIES                                         *
+     268              ;*                            0 Parameter, 10 Auto,  0 SOE     *
+     269              ;***************************************************************
+     270              
+     271              _timer_member_create:
+     272                      .dwcfa  0x1d, -2
+     273                      .dwcfa  0x1c, 26, 0
+     274                      .dwcfa  0x09, 40, 26
+     275 00000011 FE0A          ADDB      SP,#10
+     276                      .dwcfa  0x1d, -12
+     277              ;* AL    assigned to _need_jiffies
+     278              DW$32   .dwtag  DW_TAG_formal_parameter, DW_AT_name("need_jiffies"), DW_AT_symbol_name("_need_jiffies")
+     279                      .dwattr DW$32, DW_AT_type(*DW$T$30)
+     280                      .dwattr DW$32, DW_AT_location[DW_OP_reg0]
+     281              DW$33   .dwtag  DW_TAG_formal_parameter, DW_AT_name("type"), DW_AT_symbol_name("_type")
+     282                      .dwattr DW$33, DW_AT_type(*DW$T$32)
+     283                      .dwattr DW$33, DW_AT_location[DW_OP_breg20 -13]
+     284              ;* AR4   assigned to _caller
+     285              DW$34   .dwtag  DW_TAG_formal_parameter, DW_AT_name("caller"), DW_AT_symbol_name("_caller")
+     286                      .dwattr DW$34, DW_AT_type(*DW$T$29)
+     287                      .dwattr DW$34, DW_AT_location[DW_OP_reg12]
+     288              ;* AR5   assigned to _p_arg
+     289              DW$35   .dwtag  DW_TAG_formal_parameter, DW_AT_name("p_arg"), DW_AT_symbol_name("_p_arg")
+     290                      .dwattr DW$35, DW_AT_type(*DW$T$3)
+     291                      .dwattr DW$35, DW_AT_location[DW_OP_reg14]
+     292              DW$36   .dwtag  DW_TAG_variable, DW_AT_name("need_jiffies"), DW_AT_symbol_name("_need_jiffies")
+     293                      .dwattr DW$36, DW_AT_type(*DW$T$30)
+     294                      .dwattr DW$36, DW_AT_location[DW_OP_breg20 -2]
+     295              DW$37   .dwtag  DW_TAG_variable, DW_AT_name("caller"), DW_AT_symbol_name("_caller")
+     296                      .dwattr DW$37, DW_AT_type(*DW$T$29)
+     297                      .dwattr DW$37, DW_AT_location[DW_OP_breg20 -4]
+     298              DW$38   .dwtag  DW_TAG_variable, DW_AT_name("p_arg"), DW_AT_symbol_name("_p_arg")
+     299                      .dwattr DW$38, DW_AT_type(*DW$T$3)
+     300                      .dwattr DW$38, DW_AT_location[DW_OP_breg20 -6]
+     301              DW$39   .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+     302                      .dwattr DW$39, DW_AT_type(*DW$T$32)
+     303                      .dwattr DW$39, DW_AT_location[DW_OP_breg20 -7]
+     304              DW$40   .dwtag  DW_TAG_variable, DW_AT_name("tmr_pos"), DW_AT_symbol_name("_tmr_pos")
+     305                      .dwattr DW$40, DW_AT_type(*DW$T$55)
+     306                      .dwattr DW$40, DW_AT_location[DW_OP_breg20 -10]
+     307 00000012 A046          MOVL      *-SP[6],XAR5          ; |280| 
+     308 00000013 A844          MOVL      *-SP[4],XAR4          ; |280| 
+     309 00000014 1E42          MOVL      *-SP[2],ACC           ; |280| 
+     310                      .dwpsn  "timer_array.c",281,10
+     311 00000015 2B47          MOV       *-SP[7],#0            ; |281| 
+     312                      .dwpsn  "timer_array.c",283,2
+     313 00000016 7640'         LCR       #_timer_array_lock    ; |283| 
+         00000017 0000 
+     314                      ; call occurs [#_timer_array_lock] ; |283| 
+     315                      .dwpsn  "timer_array.c",284,8
+     316 00000018 2B47          MOV       *-SP[7],#0            ; |284| 
+     317                      .dwpsn  "timer_array.c",284,18
+     318 00000019 9247          MOV       AL,*-SP[7]            ; |284| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    7
+
+     319 0000001a 520A          CMPB      AL,#10                ; |284| 
+     320 0000001b 6731          B         L3,HIS                ; |284| 
+     321                      ; branchcc occurs ; |284| 
+     322              L1:    
+     323              DW$L$_timer_member_create$2$B:
+     324                      .dwpsn  "timer_array.c",286,3
+     325 0000001c 28AC          MOV       T,#10                 ; |286| 
+         0000001d 000A 
+     326 0000001e 8F00-         MOVL      XAR4,#_m_timer_array+6 ; |286| 
+         0000001f 0046 
+     327 00000020 3047          MPYXU     ACC,T,*-SP[7]         ; |286| 
+     328 00000021 5601          ADDL      XAR4,ACC
+         00000022 00A4 
+     329 00000023 92C4          MOV       AL,*+XAR4[0]          ; |286| 
+     330 00000024 ED24          BF        L2,NEQ                ; |286| 
+     331                      ; branchcc occurs ; |286| 
+     332              DW$L$_timer_member_create$2$E:
+     333                      .dwpsn  "timer_array.c",288,4
+     334 00000025 761F-         MOVW      DP,#_m_timer_array
+         00000026 0001 
+     335 00000027 0A00-         INC       @_m_timer_array       ; |288| 
+     336                      .dwpsn  "timer_array.c",289,4
+     337 00000028 28AC          MOV       T,#10                 ; |289| 
+         00000029 000A 
+     338 0000002a 8F00-         MOVL      XAR4,#_m_timer_array+2 ; |289| 
+         0000002b 0042 
+     339 0000002c 3047          MPYXU     ACC,T,*-SP[7]         ; |289| 
+     340 0000002d 5601          ADDL      XAR4,ACC
+         0000002e 00A4 
+     341 0000002f A84A          MOVL      *-SP[10],XAR4         ; |289| 
+     342                      .dwpsn  "timer_array.c",290,4
+     343 00000030 8A4A          MOVL      XAR4,*-SP[10]         ; |290| 
+     344 00000031 0642          MOVL      ACC,*-SP[2]           ; |290| 
+     345 00000032 1EF4          MOVL      *+XAR4[6],ACC         ; |290| 
+     346                      .dwpsn  "timer_array.c",291,4
+     347 00000033 8A4A          MOVL      XAR4,*-SP[10]         ; |291| 
+     348 00000034 0644          MOVL      ACC,*-SP[4]           ; |291| 
+     349 00000035 1EC4          MOVL      *+XAR4[0],ACC         ; |291| 
+     350                      .dwpsn  "timer_array.c",292,4
+     351 00000036 8A4A          MOVL      XAR4,*-SP[10]         ; |292| 
+     352 00000037 D008          MOVB      XAR0,#8               ; |292| 
+     353 00000038 0646          MOVL      ACC,*-SP[6]           ; |292| 
+     354 00000039 1E94          MOVL      *+XAR4[AR0],ACC       ; |292| 
+     355                      .dwpsn  "timer_array.c",293,4
+     356 0000003a 8A4A          MOVL      XAR4,*-SP[10]         ; |293| 
+     357 0000003b 924D          MOV       AL,*-SP[13]           ; |293| 
+     358 0000003c 96EC          MOV       *+XAR4[5],AL          ; |293| 
+     359                      .dwpsn  "timer_array.c",294,4
+     360 0000003d 8A4A          MOVL      XAR4,*-SP[10]         ; |294| 
+     361 0000003e 28E4          MOV       *+XAR4[4],#4          ; |294| 
+         0000003f 0004 
+     362                      .dwpsn  "timer_array.c",295,4
+     363 00000040 8A4A          MOVL      XAR4,*-SP[10]         ; |295| 
+     364 00000041 0642          MOVL      ACC,*-SP[2]           ; |295| 
+     365 00000042 7640'         LCR       #_timer_member_mod_expires ; |295| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    8
+
+         00000043 007C 
+     366                      ; call occurs [#_timer_member_mod_expires] ; |295| 
+     367                      .dwpsn  "timer_array.c",296,4
+     368 00000044 7640'         LCR       #_timer_array_unlock  ; |296| 
+         00000045 0006 
+     369                      ; call occurs [#_timer_array_unlock] ; |296| 
+     370                      .dwpsn  "timer_array.c",297,4
+     371 00000046 8A4A          MOVL      XAR4,*-SP[10]         ; |297| 
+     372 00000047 6F14          B         L4,UNC                ; |297| 
+     373                      ; branch occurs ; |297| 
+     374              L2:    
+     375              DW$L$_timer_member_create$4$B:
+     376                      .dwpsn  "timer_array.c",284,38
+     377 00000048 0A47          INC       *-SP[7]               ; |284| 
+     378                      .dwpsn  "timer_array.c",284,18
+     379 00000049 9247          MOV       AL,*-SP[7]            ; |284| 
+     380 0000004a 520A          CMPB      AL,#10                ; |284| 
+     381 0000004b 68D1          B         L1,LO                 ; |284| 
+     382                      ; branchcc occurs ; |284| 
+     383              DW$L$_timer_member_create$4$E:
+     384              L3:    
+     385                      .dwpsn  "timer_array.c",300,2
+     386 0000004c 7640'         LCR       #_timer_array_unlock  ; |300| 
+         0000004d 0006 
+     387                      ; call occurs [#_timer_array_unlock] ; |300| 
+     388                      .dwpsn  "timer_array.c",301,2
+     389 0000004e 761F!         MOVW      DP,#_m_log_pram+26
+         0000004f 0000 
+     390 00000050 8F00!         MOVL      XAR4,#_m_null_pram    ; |301| 
+         00000051 0000 
+     391 00000052 A81A!         MOVL      @_m_log_pram+26,XAR4  ; |301| 
+     392 00000053 A81C!         MOVL      @_m_log_pram+28,XAR4  ; |301| 
+     393 00000054 8F40!         MOVL      XAR5,#_m_log_pram     ; |301| 
+         00000055 0000 
+     394 00000056 8F00+         MOVL      XAR4,#FSL1            ; |301| 
+         00000057 0000 
+     395 00000058 7640!         LCR       #_log_printf          ; |301| 
+         00000059 0000 
+     396                      ; call occurs [#_log_printf] ; |301| 
+     397                      .dwpsn  "timer_array.c",302,2
+     398 0000005a D400          MOVB      XAR4,#0
+     399              L4:    
+     400                      .dwpsn  "timer_array.c",303,1
+     401 0000005b FE8A          SUBB      SP,#10                ; |302| 
+     402                      .dwcfa  0x1d, -2
+     403 0000005c 0006          LRETR
+     404                      ; return occurs
+     405              
+     406              DW$41   .dwtag  DW_TAG_loop
+     407                      .dwattr DW$41, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722:L1:1:1286612165")
+     408                      .dwattr DW$41, DW_AT_begin_file("timer_array.c")
+     409                      .dwattr DW$41, DW_AT_begin_line(0x11c)
+     410                      .dwattr DW$41, DW_AT_end_line(0x12b)
+     411              DW$42   .dwtag  DW_TAG_loop_range
+     412                      .dwattr DW$42, DW_AT_low_pc(DW$L$_timer_member_create$2$B)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE    9
+
+     413                      .dwattr DW$42, DW_AT_high_pc(DW$L$_timer_member_create$2$E)
+     414              DW$43   .dwtag  DW_TAG_loop_range
+     415                      .dwattr DW$43, DW_AT_low_pc(DW$L$_timer_member_create$4$B)
+     416                      .dwattr DW$43, DW_AT_high_pc(DW$L$_timer_member_create$4$E)
+     417                      .dwendtag DW$41
+     418              
+     419                      .dwattr DW$31, DW_AT_end_file("timer_array.c")
+     420                      .dwattr DW$31, DW_AT_end_line(0x12f)
+     421                      .dwattr DW$31, DW_AT_end_column(0x01)
+     422                      .dwendentry
+     423                      .dwendtag DW$31
+     424              
+     425 0000005d               .sect   ".text"
+     426                      .global _timer_member_revert_expires
+     427              
+     428              DW$44   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_member_revert_expires"), DW_AT_symbol_name("_timer_membe
+     429                      .dwattr DW$44, DW_AT_low_pc(_timer_member_revert_expires)
+     430                      .dwattr DW$44, DW_AT_high_pc(0x00)
+     431                      .dwattr DW$44, DW_AT_begin_file("timer_array.c")
+     432                      .dwattr DW$44, DW_AT_begin_line(0x138)
+     433                      .dwattr DW$44, DW_AT_begin_column(0x06)
+     434                      .dwpsn  "timer_array.c",313,1
+     435              
+     436                      .dwfde DW$CIE
+     437              
+     438              ;***************************************************************
+     439              ;* FNAME: _timer_member_revert_expires  FR SIZE:   6           *
+     440              ;*                                                             *
+     441              ;* FUNCTION ENVIRONMENT                                        *
+     442              ;*                                                             *
+     443              ;* FUNCTION PROPERTIES                                         *
+     444              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+     445              ;***************************************************************
+     446              
+     447              _timer_member_revert_expires:
+     448                      .dwcfa  0x1d, -2
+     449                      .dwcfa  0x1c, 26, 0
+     450                      .dwcfa  0x09, 40, 26
+     451 0000005d FE06          ADDB      SP,#6
+     452                      .dwcfa  0x1d, -8
+     453              ;* AL    assigned to _over_jiffies
+     454              DW$45   .dwtag  DW_TAG_formal_parameter, DW_AT_name("over_jiffies"), DW_AT_symbol_name("_over_jiffies")
+     455                      .dwattr DW$45, DW_AT_type(*DW$T$30)
+     456                      .dwattr DW$45, DW_AT_location[DW_OP_reg0]
+     457              DW$46   .dwtag  DW_TAG_variable, DW_AT_name("over_jiffies"), DW_AT_symbol_name("_over_jiffies")
+     458                      .dwattr DW$46, DW_AT_type(*DW$T$30)
+     459                      .dwattr DW$46, DW_AT_location[DW_OP_breg20 -2]
+     460              DW$47   .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+     461                      .dwattr DW$47, DW_AT_type(*DW$T$32)
+     462                      .dwattr DW$47, DW_AT_location[DW_OP_breg20 -3]
+     463              DW$48   .dwtag  DW_TAG_variable, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     464                      .dwattr DW$48, DW_AT_type(*DW$T$55)
+     465                      .dwattr DW$48, DW_AT_location[DW_OP_breg20 -6]
+     466 0000005e 1E42          MOVL      *-SP[2],ACC           ; |313| 
+     467                      .dwpsn  "timer_array.c",314,10
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   10
+
+     468 0000005f 2B43          MOV       *-SP[3],#0            ; |314| 
+     469                      .dwpsn  "timer_array.c",316,8
+     470 00000060 2B43          MOV       *-SP[3],#0            ; |316| 
+     471                      .dwpsn  "timer_array.c",316,18
+     472 00000061 9243          MOV       AL,*-SP[3]            ; |316| 
+     473 00000062 520A          CMPB      AL,#10                ; |316| 
+     474 00000063 6712          B         L7,HIS                ; |316| 
+     475                      ; branchcc occurs ; |316| 
+     476              L5:    
+     477              DW$L$_timer_member_revert_expires$2$B:
+     478                      .dwpsn  "timer_array.c",318,3
+     479 00000064 28AC          MOV       T,#10                 ; |318| 
+         00000065 000A 
+     480 00000066 8F00-         MOVL      XAR4,#_m_timer_array+6 ; |318| 
+         00000067 0046 
+     481 00000068 3043          MPYXU     ACC,T,*-SP[3]         ; |318| 
+     482 00000069 5601          ADDL      XAR4,ACC
+         0000006a 00A4 
+     483 0000006b 92C4          MOV       AL,*+XAR4[0]          ; |318| 
+     484 0000006c EC05          BF        L6,EQ                 ; |318| 
+     485                      ; branchcc occurs ; |318| 
+     486              DW$L$_timer_member_revert_expires$2$E:
+     487              DW$L$_timer_member_revert_expires$3$B:
+     488                      .dwpsn  "timer_array.c",320,4
+     489 0000006d 8A46          MOVL      XAR4,*-SP[6]          ; |320| 
+     490 0000006e 0642          MOVL      ACC,*-SP[2]           ; |320| 
+     491 0000006f 5601          ADDL      *+XAR4[2],ACC         ; |320| 
+         00000070 00D4 
+     492              DW$L$_timer_member_revert_expires$3$E:
+     493              L6:    
+     494              DW$L$_timer_member_revert_expires$4$B:
+     495                      .dwpsn  "timer_array.c",316,38
+     496 00000071 0A43          INC       *-SP[3]               ; |316| 
+     497                      .dwpsn  "timer_array.c",316,18
+     498 00000072 9243          MOV       AL,*-SP[3]            ; |316| 
+     499 00000073 520A          CMPB      AL,#10                ; |316| 
+     500 00000074 68F0          B         L5,LO                 ; |316| 
+     501                      ; branchcc occurs ; |316| 
+     502              DW$L$_timer_member_revert_expires$4$E:
+     503              L7:    
+     504                      .dwpsn  "timer_array.c",323,2
+     505 00000075 0642          MOVL      ACC,*-SP[2]           ; |323| 
+     506 00000076 761F-         MOVW      DP,#_m_timer_array_jiffies
+         00000077 0000 
+     507 00000078 5601-         ADDL      @_m_timer_array_jiffies,ACC ; |323| 
+         00000079 0002 
+     508                      .dwpsn  "timer_array.c",324,2
+     509                      .dwpsn  "timer_array.c",325,1
+     510 0000007a FE86          SUBB      SP,#6
+     511                      .dwcfa  0x1d, -2
+     512 0000007b 0006          LRETR
+     513                      ; return occurs
+     514              
+     515              DW$49   .dwtag  DW_TAG_loop
+     516                      .dwattr DW$49, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722:L5:1:1286612165")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   11
+
+     517                      .dwattr DW$49, DW_AT_begin_file("timer_array.c")
+     518                      .dwattr DW$49, DW_AT_begin_line(0x13c)
+     519                      .dwattr DW$49, DW_AT_end_line(0x142)
+     520              DW$50   .dwtag  DW_TAG_loop_range
+     521                      .dwattr DW$50, DW_AT_low_pc(DW$L$_timer_member_revert_expires$2$B)
+     522                      .dwattr DW$50, DW_AT_high_pc(DW$L$_timer_member_revert_expires$2$E)
+     523              DW$51   .dwtag  DW_TAG_loop_range
+     524                      .dwattr DW$51, DW_AT_low_pc(DW$L$_timer_member_revert_expires$3$B)
+     525                      .dwattr DW$51, DW_AT_high_pc(DW$L$_timer_member_revert_expires$3$E)
+     526              DW$52   .dwtag  DW_TAG_loop_range
+     527                      .dwattr DW$52, DW_AT_low_pc(DW$L$_timer_member_revert_expires$4$B)
+     528                      .dwattr DW$52, DW_AT_high_pc(DW$L$_timer_member_revert_expires$4$E)
+     529                      .dwendtag DW$49
+     530              
+     531                      .dwattr DW$44, DW_AT_end_file("timer_array.c")
+     532                      .dwattr DW$44, DW_AT_end_line(0x145)
+     533                      .dwattr DW$44, DW_AT_end_column(0x01)
+     534                      .dwendentry
+     535                      .dwendtag DW$44
+     536              
+     537 0000007c               .sect   ".text"
+     538                      .global _timer_member_mod_expires
+     539              
+     540              DW$53   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_member_mod_expires"), DW_AT_symbol_name("_timer_member_m
+     541                      .dwattr DW$53, DW_AT_low_pc(_timer_member_mod_expires)
+     542                      .dwattr DW$53, DW_AT_high_pc(0x00)
+     543                      .dwattr DW$53, DW_AT_begin_file("timer_array.c")
+     544                      .dwattr DW$53, DW_AT_begin_line(0x14e)
+     545                      .dwattr DW$53, DW_AT_begin_column(0x06)
+     546                      .dwpsn  "timer_array.c",336,1
+     547              
+     548                      .dwfde DW$CIE
+     549              
+     550              ;***************************************************************
+     551              ;* FNAME: _timer_member_mod_expires     FR SIZE:   4           *
+     552              ;*                                                             *
+     553              ;* FUNCTION ENVIRONMENT                                        *
+     554              ;*                                                             *
+     555              ;* FUNCTION PROPERTIES                                         *
+     556              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     557              ;***************************************************************
+     558              
+     559              _timer_member_mod_expires:
+     560                      .dwcfa  0x1d, -2
+     561                      .dwcfa  0x1c, 26, 0
+     562                      .dwcfa  0x09, 40, 26
+     563 0000007c FE04          ADDB      SP,#4
+     564                      .dwcfa  0x1d, -6
+     565              ;* AR4   assigned to _tmr
+     566              DW$54   .dwtag  DW_TAG_formal_parameter, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     567                      .dwattr DW$54, DW_AT_type(*DW$T$55)
+     568                      .dwattr DW$54, DW_AT_location[DW_OP_reg12]
+     569              ;* AL    assigned to _over_time
+     570              DW$55   .dwtag  DW_TAG_formal_parameter, DW_AT_name("over_time"), DW_AT_symbol_name("_over_time")
+     571                      .dwattr DW$55, DW_AT_type(*DW$T$30)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   12
+
+     572                      .dwattr DW$55, DW_AT_location[DW_OP_reg0]
+     573              DW$56   .dwtag  DW_TAG_variable, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     574                      .dwattr DW$56, DW_AT_type(*DW$T$55)
+     575                      .dwattr DW$56, DW_AT_location[DW_OP_breg20 -2]
+     576              DW$57   .dwtag  DW_TAG_variable, DW_AT_name("over_time"), DW_AT_symbol_name("_over_time")
+     577                      .dwattr DW$57, DW_AT_type(*DW$T$30)
+     578                      .dwattr DW$57, DW_AT_location[DW_OP_breg20 -4]
+     579 0000007d 1E44          MOVL      *-SP[4],ACC           ; |336| 
+     580 0000007e A842          MOVL      *-SP[2],XAR4          ; |336| 
+     581                      .dwpsn  "timer_array.c",337,2
+     582 0000007f 8A42          MOVL      XAR4,*-SP[2]          ; |337| 
+     583 00000080 761F-         MOVW      DP,#_m_timer_array_jiffies
+         00000081 0000 
+     584 00000082 0644          MOVL      ACC,*-SP[4]           ; |337| 
+     585 00000083 0702-         ADDL      ACC,@_m_timer_array_jiffies ; |337| 
+     586 00000084 1ED4          MOVL      *+XAR4[2],ACC         ; |337| 
+     587                      .dwpsn  "timer_array.c",338,2
+     588 00000085 0602-         MOVL      ACC,@_m_timer_array_jiffies ; |338| 
+     589 00000086 8A42          MOVL      XAR4,*-SP[2]          ; |338| 
+     590 00000087 0FD4          CMPL      ACC,*+XAR4[2]         ; |338| 
+     591 00000088 6908          B         L8,LOS                ; |338| 
+     592                      ; branchcc occurs ; |338| 
+     593                      .dwpsn  "timer_array.c",340,3
+     594 00000089 0644          MOVL      ACC,*-SP[4]           ; |340| 
+     595 0000008a 7640'         LCR       #_timer_member_revert_expires ; |340| 
+         0000008b 005D 
+     596                      ; call occurs [#_timer_member_revert_expires] ; |340| 
+     597                      .dwpsn  "timer_array.c",341,3
+     598 0000008c 8A42          MOVL      XAR4,*-SP[2]          ; |341| 
+     599 0000008d 0644          MOVL      ACC,*-SP[4]           ; |341| 
+     600 0000008e 5641          SUBL      *+XAR4[2],ACC         ; |341| 
+         0000008f 00D4 
+     601                      .dwpsn  "timer_array.c",343,2
+     602              L8:    
+     603                      .dwpsn  "timer_array.c",344,1
+     604 00000090 FE84          SUBB      SP,#4
+     605                      .dwcfa  0x1d, -2
+     606 00000091 0006          LRETR
+     607                      ; return occurs
+     608                      .dwattr DW$53, DW_AT_end_file("timer_array.c")
+     609                      .dwattr DW$53, DW_AT_end_line(0x158)
+     610                      .dwattr DW$53, DW_AT_end_column(0x01)
+     611                      .dwendentry
+     612                      .dwendtag DW$53
+     613              
+     614 00000092               .sect   ".text"
+     615                      .global _timer_member_state_set
+     616              
+     617              DW$58   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_member_state_set"), DW_AT_symbol_name("_timer_member_sta
+     618                      .dwattr DW$58, DW_AT_low_pc(_timer_member_state_set)
+     619                      .dwattr DW$58, DW_AT_high_pc(0x00)
+     620                      .dwattr DW$58, DW_AT_begin_file("timer_array.c")
+     621                      .dwattr DW$58, DW_AT_begin_line(0x165)
+     622                      .dwattr DW$58, DW_AT_begin_column(0x06)
+     623                      .dwpsn  "timer_array.c",358,1
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   13
+
+     624              
+     625                      .dwfde DW$CIE
+     626              
+     627              ;***************************************************************
+     628              ;* FNAME: _timer_member_state_set       FR SIZE:   4           *
+     629              ;*                                                             *
+     630              ;* FUNCTION ENVIRONMENT                                        *
+     631              ;*                                                             *
+     632              ;* FUNCTION PROPERTIES                                         *
+     633              ;*                            0 Parameter,  3 Auto,  0 SOE     *
+     634              ;***************************************************************
+     635              
+     636              _timer_member_state_set:
+     637                      .dwcfa  0x1d, -2
+     638                      .dwcfa  0x1c, 26, 0
+     639                      .dwcfa  0x09, 40, 26
+     640 00000092 FE04          ADDB      SP,#4
+     641                      .dwcfa  0x1d, -6
+     642              ;* AR4   assigned to _tmr
+     643              DW$59   .dwtag  DW_TAG_formal_parameter, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     644                      .dwattr DW$59, DW_AT_type(*DW$T$55)
+     645                      .dwattr DW$59, DW_AT_location[DW_OP_reg12]
+     646              ;* AL    assigned to _state
+     647              DW$60   .dwtag  DW_TAG_formal_parameter, DW_AT_name("state"), DW_AT_symbol_name("_state")
+     648                      .dwattr DW$60, DW_AT_type(*DW$T$32)
+     649                      .dwattr DW$60, DW_AT_location[DW_OP_reg0]
+     650              DW$61   .dwtag  DW_TAG_variable, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     651                      .dwattr DW$61, DW_AT_type(*DW$T$55)
+     652                      .dwattr DW$61, DW_AT_location[DW_OP_breg20 -2]
+     653              DW$62   .dwtag  DW_TAG_variable, DW_AT_name("state"), DW_AT_symbol_name("_state")
+     654                      .dwattr DW$62, DW_AT_type(*DW$T$32)
+     655                      .dwattr DW$62, DW_AT_location[DW_OP_breg20 -3]
+     656 00000093 9643          MOV       *-SP[3],AL            ; |358| 
+     657 00000094 A842          MOVL      *-SP[2],XAR4          ; |358| 
+     658                      .dwpsn  "timer_array.c",359,2
+     659 00000095 9243          MOV       AL,*-SP[3]            ; |359| 
+     660 00000096 5203          CMPB      AL,#3                 ; |359| 
+     661 00000097 ED09          BF        L9,NEQ                ; |359| 
+     662                      ; branchcc occurs ; |359| 
+     663                      .dwpsn  "timer_array.c",361,3
+     664 00000098 8A42          MOVL      XAR4,*-SP[2]          ; |361| 
+     665 00000099 92E4          MOV       AL,*+XAR4[4]          ; |361| 
+     666 0000009a 5202          CMPB      AL,#2                 ; |361| 
+     667 0000009b ED07          BF        L10,NEQ               ; |361| 
+     668                      ; branchcc occurs ; |361| 
+     669                      .dwpsn  "timer_array.c",363,4
+     670 0000009c 9243          MOV       AL,*-SP[3]            ; |363| 
+     671 0000009d 8A42          MOVL      XAR4,*-SP[2]          ; |363| 
+     672 0000009e 96E4          MOV       *+XAR4[4],AL          ; |363| 
+     673                      .dwpsn  "timer_array.c",365,2
+     674 0000009f 6F03          B         L10,UNC               ; |365| 
+     675                      ; branch occurs ; |365| 
+     676              L9:    
+     677                      .dwpsn  "timer_array.c",368,3
+     678 000000a0 8A42          MOVL      XAR4,*-SP[2]          ; |368| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   14
+
+     679 000000a1 96E4          MOV       *+XAR4[4],AL          ; |368| 
+     680                      .dwpsn  "timer_array.c",370,2
+     681              L10:    
+     682                      .dwpsn  "timer_array.c",371,1
+     683 000000a2 FE84          SUBB      SP,#4
+     684                      .dwcfa  0x1d, -2
+     685 000000a3 0006          LRETR
+     686                      ; return occurs
+     687                      .dwattr DW$58, DW_AT_end_file("timer_array.c")
+     688                      .dwattr DW$58, DW_AT_end_line(0x173)
+     689                      .dwattr DW$58, DW_AT_end_column(0x01)
+     690                      .dwendentry
+     691                      .dwendtag DW$58
+     692              
+     693 000000a4               .sect   ".text"
+     694                      .global _timer_jiffies_add
+     695              
+     696              DW$63   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_jiffies_add"), DW_AT_symbol_name("_timer_jiffies_add")
+     697                      .dwattr DW$63, DW_AT_low_pc(_timer_jiffies_add)
+     698                      .dwattr DW$63, DW_AT_high_pc(0x00)
+     699                      .dwattr DW$63, DW_AT_begin_file("timer_array.c")
+     700                      .dwattr DW$63, DW_AT_begin_line(0x17d)
+     701                      .dwattr DW$63, DW_AT_begin_column(0x06)
+     702                      .dwpsn  "timer_array.c",382,1
+     703              
+     704                      .dwfde DW$CIE
+     705              
+     706              ;***************************************************************
+     707              ;* FNAME: _timer_jiffies_add            FR SIZE:   0           *
+     708              ;*                                                             *
+     709              ;* FUNCTION ENVIRONMENT                                        *
+     710              ;*                                                             *
+     711              ;* FUNCTION PROPERTIES                                         *
+     712              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     713              ;***************************************************************
+     714              
+     715              _timer_jiffies_add:
+     716                      .dwcfa  0x1d, -2
+     717                      .dwcfa  0x1c, 26, 0
+     718                      .dwcfa  0x09, 40, 26
+     719                      .dwpsn  "timer_array.c",383,2
+     720 000000a4 0201          MOVB      ACC,#1
+     721 000000a5 761F-         MOVW      DP,#_m_timer_array_jiffies
+         000000a6 0000 
+     722 000000a7 5601-         ADDL      @_m_timer_array_jiffies,ACC ; |383| 
+         000000a8 0002 
+     723                      .dwpsn  "timer_array.c",384,2
+     724                      .dwpsn  "timer_array.c",385,1
+     725 000000a9 0006          LRETR
+     726                      ; return occurs
+     727                      .dwattr DW$63, DW_AT_end_file("timer_array.c")
+     728                      .dwattr DW$63, DW_AT_end_line(0x181)
+     729                      .dwattr DW$63, DW_AT_end_column(0x01)
+     730                      .dwendentry
+     731                      .dwendtag DW$63
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   15
+
+     732              
+     733 000000aa               .sect   ".text"
+     734                      .global _timer_array_maneger_task
+     735              
+     736              DW$64   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_array_maneger_task"), DW_AT_symbol_name("_timer_array_ma
+     737                      .dwattr DW$64, DW_AT_low_pc(_timer_array_maneger_task)
+     738                      .dwattr DW$64, DW_AT_high_pc(0x00)
+     739                      .dwattr DW$64, DW_AT_begin_file("timer_array.c")
+     740                      .dwattr DW$64, DW_AT_begin_line(0x18a)
+     741                      .dwattr DW$64, DW_AT_begin_column(0x06)
+     742                      .dwpsn  "timer_array.c",395,1
+     743              
+     744                      .dwfde DW$CIE
+     745              
+     746              ;***************************************************************
+     747              ;* FNAME: _timer_array_maneger_task     FR SIZE:   6           *
+     748              ;*                                                             *
+     749              ;* FUNCTION ENVIRONMENT                                        *
+     750              ;*                                                             *
+     751              ;* FUNCTION PROPERTIES                                         *
+     752              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+     753              ;***************************************************************
+     754              
+     755              _timer_array_maneger_task:
+     756                      .dwcfa  0x1d, -2
+     757                      .dwcfa  0x1c, 26, 0
+     758                      .dwcfa  0x09, 40, 26
+     759 000000aa FE06          ADDB      SP,#6
+     760                      .dwcfa  0x1d, -8
+     761              ;* AR4   assigned to _p_arg
+     762              DW$65   .dwtag  DW_TAG_formal_parameter, DW_AT_name("p_arg"), DW_AT_symbol_name("_p_arg")
+     763                      .dwattr DW$65, DW_AT_type(*DW$T$3)
+     764                      .dwattr DW$65, DW_AT_location[DW_OP_reg12]
+     765              DW$66   .dwtag  DW_TAG_variable, DW_AT_name("p_arg"), DW_AT_symbol_name("_p_arg")
+     766                      .dwattr DW$66, DW_AT_type(*DW$T$3)
+     767                      .dwattr DW$66, DW_AT_location[DW_OP_breg20 -2]
+     768              DW$67   .dwtag  DW_TAG_variable, DW_AT_name("tmr"), DW_AT_symbol_name("_tmr")
+     769                      .dwattr DW$67, DW_AT_type(*DW$T$55)
+     770                      .dwattr DW$67, DW_AT_location[DW_OP_breg20 -4]
+     771              DW$68   .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+     772                      .dwattr DW$68, DW_AT_type(*DW$T$32)
+     773                      .dwattr DW$68, DW_AT_location[DW_OP_breg20 -5]
+     774 000000ab A842          MOVL      *-SP[2],XAR4          ; |395| 
+     775                      .dwpsn  "timer_array.c",397,10
+     776 000000ac 2B45          MOV       *-SP[5],#0            ; |397| 
+     777                      .dwpsn  "timer_array.c",398,10
+     778              L11:    
+     779              DW$L$_timer_array_maneger_task$2$B:
+     780                      .dwpsn  "timer_array.c",400,9
+     781 000000ad 2B45          MOV       *-SP[5],#0            ; |400| 
+     782                      .dwpsn  "timer_array.c",400,20
+     783 000000ae 9245          MOV       AL,*-SP[5]            ; |400| 
+     784 000000af 520A          CMPB      AL,#10                ; |400| 
+     785 000000b0 6766          B         L18,HIS               ; |400| 
+     786                      ; branchcc occurs ; |400| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   16
+
+     787              DW$L$_timer_array_maneger_task$2$E:
+     788              L12:    
+     789              DW$L$_timer_array_maneger_task$3$B:
+     790                      .dwpsn  "timer_array.c",402,4
+     791 000000b1 28AC          MOV       T,#10                 ; |402| 
+         000000b2 000A 
+     792 000000b3 8F00-         MOVL      XAR4,#_m_timer_array+2 ; |402| 
+         000000b4 0042 
+     793 000000b5 3045          MPYXU     ACC,T,*-SP[5]         ; |402| 
+     794 000000b6 5601          ADDL      XAR4,ACC
+         000000b7 00A4 
+     795 000000b8 A844          MOVL      *-SP[4],XAR4          ; |402| 
+     796                      .dwpsn  "timer_array.c",403,4
+     797 000000b9 8A44          MOVL      XAR4,*-SP[4]          ; |403| 
+     798 000000ba 92E4          MOV       AL,*+XAR4[4]          ; |403| 
+     799 000000bb EC57          BF        L17,EQ                ; |403| 
+     800                      ; branchcc occurs ; |403| 
+     801              DW$L$_timer_array_maneger_task$3$E:
+     802              DW$L$_timer_array_maneger_task$4$B:
+     803                      .dwpsn  "timer_array.c",404,5
+     804                      .dwpsn  "timer_array.c",405,4
+     805 000000bc 8A44          MOVL      XAR4,*-SP[4]          ; |405| 
+     806 000000bd 92E4          MOV       AL,*+XAR4[4]          ; |405| 
+     807 000000be 5205          CMPB      AL,#5                 ; |405| 
+     808 000000bf ED0E          BF        L13,NEQ               ; |405| 
+     809                      ; branchcc occurs ; |405| 
+     810              DW$L$_timer_array_maneger_task$4$E:
+     811              DW$L$_timer_array_maneger_task$5$B:
+     812                      .dwpsn  "timer_array.c",407,5
+     813 000000c0 7640'         LCR       #_timer_array_lock    ; |407| 
+         000000c1 0000 
+     814                      ; call occurs [#_timer_array_lock] ; |407| 
+     815                      .dwpsn  "timer_array.c",408,5
+     816 000000c2 8A44          MOVL      XAR4,*-SP[4]          ; |408| 
+     817 000000c3 9A00          MOVB      AL,#0
+     818 000000c4 9B0A          MOVB      AH,#10                ; |408| 
+     819 000000c5 7640!         LCR       #_global_memset       ; |408| 
+         000000c6 0000 
+     820                      ; call occurs [#_global_memset] ; |408| 
+     821                      .dwpsn  "timer_array.c",409,5
+     822 000000c7 761F-         MOVW      DP,#_m_timer_array
+         000000c8 0001 
+     823 000000c9 0B00-         DEC       @_m_timer_array       ; |409| 
+     824                      .dwpsn  "timer_array.c",410,5
+     825 000000ca 7640'         LCR       #_timer_array_unlock  ; |410| 
+         000000cb 0006 
+     826                      ; call occurs [#_timer_array_unlock] ; |410| 
+     827                      .dwpsn  "timer_array.c",411,5
+     828 000000cc 6F46          B         L17,UNC               ; |411| 
+     829                      ; branch occurs ; |411| 
+     830              DW$L$_timer_array_maneger_task$5$E:
+     831              L13:    
+     832              DW$L$_timer_array_maneger_task$6$B:
+     833                      .dwpsn  "timer_array.c",413,4
+     834 000000cd 8A44          MOVL      XAR4,*-SP[4]          ; |413| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   17
+
+     835 000000ce 92E4          MOV       AL,*+XAR4[4]          ; |413| 
+     836 000000cf 5201          CMPB      AL,#1                 ; |413| 
+     837 000000d0 ED0C          BF        L14,NEQ               ; |413| 
+     838                      ; branchcc occurs ; |413| 
+     839              DW$L$_timer_array_maneger_task$6$E:
+     840              DW$L$_timer_array_maneger_task$7$B:
+     841                      .dwpsn  "timer_array.c",415,5
+     842 000000d1 8A44          MOVL      XAR4,*-SP[4]          ; |415| 
+     843 000000d2 28E4          MOV       *+XAR4[4],#2          ; |415| 
+         000000d3 0002 
+     844                      .dwpsn  "timer_array.c",416,5
+     845 000000d4 8A44          MOVL      XAR4,*-SP[4]          ; |416| 
+     846 000000d5 06D4          MOVL      ACC,*+XAR4[2]         ; |416| 
+     847 000000d6 8A44          MOVL      XAR4,*-SP[4]          ; |416| 
+     848 000000d7 761F-         MOVW      DP,#_m_timer_array_jiffies
+         000000d8 0000 
+     849 000000d9 0302-         SUBL      ACC,@_m_timer_array_jiffies ; |416| 
+     850 000000da 1ED4          MOVL      *+XAR4[2],ACC         ; |416| 
+     851                      .dwpsn  "timer_array.c",417,5
+     852 000000db 6F37          B         L17,UNC               ; |417| 
+     853                      ; branch occurs ; |417| 
+     854              DW$L$_timer_array_maneger_task$7$E:
+     855              L14:    
+     856              DW$L$_timer_array_maneger_task$8$B:
+     857                      .dwpsn  "timer_array.c",419,4
+     858 000000dc 8A44          MOVL      XAR4,*-SP[4]          ; |419| 
+     859 000000dd 92E4          MOV       AL,*+XAR4[4]          ; |419| 
+     860 000000de 5203          CMPB      AL,#3                 ; |419| 
+     861 000000df ED0A          BF        L15,NEQ               ; |419| 
+     862                      ; branchcc occurs ; |419| 
+     863              DW$L$_timer_array_maneger_task$8$E:
+     864              DW$L$_timer_array_maneger_task$9$B:
+     865                      .dwpsn  "timer_array.c",421,5
+     866 000000e0 8A44          MOVL      XAR4,*-SP[4]          ; |421| 
+     867 000000e1 06D4          MOVL      ACC,*+XAR4[2]         ; |421| 
+     868 000000e2 8A44          MOVL      XAR4,*-SP[4]          ; |421| 
+     869 000000e3 7640'         LCR       #_timer_member_mod_expires ; |421| 
+         000000e4 007C 
+     870                      ; call occurs [#_timer_member_mod_expires] ; |421| 
+     871                      .dwpsn  "timer_array.c",422,5
+     872 000000e5 8A44          MOVL      XAR4,*-SP[4]          ; |422| 
+     873 000000e6 28E4          MOV       *+XAR4[4],#4          ; |422| 
+         000000e7 0004 
+     874                      .dwpsn  "timer_array.c",423,5
+     875 000000e8 6F2A          B         L17,UNC               ; |423| 
+     876                      ; branch occurs ; |423| 
+     877              DW$L$_timer_array_maneger_task$9$E:
+     878              L15:    
+     879              DW$L$_timer_array_maneger_task$10$B:
+     880                      .dwpsn  "timer_array.c",425,4
+     881 000000e9 8A44          MOVL      XAR4,*-SP[4]          ; |425| 
+     882 000000ea 761F-         MOVW      DP,#_m_timer_array_jiffies
+         000000eb 0000 
+     883 000000ec 0602-         MOVL      ACC,@_m_timer_array_jiffies ; |425| 
+     884 000000ed 0FD4          CMPL      ACC,*+XAR4[2]         ; |425| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   18
+
+     885 000000ee 6824          B         L17,LO                ; |425| 
+     886                      ; branchcc occurs ; |425| 
+     887 000000ef       DW$L$_timer_array_maneger_task$10$E:
+     888 000000ef       DW$L$_timer_array_maneger_task$11$B:
+     889 000000ef 8A44          MOVL      XAR4,*-SP[4]          ; |425| 
+     890 000000f0 92E4          MOV       AL,*+XAR4[4]          ; |425| 
+     891 000000f1 5204          CMPB      AL,#4                 ; |425| 
+     892 000000f2 ED20          BF        L17,NEQ               ; |425| 
+     893                      ; branchcc occurs ; |425| 
+     894              DW$L$_timer_array_maneger_task$11$E:
+     895              DW$L$_timer_array_maneger_task$12$B:
+     896                      .dwpsn  "timer_array.c",428,5
+     897 000000f3 8A44          MOVL      XAR4,*-SP[4]          ; |428| 
+     898 000000f4 92EC          MOV       AL,*+XAR4[5]          ; |428| 
+     899 000000f5 5201          CMPB      AL,#1                 ; |428| 
+     900 000000f6 ED06          BF        L16,NEQ               ; |428| 
+     901                      ; branchcc occurs ; |428| 
+     902              DW$L$_timer_array_maneger_task$12$E:
+     903              DW$L$_timer_array_maneger_task$13$B:
+     904                      .dwpsn  "timer_array.c",430,6
+     905 000000f7 8A44          MOVL      XAR4,*-SP[4]          ; |430| 
+     906 000000f8 06F4          MOVL      ACC,*+XAR4[6]         ; |430| 
+     907 000000f9 8A44          MOVL      XAR4,*-SP[4]          ; |430| 
+     908 000000fa 7640'         LCR       #_timer_member_mod_expires ; |430| 
+         000000fb 007C 
+     909                      ; call occurs [#_timer_member_mod_expires] ; |430| 
+     910              DW$L$_timer_array_maneger_task$13$E:
+     911              L16:    
+     912              DW$L$_timer_array_maneger_task$14$B:
+     913                      .dwpsn  "timer_array.c",434,5
+     914 000000fc 8A44          MOVL      XAR4,*-SP[4]          ; |434| 
+     915 000000fd C5C4          MOVL      XAR7,*+XAR4[0]        ; |434| 
+     916 000000fe 8A44          MOVL      XAR4,*-SP[4]          ; |434| 
+     917 000000ff D008          MOVB      XAR0,#8               ; |434| 
+     918 00000100 8A94          MOVL      XAR4,*+XAR4[AR0]      ; |434| 
+     919 00000101 3E67          LCR       *XAR7                 ; |434| 
+     920                      ; call occurs [XAR7] ; |434| 
+     921                      .dwpsn  "timer_array.c",435,5
+     922 00000102 8A44          MOVL      XAR4,*-SP[4]          ; |435| 
+     923 00000103 92EC          MOV       AL,*+XAR4[5]          ; |435| 
+     924 00000104 5202          CMPB      AL,#2                 ; |435| 
+     925 00000105 ED0D          BF        L17,NEQ               ; |435| 
+     926                      ; branchcc occurs ; |435| 
+     927              DW$L$_timer_array_maneger_task$14$E:
+     928              DW$L$_timer_array_maneger_task$15$B:
+     929                      .dwpsn  "timer_array.c",437,6
+     930 00000106 7640'         LCR       #_timer_array_lock    ; |437| 
+         00000107 0000 
+     931                      ; call occurs [#_timer_array_lock] ; |437| 
+     932                      .dwpsn  "timer_array.c",438,6
+     933 00000108 8A44          MOVL      XAR4,*-SP[4]          ; |438| 
+     934 00000109 9A00          MOVB      AL,#0
+     935 0000010a 9B0A          MOVB      AH,#10                ; |438| 
+     936 0000010b 7640!         LCR       #_global_memset       ; |438| 
+         0000010c 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   19
+
+     937                      ; call occurs [#_global_memset] ; |438| 
+     938                      .dwpsn  "timer_array.c",440,6
+     939 0000010d 761F-         MOVW      DP,#_m_timer_array
+         0000010e 0001 
+     940 0000010f 0B00-         DEC       @_m_timer_array       ; |440| 
+     941                      .dwpsn  "timer_array.c",441,6
+     942 00000110 7640'         LCR       #_timer_array_unlock  ; |441| 
+         00000111 0006 
+     943                      ; call occurs [#_timer_array_unlock] ; |441| 
+     944              DW$L$_timer_array_maneger_task$15$E:
+     945              L17:    
+     946              DW$L$_timer_array_maneger_task$16$B:
+     947                      .dwpsn  "timer_array.c",400,40
+     948 00000112 0A45          INC       *-SP[5]               ; |400| 
+     949                      .dwpsn  "timer_array.c",400,20
+     950 00000113 9245          MOV       AL,*-SP[5]            ; |400| 
+     951 00000114 520A          CMPB      AL,#10                ; |400| 
+     952 00000115 689C          B         L12,LO                ; |400| 
+     953                      ; branchcc occurs ; |400| 
+     954              DW$L$_timer_array_maneger_task$16$E:
+     955              L18:    
+     956              DW$L$_timer_array_maneger_task$17$B:
+     957                      .dwpsn  "timer_array.c",445,3
+     958 00000116 9A06          MOVB      AL,#6                 ; |445| 
+     959 00000117 7640!         LCR       #_OSTimeDly           ; |445| 
+         00000118 0000 
+     960                      ; call occurs [#_OSTimeDly] ; |445| 
+     961                      .dwpsn  "timer_array.c",398,10
+     962 00000119 6F94          B         L11,UNC               ; |398| 
+     963                      ; branch occurs ; |398| 
+     964              DW$L$_timer_array_maneger_task$17$E:
+     965                      .dwcfa  0x1d, -2
+     966              
+     967              DW$69   .dwtag  DW_TAG_loop
+     968                      .dwattr DW$69, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722:L11:1:1286612165")
+     969                      .dwattr DW$69, DW_AT_begin_file("timer_array.c")
+     970                      .dwattr DW$69, DW_AT_begin_line(0x18e)
+     971                      .dwattr DW$69, DW_AT_end_line(0x1be)
+     972              DW$70   .dwtag  DW_TAG_loop_range
+     973                      .dwattr DW$70, DW_AT_low_pc(DW$L$_timer_array_maneger_task$2$B)
+     974                      .dwattr DW$70, DW_AT_high_pc(DW$L$_timer_array_maneger_task$2$E)
+     975              DW$71   .dwtag  DW_TAG_loop_range
+     976                      .dwattr DW$71, DW_AT_low_pc(DW$L$_timer_array_maneger_task$17$B)
+     977                      .dwattr DW$71, DW_AT_high_pc(DW$L$_timer_array_maneger_task$17$E)
+     978              
+     979              DW$72   .dwtag  DW_TAG_loop
+     980                      .dwattr DW$72, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722:L12:2:1286612165")
+     981                      .dwattr DW$72, DW_AT_begin_file("timer_array.c")
+     982                      .dwattr DW$72, DW_AT_begin_line(0x190)
+     983                      .dwattr DW$72, DW_AT_end_line(0x1bc)
+     984              DW$73   .dwtag  DW_TAG_loop_range
+     985                      .dwattr DW$73, DW_AT_low_pc(DW$L$_timer_array_maneger_task$3$B)
+     986                      .dwattr DW$73, DW_AT_high_pc(DW$L$_timer_array_maneger_task$3$E)
+     987              DW$74   .dwtag  DW_TAG_loop_range
+     988                      .dwattr DW$74, DW_AT_low_pc(DW$L$_timer_array_maneger_task$12$B)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   20
+
+     989                      .dwattr DW$74, DW_AT_high_pc(DW$L$_timer_array_maneger_task$12$E)
+     990              DW$75   .dwtag  DW_TAG_loop_range
+     991                      .dwattr DW$75, DW_AT_low_pc(DW$L$_timer_array_maneger_task$13$B)
+     992                      .dwattr DW$75, DW_AT_high_pc(DW$L$_timer_array_maneger_task$13$E)
+     993              DW$76   .dwtag  DW_TAG_loop_range
+     994                      .dwattr DW$76, DW_AT_low_pc(DW$L$_timer_array_maneger_task$8$B)
+     995                      .dwattr DW$76, DW_AT_high_pc(DW$L$_timer_array_maneger_task$8$E)
+     996              DW$77   .dwtag  DW_TAG_loop_range
+     997                      .dwattr DW$77, DW_AT_low_pc(DW$L$_timer_array_maneger_task$6$B)
+     998                      .dwattr DW$77, DW_AT_high_pc(DW$L$_timer_array_maneger_task$6$E)
+     999              DW$78   .dwtag  DW_TAG_loop_range
+    1000                      .dwattr DW$78, DW_AT_low_pc(DW$L$_timer_array_maneger_task$4$B)
+    1001                      .dwattr DW$78, DW_AT_high_pc(DW$L$_timer_array_maneger_task$4$E)
+    1002              DW$79   .dwtag  DW_TAG_loop_range
+    1003                      .dwattr DW$79, DW_AT_low_pc(DW$L$_timer_array_maneger_task$5$B)
+    1004                      .dwattr DW$79, DW_AT_high_pc(DW$L$_timer_array_maneger_task$5$E)
+    1005              DW$80   .dwtag  DW_TAG_loop_range
+    1006                      .dwattr DW$80, DW_AT_low_pc(DW$L$_timer_array_maneger_task$7$B)
+    1007                      .dwattr DW$80, DW_AT_high_pc(DW$L$_timer_array_maneger_task$7$E)
+    1008              DW$81   .dwtag  DW_TAG_loop_range
+    1009                      .dwattr DW$81, DW_AT_low_pc(DW$L$_timer_array_maneger_task$9$B)
+    1010                      .dwattr DW$81, DW_AT_high_pc(DW$L$_timer_array_maneger_task$9$E)
+    1011              DW$82   .dwtag  DW_TAG_loop_range
+    1012                      .dwattr DW$82, DW_AT_low_pc(DW$L$_timer_array_maneger_task$10$B)
+    1013                      .dwattr DW$82, DW_AT_high_pc(DW$L$_timer_array_maneger_task$10$E)
+    1014              DW$83   .dwtag  DW_TAG_loop_range
+    1015                      .dwattr DW$83, DW_AT_low_pc(DW$L$_timer_array_maneger_task$11$B)
+    1016                      .dwattr DW$83, DW_AT_high_pc(DW$L$_timer_array_maneger_task$11$E)
+    1017              DW$84   .dwtag  DW_TAG_loop_range
+    1018                      .dwattr DW$84, DW_AT_low_pc(DW$L$_timer_array_maneger_task$14$B)
+    1019                      .dwattr DW$84, DW_AT_high_pc(DW$L$_timer_array_maneger_task$14$E)
+    1020              DW$85   .dwtag  DW_TAG_loop_range
+    1021                      .dwattr DW$85, DW_AT_low_pc(DW$L$_timer_array_maneger_task$15$B)
+    1022                      .dwattr DW$85, DW_AT_high_pc(DW$L$_timer_array_maneger_task$15$E)
+    1023              DW$86   .dwtag  DW_TAG_loop_range
+    1024                      .dwattr DW$86, DW_AT_low_pc(DW$L$_timer_array_maneger_task$16$B)
+    1025                      .dwattr DW$86, DW_AT_high_pc(DW$L$_timer_array_maneger_task$16$E)
+    1026                      .dwendtag DW$72
+    1027              
+    1028                      .dwendtag DW$69
+    1029              
+    1030                      .dwattr DW$64, DW_AT_end_file("timer_array.c")
+    1031                      .dwattr DW$64, DW_AT_end_line(0x1bf)
+    1032                      .dwattr DW$64, DW_AT_end_column(0x01)
+    1033                      .dwendentry
+    1034                      .dwendtag DW$64
+    1035              
+    1036 0000011a               .sect   ".text"
+    1037                      .global _timer_array_mod_init
+    1038              
+    1039              DW$87   .dwtag  DW_TAG_subprogram, DW_AT_name("timer_array_mod_init"), DW_AT_symbol_name("_timer_array_mod_in
+    1040                      .dwattr DW$87, DW_AT_low_pc(_timer_array_mod_init)
+    1041                      .dwattr DW$87, DW_AT_high_pc(0x00)
+    1042                      .dwattr DW$87, DW_AT_begin_file("timer_array.c")
+    1043                      .dwattr DW$87, DW_AT_begin_line(0x1c8)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   21
+
+    1044                      .dwattr DW$87, DW_AT_begin_column(0x06)
+    1045                      .dwpsn  "timer_array.c",457,1
+    1046              
+    1047                      .dwfde DW$CIE
+    1048              
+    1049              ;***************************************************************
+    1050              ;* FNAME: _timer_array_mod_init         FR SIZE:   0           *
+    1051              ;*                                                             *
+    1052              ;* FUNCTION ENVIRONMENT                                        *
+    1053              ;*                                                             *
+    1054              ;* FUNCTION PROPERTIES                                         *
+    1055              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1056              ;***************************************************************
+    1057              
+    1058              _timer_array_mod_init:
+    1059                      .dwcfa  0x1d, -2
+    1060                      .dwcfa  0x1c, 26, 0
+    1061                      .dwcfa  0x09, 40, 26
+    1062                      .dwpsn  "timer_array.c",458,2
+    1063 0000011a 9A00          MOVB      AL,#0
+    1064 0000011b 8F00-         MOVL      XAR4,#_m_timer_array  ; |458| 
+         0000011c 0040 
+    1065 0000011d 9B66          MOVB      AH,#102               ; |458| 
+    1066 0000011e 7640!         LCR       #_global_memset       ; |458| 
+         0000011f 0000 
+    1067                      ; call occurs [#_global_memset] ; |458| 
+    1068                      .dwpsn  "timer_array.c",459,2
+    1069 00000120 7640'         LCR       #_timer_array_lock_creat ; |459| 
+         00000121 000C 
+    1070                      ; call occurs [#_timer_array_lock_creat] ; |459| 
+    1071                      .dwpsn  "timer_array.c",460,2
+    1072 00000122 9A21          MOVB      AL,#33                ; |460| 
+    1073 00000123 8F00'         MOVL      XAR4,#_timer_array_maneger_task ; |460| 
+         00000124 00AA 
+    1074 00000125 9B02          MOVB      AH,#2                 ; |460| 
+    1075 00000126 7640!         LCR       #_os_task_assign_pro_build ; |460| 
+         00000127 0000 
+    1076                      ; call occurs [#_os_task_assign_pro_build] ; |460| 
+    1077                      .dwpsn  "timer_array.c",461,2
+    1078 00000128 9A21          MOVB      AL,#33                ; |461| 
+    1079 00000129 8F00+         MOVL      XAR4,#FSL2            ; |461| 
+         0000012a 004E 
+    1080 0000012b 7640!         LCR       #_os_task_name_set    ; |461| 
+         0000012c 0000 
+    1081                      ; call occurs [#_os_task_name_set] ; |461| 
+    1082                      .dwpsn  "timer_array.c",462,2
+    1083                      .dwpsn  "timer_array.c",463,1
+    1084 0000012d 0006          LRETR
+    1085                      ; return occurs
+    1086                      .dwattr DW$87, DW_AT_end_file("timer_array.c")
+    1087                      .dwattr DW$87, DW_AT_end_line(0x1cf)
+    1088                      .dwattr DW$87, DW_AT_end_column(0x01)
+    1089                      .dwendentry
+    1090                      .dwendtag DW$87
+    1091              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   22
+
+    1092              ;***************************************************************
+    1093              ;* FAR STRINGS                                                 *
+    1094              ;***************************************************************
+    1095 00000000               .sect   ".econst"
+    1096                      .align  2
+    1097 00000000 000A  FSL1:   .string 10,"The timer number has reached the maximum, please MAX_TMR"
+         00000001 0054 
+         00000002 0068 
+         00000003 0065 
+         00000004 0020 
+         00000005 0074 
+         00000006 0069 
+         00000007 006D 
+         00000008 0065 
+         00000009 0072 
+         0000000a 0020 
+         0000000b 006E 
+         0000000c 0075 
+         0000000d 006D 
+         0000000e 0062 
+         0000000f 0065 
+         00000010 0072 
+         00000011 0020 
+         00000012 0068 
+         00000013 0061 
+         00000014 0073 
+         00000015 0020 
+         00000016 0072 
+         00000017 0065 
+         00000018 0061 
+         00000019 0063 
+         0000001a 0068 
+         0000001b 0065 
+         0000001c 0064 
+         0000001d 0020 
+         0000001e 0074 
+         0000001f 0068 
+         00000020 0065 
+         00000021 0020 
+         00000022 006D 
+         00000023 0061 
+         00000024 0078 
+         00000025 0069 
+         00000026 006D 
+         00000027 0075 
+         00000028 006D 
+         00000029 002C 
+         0000002a 0020 
+         0000002b 0070 
+         0000002c 006C 
+         0000002d 0065 
+         0000002e 0061 
+         0000002f 0073 
+         00000030 0065 
+         00000031 0020 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   23
+
+         00000032 004D 
+         00000033 0041 
+         00000034 0058 
+         00000035 005F 
+         00000036 0054 
+         00000037 004D 
+         00000038 0052 
+    1098 00000039 005F          .string "_NUM modification.",10,0
+         0000003a 004E 
+         0000003b 0055 
+         0000003c 004D 
+         0000003d 0020 
+         0000003e 006D 
+         0000003f 006F 
+         00000040 0064 
+         00000041 0069 
+         00000042 0066 
+         00000043 0069 
+         00000044 0063 
+         00000045 0061 
+         00000046 0074 
+         00000047 0069 
+         00000048 006F 
+         00000049 006E 
+         0000004a 002E 
+         0000004b 000A 
+         0000004c 0000 
+    1099                      .align  2
+    1100 0000004e 0053  FSL2:   .string "Support--Timer array",0
+         0000004f 0075 
+         00000050 0070 
+         00000051 0070 
+         00000052 006F 
+         00000053 0072 
+         00000054 0074 
+         00000055 002D 
+         00000056 002D 
+         00000057 0054 
+         00000058 0069 
+         00000059 006D 
+         0000005a 0065 
+         0000005b 0072 
+         0000005c 0020 
+         0000005d 0061 
+         0000005e 0072 
+         0000005f 0072 
+         00000060 0061 
+         00000061 0079 
+         00000062 0000 
+    1101              ;***************************************************************
+    1102              ;* UNDEFINED EXTERNAL REFERENCES                               *
+    1103              ;***************************************************************
+    1104                      .global _os_lock
+    1105                      .global _os_unlock
+    1106                      .global _OSTimeDly
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   24
+
+    1107                      .global _global_memset
+    1108                      .global _log_printf
+    1109                      .global _os_task_assign_pro_build
+    1110                      .global _m_null_pram
+    1111                      .global _os_task_name_set
+    1112                      .global _os_lock_creat
+    1113                      .global _m_log_pram
+    1114              
+    1115              ;***************************************************************
+    1116              ;* TYPE INFORMATION                                            *
+    1117              ;***************************************************************
+    1118              DW$T$3  .dwtag  DW_TAG_pointer_type
+    1119                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+    1120              
+    1121              DW$T$27 .dwtag  DW_TAG_subroutine_type
+    1122                      .dwattr DW$T$27, DW_AT_language(DW_LANG_C)
+    1123              DW$88   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1124                      .dwendtag DW$T$27
+    1125              
+    1126              DW$T$28 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$27)
+    1127                      .dwattr DW$T$28, DW_AT_address_class(0x16)
+    1128              DW$T$29 .dwtag  DW_TAG_typedef, DW_AT_name("tmr_callblack"), DW_AT_type(*DW$T$28)
+    1129                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+    1130              
+    1131              DW$T$37 .dwtag  DW_TAG_subroutine_type
+    1132                      .dwattr DW$T$37, DW_AT_language(DW_LANG_C)
+    1133              DW$89   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    1134                      .dwendtag DW$T$37
+    1135              
+    1136              
+    1137              DW$T$39 .dwtag  DW_TAG_subroutine_type
+    1138                      .dwattr DW$T$39, DW_AT_language(DW_LANG_C)
+    1139              DW$90   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1140              DW$91   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1141              DW$92   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+    1142                      .dwendtag DW$T$39
+    1143              
+    1144              
+    1145              DW$T$44 .dwtag  DW_TAG_subroutine_type
+    1146                      .dwattr DW$T$44, DW_AT_language(DW_LANG_C)
+    1147              DW$93   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$43)
+    1148                      .dwendtag DW$T$44
+    1149              
+    1150              
+    1151              DW$T$49 .dwtag  DW_TAG_subroutine_type
+    1152                      .dwattr DW$T$49, DW_AT_language(DW_LANG_C)
+    1153              DW$94   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$46)
+    1154              DW$95   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$48)
+    1155                      .dwendtag DW$T$49
+    1156              
+    1157              
+    1158              DW$T$51 .dwtag  DW_TAG_subroutine_type
+    1159                      .dwattr DW$T$51, DW_AT_language(DW_LANG_C)
+    1160              
+    1161              DW$T$53 .dwtag  DW_TAG_subroutine_type
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   25
+
+    1162                      .dwattr DW$T$53, DW_AT_language(DW_LANG_C)
+    1163              DW$96   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    1164                      .dwendtag DW$T$53
+    1165              
+    1166              
+    1167              DW$T$56 .dwtag  DW_TAG_subroutine_type
+    1168                      .dwattr DW$T$56, DW_AT_language(DW_LANG_C)
+    1169              DW$97   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+    1170              DW$98   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    1171                      .dwendtag DW$T$56
+    1172              
+    1173              
+    1174              DW$T$58 .dwtag  DW_TAG_subroutine_type
+    1175                      .dwattr DW$T$58, DW_AT_language(DW_LANG_C)
+    1176              DW$99   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+    1177              DW$100  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+    1178                      .dwendtag DW$T$58
+    1179              
+    1180              DW$T$25 .dwtag  DW_TAG_typedef, DW_AT_name("uint8_t"), DW_AT_type(*DW$T$6)
+    1181                      .dwattr DW$T$25, DW_AT_language(DW_LANG_C)
+    1182              
+    1183              DW$T$60 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    1184                      .dwattr DW$T$60, DW_AT_language(DW_LANG_C)
+    1185              DW$101  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$59)
+    1186                      .dwendtag DW$T$60
+    1187              
+    1188              
+    1189              DW$T$62 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    1190                      .dwattr DW$T$62, DW_AT_language(DW_LANG_C)
+    1191              DW$102  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1192              DW$103  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$46)
+    1193                      .dwendtag DW$T$62
+    1194              
+    1195              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("INT16U"), DW_AT_type(*DW$T$11)
+    1196                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+    1197              DW$T$32 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$31)
+    1198                      .dwattr DW$T$32, DW_AT_language(DW_LANG_C)
+    1199              DW$T$65 .dwtag  DW_TAG_typedef, DW_AT_name("BOOL"), DW_AT_type(*DW$T$31)
+    1200                      .dwattr DW$T$65, DW_AT_language(DW_LANG_C)
+    1201              
+    1202              DW$T$66 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$65)
+    1203                      .dwattr DW$T$66, DW_AT_language(DW_LANG_C)
+    1204              DW$104  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+    1205              DW$105  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1206              DW$106  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+    1207                      .dwendtag DW$T$66
+    1208              
+    1209              DW$T$30 .dwtag  DW_TAG_typedef, DW_AT_name("uint32_t"), DW_AT_type(*DW$T$13)
+    1210                      .dwattr DW$T$30, DW_AT_language(DW_LANG_C)
+    1211              DW$107  .dwtag  DW_TAG_far_type
+    1212                      .dwattr DW$107, DW_AT_type(*DW$T$30)
+    1213              DW$T$68 .dwtag  DW_TAG_volatile_type
+    1214                      .dwattr DW$T$68, DW_AT_type(*DW$107)
+    1215              DW$T$43 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$42)
+    1216                      .dwattr DW$T$43, DW_AT_address_class(0x16)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   26
+
+    1217              DW$T$59 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$43)
+    1218                      .dwattr DW$T$59, DW_AT_address_class(0x16)
+    1219              DW$T$46 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$23)
+    1220                      .dwattr DW$T$46, DW_AT_address_class(0x16)
+    1221              DW$T$47 .dwtag  DW_TAG_typedef, DW_AT_name("log_param"), DW_AT_type(*DW$T$26)
+    1222                      .dwattr DW$T$47, DW_AT_language(DW_LANG_C)
+    1223              DW$T$48 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$47)
+    1224                      .dwattr DW$T$48, DW_AT_address_class(0x16)
+    1225              DW$T$55 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$34)
+    1226                      .dwattr DW$T$55, DW_AT_address_class(0x16)
+    1227              
+    1228              DW$T$69 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$55)
+    1229                      .dwattr DW$T$69, DW_AT_language(DW_LANG_C)
+    1230              DW$108  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    1231              DW$109  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$32)
+    1232              DW$110  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$29)
+    1233              DW$111  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1234                      .dwendtag DW$T$69
+    1235              
+    1236              DW$T$71 .dwtag  DW_TAG_typedef, DW_AT_name("tmr_array_t"), DW_AT_type(*DW$T$36)
+    1237                      .dwattr DW$T$71, DW_AT_language(DW_LANG_C)
+    1238              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+    1239                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1240                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+    1241              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+    1242                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1243                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+    1244              DW$T$31 .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t"), DW_AT_type(*DW$T$11)
+    1245                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+    1246              DW$T$13 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned long")
+    1247                      .dwattr DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1248                      .dwattr DW$T$13, DW_AT_byte_size(0x02)
+    1249              DW$T$42 .dwtag  DW_TAG_typedef, DW_AT_name("a_lock_t"), DW_AT_type(*DW$T$41)
+    1250                      .dwattr DW$T$42, DW_AT_language(DW_LANG_C)
+    1251              DW$T$23 .dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+    1252                      .dwattr DW$T$23, DW_AT_encoding(DW_ATE_signed_char)
+    1253                      .dwattr DW$T$23, DW_AT_byte_size(0x01)
+    1254              
+    1255              DW$T$26 .dwtag  DW_TAG_structure_type
+    1256                      .dwattr DW$T$26, DW_AT_byte_size(0x28)
+    1257              DW$112  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$24)
+    1258                      .dwattr DW$112, DW_AT_name("pram_buf"), DW_AT_symbol_name("_pram_buf")
+    1259                      .dwattr DW$112, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1260                      .dwattr DW$112, DW_AT_accessibility(DW_ACCESS_public)
+    1261              DW$113  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$25)
+    1262                      .dwattr DW$113, DW_AT_name("cur_off"), DW_AT_symbol_name("_cur_off")
+    1263                      .dwattr DW$113, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+    1264                      .dwattr DW$113, DW_AT_accessibility(DW_ACCESS_public)
+    1265              DW$114  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1266                      .dwattr DW$114, DW_AT_name("parm_0"), DW_AT_symbol_name("_parm_0")
+    1267                      .dwattr DW$114, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+    1268                      .dwattr DW$114, DW_AT_accessibility(DW_ACCESS_public)
+    1269              DW$115  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1270                      .dwattr DW$115, DW_AT_name("parm_1"), DW_AT_symbol_name("_parm_1")
+    1271                      .dwattr DW$115, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   27
+
+    1272                      .dwattr DW$115, DW_AT_accessibility(DW_ACCESS_public)
+    1273              DW$116  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1274                      .dwattr DW$116, DW_AT_name("parm_2"), DW_AT_symbol_name("_parm_2")
+    1275                      .dwattr DW$116, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+    1276                      .dwattr DW$116, DW_AT_accessibility(DW_ACCESS_public)
+    1277              DW$117  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1278                      .dwattr DW$117, DW_AT_name("parm_3"), DW_AT_symbol_name("_parm_3")
+    1279                      .dwattr DW$117, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+    1280                      .dwattr DW$117, DW_AT_accessibility(DW_ACCESS_public)
+    1281              DW$118  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1282                      .dwattr DW$118, DW_AT_name("parm_4"), DW_AT_symbol_name("_parm_4")
+    1283                      .dwattr DW$118, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+    1284                      .dwattr DW$118, DW_AT_accessibility(DW_ACCESS_public)
+    1285              DW$119  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1286                      .dwattr DW$119, DW_AT_name("parm_5"), DW_AT_symbol_name("_parm_5")
+    1287                      .dwattr DW$119, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+    1288                      .dwattr DW$119, DW_AT_accessibility(DW_ACCESS_public)
+    1289              DW$120  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1290                      .dwattr DW$120, DW_AT_name("end_pram"), DW_AT_symbol_name("_end_pram")
+    1291                      .dwattr DW$120, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+    1292                      .dwattr DW$120, DW_AT_accessibility(DW_ACCESS_public)
+    1293                      .dwendtag DW$T$26
+    1294              
+    1295              DW$T$34 .dwtag  DW_TAG_typedef, DW_AT_name("tmr_member_t"), DW_AT_type(*DW$T$33)
+    1296                      .dwattr DW$T$34, DW_AT_language(DW_LANG_C)
+    1297              
+    1298              DW$T$36 .dwtag  DW_TAG_structure_type
+    1299                      .dwattr DW$T$36, DW_AT_byte_size(0x66)
+    1300              DW$121  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$32)
+    1301                      .dwattr DW$121, DW_AT_name("ture_size"), DW_AT_symbol_name("_ture_size")
+    1302                      .dwattr DW$121, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1303                      .dwattr DW$121, DW_AT_accessibility(DW_ACCESS_public)
+    1304              DW$122  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$35)
+    1305                      .dwattr DW$122, DW_AT_name("tmr_array"), DW_AT_symbol_name("_tmr_array")
+    1306                      .dwattr DW$122, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1307                      .dwattr DW$122, DW_AT_accessibility(DW_ACCESS_public)
+    1308                      .dwendtag DW$T$36
+    1309              
+    1310              DW$T$41 .dwtag  DW_TAG_typedef, DW_AT_name("OS_EVENT"), DW_AT_type(*DW$T$22)
+    1311                      .dwattr DW$T$41, DW_AT_language(DW_LANG_C)
+    1312              
+    1313              DW$T$24 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$23)
+    1314                      .dwattr DW$T$24, DW_AT_language(DW_LANG_C)
+    1315                      .dwattr DW$T$24, DW_AT_byte_size(0x18)
+    1316              DW$123  .dwtag  DW_TAG_subrange_type
+    1317                      .dwattr DW$123, DW_AT_upper_bound(0x17)
+    1318                      .dwendtag DW$T$24
+    1319              
+    1320              
+    1321              DW$T$33 .dwtag  DW_TAG_structure_type
+    1322                      .dwattr DW$T$33, DW_AT_byte_size(0x0a)
+    1323              DW$124  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$29)
+    1324                      .dwattr DW$124, DW_AT_name("function"), DW_AT_symbol_name("_function")
+    1325                      .dwattr DW$124, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1326                      .dwattr DW$124, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   28
+
+    1327              DW$125  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$30)
+    1328                      .dwattr DW$125, DW_AT_name("expires"), DW_AT_symbol_name("_expires")
+    1329                      .dwattr DW$125, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1330                      .dwattr DW$125, DW_AT_accessibility(DW_ACCESS_public)
+    1331              DW$126  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$32)
+    1332                      .dwattr DW$126, DW_AT_name("tmr_state"), DW_AT_symbol_name("_tmr_state")
+    1333                      .dwattr DW$126, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1334                      .dwattr DW$126, DW_AT_accessibility(DW_ACCESS_public)
+    1335              DW$127  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$32)
+    1336                      .dwattr DW$127, DW_AT_name("type"), DW_AT_symbol_name("_type")
+    1337                      .dwattr DW$127, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1338                      .dwattr DW$127, DW_AT_accessibility(DW_ACCESS_public)
+    1339              DW$128  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$30)
+    1340                      .dwattr DW$128, DW_AT_name("auto_load_expires"), DW_AT_symbol_name("_auto_load_expires")
+    1341                      .dwattr DW$128, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1342                      .dwattr DW$128, DW_AT_accessibility(DW_ACCESS_public)
+    1343              DW$129  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1344                      .dwattr DW$129, DW_AT_name("p_arg"), DW_AT_symbol_name("_p_arg")
+    1345                      .dwattr DW$129, DW_AT_data_member_location[DW_OP_plus_uconst 0x8]
+    1346                      .dwattr DW$129, DW_AT_accessibility(DW_ACCESS_public)
+    1347                      .dwendtag DW$T$33
+    1348              
+    1349              
+    1350              DW$T$35 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$34)
+    1351                      .dwattr DW$T$35, DW_AT_language(DW_LANG_C)
+    1352                      .dwattr DW$T$35, DW_AT_byte_size(0x64)
+    1353              DW$130  .dwtag  DW_TAG_subrange_type
+    1354                      .dwattr DW$130, DW_AT_upper_bound(0x09)
+    1355                      .dwendtag DW$T$35
+    1356              
+    1357              
+    1358              DW$T$22 .dwtag  DW_TAG_structure_type
+    1359                      .dwattr DW$T$22, DW_AT_name("os_event")
+    1360                      .dwattr DW$T$22, DW_AT_byte_size(0x0e)
+    1361              DW$131  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    1362                      .dwattr DW$131, DW_AT_name("OSEventType"), DW_AT_symbol_name("_OSEventType")
+    1363                      .dwattr DW$131, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1364                      .dwattr DW$131, DW_AT_accessibility(DW_ACCESS_public)
+    1365              DW$132  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    1366                      .dwattr DW$132, DW_AT_name("OSEventPtr"), DW_AT_symbol_name("_OSEventPtr")
+    1367                      .dwattr DW$132, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1368                      .dwattr DW$132, DW_AT_accessibility(DW_ACCESS_public)
+    1369              DW$133  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+    1370                      .dwattr DW$133, DW_AT_name("OSEventCnt"), DW_AT_symbol_name("_OSEventCnt")
+    1371                      .dwattr DW$133, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    1372                      .dwattr DW$133, DW_AT_accessibility(DW_ACCESS_public)
+    1373              DW$134  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    1374                      .dwattr DW$134, DW_AT_name("OSEventGrp"), DW_AT_symbol_name("_OSEventGrp")
+    1375                      .dwattr DW$134, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    1376                      .dwattr DW$134, DW_AT_accessibility(DW_ACCESS_public)
+    1377              DW$135  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$21)
+    1378                      .dwattr DW$135, DW_AT_name("OSEventTbl"), DW_AT_symbol_name("_OSEventTbl")
+    1379                      .dwattr DW$135, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    1380                      .dwattr DW$135, DW_AT_accessibility(DW_ACCESS_public)
+    1381                      .dwendtag DW$T$22
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   29
+
+    1382              
+    1383              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("INT8U"), DW_AT_type(*DW$T$6)
+    1384                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+    1385              
+    1386              DW$T$21 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$19)
+    1387                      .dwattr DW$T$21, DW_AT_language(DW_LANG_C)
+    1388                      .dwattr DW$T$21, DW_AT_byte_size(0x08)
+    1389              DW$136  .dwtag  DW_TAG_subrange_type
+    1390                      .dwattr DW$136, DW_AT_upper_bound(0x07)
+    1391                      .dwendtag DW$T$21
+    1392              
+    1393              
+    1394                      .dwattr DW$28, DW_AT_external(0x01)
+    1395                      .dwattr DW$30, DW_AT_external(0x01)
+    1396                      .dwattr DW$64, DW_AT_external(0x01)
+    1397                      .dwattr DW$87, DW_AT_external(0x01)
+    1398                      .dwattr DW$29, DW_AT_external(0x01)
+    1399                      .dwattr DW$63, DW_AT_external(0x01)
+    1400                      .dwattr DW$31, DW_AT_external(0x01)
+    1401                      .dwattr DW$31, DW_AT_type(*DW$T$55)
+    1402                      .dwattr DW$53, DW_AT_external(0x01)
+    1403                      .dwattr DW$44, DW_AT_external(0x01)
+    1404                      .dwattr DW$58, DW_AT_external(0x01)
+    1405                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+    1406              
+    1407              ;***************************************************************
+    1408              ;* DWARF CIE ENTRIES                                           *
+    1409              ;***************************************************************
+    1410              
+    1411              DW$CIE  .dwcie 1, 40
+    1412                      .dwcfa  0x0c, 20, 0
+    1413                      .dwcfa  0x07, 0
+    1414                      .dwcfa  0x07, 1
+    1415                      .dwcfa  0x07, 2
+    1416                      .dwcfa  0x07, 3
+    1417                      .dwcfa  0x07, 4
+    1418                      .dwcfa  0x07, 5
+    1419                      .dwcfa  0x08, 6
+    1420                      .dwcfa  0x08, 7
+    1421                      .dwcfa  0x08, 8
+    1422                      .dwcfa  0x08, 9
+    1423                      .dwcfa  0x08, 10
+    1424                      .dwcfa  0x08, 11
+    1425                      .dwcfa  0x07, 12
+    1426                      .dwcfa  0x07, 13
+    1427                      .dwcfa  0x07, 14
+    1428                      .dwcfa  0x07, 15
+    1429                      .dwcfa  0x07, 16
+    1430                      .dwcfa  0x07, 17
+    1431                      .dwcfa  0x07, 18
+    1432                      .dwcfa  0x07, 19
+    1433                      .dwcfa  0x07, 20
+    1434                      .dwcfa  0x07, 21
+    1435                      .dwcfa  0x07, 22
+    1436                      .dwcfa  0x07, 23
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   30
+
+    1437                      .dwcfa  0x07, 24
+    1438                      .dwcfa  0x07, 25
+    1439                      .dwcfa  0x07, 26
+    1440                      .dwcfa  0x08, 27
+    1441                      .dwcfa  0x07, 28
+    1442                      .dwcfa  0x07, 29
+    1443                      .dwcfa  0x07, 30
+    1444                      .dwcfa  0x07, 31
+    1445                      .dwcfa  0x07, 32
+    1446                      .dwcfa  0x07, 33
+    1447                      .dwcfa  0x07, 34
+    1448                      .dwcfa  0x07, 35
+    1449                      .dwcfa  0x07, 36
+    1450                      .dwcfa  0x07, 37
+    1451                      .dwcfa  0x07, 38
+    1452                      .dwcfa  0x07, 39
+    1453                      .dwcfa  0x07, 40
+    1454              
+    1455              ;***************************************************************
+    1456              ;* DWARF REGISTER MAP                                          *
+    1457              ;***************************************************************
+    1458              
+    1459              DW$137  .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+    1460                      .dwattr DW$137, DW_AT_location[DW_OP_reg0]
+    1461              DW$138  .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+    1462                      .dwattr DW$138, DW_AT_location[DW_OP_reg1]
+    1463              DW$139  .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+    1464                      .dwattr DW$139, DW_AT_location[DW_OP_reg2]
+    1465              DW$140  .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+    1466                      .dwattr DW$140, DW_AT_location[DW_OP_reg3]
+    1467              DW$141  .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+    1468                      .dwattr DW$141, DW_AT_location[DW_OP_reg4]
+    1469              DW$142  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+    1470                      .dwattr DW$142, DW_AT_location[DW_OP_reg5]
+    1471              DW$143  .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+    1472                      .dwattr DW$143, DW_AT_location[DW_OP_reg6]
+    1473              DW$144  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+    1474                      .dwattr DW$144, DW_AT_location[DW_OP_reg7]
+    1475              DW$145  .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+    1476                      .dwattr DW$145, DW_AT_location[DW_OP_reg8]
+    1477              DW$146  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+    1478                      .dwattr DW$146, DW_AT_location[DW_OP_reg9]
+    1479              DW$147  .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+    1480                      .dwattr DW$147, DW_AT_location[DW_OP_reg10]
+    1481              DW$148  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+    1482                      .dwattr DW$148, DW_AT_location[DW_OP_reg11]
+    1483              DW$149  .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+    1484                      .dwattr DW$149, DW_AT_location[DW_OP_reg12]
+    1485              DW$150  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+    1486                      .dwattr DW$150, DW_AT_location[DW_OP_reg13]
+    1487              DW$151  .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+    1488                      .dwattr DW$151, DW_AT_location[DW_OP_reg14]
+    1489              DW$152  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+    1490                      .dwattr DW$152, DW_AT_location[DW_OP_reg15]
+    1491              DW$153  .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:05 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8722                            PAGE   31
+
+    1492                      .dwattr DW$153, DW_AT_location[DW_OP_reg16]
+    1493              DW$154  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+    1494                      .dwattr DW$154, DW_AT_location[DW_OP_reg17]
+    1495              DW$155  .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+    1496                      .dwattr DW$155, DW_AT_location[DW_OP_reg18]
+    1497              DW$156  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+    1498                      .dwattr DW$156, DW_AT_location[DW_OP_reg19]
+    1499              DW$157  .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+    1500                      .dwattr DW$157, DW_AT_location[DW_OP_reg20]
+    1501              DW$158  .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+    1502                      .dwattr DW$158, DW_AT_location[DW_OP_reg21]
+    1503              DW$159  .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+    1504                      .dwattr DW$159, DW_AT_location[DW_OP_reg22]
+    1505              DW$160  .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+    1506                      .dwattr DW$160, DW_AT_location[DW_OP_reg23]
+    1507              DW$161  .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+    1508                      .dwattr DW$161, DW_AT_location[DW_OP_reg24]
+    1509              DW$162  .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+    1510                      .dwattr DW$162, DW_AT_location[DW_OP_reg25]
+    1511              DW$163  .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+    1512                      .dwattr DW$163, DW_AT_location[DW_OP_reg26]
+    1513              DW$164  .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+    1514                      .dwattr DW$164, DW_AT_location[DW_OP_reg27]
+    1515              DW$165  .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+    1516                      .dwattr DW$165, DW_AT_location[DW_OP_reg28]
+    1517              DW$166  .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+    1518                      .dwattr DW$166, DW_AT_location[DW_OP_reg29]
+    1519              DW$167  .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+    1520                      .dwattr DW$167, DW_AT_location[DW_OP_reg30]
+    1521              DW$168  .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+    1522                      .dwattr DW$168, DW_AT_location[DW_OP_reg31]
+    1523              DW$169  .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+    1524                      .dwattr DW$169, DW_AT_location[DW_OP_regx 0x20]
+    1525              DW$170  .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+    1526                      .dwattr DW$170, DW_AT_location[DW_OP_regx 0x21]
+    1527              DW$171  .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+    1528                      .dwattr DW$171, DW_AT_location[DW_OP_regx 0x22]
+    1529              DW$172  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    1530                      .dwattr DW$172, DW_AT_location[DW_OP_regx 0x23]
+    1531              DW$173  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    1532                      .dwattr DW$173, DW_AT_location[DW_OP_regx 0x24]
+    1533              DW$174  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+    1534                      .dwattr DW$174, DW_AT_location[DW_OP_regx 0x25]
+    1535              DW$175  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+    1536                      .dwattr DW$175, DW_AT_location[DW_OP_regx 0x26]
+    1537              DW$176  .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+    1538                      .dwattr DW$176, DW_AT_location[DW_OP_regx 0x27]
+    1539              DW$177  .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+    1540                      .dwattr DW$177, DW_AT_location[DW_OP_regx 0x28]
+    1541                      .dwendtag DW$CU
+    1542              
+
+No Assembly Errors, No Assembly Warnings

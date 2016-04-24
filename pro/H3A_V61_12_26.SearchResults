@@ -1,0 +1,17 @@
+---- app_global_key_dummy_press Matches (16 in 9 files) ----
+app_BBmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_bb_mod\src):				app_global_key_dummy_press( key_buf);
+app_DLparamJY_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_dlparamjy_mod\src):			app_global_key_dummy_press( GUI_KEY_END );
+app_RM_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_rm_mod\src):						app_global_key_dummy_press(GUI_KEY_READ_M);
+app_RM_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_rm_mod\src):					app_global_key_dummy_press(GUI_KEY_READ_M);
+app_RM_SZverify.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_rm_mod\src):						app_global_key_dummy_press(GUI_KEY_SZ_TM_STOP);//≤‚ ‘∆¡±Œ
+app_WIRmod_redeem.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_ydwir_mod\src):		app_global_key_dummy_press(KEY_SETTING);
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):		app_global_key_dummy_press(GUI_KEY_ZZ_END);
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):			app_global_key_dummy_press(GUI_KEY_ZZ_END);
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):		app_global_key_dummy_press( KEY_LEFT );
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):				app_global_key_dummy_press( KEY_ENTER );
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):		app_global_key_dummy_press( GUI_KEY_SET );
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):				app_global_key_dummy_press( GUI_KEY_ZZ_BEGIN );
+app_ZZmod_fun.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\app\app_zz_mod\src):				app_global_key_dummy_press( GUI_KEY_ZZ_END );
+GUI_hook.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\gui\src):	app_global_key_dummy_press(key);
+Key_input method.h (e:\zbq\h3a_dsp-v61(ver1.0)\user\keyinput_method):void  			app_global_key_dummy_press( uint8_t key );
+Key_layer.c (e:\zbq\h3a_dsp-v61(ver1.0)\user\keyinput_method):void  app_global_key_dummy_press( uint8_t key )

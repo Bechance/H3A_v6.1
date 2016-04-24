@@ -1,0 +1,868 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    1
+
+       1              ;========================================================================
+       2              ;
+       3              ; File Name     : cfft.asm
+       4              ; 
+       5              ; Originator    : Advanced Embeeded Control
+       6              ;                 Texas Instruments Inc.
+       7              ; 
+       8              ; Description   : This file contain source code for complex FFT
+       9              ;               
+      10              ; Date          : 26/02/2002 (dd/mm/yyyy)
+      11              ;========================================================================    
+      12              ; Routine Type  : C Callable
+      13              ; Description   :
+      14              ; void FFTC_calc(FFTxxxx_handle) 
+      15              ; This function implements complex FFT using radix-2 DIT algo
+      16              ; 
+      17              ; void FFT128C_init(void)
+      18              ; This function copies the Twiddle factors from load time address to 
+      19              ; its run time address
+      20              ;========================================================================
+      21              ; COMPLEX FFT MODULES               
+      22              ;-----------------------------------------------------------------------
+      23              ;    typedef struct {                
+      24              ;       long *ipcbptr;
+      25              ;       long *tfptr;               
+      26              ;       int size;
+      27              ;       int nrstage;             
+      28              ;       long *magptr;
+      29              ;       long *winptr; 
+      30              ;       long peakmag;
+      31              ;       int peakfrq;          
+      32              ;       void (*init)(void);          
+      33              ;       void (*izero)(void *);          
+      34              ;       void (*calc)(void *);           
+      35              ;       void (*mag)(void *);            
+      36              ;       void (*win)(void *);              
+      37              ;       }FFTxxxC;                        
+      38              ;                                             
+      39              ;========================================================================
+      40              
+      41                              .include "sel_q.asm"
+      42                              .def    _CFFT32_calc
+      43              
+      44        799B  COS45K_LSW      .set    799Bh
+      45        5A82  COS45K_MSW      .set    5A82h
+      46              ;===============================================================================
+      47              ; FFT - Computation Routine  (FFT128R_calc)
+      48              ;===============================================================================
+      49              ;   * This routine takes the 128 point complex data sequence, in bit reversed form  
+      50              ;   * It implements Decimation in time FFT algorithm
+      51              ;   * Performs inplace computation
+      52              ;   * Output in-order data "IPCB"----> Xr(0),Xi(0),Xr(1),Xi(1)...Xr(127)&Xi(127)
+      53              ;===============================================================================            
+      54              ;----------------------------------------------------
+      55              ; MACRO 'ZEROI'     
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    2
+
+      56              ; Number of WORDS/Number of Cycles 12
+      57              ; USAGE: Called if the TWIDDLE FACTOR: 1
+      58              ; 
+      59              ; P=PR+jPI, Q=QR+jQI, W=WR-jWI
+      60              ; P'=P+W*Q and Q'=P-W*Q
+      61              ;
+      62              ; POINTERS AT ENTRY
+      63              ; AR6->(PR,PI,PR+1,PI+1,PR+2,PI+2,....)
+      64              ; AR2->(QR,QI,QR+1,QI+1,QR+2,QR+2,....)
+      65              ; COMPUTATION PERFORMED: INPLACE COMPUTATION
+      66              ; AR6   ->      PR'=(PR+QR)/2 
+      67              ; AR2   ->      QR'=(PR-QR)/2
+      68              ; AR6+1 ->      PI'=(PI+QI)/2
+      69              ; AR2+1 ->      QI'=(PI-QI)/2
+      70              ; PR and PR', PI and PI', QR and QR', QI and QI' are
+      71              ; stored in the same locations
+      72              ; POINTERS AT EXIT
+      73              ; AR6->(PR+1,PI+1,....) 
+      74              ; AR2->(QR+1,QI+1,....)
+      75              ;------------------------------------------------------
+      76              ;                                                   (Content of REG after exec.)
+      77              ZEROI   .macro                      ;                   AR6     AR2              
+      78                          MOVL    ACC,*XAR6       ; ACC:=PR           PR      QR  
+      79                          SFR     ACC,#1          ; ACC:=PR/2         PR      QR
+      80                          MOVL    P,*XAR2         ; P=QR              PR      QR
+      81                          ADDL    ACC,P<<PM       ; ACC=PR+QR/2       PR      QR
+      82                          MOVL    *XAR6++,ACC     ; PR':=(PR+QR)/2    PI      QR  
+      83                          SUBL    ACC,P           ; ACC:=(PR-QR)/2    PI      QR  
+      84                          MOVL    *XAR2++,ACC     ; QR':=(PR-QR)/2    PI      QI  
+      85              
+      86                          MOVL    ACC,*XAR6       ; ACC:=PI           PI      QI  
+      87                          SFR     ACC,#1          ; ACC:=PI/2         PI      QI
+      88                          MOVL    P,*XAR2         ; P=QI              PI      QI
+      89                          ADDL    ACC,P<<PM       ; ACC:=(PI+QI)/2    PI      QI 
+      90                          MOVL    *XAR6++,ACC     ; PI':=(PI+QI)/2    PR+1    QI  
+      91                          SUBL    ACC,P           ; ACC:=(PI-QI)/2    PR+1    QI  
+      92                          MOVL    *XAR2++,ACC     ; QR':=(PI-QI)/2    PR+1    QR+1     
+      93                      .endm
+      94              
+      95              ;----------------------------------------------------
+      96              ; MACRO 'PBY2I'     
+      97              ; Number of WORDS/Number of Cycles 12
+      98              ; USAGE: Called if the TWIDDLE FACTOR: -j 
+      99              ; 
+     100              ; P=PR+jPI, Q=QR+jQI, W=WR-jWI
+     101              ; P'=P+W*Q and Q'=P-W*Q
+     102              ;
+     103              ; POINTERS AT ENTRY
+     104              ; AR6->(PR,PI,PR+1,PI+1,PR+2,PI+2,....)
+     105              ; AR2->(QR,QI,QR+1,QI+1,QR+2,QR+2,....)
+     106              ; COMPUTATION PERFORMED: INPLACE COMPUTATION
+     107              ; AR6   ->      PR'=(PR+QI)/2 
+     108              ; AR2   ->      QR'=(PR-QI)/2
+     109              ; AR6+1 ->      PI'=(PI-QR)/2
+     110              ; AR2+1 ->      QI'=(PI+QR)/2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    3
+
+     111              ; PR and PR', PI and PI', QR and QR', QI and QI' are
+     112              ; stored in the same locations 
+     113              ; POINTERS AT EXIT
+     114              ; AR6->(PR+1,PI+1,....) 
+     115              ; AR2->(QR+1,QI+1,....)
+     116              ;------------------------------------------------------         
+     117              ;                                                   (Content of REG after exec.)
+     118              PBY2I   .macro                      ;                   AR6     AR2  
+     119                          
+     120                          MOVL    XAR5,*XAR2++    ; XAR5=QR           PR      QI
+     121                          MOVL    ACC,*XAR6       ; ACC:=PR           PR      QI
+     122                          SFR     ACC,#1          ; ACC:=PR/2         PR      QI
+     123                          MOVL    P,*XAR2         ; P:=QI             PR      QI
+     124                          ADDL    ACC,P<<PM       ; ACC:=(PR+QI)/2    PR      QI  
+     125                          MOVL    *XAR6++,ACC     ; PR':=(PR+QI)/2    PI      QI     
+     126                          SUBL    ACC,P           ; ACC:=(PR-QI)/2    PI      QI     
+     127                          MOVL    *--XAR2,ACC     ; QR':=(PR-QI)/2    PI      QR
+     128                          ADDB    XAR2,#2         ;                   PI      QI
+     129                          
+     130                          MOVL    ACC,*XAR6       ; ACC:=PI           PI      QI
+     131                          SFR     ACC,#1          ; ACC:=PI/2         PI      QI
+     132                          MOVL    P,XAR5          ; P=QR              PI      QI
+     133                          SUBL    ACC,P<<PM       ; ACC=(PI-QR)/2     PI      QI
+     134                          MOVL    *XAR6++,ACC     ; ACC:=(PI-QR)/2    PR+1    QI    
+     135                          ADDL    ACC,P           ; ACC:=(PI+QR)/2    PR+1    QI 
+     136                          MOVL    *XAR2++,ACC     ; QI':=(PI+QR)/2    PR+1    QR+1
+     137                                            
+     138                      .endm  
+     139              
+     140              ;----------------------------------------------------
+     141              ; MACRO 'PBY4I'          SPM set to 1bit right shift, XT=w
+     142              ; Number of WORDS/Number of Cycles 16
+     143              ; USAGE: Called if the TWIDDLE FACTOR: COS(45)-jSIN(45)=0.707-j0.707 
+     144              ; 
+     145              ; P=PR+jPI, Q=QR+jQI, W=WR-jWI
+     146              ; P'=P+W*Q and Q'=P-W*Q
+     147              ;
+     148              ; POINTERS AT ENTRY
+     149              ; TREG=W=|SIN(45)|=|COS(45)|=05a82h
+     150              ; AR6->(PR,PI,PR+1,PI+1,PR+2,PI+2,....)
+     151              ; AR2->(QR,QI,QR+1,QI+1,QR+2,QR+2,....)
+     152              ; CALCULATION PERFORMED: INPLACE COMPUTATION
+     153              ; AR6   ->      PR'=(PR+QI*W+QR*W)/2  
+     154              ; AR2   ->      QR'=(PR-QI*W-QR*W)/2
+     155              ; AR6+1 ->      PI'=(PI+QI*W-QR*W)/2
+     156              ; AR2+1 ->      QI'=(PI-QI*W+QR*W)/2
+     157              ; PR and PR', PI and PI', QR and QR', QI and QI' are
+     158              ; stored in the same locations
+     159              ; POINTERS AT EXIT
+     160              ; AR6->(PR+1,PI+1,....) 
+     161              ; AR2->(QR+1,QI+1,....)
+     162              ;------------------------------------------------------         
+     163              ;                                                           (Content of REG after exec.)
+     164              PBY4I   .macro                      ;                       PREG    AR6  AR2         
+     165                                                  ;                       -       PR   QR 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    4
+
+     166                          MOVL    ACC,*XAR6       ; ACC=PR                -       PR   QR  
+     167                          SFR     ACC,#1          ; ACC=PR/2              -       PR   QR  
+     168                          QMPYL   P,XT,*XAR2      ; PREG=W*QR/2           W*QR/2  PR   QR  
+     169                          SUBL    ACC,P           ; ACC=(PR-W*QR)/2       W*QR/2  PR   QR
+     170                          MOVL    XAR5,P          ; XAR5=W*QR/2
+     171                          QMPYL   P,XT,*+XAR2[2]  ; ACC=(PR-W*QR)/2       W*QI/2  PR   QR
+     172                          SUBL    ACC,P           ; ACC=(PR-W*QI-W*QR)/2  W*QI/2  PR   QR 
+     173                          MOVL    *XAR2++,ACC     ; QR'=(PR-W*QI-W*QR)/2  W*QI/2  PR   QI
+     174                          NEG     ACC             ; ACC=-(PR-W*QI-W*QR)/2 W*QI/2  PR   QI
+     175                          ADDL    *XAR6++,ACC     ; PR'=(PR+W*QI+W*QR)/2  W*QI/2  PI   QI
+     176              
+     177                          MOVL    ACC,*XAR6       ; ACC=PI                W*QI/2  PI   QI
+     178                          SFR     ACC,#1          ; ACC=PI/2              W*QI/2  PI   QI
+     179                          SUBL    ACC,P           ; ACC=(PI-W*QI)/2       W*QI/2  PI   QI
+     180                          ADDL    ACC,XAR5        ; ACC=(PI-W*QI+W*QR)/2  W*QR/2  PI   QI
+     181                          MOVL    *XAR2++,ACC     ; QI'=(PI-W*QI+W*QR)/2  W*QR/2  PI   QR+1
+     182                          NEG     ACC             ; ACC=-(PI-W*QI+W*QR)/2 W*QR/2  PI   QR+1
+     183                          ADDL    *XAR6++,ACC     ; PI'=(PI+W*QI-W*QR)/2  W*QR/2  PR+1 QR+1           
+     184                      .endm
+     185              
+     186              
+     187              ;----------------------------------------------------
+     188              ; MACRO 'P3BY4I'    SPM set to 1bit right shift, XT=w    
+     189              ; Number of WORDS/Number of Cycles 16
+     190              ; USAGE: Called if the TWIDDLE FACTOR: COS(90+45)-jSIN(90+45)=-0.707-j0.707 
+     191              ; 
+     192              ; P=PR+jPI, Q=QR+jQI, W=WR-jWI
+     193              ; P'=P+W*Q and Q'=P-W*Q
+     194              ;
+     195              ; POINTERS AT ENTRY 
+     196              ; TREG=W=|SIN(135)|=|COS(135)|=05a82h
+     197              ; AR6->(PR,PI,PR+1,PI+1,PR+2,PI+2,....)
+     198              ; AR2->(QR,QI,QR+1,QI+1,QR+2,QR+2,....)
+     199              ; CALCULATION PERFORMED: INPLACE COMPUTATION
+     200              ; AR6   ->      PR'=(PR+QI*W-QR*W)/2  
+     201              ; AR2   ->      QR'=(PR-QI*W+QR*W)/2
+     202              ; AR6+1 ->      PI'=(PI-QI*W-QR*W)/2
+     203              ; AR2+1 ->      QI'=(PI+QI*W+QR*W)/2
+     204              ; PR and PR', PI and PI', QR and QR', QI and QI' are
+     205              ; stored in the same locations 
+     206              ; POINTERS AT EXIT
+     207              ; AR6->(PR+1,PI+1,....) 
+     208              ; AR2->(QR+1,QI+1,....)
+     209              ;------------------------------------------------------         
+     210              ;                                                           (Content of REG after exec.)
+     211              P3BY4I  .macro                      ;                       AR5     PREG    AR6  AR2 
+     212                                                  ;                       -       PR   QR 
+     213                          MOVL    ACC,*XAR6       ; ACC=PR                -       PR   QR  
+     214                          SFR     ACC,#1          ; ACC=PR/2              -       PR   QR  
+     215                          QMPYL   P,XT,*XAR2      ; PREG=W*QR/2           W*QR/2  PR   QR 
+     216                          ADDL    ACC,P           ; ACC=(PR+W*QR)/2       W*QR/2  PR   QR
+     217                          MOVL    XAR5,P          ; XAR5=W*QR/2           W*QR/2  PR   QR
+     218                          QMPYL   P,XT,*+XAR2[2]  ; ACC=(PR+W*QR)/2       W*QI/2  PR   QR
+     219                          SUBL    ACC,P           ; ACC=(PR-W*QI+W*QR)/2  W*QI/2  PR   QR 
+     220                          MOVL    *XAR2++,ACC     ; QR'=(PR-W*QI+W*QR)/2  W*QI/2  PR   QI
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    5
+
+     221                          NEG     ACC             ; ACC=-(PR-W*QI+W*QR)/2 W*QI/2  PR   QI
+     222                          ADDL    *XAR6++,ACC     ; PR'=(PR+W*QI-W*QR)/2  W*QI/2  PI   QI
+     223              
+     224                          MOVL    ACC,*XAR6       ; ACC=PI                W*QI/2  PI   QI
+     225                          SFR     ACC,#1          ; ACC=PI/2              W*QI/2  PI   QI
+     226                          ADDL    ACC,P           ; ACC=(PR+W*QI)/2       W*QI/2  PI   QI
+     227                          ADDL    ACC,XAR5        ; ACC=(PI+W*QI+W*QR)/2  W*QR/2  PI   QI
+     228                          NOP     *,ARP2
+     229                          MOVL    *0++,ACC        ; QI'=(PI+W*QI+W*QR)/2  W*QR/2  PI   QR+1
+     230                          NEG     ACC             ; ACC=-(PI+W*QI+W*QR)/2 W*QR/2  PI   QR+1
+     231                          ADDL    *XAR6,ACC       ; PI'=(PI-W*QI-W*QR)/2  W*QR/2  PI   QR+1
+     232                          NOP     *0++            ;                       W*QR/2  PR+1 QR+1
+     233                      .endm  
+     234              
+     235              
+     236              ;----------------------------------------------------
+     237              ; MACRO 'BFLY'       SPM set to 1bit right shift
+     238              ; Number of WORDS/Number of Cycles 21
+     239              ; USAGE: General Butterfly RADIX 2 -> TWIDDLE FACTOR W=WR-jWI 
+     240              ; 
+     241              ; P=PR+jPI, Q=QR+jQI, W=WR-jWI
+     242              ; P'=P+W*Q and Q'=P-W*Q
+     243              ;
+     244              ; REGISTER USED: XAR0,XAR2,XAR3,XAR4,XAR5,XAR6,ACC,XT,P 
+     245              ;
+     246              ; POINTERS AT ENTRY
+     247              ; AR6->(PR,PI,PR+1,PI+1,PR+2,PI+2,....)
+     248              ; AR2->(QR,QI,QR+1,QI+1,QR+2,QR+2,....)
+     249              ; AR3-> Real Part of Twiddle Factor: WR(COSx)
+     250              ; AR4-> Imaginary Part of Twiddle Factor: WI(SINx)
+     251              ; AR5-> Temporary Variable
+     252              ; CALCULATION PERFORMED: INPLACE COMPUTATION 
+     253              ; AR6   ->      PR'=(PR+QR*WR+QI*WI)/2  
+     254              ; AR2   ->      QR'=(PR-QR*WR-QI*WI)/2
+     255              ; AR6+1 ->      PI'=(PI+QI*WR-QR*WI)/2
+     256              ; AR2+1 ->      QI'=(PI-QI*WR+QR*WI)/2
+     257              ; PR and PR', PI and PI', QR and QR', QI and QI' are
+     258              ; stored in the same locations
+     259              ; POINTERS AT EXIT
+     260              ; AR6->(PR+1,PI+1,....) 
+     261              ; AR2->(QR+1,QI+1,....)
+     262              ; AR3-> Real Part of Next Twiddle Factor
+     263              ; AR4-> Imaginary Part ofNext Twiddle Factor
+     264              ;------------------------------------------------------            
+     265                  
+     266              BFLY    .macro  p                   ;                         XT    AR6     AR2     AR3     AR4  
+     267                                                  ;                         -     PR      QR      WR      WI 
+     268                          MOVL    XT,*XAR3        ; XT=WR                   WR    PR      QR      WR      WI
+     269                          NOP     *0++            ;                         WR    PR      QR      WR+n    WI
+     270                          QMPYL   P,XT,*XAR2++    ; P=QR*WR                 WR    PR      QI      WR+n    WI
+     271                          QMPYL   ACC,XT,*,ARP4   ; ACC=QI*WR               WR    PR      QI      WR+n    WI
+     272                          MOVL    *-SP[TEMP],P    ; TEMP=QR*WR              WR    PR      QI      WR+n    WI
+     273              
+     274                          MOVL    XT,*0++         ; XT=WI                   WR    PR      QI      WR+n    WI+n
+     275                          QMPYL   P,XT,*--XAR2    ; P=WI*QR                 WR    PR      QR      WR+n    WI+n
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    6
+
+     276                          SUBL    ACC,P           ; ACC=(QI*WR-QR*WI)       WR    PR      QR      WR+n    WI+n
+     277                          
+     278                          .if(TF_QFMAT==Q30)
+     279                          LSL     ACC,#1          ; ACC=(QI*WR-QR*WI) (Q30)
+     280                          .endif
+     281              
+     282                          MOVL    XAR5,ACC        ; XAR5=(QI*WR-QR*WI) (Q30)
+     283                                      
+     284                          QMPYL   ACC,XT,*+XAR2[2]; ACC=WI*QI              WR    PR      QR      WR+n    WI+n
+     285                          ADDL    ACC,*-SP[TEMP]  ; ACC=(QR*WR+QI*WI)      WR    PR      QR      WR+n    WI+n
+     286              
+     287                          .if(TF_QFMAT==Q30)
+     288                          LSL     ACC,#1          ; ACC=(QR*WR+QI*WI) in Q30
+     289                          .endif
+     290              
+     291                          MOVL    P,*XAR6         ; P=PR                    WR    PR      QR      WR+n    WI+n
+     292                          ADDL    ACC,P<<PM       ; ACC=(PR+QR*WR+QI*WI)/2  WR    PR      QR      WR+n    WI+n
+     293                          MOVL    *XAR6++,ACC     ; PR'=(PR+QR*WR+QI*WI)/2  WR    PI      QR      WR+n    WI+n
+     294              
+     295                          SUBL    P,ACC           ; P=(PR-QR*WR-QI*WI)/2    WR    PI      QR      WR+n    WI+n
+     296                          MOVL    *XAR2++,P       ; QR'=(PR-QR*WR-QI*WI)/2  WR    PI      QI      WR+n    WI+n
+     297              
+     298                          MOVL    ACC,XAR5        ; ACC=(QI*WR-QR*WI)/2     WR    PI      QI      WR+n    WI+n
+     299                          MOVL    P,*XAR6         ; P=PI                    WR    PI      QI      WR+n    WI+n
+     300                          ADDL    ACC,P<<PM       ; ACC=(PI+QI*WR-QR*WI)/2  WR    PI      QI      WR+n    WI+n
+     301                          MOVL    *XAR6++,ACC     ; (PI+QI*WR-QR*WI)/2      WR    PR+1    QI      WR+n    WI+n
+     302              
+     303                          SUBL    P,ACC           ; P=(PI-QI*WR+QR*WI)/2    WR    PR+1    QI      WR+n    WI+n
+     304                          MOVL    *XAR2++,P       ; QI'=(PI-QI*WR+QR*WI)/2  WR    PR+1    QR+1    WR+n    WI+n
+     305                      .endm
+     306                  
+     307                                                                                                                           
+     308              ;----------------------------------------------------
+     309              ; MACRO 'COMBO'  SPM set to 1bit right shift   
+     310              ; Number of WORDS/Number of Cycles 33
+     311              ; USAGE: RADIX 4 USED AT THE FIRST STAGE
+     312              ;
+     313              ; REGISTER USED: XAR0,XAR1,XAR2,XAR3,XAR4,XAR5,XAR6,ACC,XT,P 
+     314              ;
+     315              ; POINTERS AT ENTRY 
+     316              ; AR6->(R1,I1)
+     317              ; AR2->(R2,I2)
+     318              ; AR3->(R3,I3)
+     319              ; AR4->(R4,I4)
+     320              ; AR5-> Temporary Variable
+     321              ; CALCULATION PERFORMED: INPLACE COMPUTATION 
+     322              ; AR6   ->      R1'=(R1+R2+R3+R4)/4
+     323              ; AR2   ->      R2'=(R1-R2+I3-I4)/4
+     324              ; AR3   ->      R3'=(R1+R2-R3-R4)/4
+     325              ; AR4   ->      R4'=(R1-R2-I3+I4)/4
+     326              ; AR6+1 ->      I1'=(I1+I2+I3+I4)/4
+     327              ; AR2+1 ->      I2'=(I1-I2-R3+R4)/4
+     328              ; AR3+1 ->      I3'=(I1+I2-I3-I4)/4
+     329              ; AR4+1 ->      I4'=(I1-I2+R3-R4)/4
+     330              ; POINTERS AT EXIT
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    7
+
+     331              ; AR6->(R5,I5) 
+     332              ; AR2->(R6,I6)
+     333              ; AR3->(R7,I7) 
+     334              ; AR4->(R8,I8)
+     335              ;---------------------------------------------------         
+     336              ;                                                           (Content of REG after exec.)                     
+     337              COMBO   .macro                      ;                       AR6 AR2 AR3 AR4  
+     338                          MOVL    ACC,*XAR3       ; ACC=R3                R1  R2  R3  R4  
+     339                          SFR     ACC,#1          ; ACC=R3/2
+     340                          MOVL    P,*XAR4         ; P=R4
+     341                          SUBL    ACC,P<<PM       ; ACC=(R3-R4)/2
+     342                          MOVL    XT,ACC          ; T=(R3-R4)/2
+     343                          ADDL    ACC,P           ; ACC=(R3+R4)/2
+     344                          MOVL    XAR1,ACC        ; XAR1=(R3+R4)/2
+     345              
+     346                          MOVL    ACC,*XAR6       ; ACC=R1               
+     347                          SFR     ACC,#1          ; ACC=R1/2
+     348                          MOVL    P,*XAR2         ; P=R2
+     349                          SUBL    ACC,P<<PM       ; ACC=R1-R2/2
+     350                          MOVL    *-SP[TEMP],ACC     ; temp=(R1-R2)/2
+     351                          ADDL    ACC,*XAR2       ; ACC=(R1+R2)/2
+     352              
+     353                          SFR     ACC,#1          ; ACC=(R1+R2)/4
+     354                          MOVL    P,XAR1          ; P=(R3+R4)/2
+     355                          ADDL    ACC,P<<PM       ; ACC=(R1+R2+R3+R4)/4
+     356                          MOVL    *XAR6++,ACC     ; R1'=(R1+R2+R3+R4)/4
+     357                          SUBL    ACC,P           ; ACC=(R1+R2-R3-R4)/4
+     358                          MOVL    *XAR3++,ACC     ; R3'=(R1+R2-R3-R4)/4
+     359              
+     360                          MOVL    ACC,*XAR3       ; ACC=I3
+     361                          SFR     ACC,#1          ; ACC=I3/2
+     362                          MOVL    P,*+XAR4[2]     ; P=I4
+     363                          SUBL    ACC,P<<PM       ; ACC=(I3-I4)/2
+     364                          MOVL    XAR1,ACC        ; XAR1=(I3-I4)/2
+     365                          ADDL    ACC,P           ; ACC=(I3+I4)/2
+     366                          MOVL    XAR5,ACC        ; XAR5=(I3+I4)/2
+     367              
+     368                          MOVL    ACC,*-SP[TEMP]     ; ACC=(R1-R2)/2
+     369                          SFR     ACC,#1          ; ACC=(R1-R2)/4
+     370                          MOVL    P,XAR1          ; P=(I3-I4)/2
+     371                          ADDL    ACC,P<<PM       ; ACC=(R1-R2+I3-I4)/4
+     372                          MOVL    *XAR2++,ACC     ; R2'=(R1-R2+I3-I4)/4
+     373                          SUBL    ACC,P           ; ACC=(R1-R2-I3+I4)/4
+     374                          MOVL    *XAR4++,ACC     ; R4'=(R1-R2-I3+I4)/4
+     375                          
+     376                          MOVL    ACC,*XAR6       ; ACC=I1
+     377                          SFR     ACC,#1          ; ACC=I1/2
+     378                          MOVL    P,*XAR2         ; P=I2
+     379                          SUBL    ACC,P<<PM       ; ACC=(I1-I2)/2
+     380                          MOVL    *-SP[TEMP],ACC     ; temp=(I1-I2)/2
+     381                          ADDL    ACC,P           ; ACC=(I1+I2)/2
+     382              
+     383                          SFR     ACC,#1          ; ACC=(I1+I2)/4
+     384                          MOVL    P,XAR5          ; P=(I3+I4)/2
+     385                          ADDL    ACC,P<<PM       ; ACC=(I1+I2+I3+I4)/4
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    8
+
+     386                          MOVL    *XAR6,ACC       ; I1'=(I1+I2+I3+I4)/4
+     387                          NOP     *0++
+     388                          SUBL    ACC,P           ; ACC=(I1+I2-I3-I4)/4
+     389                          MOVL    *XAR3,ACC       ; I3'=(I1+I2-I3-I4)/4
+     390                          NOP     *0++
+     391              
+     392              
+     393                          MOVL    ACC,*-SP[TEMP]     ; ACC=(I1-I2)/2
+     394                          SFR     ACC,#1          ; ACC=(I1-I2)/4
+     395                          MOVL    P,XT            ; P=(R3-R4)/2
+     396                          ADDL    ACC,P<<PM       ; ACC=ACC=(I1-I2+R3-R4)/4
+     397                          MOVL    *XAR4,ACC       ; I4'=(I1-I2+R3-R4)/4
+     398                          NOP     *0++
+     399                          SUBL    ACC,P           ; ACC=(I1-I2-R3+R4)/4
+     400                          MOVL    *XAR2,ACC       ; I2'=(I1-I2-R3+R4)/4
+     401                          NOP     *0++
+     402                          .endm
+     403              
+     404              ;====================================================================
+     405              ; Function Local Frame
+     406              ;====================================================================
+     407              ;   |_______|
+     408              ;   |_______|<- Stack Pointer                           (SP) <---SP 
+     409              ;   |_______|<- GLCB                                    (SP-1)
+     410              ;   |_______|<- BLC  (Butterfly loop counter)           (SP-2)
+     411              ;   |_______|<- GLC  (Group loop counter)               (SP-3)
+     412              ;   |_______|<- SLC  (Stage loop counter)               (SP-4)
+     413              ;   |_______|<- TOST (Twiddle offset, for decimation)   (SP-5)
+     414              ;   |_______|<- DOST (Data offset)                      (SP-6) 
+     415              ;   |_______|<- TEMP                                    (SP-7) & (SP-8)                                      
+     416              ;===================================================================
+     417        000A  FFT_LOCAL_FRAME     .set    10
+     418        0001  GLCB                .set    1
+     419        0002  BLC                 .set    2
+     420        0003  GLC                 .set    3
+     421        0004  SLC                 .set    4
+     422        0005  TOST                .set    5
+     423        0006  DOST                .set    6
+     424        0008  TEMP                .set    8
+     425        0009  WRWIOST             .set    9
+     426              
+     427                           
+     428 00000000       _CFFT32_calc:
+     429 00000000 761B              ASP                     ; Align Stack Pointer
+     430 00000001 B2BD              PUSH    XAR1            ; Context Save
+     431 00000002 AABD              PUSH    XAR2
+     432 00000003 A2BD              PUSH    XAR3 
+     433 00000004 FE0A              ADDB    SP,#FFT_LOCAL_FRAME  ; Create Local Frame
+     434                                            
+     435 00000005 3B01              SETC    SXM
+     436 00000006 FF6A              SPM     -1              ; SPM set to 1bit right shift   
+     437                                          
+     438 00000007 C5A4              MOVL    XAR7,XAR4       ; XAR7->FFT_handle             
+     439 00000008 86C7              MOVL    XAR2,*XAR7      ; XAR2=ipcbptr
+     440 00000009 82A2              MOVL    XAR3,XAR2       ; XAR3=ipcbptr
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE    9
+
+     441 0000000a 8AA2              MOVL    XAR4,XAR2       ; XAR4=ipcbptr
+     442                          
+     443 0000000b C4A2              MOVL    XAR6,XAR2       ; XAR6=ipcbptr 
+     444 0000000c DA04              ADDB    XAR2,#4         ; XAR2=ipcbptr+4
+     445 0000000d DB08              ADDB    XAR3,#8         ; XAR3=ipcbptr+8
+     446 0000000e DC0C              ADDB    XAR4,#12        ; XAR4=ipcbptr+12
+     447 0000000f D00E              MOVB    XAR0,#14        ; XAR0=14
+     448                                                                                                                        
+     449              ;-----------------------------------------------------------------
+     450              ; Stage 1 & 2 - Using the RADIX 4 COMBO Macro
+     451              ;-----------------------------------------------------------------
+     452 00000010 C342              MOVL    *-SP[2],XAR7    ; (SP-2)=FFT_handle
+     453 00000011 5603              MOV     ACC,*+XAR7[4]<<14
+         00000012 0EE7 
+     454 00000013 FF0E              SUB     ACC,#1<<14
+         00000014 0001 
+     455 00000015 97A7              MOV     AR7,AH          ; Loop (N/4 - 1) times
+     456                        
+     457 00000016       STAGE1_2_LP:
+     458 00000016                   COMBO
+1        00000016 06C3              MOVL    ACC,*XAR3       ; ACC=R3                R1  R2  R3  R4  
+1        00000017 FF40              SFR     ACC,#1          ; ACC=R3/2
+1        00000018 A3C4              MOVL    P,*XAR4         ; P=R4
+1        00000019 11AC              SUBL    ACC,P<<PM       ; ACC=(R3-R4)/2
+1        0000001a 1EAC              MOVL    XT,ACC          ; T=(R3-R4)/2
+1        0000001b 07AB              ADDL    ACC,P           ; ACC=(R3+R4)/2
+1        0000001c 8BA9              MOVL    XAR1,ACC        ; XAR1=(R3+R4)/2
+1                     
+1        0000001d 06C6              MOVL    ACC,*XAR6       ; ACC=R1               
+1        0000001e FF40              SFR     ACC,#1          ; ACC=R1/2
+1        0000001f A3C2              MOVL    P,*XAR2         ; P=R2
+1        00000020 11AC              SUBL    ACC,P<<PM       ; ACC=R1-R2/2
+1        00000021 1E48              MOVL    *-SP[TEMP],ACC     ; temp=(R1-R2)/2
+1        00000022 07C2              ADDL    ACC,*XAR2       ; ACC=(R1+R2)/2
+1                     
+1        00000023 FF40              SFR     ACC,#1          ; ACC=(R1+R2)/4
+1        00000024 B2AB              MOVL    P,XAR1          ; P=(R3+R4)/2
+1        00000025 10AC              ADDL    ACC,P<<PM       ; ACC=(R1+R2+R3+R4)/4
+1        00000026 1E86              MOVL    *XAR6++,ACC     ; R1'=(R1+R2+R3+R4)/4
+1        00000027 03AB              SUBL    ACC,P           ; ACC=(R1+R2-R3-R4)/4
+1        00000028 1E83              MOVL    *XAR3++,ACC     ; R3'=(R1+R2-R3-R4)/4
+1                     
+1        00000029 06C3              MOVL    ACC,*XAR3       ; ACC=I3
+1        0000002a FF40              SFR     ACC,#1          ; ACC=I3/2
+1        0000002b A3D4              MOVL    P,*+XAR4[2]     ; P=I4
+1        0000002c 11AC              SUBL    ACC,P<<PM       ; ACC=(I3-I4)/2
+1        0000002d 8BA9              MOVL    XAR1,ACC        ; XAR1=(I3-I4)/2
+1        0000002e 07AB              ADDL    ACC,P           ; ACC=(I3+I4)/2
+1        0000002f 83A9              MOVL    XAR5,ACC        ; XAR5=(I3+I4)/2
+1                     
+1        00000030 0648              MOVL    ACC,*-SP[TEMP]     ; ACC=(R1-R2)/2
+1        00000031 FF40              SFR     ACC,#1          ; ACC=(R1-R2)/4
+1        00000032 B2AB              MOVL    P,XAR1          ; P=(I3-I4)/2
+1        00000033 10AC              ADDL    ACC,P<<PM       ; ACC=(R1-R2+I3-I4)/4
+1        00000034 1E82              MOVL    *XAR2++,ACC     ; R2'=(R1-R2+I3-I4)/4
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   10
+
+1        00000035 03AB              SUBL    ACC,P           ; ACC=(R1-R2-I3+I4)/4
+1        00000036 1E84              MOVL    *XAR4++,ACC     ; R4'=(R1-R2-I3+I4)/4
+1                                 
+1        00000037 06C6              MOVL    ACC,*XAR6       ; ACC=I1
+1        00000038 FF40              SFR     ACC,#1          ; ACC=I1/2
+1        00000039 A3C2              MOVL    P,*XAR2         ; P=I2
+1        0000003a 11AC              SUBL    ACC,P<<PM       ; ACC=(I1-I2)/2
+1        0000003b 1E48              MOVL    *-SP[TEMP],ACC     ; temp=(I1-I2)/2
+1        0000003c 07AB              ADDL    ACC,P           ; ACC=(I1+I2)/2
+1                     
+1        0000003d FF40              SFR     ACC,#1          ; ACC=(I1+I2)/4
+1        0000003e A0AB              MOVL    P,XAR5          ; P=(I3+I4)/2
+1        0000003f 10AC              ADDL    ACC,P<<PM       ; ACC=(I1+I2+I3+I4)/4
+1        00000040 1EC6              MOVL    *XAR6,ACC       ; I1'=(I1+I2+I3+I4)/4
+1        00000041 77BB              NOP     *0++
+1        00000042 03AB              SUBL    ACC,P           ; ACC=(I1+I2-I3-I4)/4
+1        00000043 1EC3              MOVL    *XAR3,ACC       ; I3'=(I1+I2-I3-I4)/4
+1        00000044 77BB              NOP     *0++
+1                     
+1                     
+1        00000045 0648              MOVL    ACC,*-SP[TEMP]     ; ACC=(I1-I2)/2
+1        00000046 FF40              SFR     ACC,#1          ; ACC=(I1-I2)/4
+1        00000047 ABAB              MOVL    P,XT            ; P=(R3-R4)/2
+1        00000048 10AC              ADDL    ACC,P<<PM       ; ACC=ACC=(I1-I2+R3-R4)/4
+1        00000049 1EC4              MOVL    *XAR4,ACC       ; I4'=(I1-I2+R3-R4)/4
+1        0000004a 77BB              NOP     *0++
+1        0000004b 03AB              SUBL    ACC,P           ; ACC=(I1-I2-R3+R4)/4
+1        0000004c 1EC2              MOVL    *XAR2,ACC       ; I2'=(I1-I2-R3+R4)/4
+1        0000004d 77BB              NOP     *0++
+     459 0000004e 000F              BANZ    STAGE1_2_LP,AR7--  
+         0000004f FFC8 
+     460              
+     461              ;------------------------------------------------------------------
+     462              ; Stage 3 - Using ZEROI, PBY4I,PBY2I,P3BY4I Macros
+     463              ;------------------------------------------------------------------
+     464 00000050 C542              MOVL    XAR7,*-SP[2]    ; XAR7=FFT_handle
+     465 00000051 C4C7              MOVL    XAR6,*XAR7      ; XAR6=ipcbptr 
+     466 00000052 86C7              MOVL    XAR2,*XAR7      ; XAR2=ipcbptr
+     467 00000053 DA10              ADDB    XAR2,#16        ; XAR2=ipcbptr+16
+     468 00000054 D012              MOVB    XAR0,#18
+     469              
+     470 00000055 28A9              MOV     AL,#COS45K_LSW
+         00000056 799B 
+     471 00000057 28A8              MOV     AH,#COS45K_MSW
+         00000058 5A82 
+     472 00000059 1EAC              MOVL    XT,ACC          ; XT=COS(45) in Q31 format
+     473                              
+     474 0000005a 5603              MOV     ACC,*+XAR7[4]<<13
+         0000005b 0DE7 
+     475 0000005c FF0D              SUB     ACC,#1<<13
+         0000005d 0001 
+     476 0000005e 97A1              MOV     AR1,AH          ; Loop (N/8 - 1) times
+     477                     
+     478 0000005f       STAGE3_LP:  ZEROI
+1        0000005f 06C6              MOVL    ACC,*XAR6       ; ACC:=PR           PR      QR  
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   11
+
+1        00000060 FF40              SFR     ACC,#1          ; ACC:=PR/2         PR      QR
+1        00000061 A3C2              MOVL    P,*XAR2         ; P=QR              PR      QR
+1        00000062 10AC              ADDL    ACC,P<<PM       ; ACC=PR+QR/2       PR      QR
+1        00000063 1E86              MOVL    *XAR6++,ACC     ; PR':=(PR+QR)/2    PI      QR  
+1        00000064 03AB              SUBL    ACC,P           ; ACC:=(PR-QR)/2    PI      QR  
+1        00000065 1E82              MOVL    *XAR2++,ACC     ; QR':=(PR-QR)/2    PI      QI  
+1                     
+1        00000066 06C6              MOVL    ACC,*XAR6       ; ACC:=PI           PI      QI  
+1        00000067 FF40              SFR     ACC,#1          ; ACC:=PI/2         PI      QI
+1        00000068 A3C2              MOVL    P,*XAR2         ; P=QI              PI      QI
+1        00000069 10AC              ADDL    ACC,P<<PM       ; ACC:=(PI+QI)/2    PI      QI 
+1        0000006a 1E86              MOVL    *XAR6++,ACC     ; PI':=(PI+QI)/2    PR+1    QI  
+1        0000006b 03AB              SUBL    ACC,P           ; ACC:=(PI-QI)/2    PR+1    QI  
+1        0000006c 1E82              MOVL    *XAR2++,ACC     ; QR':=(PI-QI)/2    PR+1    QR+1     
+     479 0000006d                   PBY4I
+1                                                         ;                       -       PR   QR 
+1        0000006d 06C6              MOVL    ACC,*XAR6       ; ACC=PR                -       PR   QR  
+1        0000006e FF40              SFR     ACC,#1          ; ACC=PR/2              -       PR   QR  
+1        0000006f 5667              QMPYL   P,XT,*XAR2      ; PREG=W*QR/2           W*QR/2  PR   QR  
+         00000070 00C2 
+1        00000071 03AB              SUBL    ACC,P           ; ACC=(PR-W*QR)/2       W*QR/2  PR   QR
+1        00000072 A9A5              MOVL    XAR5,P          ; XAR5=W*QR/2
+1        00000073 5667              QMPYL   P,XT,*+XAR2[2]  ; ACC=(PR-W*QR)/2       W*QI/2  PR   QR
+         00000074 00D2 
+1        00000075 03AB              SUBL    ACC,P           ; ACC=(PR-W*QI-W*QR)/2  W*QI/2  PR   QR 
+1        00000076 1E82              MOVL    *XAR2++,ACC     ; QR'=(PR-W*QI-W*QR)/2  W*QI/2  PR   QI
+1        00000077 FF54              NEG     ACC             ; ACC=-(PR-W*QI-W*QR)/2 W*QI/2  PR   QI
+1        00000078 5601              ADDL    *XAR6++,ACC     ; PR'=(PR+W*QI+W*QR)/2  W*QI/2  PI   QI
+         00000079 0086 
+1                     
+1        0000007a 06C6              MOVL    ACC,*XAR6       ; ACC=PI                W*QI/2  PI   QI
+1        0000007b FF40              SFR     ACC,#1          ; ACC=PI/2              W*QI/2  PI   QI
+1        0000007c 03AB              SUBL    ACC,P           ; ACC=(PI-W*QI)/2       W*QI/2  PI   QI
+1        0000007d 07A5              ADDL    ACC,XAR5        ; ACC=(PI-W*QI+W*QR)/2  W*QR/2  PI   QI
+1        0000007e 1E82              MOVL    *XAR2++,ACC     ; QI'=(PI-W*QI+W*QR)/2  W*QR/2  PI   QR+1
+1        0000007f FF54              NEG     ACC             ; ACC=-(PI-W*QI+W*QR)/2 W*QR/2  PI   QR+1
+1        00000080 5601              ADDL    *XAR6++,ACC     ; PI'=(PI+W*QI-W*QR)/2  W*QR/2  PR+1 QR+1           
+         00000081 0086 
+     480 00000082                   PBY2I
+1                                 
+1        00000082 8382              MOVL    XAR5,*XAR2++    ; XAR5=QR           PR      QI
+1        00000083 06C6              MOVL    ACC,*XAR6       ; ACC:=PR           PR      QI
+1        00000084 FF40              SFR     ACC,#1          ; ACC:=PR/2         PR      QI
+1        00000085 A3C2              MOVL    P,*XAR2         ; P:=QI             PR      QI
+1        00000086 10AC              ADDL    ACC,P<<PM       ; ACC:=(PR+QI)/2    PR      QI  
+1        00000087 1E86              MOVL    *XAR6++,ACC     ; PR':=(PR+QI)/2    PI      QI     
+1        00000088 03AB              SUBL    ACC,P           ; ACC:=(PR-QI)/2    PI      QI     
+1        00000089 1E8A              MOVL    *--XAR2,ACC     ; QR':=(PR-QI)/2    PI      QR
+1        0000008a DA02              ADDB    XAR2,#2         ;                   PI      QI
+1                                 
+1        0000008b 06C6              MOVL    ACC,*XAR6       ; ACC:=PI           PI      QI
+1        0000008c FF40              SFR     ACC,#1          ; ACC:=PI/2         PI      QI
+1        0000008d A0AB              MOVL    P,XAR5          ; P=QR              PI      QI
+1        0000008e 11AC              SUBL    ACC,P<<PM       ; ACC=(PI-QR)/2     PI      QI
+1        0000008f 1E86              MOVL    *XAR6++,ACC     ; ACC:=(PI-QR)/2    PR+1    QI    
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   12
+
+1        00000090 07AB              ADDL    ACC,P           ; ACC:=(PI+QR)/2    PR+1    QI 
+1        00000091 1E82              MOVL    *XAR2++,ACC     ; QI':=(PI+QR)/2    PR+1    QR+1
+1                                                   
+     481 00000092                   P3BY4I                  ; AR7 at end, Use *0+ modify
+1                                                         ;                       -       PR   QR 
+1        00000092 06C6              MOVL    ACC,*XAR6       ; ACC=PR                -       PR   QR  
+1        00000093 FF40              SFR     ACC,#1          ; ACC=PR/2              -       PR   QR  
+1        00000094 5667              QMPYL   P,XT,*XAR2      ; PREG=W*QR/2           W*QR/2  PR   QR 
+         00000095 00C2 
+1        00000096 07AB              ADDL    ACC,P           ; ACC=(PR+W*QR)/2       W*QR/2  PR   QR
+1        00000097 A9A5              MOVL    XAR5,P          ; XAR5=W*QR/2           W*QR/2  PR   QR
+1        00000098 5667              QMPYL   P,XT,*+XAR2[2]  ; ACC=(PR+W*QR)/2       W*QI/2  PR   QR
+         00000099 00D2 
+1        0000009a 03AB              SUBL    ACC,P           ; ACC=(PR-W*QI+W*QR)/2  W*QI/2  PR   QR 
+1        0000009b 1E82              MOVL    *XAR2++,ACC     ; QR'=(PR-W*QI+W*QR)/2  W*QI/2  PR   QI
+1        0000009c FF54              NEG     ACC             ; ACC=-(PR-W*QI+W*QR)/2 W*QI/2  PR   QI
+1        0000009d 5601              ADDL    *XAR6++,ACC     ; PR'=(PR+W*QI-W*QR)/2  W*QI/2  PI   QI
+         0000009e 0086 
+1                     
+1        0000009f 06C6              MOVL    ACC,*XAR6       ; ACC=PI                W*QI/2  PI   QI
+1        000000a0 FF40              SFR     ACC,#1          ; ACC=PI/2              W*QI/2  PI   QI
+1        000000a1 07AB              ADDL    ACC,P           ; ACC=(PR+W*QI)/2       W*QI/2  PI   QI
+1        000000a2 07A5              ADDL    ACC,XAR5        ; ACC=(PI+W*QI+W*QR)/2  W*QR/2  PI   QI
+1        000000a3 77B2              NOP     *,ARP2
+1        000000a4 1EBB              MOVL    *0++,ACC        ; QI'=(PI+W*QI+W*QR)/2  W*QR/2  PI   QR+1
+1        000000a5 FF54              NEG     ACC             ; ACC=-(PI+W*QI+W*QR)/2 W*QR/2  PI   QR+1
+1        000000a6 5601              ADDL    *XAR6,ACC       ; PI'=(PI-W*QI-W*QR)/2  W*QR/2  PI   QR+1
+         000000a7 00C6 
+1        000000a8 77BB              NOP     *0++            ;                       W*QR/2  PR+1 QR+1
+     482 000000a9 0009              BANZ    STAGE3_LP,AR1--
+         000000aa FFB6 
+     483                                                                                                          
+     484              ;--------------------------------------------------------
+     485              ; Stage 4 to LOG2(N) - Using BFLY Macro
+     486              ;--------------------------------------------------------   
+     487              ; Initialisation
+     488              ; 1. Initialise the Butterfly loop(BLC), Group loop(GLC) & Stage loop counter(SLC)
+     489              ; 2. Initialise the Data offset(DOST) and twiddle factor offset (TOST)          
+     490 000000ab 5603              MOV     ACC,*+XAR7[4]<<12 ; AH=(N/16)
+         000000ac 0CE7 
+     491 000000ad 9741              MOV     *-SP[GLCB],AH   ; GLCB=N/16
+     492 000000ae 9743              MOV     *-SP[GLC],AH    ; GLC=N/16
+     493 000000af 56BF              MOVB    *-SP[BLC],#8,UNC; BLC=8
+         000000b0 0842 
+     494              
+     495              ; Twiddle factor offset
+     496 000000b1 FF30              LSL     ACC,#1
+     497 000000b2 2DA8              MOV     T,AH            ; T=N/8
+     498 000000b3 DF0D              ADDB    XAR7,#13
+     499 000000b4 12C7              MPY     ACC,T,*XAR7     ; ACC=ratio*N/8
+     500 000000b5 DF8D              SUBB    XAR7,#13            
+     501 000000b6 9645              MOV     *-SP[TOST],AL   ; TOST=ratio*N/8
+     502                          
+     503 000000b7 85EF              MOV     ACC,*+XAR7[5]   ; ACC=nrstage
+     504 000000b8 1903              SUB     ACC,#3          ; ACC=nrstage-3
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   13
+
+     505 000000b9 9644              MOV     *-SP[SLC],AL    ; SLC=nrState-3
+     506 000000ba 56BF              MOVB    *-SP[DOST],#32,UNC ; DOST=32
+         000000bb 2046 
+     507              
+     508 000000bc 5603              MOV     ACC,*+XAR7[4]<<15  ; AH=N/2
+         000000bd 0FE7 
+     509 000000be DF0D              ADDB    XAR7,#13        
+     510 000000bf 2DC7              MOV     T,*XAR7         ; T=ratio
+     511 000000c0 DF8D              SUBB    XAR7,#13        
+     512 000000c1 12A8              MPY     ACC,T,AH        ; ACC=ratio*N/2
+     513 000000c2 07D7              ADDL    ACC,*+XAR7[2]   ; 
+     514 000000c3 1E49              MOVL    *-SP[WRWIOST],ACC  ; WRWIOST=tfptr+ratio*N/2 ----> COS(Angle)
+     515              
+     516              
+     517 000000c4       SLP:                                ; Stage loop 
+     518 000000c4 C4C7              MOVL    XAR6,*XAR7      ; XAR6=ipcbptr ----->  P          
+     519 000000c5 06C7              MOVL    ACC,*XAR7       ; ACC=ipcbptr
+     520 000000c6 8146              ADD     ACC,*-SP[DOST]  ; ACC=ipcbptr+DOST
+     521 000000c7 86A9              MOVL    XAR2,ACC        ; XAR2->ipcbptr+DOST -----> Q
+     522                          
+     523 000000c8 5845              MOVZ    AR0,*-SP[TOST]  ; AR0=TOST
+     524              
+     525                          
+     526 000000c9       GLP:                                ; Group loop
+     527 000000c9 8249              MOVL    XAR3,*-SP[WRWIOST]
+     528 000000ca 8AD7              MOVL    XAR4,*+XAR7[2]  ; XAR4=tfptr ---> SIN(Angle)
+     529                          
+     530 000000cb 5942              MOVZ    AR1,*-SP[BLC]   ; AR1=BLC
+     531 000000cc D981              SUBB    XAR1,#1
+     532 000000cd       BLP:                                ; Butterfly loop
+     533 000000cd                   BFLY    7
+1                                                         ;                         -     PR      QR      WR      WI 
+1        000000cd 87C3              MOVL    XT,*XAR3        ; XT=WR                   WR    PR      QR      WR      WI
+1        000000ce 77BB              NOP     *0++            ;                         WR    PR      QR      WR+n    WI
+1        000000cf 5667              QMPYL   P,XT,*XAR2++    ; P=QR*WR                 WR    PR      QI      WR+n    WI
+         000000d0 0082 
+1        000000d1 5663              QMPYL   ACC,XT,*,ARP4   ; ACC=QI*WR               WR    PR      QI      WR+n    WI
+         000000d2 00B4 
+1        000000d3 A948              MOVL    *-SP[TEMP],P    ; TEMP=QR*WR              WR    PR      QI      WR+n    WI
+1                     
+1        000000d4 87BB              MOVL    XT,*0++         ; XT=WI                   WR    PR      QI      WR+n    WI+n
+1        000000d5 5667              QMPYL   P,XT,*--XAR2    ; P=WI*QR                 WR    PR      QR      WR+n    WI+n
+         000000d6 008A 
+1        000000d7 03AB              SUBL    ACC,P           ; ACC=(QI*WR-QR*WI)       WR    PR      QR      WR+n    WI+n
+1                                 
+1                                 .if(TF_QFMAT==Q30)
+1        000000d8 FF30              LSL     ACC,#1          ; ACC=(QI*WR-QR*WI) (Q30)
+1                                 .endif
+1                     
+1        000000d9 83A9              MOVL    XAR5,ACC        ; XAR5=(QI*WR-QR*WI) (Q30)
+1                                             
+1        000000da 5663              QMPYL   ACC,XT,*+XAR2[2]; ACC=WI*QI              WR    PR      QR      WR+n    WI+n
+         000000db 00D2 
+1        000000dc 0748              ADDL    ACC,*-SP[TEMP]  ; ACC=(QR*WR+QI*WI)      WR    PR      QR      WR+n    WI+n
+1                     
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   14
+
+1                                 .if(TF_QFMAT==Q30)
+1        000000dd FF30              LSL     ACC,#1          ; ACC=(QR*WR+QI*WI) in Q30
+1                                 .endif
+1                     
+1        000000de A3C6              MOVL    P,*XAR6         ; P=PR                    WR    PR      QR      WR+n    WI+n
+1        000000df 10AC              ADDL    ACC,P<<PM       ; ACC=(PR+QR*WR+QI*WI)/2  WR    PR      QR      WR+n    WI+n
+1        000000e0 1E86              MOVL    *XAR6++,ACC     ; PR'=(PR+QR*WR+QI*WI)/2  WR    PI      QR      WR+n    WI+n
+1                     
+1        000000e1 5641              SUBL    P,ACC           ; P=(PR-QR*WR-QI*WI)/2    WR    PI      QR      WR+n    WI+n
+         000000e2 00AB 
+1        000000e3 A982              MOVL    *XAR2++,P       ; QR'=(PR-QR*WR-QI*WI)/2  WR    PI      QI      WR+n    WI+n
+1                     
+1        000000e4 A0A9              MOVL    ACC,XAR5        ; ACC=(QI*WR-QR*WI)/2     WR    PI      QI      WR+n    WI+n
+1        000000e5 A3C6              MOVL    P,*XAR6         ; P=PI                    WR    PI      QI      WR+n    WI+n
+1        000000e6 10AC              ADDL    ACC,P<<PM       ; ACC=(PI+QI*WR-QR*WI)/2  WR    PI      QI      WR+n    WI+n
+1        000000e7 1E86              MOVL    *XAR6++,ACC     ; (PI+QI*WR-QR*WI)/2      WR    PR+1    QI      WR+n    WI+n
+1                     
+1        000000e8 5641              SUBL    P,ACC           ; P=(PI-QI*WR+QR*WI)/2    WR    PR+1    QI      WR+n    WI+n
+         000000e9 00AB 
+1        000000ea A982              MOVL    *XAR2++,P       ; QI'=(PI-QI*WR+QR*WI)/2  WR    PR+1    QR+1    WR+n    WI+n
+     534 000000eb 0009              BANZ    BLP,AR1--       ; Butterfly loop                      
+         000000ec FFE2 
+     535              
+     536              ; Operations performed between the group
+     537              ; 1. Manuplating the P & Q pointer to point to the next group
+     538              ; 2. Reinitialising the WI and WR twiddle factor pointer  
+     539              ; 3. Decrementing the Group Count by 1, till all the group in the stage is computed
+     540              ; 4. Reinitialising the Butterfly loop index for next group
+     541                                                  ; ARP=AR2
+     542 000000ed 0E46              MOVU    ACC,*-SP[DOST]  ; ACC=DOST
+     543 000000ee 5601              ADDL    XAR6,ACC        
+         000000ef 00A6 
+     544 000000f0 5601              ADDL    XAR2,ACC        
+         000000f1 00A2 
+     545 000000f2 0B43              DEC     *-SP[GLC]
+     546 000000f3 EDD6              BF      GLP,NEQ         ; Group Loop 
+     547                
+     548              ; Operation Performed, between the stage
+     549              ; 1. Mutiply the data offset by 2
+     550              ; 2. Divide the Group count by 2
+     551              ; 3. Divide the Twiddle offset by 2
+     552              ; 4. Multiply the butterfly count by 2
+     553              ; 5. Decrementing the stage count by 1, till all the stage gets over
+     554              ; 6. Reinitialising the P & Q data pointer to the first group of next stage         
+     555 000000f4 5603              MOV     ACC,*-SP[DOST]<<1
+         000000f5 0146 
+     556 000000f6 9646              MOV     *-SP[DOST],AL   ; DOST=DOST*2
+     557              
+     558 000000f7 5603              MOV     ACC,*-SP[BLC]<<1
+         000000f8 0142 
+     559 000000f9 9642              MOV     *-SP[BLC],AL    ; BLC=BLC*2
+     560              
+     561 000000fa 5603              MOV     ACC,*-SP[TOST]<<15
+         000000fb 0F45 
+     562 000000fc 9745              MOV     *-SP[TOST],AH   ; TOST=TOST/2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+cfft32c.asm                                                          PAGE   15
+
+     563              
+     564 000000fd 5603              MOV     ACC,*-SP[GLCB]<<15
+         000000fe 0F41 
+     565 000000ff 9741              MOV     *-SP[GLCB],AH   ; GLCB=GLCB/2
+     566 00000100 9743              MOV     *-SP[GLC],AH    ; GLC=GLCB/2
+     567              
+     568 00000101 0B44              DEC     *-SP[SLC]
+     569 00000102 EDC2              BF      SLP,NEQ         ; Stage loop
+     570                                   
+     571 00000103 FF69              SPM     0               ; SPM set to 0
+     572                          
+     573 00000104 FE8A              SUBB    SP,#FFT_LOCAL_FRAME ; Clear local frame
+     574 00000105 82BE              POP     XAR3            ; Context Restore
+     575 00000106 86BE              POP     XAR2
+     576 00000107 8BBE              POP     XAR1 
+     577 00000108 7617              NASP                    ; Unalign Stack Pointer
+     578 00000109 0006              LRETR
+     579              
+     580                    
+     581                                                                                                             
+     582              
+
+No Assembly Errors, No Assembly Warnings

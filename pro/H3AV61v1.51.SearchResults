@@ -1,0 +1,9 @@
+---- m_edit_member_Bgcor Matches (8 in 2 files) ----
+Gui.h (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui):589:extern          uint16_t   					m_edit_member_Bgcor;
+Gui.h (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui):590:#define   		EDIT_MEMBER_BG_COLOR        m_edit_member_Bgcor
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):10:uint16_t   m_edit_member_Bgcor = C_GUI_BlACK;
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):22:	m_edit_member_Bgcor  = Bgcor;
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):178:		GUI_set_Bgcolor( m_edit_member_Bgcor );
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):302:		GUI_set_Bgcolor( m_edit_member_Bgcor );
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):411:		GUI_set_Bgcolor( m_edit_member_Bgcor );
+GUI_widget_edit.c (d:\h3anew\h3a_dsp-v61(ver1.151)\user\gui\src\widget):810:	m_edit_member_Bgcor 	= EDIT_MEMBER_BG_COLOR;

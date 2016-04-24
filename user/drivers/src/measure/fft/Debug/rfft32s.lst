@@ -1,0 +1,276 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:26 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32s.asm                                                          PAGE    1
+
+       1              ;============================================================================
+       2              ;
+       3              ; File Name     : rfft128sc.asm
+       4              ; 
+       5              ; Originator    : Advanced Embeeded Control 
+       6              ;                 Texas Instruments 
+       7              ; 
+       8              ; Description   : This file contain source code of split function for Real FFT
+       9              ;               
+      10              ; Date          : 26/2/2002 (dd/mm/yyyy)
+      11              ;===========================================================================    
+      12              ; Routine Type  : C Callable        
+      13              ;
+      14              ; Description   :
+      15              ; void FFT128R_split(FFTxxxx_handle) 
+      16              ; This function perfroms split operation to obtain 65 spectran bins of
+      17              ; 128-point real valued sequence from the 64-point complex FFT output
+      18              ; 
+      19              ; void FFT128R_init(void)
+      20              ; This function copies the Twiddle factors for split function from 
+      21              ; load time address to its run time address 
+      22              ;
+      23              ;======================================================================
+      24              ; REAL FFT MODULES
+      25              ;----------------------------------------------------------------------
+      26              ;typedef struct {   
+      27              ;       long *ipcbptr;
+      28              ;       long *tfptr;               
+      29              ;       int size;
+      30              ;       int nrstage;             
+      31              ;       long *magptr;
+      32              ;       long *winptr; 
+      33              ;       long peakmag;
+      34              ;       int peakfrq;
+      35              ;       int ratio;     
+      36              ;       void (*init)(void);
+      37              ;       void (*calc)(void *);
+      38              ;       void (*split)(void *);
+      39              ;       void (*mag)(void *);
+      40              ;       void (*win)(void *);
+      41              ;       }FFTxxxR;
+      42              ;===============================================================================
+      43              ; Computation Buffer  for k=1:(N/2)-1) & N=64
+      44              ;==============================================================================         
+      45              ;
+      46              ; Non Bitrev I/P    COMPLEX FFT(N) O/P    E/O SEPERATION                Final FFT output
+      47              ; ___________       ______________        ____________                  ___________
+      48              ; |__g(0)____|      |__R(0)______|        |___RP(0)__| =R(0)            |__GR(0)__| = {RP(0)+IP(0)}/2
+      49              ; |__g(1)____|      |__I(0)______|        |___IP(0)__| =I(0)            |__GI(0)__| = 0
+      50              ; |__g(2)____|      |__R(k)______|        |___RP(k)__|                  |_________|
+      51              ; |__g(3)____|      |__I(k)______|        |___IM(k)__|                  |_________|
+      52              ; |__________|      |____________|        |__________|                  |_________|
+      53              ; |__________|      |____________|        |__________|                  |_________|
+      54              ; |__________|      |____________|        |__________|                  |_________|
+      55              ; |__________|      |__R(N/2)____|        |_RP(N/2___| =R(N/2)          |_GR(N/2)_| =RP(N/2)/2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:26 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32s.asm                                                          PAGE    2
+
+      56              ; |__________|      |__R(N/2)____|        |_IP(N/2)__| =I(N/2)          |_GI(N/2)_| =-IP(N/2)/2
+      57              ; |__________|      |____________|        |__________|                  |_________|
+      58              ; |__________|      |____________|        |__________|                  |_________|
+      59              ; |__________|      |____________|        |__________|                  |_________|
+      60              ; |__________|      |____________|        |__________|                  |_________|
+      61              ; |__________|      |___R(N-k)___|        |___RM(k)__|                  |_GR(N-1)_|
+      62              ; |_g(2*N-1)_|      |___I(N-k)___|        |___IP(k)__|                  |_GI(N-1)_|
+      63              ;                                                                       |__GR(N)__|={RP(0)-IP(0)}/2
+      64              ;                                                                       |__GI(N)__|=0
+      65              ;
+      66              ;===========================================================================
+      67              ;                      Note:   IM(0)=RM(0)=0
+      68              ;                              RM(N/2)=IM(N/2)=0                            
+      69              ;===========================================================================
+      70              ; EVEN/ODD FFT SEPERATION
+      71              ;===========================================================================
+      72              ; RP(K) = [R(K) +  R(N-k)]/2
+      73              ; RM(K) = [R(K) -  R(N-K)]/2
+      74              ; IP(K) = [I(K) + I(N-K)]/2 
+      75              ; IM(K) = [I(K) - I(N-K)]/2    K=1:N/2
+      76              ;=========================================================================
+      77              ; EVEN/ODD FFT MERGE
+      78              ;========================================================================= 
+      79              ; GR(K)={RP(K) - WI(K)*RM(K) + WR(K)*IP(K)}/2
+      80              ; GI(K)={IM(K) - WI(K)*IP(K) - WR(K)*RM(K)}/2
+      81              ; GR(N-K)={RP(K) + WI(K)*RM(K) - WR(K)*IP(K)}/2
+      82              ; GI(N-K)={-IM(K) - WI(K)*IP(K) - WR(K)*RM(K)}/2 
+      83              ; 
+      84              ; WR(k) <-- Cosine table (AR5)
+      85              ; WI(K) <-- Sine table   (AR2)     
+      86              ;======================================================================                       
+      87                      .include "sel_q.asm"
+      88              
+      89                                  .def   _RFFT32_split   ; Function External Reference
+      90                                  
+      91 00000000       _RFFT32_split:            
+      92 00000000 761B              ASP                     ; Align Stack Pointer
+      93 00000001 B2BD              PUSH    XAR1            ; Context Save
+      94 00000002 AABD              PUSH    XAR2
+      95 00000003 A2BD              PUSH    XAR3 
+      96                         
+      97 00000004 3B01              SETC    SXM
+      98 00000005 FF6A              SPM     -1
+      99              
+     100 00000006 5603              MOV     ACC,*+XAR4[4]<<2; ACC=4*size
+         00000007 02E4 
+     101 00000008 86C4              MOVL    XAR2,*XAR4      ; XAR2=ipcbptr ----->R(0)
+     102 00000009 07C4              ADDL    ACC,*XAR4       ; XAR3=ipcbptr+4*size
+     103 0000000a 82A9              MOVL    XAR3,ACC        ; XAR3 ------>GR(N)
+     104                      
+     105 0000000b 83D4              MOVL    XAR5,*+XAR4[2]  ; XAR5=tfptr -----> WI
+     106 0000000c C4D4              MOVL    XAR6,*+XAR4[2]  ; XAR6=tfptr    
+     107                          
+     108 0000000d 2DC4              MOV     T,*XAR4         ; T=size
+     109              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:26 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32s.asm                                                          PAGE    3
+
+     110 0000000e 5603              MOV     ACC,*+XAR4[4]<<15  ; AH=size/2
+         0000000f 0FE4 
+     111 00000010 80A8              MOVZ    AR7,AH          ; XAR7=size/2
+     112 00000011 DF82              SUBB    XAR7,#2         ; XAR7=(size/2)-2
+     113 00000012 DC0D              ADDB    XAR4,#13        
+     114 00000013 2DC4              MOV     T,*XAR4         ; T=ratio
+     115 00000014 58C4              MOVZ    AR0,*XAR4       ; AR0=ratio
+     116 00000015 DC8D              SUBB    XAR4,#13        
+     117 00000016 12A8              MPY     ACC,T,AH        ; ACC=ratio*size/2
+     118 00000017 07D4              ADDL    ACC,*+XAR4[2]   ; 
+     119 00000018 1EA6              MOVL    XAR6,ACC        ; WRWIOST=tfptr+ratio*N/2 ----> COS(Angle)
+     120                          
+     121 00000019 77B5              NOP     *,ARP5          ; XAR5 ----> WI SIN(Angle)--->increment
+     122 0000001a 77BB              NOP     *0++
+     123 0000001b 77B6              NOP     *,ARP6
+     124 0000001c 77BC              NOP     *0--            ; XAR6 ----> WR COS(Angle)--->decrement
+     125                              
+     126 0000001d 5656              MOV     TL,#0
+     127 0000001e 2BAC              MOV     T,#0
+     128              ; DC and Nyquist Bins
+     129 0000001f 5633              ZAPA                    ; ACC=0,P=0
+     130 00000020 06C2              MOVL    ACC,*XAR2       ; ACC=RP(0), where RP(0)=R(0)
+     131 00000021 FF40              SFR     ACC,#1          ; ACC=RP(0)/2
+     132 00000022 A3D2              MOVL    P,*+XAR2[2]     ; P=IP(0), where IP(0)=I(0)
+     133 00000023 11AC              SUBL    ACC,P<<PM       ; ACC={RP(0)-IP(0)}/2 in Q31
+     134 00000024 1E83              MOVL    *XAR3++,ACC     ; GR(N)={RP(0)-IP(0)}/2 in Q31
+     135 00000025 AB83              MOVL    *XAR3++,XT      ; GI(N)=0
+     136 00000026 DB88              SUBB    XAR3,#8         ; XAR3->R(N-K)
+     137              
+     138 00000027 07AB              ADDL    ACC,P           ; ACC={RP(0)+IP(0)}/2 in Q31
+     139 00000028 1E82              MOVL    *XAR2++,ACC     ; GR(0)={RP(0)+IP(0)}/2
+     140 00000029 AB82              MOVL    *XAR2++,XT      ; XAR2->R(k), GI(0)=IM(0)-RM(0), Where IM(0)=RM(0)=0            
+     141                          
+     142              ; Rest of bins                              
+     143 0000002a       nextbin:                            ; XAR2->R(k), Where k=1:N/2-1 
+     144 0000002a 06C2              MOVL    ACC,*XAR2       ; ACC=R(k)
+     145 0000002b FF40              SFR     ACC,#1          ; ACC=R(k)/2
+     146 0000002c A3C3              MOVL    P,*XAR3         ; P=R(N-k)
+     147 0000002d 11AC              SUBL    ACC,P<<PM       ; ACC={R(k)-R(N-k)}/2
+     148                          
+     149 0000002e 1EC3              MOVL    *XAR3,ACC       ; R(k)=RM(k)={R(k)-R(N-k)}/2
+     150 0000002f 07AB              ADDL    ACC,P           ; ACC={R(k)+R(N-k)}/2
+     151 00000030 1EC2              MOVL    *XAR2,ACC       ; R(N-k)=RP(k)={R(k)+R(N-k)}/2
+     152                          
+     153 00000031 06D2              MOVL    ACC,*+XAR2[2]   ; ACC=I(k)
+     154 00000032 FF40              SFR     ACC,#1          ; ACC=I(k)/2
+     155 00000033 A3D3              MOVL    P,*+XAR3[2]     ; P=I(N-k)
+     156 00000034 11AC              SUBL    ACC,P<<PM       ; ACC={I(k)-I(N-k)}/2
+     157                          
+     158 00000035 1ED2              MOVL    *+XAR2[2],ACC   ; I(k)=IM(k)={I(k)-I(N-k)}/2
+     159 00000036 07AB              ADDL    ACC,P           ; ACC={I(k)+I(N-k)}/2
+     160 00000037 1ED3              MOVL    *+XAR3[2],ACC   ; I(N-k)=IP(k)={I(k)+I(N-k)}/2
+     161                          
+     162 00000038 87C5              MOVL    XT,*XAR5        ; XT=WI(k)
+     163 00000039 77BB              NOP     *0++
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:26 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32s.asm                                                          PAGE    4
+
+     164 0000003a 5663              QMPYL   ACC,XT,*+XAR3[2]; ACC=WI(k)*IP(k)
+         0000003b 00D3 
+     165 0000003c 5667              QMPYL   P,XT,*XAR3      ; P=WI(k)*RM(k)
+         0000003d 00C3 
+     166 0000003e 8BA9              MOVL    XAR1,ACC        ; XAR1=WI(k)*IP(k)
+     167              
+     168 0000003f 87C6              MOVL    XT,*XAR6        ; XT=WR(k)
+     169 00000040 77BC              NOP     *0--
+     170 00000041 5663              QMPYL   ACC,XT,*+XAR3[2]; P=WR(k)*IP(k)
+         00000042 00D3 
+     171 00000043 03AB              SUBL    ACC,P           ; ACC=WR(k)*IP(k)-WI(k)*RM(k)
+     172                          
+     173                          .if(TF_QFMAT==Q30)
+     174 00000044 FF30              LSL     ACC,#1          
+     175                          .endif
+     176              
+     177 00000045 A3C2              MOVL    P,*XAR2         ; P=RP(k)
+     178 00000046 10AC              ADDL    ACC,P<<PM       ; ACC=RP(k)+WR(k)*IP(k)-WI(k)*RM(k) in Q30
+     179 00000047 1E82              MOVL    *XAR2++,ACC     ; GR(k)={RP(k)+WR(k)*IP(k)-WI(k)*RM(k)}/2 in Q31
+     180 00000048 FF54              NEG     ACC             ;
+     181 00000049 07AB              ADDL    ACC,P           ; ACC=GR(N-k)=RP(k)-WR(k)*IP(k)+WI(k)*RM(k) in Q30
+     182 0000004a 5667              QMPYL   P,XT,*XAR3      ; P=WR(k)*RM(k)         
+         0000004b 00C3 
+     183 0000004c 1EC3              MOVL    *XAR3,ACC       ; ACC=GR(N-k)={RP(k)-WR(k)*IP(k)+WI(k)*RM(k)}/2 in Q31
+     184                          
+     185 0000004d B2A9              MOVL    ACC,XAR1        ; ACC=WI(k)*IP(k)
+     186 0000004e FF54              NEG     ACC             ; ACC=-WI(k)*IP(k)
+     187 0000004f 03AB              SUBL    ACC,P           ; ACC=-WI(k)*IP(k)-WR(k)*RM(k)
+     188              
+     189                          .if(TF_QFMAT==Q30)
+     190 00000050 FF30              LSL     ACC,#1          ; ACC=(QI*WR-QR*WI) (Q30)
+     191                          .endif
+     192              
+     193 00000051 A3C2              MOVL    P,*XAR2         ; P=IM(k)
+     194 00000052 10AC              ADDL    ACC,P<<PM       ; ACC=IM(K)-WI(k)*IP(k)-WR(k)*RM(k) in Q30
+     195 00000053 1E82              MOVL    *XAR2++,ACC     ; GI(k)={IM(k)-WI(k)*IP(k)-WR(k)*RM(k)}/2 in Q31
+     196 00000054 03AB              SUBL    ACC,P           ; ACC=-IM(K)-WI(k)*IP(k)-WR(k)*RM(k) in Q30
+     197 00000055 1ED3              MOVL    *+XAR3[2],ACC   ; GI(N-k)={-IM(k)-WI(k)*IP(k)-WR(k)*RM(k)}/2 in Q31
+     198 00000056 DB84              SUBB    XAR3,#4         
+     199 00000057 000F              BANZ    nextbin,AR7--   
+         00000058 FFD3 
+     200                          
+     201 00000059 06C2              MOVL    ACC,*XAR2       ; ACC=R(N/2)
+     202 0000005a FF40              SFR     ACC,#1          ; ACC=R(N/2)/2
+     203 0000005b 1EC2              MOVL    *XAR2,ACC       ; GR(N/2)=R(N/2)/2
+     204              
+     205 0000005c 06D2              MOVL    ACC,*+XAR2[2]   ; ACC=I(N/2)
+     206 0000005d FF54              NEG     ACC             ; ACC=-I(N/2)
+     207 0000005e FF40              SFR     ACC,#1          ; ACC=-I(N/2)/2
+     208 0000005f 1ED2              MOVL    *+XAR2[2],ACC   ; GI(N/2)=-I(N/2)/2         
+     209              
+     210 00000060 FF69              SPM     0               
+     211 00000061 82BE              POP     XAR3            ; Context Restore
+     212 00000062 86BE              POP     XAR2
+     213 00000063 8BBE              POP     XAR1 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:26 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32s.asm                                                          PAGE    5
+
+     214 00000064 7617              NASP                    ; Unalign Stack Pointer
+     215 00000065 0006              LRETR
+     216               
+     217                
+     218                          
+     219                          
+     220                          
+     221                          
+     222                          
+     223                            
+     224                          
+     225                          
+     226                          
+     227                          
+     228                                                                     
+     229                          
+     230                                                      
+     231                          
+     232                          
+     233                          
+     234                          
+     235                          
+     236                             
+     237                          
+     238              
+     239              
+     240              
+     241              
+     242              
+
+No Assembly Errors, No Assembly Warnings

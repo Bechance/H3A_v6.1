@@ -1,0 +1,643 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Tue Jan 11 09:59:30 2011                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("app_wavemod_connect.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              
+      14              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_fun_exit"), DW_AT_symbol_name("_app_wavemod_fun_ex
+      15                      .dwattr DW$1, DW_AT_declaration(0x01)
+      16                      .dwattr DW$1, DW_AT_external(0x01)
+      17              
+      18              DW$2    .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_fun_entry"), DW_AT_symbol_name("_app_wavemod_fun_e
+      19                      .dwattr DW$2, DW_AT_declaration(0x01)
+      20                      .dwattr DW$2, DW_AT_external(0x01)
+      21              
+      22              DW$3    .dwtag  DW_TAG_subprogram, DW_AT_name("app_global_resouce_req"), DW_AT_symbol_name("_app_global_resou
+      23                      .dwattr DW$3, DW_AT_declaration(0x01)
+      24                      .dwattr DW$3, DW_AT_external(0x01)
+      25              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      26                      .dwendtag DW$3
+      27              
+      28              
+      29              DW$5    .dwtag  DW_TAG_subprogram, DW_AT_name("log_printf"), DW_AT_symbol_name("_log_printf")
+      30                      .dwattr DW$5, DW_AT_declaration(0x01)
+      31                      .dwattr DW$5, DW_AT_external(0x01)
+      32              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+      33              DW$7    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+      34                      .dwendtag DW$5
+      35              
+      36              
+      37              DW$8    .dwtag  DW_TAG_subprogram, DW_AT_name("app_global_resouce_release"), DW_AT_symbol_name("_app_global_r
+      38                      .dwattr DW$8, DW_AT_declaration(0x01)
+      39                      .dwattr DW$8, DW_AT_external(0x01)
+      40              DW$9    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      41                      .dwendtag DW$8
+      42              
+      43              DW$10   .dwtag  DW_TAG_variable, DW_AT_name("m_null_pram"), DW_AT_symbol_name("_m_null_pram")
+      44                      .dwattr DW$10, DW_AT_type(*DW$T$6)
+      45                      .dwattr DW$10, DW_AT_declaration(0x01)
+      46                      .dwattr DW$10, DW_AT_external(0x01)
+      47              
+      48              DW$11   .dwtag  DW_TAG_subprogram, DW_AT_name("app_module_add"), DW_AT_symbol_name("_app_module_add")
+      49                      .dwattr DW$11, DW_AT_type(*DW$T$19)
+      50                      .dwattr DW$11, DW_AT_declaration(0x01)
+      51                      .dwattr DW$11, DW_AT_external(0x01)
+      52              DW$12   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+      53                      .dwendtag DW$11
+      54              
+      55              DW$13   .dwtag  DW_TAG_variable, DW_AT_name("m_log_pram"), DW_AT_symbol_name("_m_log_pram")
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    2
+
+      56                      .dwattr DW$13, DW_AT_type(*DW$T$29)
+      57                      .dwattr DW$13, DW_AT_declaration(0x01)
+      58                      .dwattr DW$13, DW_AT_external(0x01)
+      59              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7365 
+      60 00000000               .sect   ".text"
+      61                      .global _app_wavemod_resource_init
+      62              
+      63              DW$14   .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_resource_init"), DW_AT_symbol_name("_app_wavemod_r
+      64                      .dwattr DW$14, DW_AT_low_pc(_app_wavemod_resource_init)
+      65                      .dwattr DW$14, DW_AT_high_pc(0x00)
+      66                      .dwattr DW$14, DW_AT_begin_file("app_wavemod_connect.c")
+      67                      .dwattr DW$14, DW_AT_begin_line(0x16)
+      68                      .dwattr DW$14, DW_AT_begin_column(0x06)
+      69                      .dwpsn  "app_wavemod_connect.c",23,1
+      70              
+      71                      .dwfde DW$CIE
+      72              
+      73              ;***************************************************************
+      74              ;* FNAME: _app_wavemod_resource_init    FR SIZE:   0           *
+      75              ;*                                                             *
+      76              ;* FUNCTION ENVIRONMENT                                        *
+      77              ;*                                                             *
+      78              ;* FUNCTION PROPERTIES                                         *
+      79              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      80              ;***************************************************************
+      81              
+      82              _app_wavemod_resource_init:
+      83                      .dwcfa  0x1d, -2
+      84                      .dwcfa  0x1c, 26, 0
+      85                      .dwcfa  0x09, 40, 26
+      86                      .dwpsn  "app_wavemod_connect.c",24,2
+      87                      .dwpsn  "app_wavemod_connect.c",25,1
+      88 00000000 0006          LRETR
+      89                      ; return occurs
+      90                      .dwattr DW$14, DW_AT_end_file("app_wavemod_connect.c")
+      91                      .dwattr DW$14, DW_AT_end_line(0x19)
+      92                      .dwattr DW$14, DW_AT_end_column(0x01)
+      93                      .dwendentry
+      94                      .dwendtag DW$14
+      95              
+      96 00000001               .sect   ".text"
+      97                      .global _app_wavemod_insmod
+      98              
+      99              DW$15   .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_insmod"), DW_AT_symbol_name("_app_wavemod_insmod")
+     100                      .dwattr DW$15, DW_AT_low_pc(_app_wavemod_insmod)
+     101                      .dwattr DW$15, DW_AT_high_pc(0x00)
+     102                      .dwattr DW$15, DW_AT_begin_file("app_wavemod_connect.c")
+     103                      .dwattr DW$15, DW_AT_begin_line(0x22)
+     104                      .dwattr DW$15, DW_AT_begin_column(0x06)
+     105                      .dwpsn  "app_wavemod_connect.c",35,1
+     106              
+     107                      .dwfde DW$CIE
+     108              
+     109              ;***************************************************************
+     110              ;* FNAME: _app_wavemod_insmod           FR SIZE:   0           *
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    3
+
+     111              ;*                                                             *
+     112              ;* FUNCTION ENVIRONMENT                                        *
+     113              ;*                                                             *
+     114              ;* FUNCTION PROPERTIES                                         *
+     115              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     116              ;***************************************************************
+     117              
+     118              _app_wavemod_insmod:
+     119                      .dwcfa  0x1d, -2
+     120                      .dwcfa  0x1c, 26, 0
+     121                      .dwcfa  0x09, 40, 26
+     122                      .dwpsn  "app_wavemod_connect.c",36,2
+     123 00000001 D400          MOVB      XAR4,#0
+     124 00000002 7640!         LCR       #_app_global_resouce_req ; |36| 
+         00000003 0000 
+     125                      ; call occurs [#_app_global_resouce_req] ; |36| 
+     126                      .dwpsn  "app_wavemod_connect.c",37,2
+     127 00000004 7640'         LCR       #_app_wavemod_resource_init ; |37| 
+         00000005 0000 
+     128                      ; call occurs [#_app_wavemod_resource_init] ; |37| 
+     129                      .dwpsn  "app_wavemod_connect.c",38,2
+     130 00000006 7640!         LCR       #_app_wavemod_fun_entry ; |38| 
+         00000007 0000 
+     131                      ; call occurs [#_app_wavemod_fun_entry] ; |38| 
+     132                      .dwpsn  "app_wavemod_connect.c",39,2
+     133 00000008 761F!         MOVW      DP,#_m_log_pram+26
+         00000009 0000 
+     134 0000000a 8F00!         MOVL      XAR4,#_m_null_pram    ; |39| 
+         0000000b 0000 
+     135 0000000c A81A!         MOVL      @_m_log_pram+26,XAR4  ; |39| 
+     136 0000000d A81C!         MOVL      @_m_log_pram+28,XAR4  ; |39| 
+     137 0000000e 8F40!         MOVL      XAR5,#_m_log_pram     ; |39| 
+         0000000f 0000 
+     138 00000010 8F00+         MOVL      XAR4,#FSL1            ; |39| 
+         00000011 0000 
+     139 00000012 7640!         LCR       #_log_printf          ; |39| 
+         00000013 0000 
+     140                      ; call occurs [#_log_printf] ; |39| 
+     141                      .dwpsn  "app_wavemod_connect.c",40,2
+     142                      .dwpsn  "app_wavemod_connect.c",41,1
+     143 00000014 0006          LRETR
+     144                      ; return occurs
+     145                      .dwattr DW$15, DW_AT_end_file("app_wavemod_connect.c")
+     146                      .dwattr DW$15, DW_AT_end_line(0x29)
+     147                      .dwattr DW$15, DW_AT_end_column(0x01)
+     148                      .dwendentry
+     149                      .dwendtag DW$15
+     150              
+     151 00000015               .sect   ".text"
+     152                      .global _app_wavemod_exit
+     153              
+     154              DW$16   .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_exit"), DW_AT_symbol_name("_app_wavemod_exit")
+     155                      .dwattr DW$16, DW_AT_low_pc(_app_wavemod_exit)
+     156                      .dwattr DW$16, DW_AT_high_pc(0x00)
+     157                      .dwattr DW$16, DW_AT_begin_file("app_wavemod_connect.c")
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    4
+
+     158                      .dwattr DW$16, DW_AT_begin_line(0x32)
+     159                      .dwattr DW$16, DW_AT_begin_column(0x06)
+     160                      .dwpsn  "app_wavemod_connect.c",51,1
+     161              
+     162                      .dwfde DW$CIE
+     163              
+     164              ;***************************************************************
+     165              ;* FNAME: _app_wavemod_exit             FR SIZE:   0           *
+     166              ;*                                                             *
+     167              ;* FUNCTION ENVIRONMENT                                        *
+     168              ;*                                                             *
+     169              ;* FUNCTION PROPERTIES                                         *
+     170              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     171              ;***************************************************************
+     172              
+     173              _app_wavemod_exit:
+     174                      .dwcfa  0x1d, -2
+     175                      .dwcfa  0x1c, 26, 0
+     176                      .dwcfa  0x09, 40, 26
+     177                      .dwpsn  "app_wavemod_connect.c",52,2
+     178 00000015 D400          MOVB      XAR4,#0
+     179 00000016 7640!         LCR       #_app_global_resouce_release ; |52| 
+         00000017 0000 
+     180                      ; call occurs [#_app_global_resouce_release] ; |52| 
+     181                      .dwpsn  "app_wavemod_connect.c",53,2
+     182 00000018 7640!         LCR       #_app_wavemod_fun_exit ; |53| 
+         00000019 0000 
+     183                      ; call occurs [#_app_wavemod_fun_exit] ; |53| 
+     184                      .dwpsn  "app_wavemod_connect.c",54,2
+     185 0000001a 761F!         MOVW      DP,#_m_log_pram+26
+         0000001b 0000 
+     186 0000001c 8F00!         MOVL      XAR4,#_m_null_pram    ; |54| 
+         0000001d 0000 
+     187 0000001e A81A!         MOVL      @_m_log_pram+26,XAR4  ; |54| 
+     188 0000001f A81C!         MOVL      @_m_log_pram+28,XAR4  ; |54| 
+     189 00000020 8F40!         MOVL      XAR5,#_m_log_pram     ; |54| 
+         00000021 0000 
+     190 00000022 8F00+         MOVL      XAR4,#FSL2            ; |54| 
+         00000023 000E 
+     191 00000024 7640!         LCR       #_log_printf          ; |54| 
+         00000025 0000 
+     192                      ; call occurs [#_log_printf] ; |54| 
+     193                      .dwpsn  "app_wavemod_connect.c",55,2
+     194                      .dwpsn  "app_wavemod_connect.c",56,1
+     195 00000026 0006          LRETR
+     196                      ; return occurs
+     197                      .dwattr DW$16, DW_AT_end_file("app_wavemod_connect.c")
+     198                      .dwattr DW$16, DW_AT_end_line(0x38)
+     199                      .dwattr DW$16, DW_AT_end_column(0x01)
+     200                      .dwendentry
+     201                      .dwendtag DW$16
+     202              
+     203 00000027               .sect   ".text"
+     204                      .global _app_wavemod_add
+     205              
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    5
+
+     206              DW$17   .dwtag  DW_TAG_subprogram, DW_AT_name("app_wavemod_add"), DW_AT_symbol_name("_app_wavemod_add")
+     207                      .dwattr DW$17, DW_AT_low_pc(_app_wavemod_add)
+     208                      .dwattr DW$17, DW_AT_high_pc(0x00)
+     209                      .dwattr DW$17, DW_AT_begin_file("app_wavemod_connect.c")
+     210                      .dwattr DW$17, DW_AT_begin_line(0x41)
+     211                      .dwattr DW$17, DW_AT_begin_column(0x09)
+     212                      .dwpsn  "app_wavemod_connect.c",66,1
+     213              
+     214                      .dwfde DW$CIE
+     215              
+     216              ;***************************************************************
+     217              ;* FNAME: _app_wavemod_add              FR SIZE:   8           *
+     218              ;*                                                             *
+     219              ;* FUNCTION ENVIRONMENT                                        *
+     220              ;*                                                             *
+     221              ;* FUNCTION PROPERTIES                                         *
+     222              ;*                            0 Parameter,  7 Auto,  0 SOE     *
+     223              ;***************************************************************
+     224              
+     225              _app_wavemod_add:
+     226                      .dwcfa  0x1d, -2
+     227                      .dwcfa  0x1c, 26, 0
+     228                      .dwcfa  0x09, 40, 26
+     229 00000027 FE08          ADDB      SP,#8
+     230                      .dwcfa  0x1d, -10
+     231              DW$18   .dwtag  DW_TAG_variable, DW_AT_name("temp"), DW_AT_symbol_name("_temp")
+     232                      .dwattr DW$18, DW_AT_type(*DW$T$36)
+     233                      .dwattr DW$18, DW_AT_location[DW_OP_breg20 -6]
+     234              DW$19   .dwtag  DW_TAG_variable, DW_AT_name("mod_id"), DW_AT_symbol_name("_mod_id")
+     235                      .dwattr DW$19, DW_AT_type(*DW$T$19)
+     236                      .dwattr DW$19, DW_AT_location[DW_OP_breg20 -7]
+     237                      .dwpsn  "app_wavemod_connect.c",69,2
+     238 00000028 8F00'         MOVL      XAR4,#_app_wavemod_insmod ; |69| 
+         00000029 0001 
+     239 0000002a A844          MOVL      *-SP[4],XAR4          ; |69| 
+     240                      .dwpsn  "app_wavemod_connect.c",70,2
+     241 0000002b 8F00'         MOVL      XAR4,#_app_wavemod_exit ; |70| 
+         0000002c 0015 
+     242 0000002d A842          MOVL      *-SP[2],XAR4          ; |70| 
+     243                      .dwpsn  "app_wavemod_connect.c",71,2
+     244 0000002e 5CAD          MOVZ      AR4,SP                ; |71| 
+     245 0000002f DC86          SUBB      XAR4,#6               ; |71| 
+     246 00000030 7640!         LCR       #_app_module_add      ; |71| 
+         00000031 0000 
+     247                      ; call occurs [#_app_module_add] ; |71| 
+     248 00000032 9647          MOV       *-SP[7],AL            ; |71| 
+     249                      .dwpsn  "app_wavemod_connect.c",72,2
+     250                      .dwpsn  "app_wavemod_connect.c",73,1
+     251 00000033 FE88          SUBB      SP,#8                 ; |72| 
+     252                      .dwcfa  0x1d, -2
+     253 00000034 0006          LRETR
+     254                      ; return occurs
+     255                      .dwattr DW$17, DW_AT_end_file("app_wavemod_connect.c")
+     256                      .dwattr DW$17, DW_AT_end_line(0x49)
+     257                      .dwattr DW$17, DW_AT_end_column(0x01)
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    6
+
+     258                      .dwendentry
+     259                      .dwendtag DW$17
+     260              
+     261              ;***************************************************************
+     262              ;* FAR STRINGS                                                 *
+     263              ;***************************************************************
+     264 00000000               .sect   ".econst"
+     265                      .align  2
+     266 00000000 0077  FSL1:   .string "wavemod....",10,0
+         00000001 0061 
+         00000002 0076 
+         00000003 0065 
+         00000004 006D 
+         00000005 006F 
+         00000006 0064 
+         00000007 002E 
+         00000008 002E 
+         00000009 002E 
+         0000000a 002E 
+         0000000b 000A 
+         0000000c 0000 
+     267                      .align  2
+     268 0000000e 0077  FSL2:   .string "wavemod=>",0
+         0000000f 0061 
+         00000010 0076 
+         00000011 0065 
+         00000012 006D 
+         00000013 006F 
+         00000014 0064 
+         00000015 003D 
+         00000016 003E 
+         00000017 0000 
+     269              ;***************************************************************
+     270              ;* UNDEFINED EXTERNAL REFERENCES                               *
+     271              ;***************************************************************
+     272                      .global _app_wavemod_fun_exit
+     273                      .global _app_wavemod_fun_entry
+     274                      .global _app_global_resouce_req
+     275                      .global _log_printf
+     276                      .global _app_global_resouce_release
+     277                      .global _m_null_pram
+     278                      .global _app_module_add
+     279                      .global _m_log_pram
+     280              
+     281              ;***************************************************************
+     282              ;* TYPE INFORMATION                                            *
+     283              ;***************************************************************
+     284              DW$T$3  .dwtag  DW_TAG_pointer_type
+     285                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+     286              
+     287              DW$T$20 .dwtag  DW_TAG_subroutine_type
+     288                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+     289              
+     290              DW$T$31 .dwtag  DW_TAG_subroutine_type
+     291                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    7
+
+     292              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$28)
+     293              DW$21   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+     294                      .dwendtag DW$T$31
+     295              
+     296              
+     297              DW$T$33 .dwtag  DW_TAG_subroutine_type
+     298                      .dwattr DW$T$33, DW_AT_language(DW_LANG_C)
+     299              DW$22   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     300                      .dwendtag DW$T$33
+     301              
+     302              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+     303                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     304                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+     305              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$11)
+     306                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     307              
+     308              DW$T$38 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+     309                      .dwattr DW$T$38, DW_AT_language(DW_LANG_C)
+     310              DW$23   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+     311                      .dwendtag DW$T$38
+     312              
+     313              
+     314              DW$T$40 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+     315                      .dwattr DW$T$40, DW_AT_language(DW_LANG_C)
+     316              DW$T$36 .dwtag  DW_TAG_typedef, DW_AT_name("app_mod_inlet_t"), DW_AT_type(*DW$T$24)
+     317                      .dwattr DW$T$36, DW_AT_language(DW_LANG_C)
+     318              DW$T$37 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$36)
+     319                      .dwattr DW$T$37, DW_AT_address_class(0x16)
+     320              DW$T$28 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$25)
+     321                      .dwattr DW$T$28, DW_AT_address_class(0x16)
+     322              DW$T$29 .dwtag  DW_TAG_typedef, DW_AT_name("log_param"), DW_AT_type(*DW$T$27)
+     323                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+     324              DW$T$30 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$29)
+     325                      .dwattr DW$T$30, DW_AT_address_class(0x16)
+     326              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+     327                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     328                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+     329              
+     330              DW$T$24 .dwtag  DW_TAG_structure_type
+     331                      .dwattr DW$T$24, DW_AT_byte_size(0x06)
+     332              DW$24   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+     333                      .dwattr DW$24, DW_AT_name("mod_id"), DW_AT_symbol_name("_mod_id")
+     334                      .dwattr DW$24, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     335                      .dwattr DW$24, DW_AT_accessibility(DW_ACCESS_public)
+     336              DW$25   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$22)
+     337                      .dwattr DW$25, DW_AT_name("insmod_fun"), DW_AT_symbol_name("_insmod_fun")
+     338                      .dwattr DW$25, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     339                      .dwattr DW$25, DW_AT_accessibility(DW_ACCESS_public)
+     340              DW$26   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$23)
+     341                      .dwattr DW$26, DW_AT_name("exitmod_fun"), DW_AT_symbol_name("_exitmod_fun")
+     342                      .dwattr DW$26, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     343                      .dwattr DW$26, DW_AT_accessibility(DW_ACCESS_public)
+     344                      .dwendtag DW$T$24
+     345              
+     346              DW$T$25 .dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    8
+
+     347                      .dwattr DW$T$25, DW_AT_encoding(DW_ATE_signed_char)
+     348                      .dwattr DW$T$25, DW_AT_byte_size(0x01)
+     349              
+     350              DW$T$27 .dwtag  DW_TAG_structure_type
+     351                      .dwattr DW$T$27, DW_AT_byte_size(0x28)
+     352              DW$27   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$26)
+     353                      .dwattr DW$27, DW_AT_name("pram_buf"), DW_AT_symbol_name("_pram_buf")
+     354                      .dwattr DW$27, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     355                      .dwattr DW$27, DW_AT_accessibility(DW_ACCESS_public)
+     356              DW$28   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$6)
+     357                      .dwattr DW$28, DW_AT_name("cur_off"), DW_AT_symbol_name("_cur_off")
+     358                      .dwattr DW$28, DW_AT_data_member_location[DW_OP_plus_uconst 0x18]
+     359                      .dwattr DW$28, DW_AT_accessibility(DW_ACCESS_public)
+     360              DW$29   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     361                      .dwattr DW$29, DW_AT_name("parm_0"), DW_AT_symbol_name("_parm_0")
+     362                      .dwattr DW$29, DW_AT_data_member_location[DW_OP_plus_uconst 0x1a]
+     363                      .dwattr DW$29, DW_AT_accessibility(DW_ACCESS_public)
+     364              DW$30   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     365                      .dwattr DW$30, DW_AT_name("parm_1"), DW_AT_symbol_name("_parm_1")
+     366                      .dwattr DW$30, DW_AT_data_member_location[DW_OP_plus_uconst 0x1c]
+     367                      .dwattr DW$30, DW_AT_accessibility(DW_ACCESS_public)
+     368              DW$31   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     369                      .dwattr DW$31, DW_AT_name("parm_2"), DW_AT_symbol_name("_parm_2")
+     370                      .dwattr DW$31, DW_AT_data_member_location[DW_OP_plus_uconst 0x1e]
+     371                      .dwattr DW$31, DW_AT_accessibility(DW_ACCESS_public)
+     372              DW$32   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     373                      .dwattr DW$32, DW_AT_name("parm_3"), DW_AT_symbol_name("_parm_3")
+     374                      .dwattr DW$32, DW_AT_data_member_location[DW_OP_plus_uconst 0x20]
+     375                      .dwattr DW$32, DW_AT_accessibility(DW_ACCESS_public)
+     376              DW$33   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     377                      .dwattr DW$33, DW_AT_name("parm_4"), DW_AT_symbol_name("_parm_4")
+     378                      .dwattr DW$33, DW_AT_data_member_location[DW_OP_plus_uconst 0x22]
+     379                      .dwattr DW$33, DW_AT_accessibility(DW_ACCESS_public)
+     380              DW$34   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     381                      .dwattr DW$34, DW_AT_name("parm_5"), DW_AT_symbol_name("_parm_5")
+     382                      .dwattr DW$34, DW_AT_data_member_location[DW_OP_plus_uconst 0x24]
+     383                      .dwattr DW$34, DW_AT_accessibility(DW_ACCESS_public)
+     384              DW$35   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+     385                      .dwattr DW$35, DW_AT_name("end_pram"), DW_AT_symbol_name("_end_pram")
+     386                      .dwattr DW$35, DW_AT_data_member_location[DW_OP_plus_uconst 0x26]
+     387                      .dwattr DW$35, DW_AT_accessibility(DW_ACCESS_public)
+     388                      .dwendtag DW$T$27
+     389              
+     390              DW$T$22 .dwtag  DW_TAG_typedef, DW_AT_name("app_insmod_t"), DW_AT_type(*DW$T$21)
+     391                      .dwattr DW$T$22, DW_AT_language(DW_LANG_C)
+     392              DW$T$23 .dwtag  DW_TAG_typedef, DW_AT_name("app_exitmod_t"), DW_AT_type(*DW$T$21)
+     393                      .dwattr DW$T$23, DW_AT_language(DW_LANG_C)
+     394              
+     395              DW$T$26 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$25)
+     396                      .dwattr DW$T$26, DW_AT_language(DW_LANG_C)
+     397                      .dwattr DW$T$26, DW_AT_byte_size(0x18)
+     398              DW$36   .dwtag  DW_TAG_subrange_type
+     399                      .dwattr DW$36, DW_AT_upper_bound(0x17)
+     400                      .dwendtag DW$T$26
+     401              
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE    9
+
+     402              DW$T$21 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$20)
+     403                      .dwattr DW$T$21, DW_AT_address_class(0x16)
+     404              
+     405                      .dwattr DW$17, DW_AT_external(0x01)
+     406                      .dwattr DW$17, DW_AT_type(*DW$T$19)
+     407                      .dwattr DW$16, DW_AT_external(0x01)
+     408                      .dwattr DW$15, DW_AT_external(0x01)
+     409                      .dwattr DW$14, DW_AT_external(0x01)
+     410                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     411              
+     412              ;***************************************************************
+     413              ;* DWARF CIE ENTRIES                                           *
+     414              ;***************************************************************
+     415              
+     416              DW$CIE  .dwcie 1, 40
+     417                      .dwcfa  0x0c, 20, 0
+     418                      .dwcfa  0x07, 0
+     419                      .dwcfa  0x07, 1
+     420                      .dwcfa  0x07, 2
+     421                      .dwcfa  0x07, 3
+     422                      .dwcfa  0x07, 4
+     423                      .dwcfa  0x07, 5
+     424                      .dwcfa  0x08, 6
+     425                      .dwcfa  0x08, 7
+     426                      .dwcfa  0x08, 8
+     427                      .dwcfa  0x08, 9
+     428                      .dwcfa  0x08, 10
+     429                      .dwcfa  0x08, 11
+     430                      .dwcfa  0x07, 12
+     431                      .dwcfa  0x07, 13
+     432                      .dwcfa  0x07, 14
+     433                      .dwcfa  0x07, 15
+     434                      .dwcfa  0x07, 16
+     435                      .dwcfa  0x07, 17
+     436                      .dwcfa  0x07, 18
+     437                      .dwcfa  0x07, 19
+     438                      .dwcfa  0x07, 20
+     439                      .dwcfa  0x07, 21
+     440                      .dwcfa  0x07, 22
+     441                      .dwcfa  0x07, 23
+     442                      .dwcfa  0x07, 24
+     443                      .dwcfa  0x07, 25
+     444                      .dwcfa  0x07, 26
+     445                      .dwcfa  0x08, 27
+     446                      .dwcfa  0x07, 28
+     447                      .dwcfa  0x07, 29
+     448                      .dwcfa  0x07, 30
+     449                      .dwcfa  0x07, 31
+     450                      .dwcfa  0x07, 32
+     451                      .dwcfa  0x07, 33
+     452                      .dwcfa  0x07, 34
+     453                      .dwcfa  0x07, 35
+     454                      .dwcfa  0x07, 36
+     455                      .dwcfa  0x07, 37
+     456                      .dwcfa  0x07, 38
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE   10
+
+     457                      .dwcfa  0x07, 39
+     458                      .dwcfa  0x07, 40
+     459              
+     460              ;***************************************************************
+     461              ;* DWARF REGISTER MAP                                          *
+     462              ;***************************************************************
+     463              
+     464              DW$37   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     465                      .dwattr DW$37, DW_AT_location[DW_OP_reg0]
+     466              DW$38   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     467                      .dwattr DW$38, DW_AT_location[DW_OP_reg1]
+     468              DW$39   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     469                      .dwattr DW$39, DW_AT_location[DW_OP_reg2]
+     470              DW$40   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     471                      .dwattr DW$40, DW_AT_location[DW_OP_reg3]
+     472              DW$41   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     473                      .dwattr DW$41, DW_AT_location[DW_OP_reg4]
+     474              DW$42   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     475                      .dwattr DW$42, DW_AT_location[DW_OP_reg5]
+     476              DW$43   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     477                      .dwattr DW$43, DW_AT_location[DW_OP_reg6]
+     478              DW$44   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     479                      .dwattr DW$44, DW_AT_location[DW_OP_reg7]
+     480              DW$45   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     481                      .dwattr DW$45, DW_AT_location[DW_OP_reg8]
+     482              DW$46   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     483                      .dwattr DW$46, DW_AT_location[DW_OP_reg9]
+     484              DW$47   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     485                      .dwattr DW$47, DW_AT_location[DW_OP_reg10]
+     486              DW$48   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+     487                      .dwattr DW$48, DW_AT_location[DW_OP_reg11]
+     488              DW$49   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     489                      .dwattr DW$49, DW_AT_location[DW_OP_reg12]
+     490              DW$50   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+     491                      .dwattr DW$50, DW_AT_location[DW_OP_reg13]
+     492              DW$51   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     493                      .dwattr DW$51, DW_AT_location[DW_OP_reg14]
+     494              DW$52   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     495                      .dwattr DW$52, DW_AT_location[DW_OP_reg15]
+     496              DW$53   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     497                      .dwattr DW$53, DW_AT_location[DW_OP_reg16]
+     498              DW$54   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     499                      .dwattr DW$54, DW_AT_location[DW_OP_reg17]
+     500              DW$55   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     501                      .dwattr DW$55, DW_AT_location[DW_OP_reg18]
+     502              DW$56   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     503                      .dwattr DW$56, DW_AT_location[DW_OP_reg19]
+     504              DW$57   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     505                      .dwattr DW$57, DW_AT_location[DW_OP_reg20]
+     506              DW$58   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     507                      .dwattr DW$58, DW_AT_location[DW_OP_reg21]
+     508              DW$59   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     509                      .dwattr DW$59, DW_AT_location[DW_OP_reg22]
+     510              DW$60   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     511                      .dwattr DW$60, DW_AT_location[DW_OP_reg23]
+TMS320C2000 COFF Assembler PC v4.1.3 Tue Jan 11 09:59:30 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI7363                            PAGE   11
+
+     512              DW$61   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     513                      .dwattr DW$61, DW_AT_location[DW_OP_reg24]
+     514              DW$62   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     515                      .dwattr DW$62, DW_AT_location[DW_OP_reg25]
+     516              DW$63   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     517                      .dwattr DW$63, DW_AT_location[DW_OP_reg26]
+     518              DW$64   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     519                      .dwattr DW$64, DW_AT_location[DW_OP_reg27]
+     520              DW$65   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     521                      .dwattr DW$65, DW_AT_location[DW_OP_reg28]
+     522              DW$66   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     523                      .dwattr DW$66, DW_AT_location[DW_OP_reg29]
+     524              DW$67   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     525                      .dwattr DW$67, DW_AT_location[DW_OP_reg30]
+     526              DW$68   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     527                      .dwattr DW$68, DW_AT_location[DW_OP_reg31]
+     528              DW$69   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     529                      .dwattr DW$69, DW_AT_location[DW_OP_regx 0x20]
+     530              DW$70   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     531                      .dwattr DW$70, DW_AT_location[DW_OP_regx 0x21]
+     532              DW$71   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     533                      .dwattr DW$71, DW_AT_location[DW_OP_regx 0x22]
+     534              DW$72   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     535                      .dwattr DW$72, DW_AT_location[DW_OP_regx 0x23]
+     536              DW$73   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     537                      .dwattr DW$73, DW_AT_location[DW_OP_regx 0x24]
+     538              DW$74   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     539                      .dwattr DW$74, DW_AT_location[DW_OP_regx 0x25]
+     540              DW$75   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     541                      .dwattr DW$75, DW_AT_location[DW_OP_regx 0x26]
+     542              DW$76   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     543                      .dwattr DW$76, DW_AT_location[DW_OP_regx 0x27]
+     544              DW$77   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     545                      .dwattr DW$77, DW_AT_location[DW_OP_regx 0x28]
+     546                      .dwendtag DW$CU
+     547              
+
+No Assembly Errors, No Assembly Warnings

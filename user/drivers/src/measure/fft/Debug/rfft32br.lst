@@ -1,0 +1,94 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:24 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32br.asm                                                         PAGE    1
+
+       1              ;========================================================================
+       2              ;
+       3              ; File Name     : rfft_brc.asm
+       4              ; 
+       5              ; Originator    : Advanced Embeeded Control 
+       6              ;                 Texas Instruments 
+       7              ; 
+       8              ; Description   : This file contains source code to suffle the 2N-point real sequence
+       9              ;                 as N-point complex sequence in bit reversed order
+      10              ;
+      11              ; Date          : 26/2/2002
+      12              ;======================================================================
+      13              ; 
+      14              ; Routine Type  : C Callable
+      15              ; 
+      16              ; Usage :
+      17              ; void rfft_brc(int *src, int *dst, ushort n)
+      18              ; This function shuffles 2N-point in-order array and stores it as N-point complex
+      19              ; array in bit-reversed order. This is helpful for Real FFT computation on the 2N-point
+      20              ; real sequence using N-point complex FFT module
+      21              ;=====================================================================
+      22              ; SOURCE ARRAY
+      23              ;         |  X(0)   |
+      24              ;         |  X(1)   |
+      25              ;         |  X(2)   |
+      26              ;         |  X(3)   |
+      27              ;            :
+      28              ;            :
+      29              ;         | X(2N-1) |
+      30              ;=====================================================================
+      31              
+      32              
+      33                             .def _RFFT32_brev
+      34               
+      35 00000000       _RFFT32_brev:  
+      36                              
+      37 00000000 8EA4              MOVL    XAR0,XAR4       ; XAR0->src
+      38 00000001 77B5              NOP     *,ARP5
+      39                          
+      40 00000002 93A9              MOV     AH,AL           ; AH=size
+      41 00000003 FFD0              LSR     AH,#1           ; AH=size/2
+      42 00000004 80A8              MOVZ    AR7,AH          ; ZAR7=size/2
+      43 00000005 DF81              SUBB    XAR7,#1         ; XAR7=(size/2)-1
+      44              
+      45 00000006 561D              CMPR    0               ; TC=1, if src==dst
+      46 00000007 EF12              BF      off_place,NTC   ; If not equal, jump to off place bit rev
+      47              
+      48                          
+      49 00000008       next_data1:    
+      50 00000008 87C4              MOVL    XT,*XAR4        ; XT=*src
+      51 00000009 A3C5              MOVL    P,*XAR5         ; P=*dst
+      52 0000000a 8EA4              MOVL    XAR0,XAR4       ; XAR0=src
+      53 0000000b 5618              CMPR    2               ; check src<dst
+      54 0000000c EE07              BF      noswap,TC       ; if src<dst, do not swap *src & *dst
+      55                          
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 08 14:49:24 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+rfft32br.asm                                                         PAGE    2
+
+      56 0000000d A9C4              MOVL    *XAR4,P         ; *src=*dst
+      57 0000000e ABC5              MOVL    *XAR5,XT        ; *dst=*src 
+      58 0000000f 87D4              MOVL    XT,*+XAR4[2]    ; XT=*(src+1)
+      59 00000010 A3D5              MOVL    P,*+XAR5[2]     ; P=*(dst+1)
+      60 00000011 A9D4              MOVL    *+XAR4[2],P     ; *(src+1)=*(dst+1)
+      61 00000012 ABD5              MOVL    *+XAR5[2],XT    ; *(dst+1)=*(src+1) 
+      62                         
+      63 00000013       noswap:     
+      64 00000013 DC04              ADDB    XAR4,#4         ; XAR4=src+2
+      65 00000014 58A9              MOVZ    AR0,AL          ; AR0=2*size
+      66 00000015 77AE              NOP     *BR0++          ; ; dst=br(dst+2*size)
+      67 00000016 000F              BANZ    next_data1,AR7-- 
+         00000017 FFF2 
+      68 00000018 0006              LRETR
+      69              
+      70 00000019       off_place:   
+      71 00000019 58A9              MOVZ    AR0,AL          ; AR0=2*size
+      72                          
+      73 0000001a       next_data2:
+      74 0000001a 8784              MOVL    XT,*XAR4++      ; XT=*src
+      75 0000001b A384              MOVL    P,*XAR4++       ; P=*(src+1)
+      76 0000001c ABC5              MOVL    *XAR5,XT        ; *dst=*src
+      77 0000001d A9D5              MOVL    *+XAR5[2],P     ; *(dst+1)=*(src+1)
+      78 0000001e 77AE              NOP     *BR0++   
+      79 0000001f 000F              BANZ    next_data2,AR7--               
+         00000020 FFFB 
+      80 00000021 0006              LRETR
+
+No Assembly Errors, No Assembly Warnings

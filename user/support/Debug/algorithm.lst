@@ -1,0 +1,475 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Sat Oct 09 16:15:59 2010                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("algorithm.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9165 
+      14 00000000               .sect   ".text"
+      15                      .global _my_dichotomy_algorithm
+      16              
+      17              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("my_dichotomy_algorithm"), DW_AT_symbol_name("_my_dichotomy_alg
+      18                      .dwattr DW$1, DW_AT_low_pc(_my_dichotomy_algorithm)
+      19                      .dwattr DW$1, DW_AT_high_pc(0x00)
+      20                      .dwattr DW$1, DW_AT_begin_file("algorithm.c")
+      21                      .dwattr DW$1, DW_AT_begin_line(0x20)
+      22                      .dwattr DW$1, DW_AT_begin_column(0x07)
+      23                      .dwpsn  "algorithm.c",34,1
+      24              
+      25                      .dwfde DW$CIE
+      26              
+      27              ;***************************************************************
+      28              ;* FNAME: _my_dichotomy_algorithm       FR SIZE:  10           *
+      29              ;*                                                             *
+      30              ;* FUNCTION ENVIRONMENT                                        *
+      31              ;*                                                             *
+      32              ;* FUNCTION PROPERTIES                                         *
+      33              ;*                            0 Parameter,  9 Auto,  0 SOE     *
+      34              ;***************************************************************
+      35              
+      36              _my_dichotomy_algorithm:
+      37                      .dwcfa  0x1d, -2
+      38                      .dwcfa  0x1c, 26, 0
+      39                      .dwcfa  0x09, 40, 26
+      40 00000000 FE0A          ADDB      SP,#10
+      41                      .dwcfa  0x1d, -12
+      42              ;* AR4   assigned to _head_data
+      43              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_name("head_data"), DW_AT_symbol_name("_head_data")
+      44                      .dwattr DW$2, DW_AT_type(*DW$T$21)
+      45                      .dwattr DW$2, DW_AT_location[DW_OP_reg12]
+      46              ;* AL    assigned to _array_len
+      47              DW$3    .dwtag  DW_TAG_formal_parameter, DW_AT_name("array_len"), DW_AT_symbol_name("_array_len")
+      48                      .dwattr DW$3, DW_AT_type(*DW$T$20)
+      49                      .dwattr DW$3, DW_AT_location[DW_OP_reg0]
+      50              ;* AH    assigned to _data_len
+      51              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_name("data_len"), DW_AT_symbol_name("_data_len")
+      52                      .dwattr DW$4, DW_AT_type(*DW$T$20)
+      53                      .dwattr DW$4, DW_AT_location[DW_OP_reg1]
+      54              ;* AR5   assigned to _match_data
+      55              DW$5    .dwtag  DW_TAG_formal_parameter, DW_AT_name("match_data"), DW_AT_symbol_name("_match_data")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    2
+
+      56                      .dwattr DW$5, DW_AT_type(*DW$T$20)
+      57                      .dwattr DW$5, DW_AT_location[DW_OP_reg14]
+      58              DW$6    .dwtag  DW_TAG_variable, DW_AT_name("head_data"), DW_AT_symbol_name("_head_data")
+      59                      .dwattr DW$6, DW_AT_type(*DW$T$21)
+      60                      .dwattr DW$6, DW_AT_location[DW_OP_breg20 -2]
+      61              DW$7    .dwtag  DW_TAG_variable, DW_AT_name("array_len"), DW_AT_symbol_name("_array_len")
+      62                      .dwattr DW$7, DW_AT_type(*DW$T$20)
+      63                      .dwattr DW$7, DW_AT_location[DW_OP_breg20 -3]
+      64              DW$8    .dwtag  DW_TAG_variable, DW_AT_name("data_len"), DW_AT_symbol_name("_data_len")
+      65                      .dwattr DW$8, DW_AT_type(*DW$T$20)
+      66                      .dwattr DW$8, DW_AT_location[DW_OP_breg20 -4]
+      67              DW$9    .dwtag  DW_TAG_variable, DW_AT_name("match_data"), DW_AT_symbol_name("_match_data")
+      68                      .dwattr DW$9, DW_AT_type(*DW$T$20)
+      69                      .dwattr DW$9, DW_AT_location[DW_OP_breg20 -5]
+      70              DW$10   .dwtag  DW_TAG_variable, DW_AT_name("cur_pos"), DW_AT_symbol_name("_cur_pos")
+      71                      .dwattr DW$10, DW_AT_type(*DW$T$21)
+      72                      .dwattr DW$10, DW_AT_location[DW_OP_breg20 -8]
+      73              DW$11   .dwtag  DW_TAG_variable, DW_AT_name("sum_len"), DW_AT_symbol_name("_sum_len")
+      74                      .dwattr DW$11, DW_AT_type(*DW$T$20)
+      75                      .dwattr DW$11, DW_AT_location[DW_OP_breg20 -9]
+      76 00000001 7D45          MOV       *-SP[5],AR5           ; |34| 
+      77 00000002 9744          MOV       *-SP[4],AH            ; |34| 
+      78 00000003 9643          MOV       *-SP[3],AL            ; |34| 
+      79 00000004 A842          MOVL      *-SP[2],XAR4          ; |34| 
+      80                      .dwpsn  "algorithm.c",36,12
+      81 00000005 9243          MOV       AL,*-SP[3]            ; |36| 
+      82 00000006 9649          MOV       *-SP[9],AL            ; |36| 
+      83                      .dwpsn  "algorithm.c",37,10
+      84              L1:    
+      85              DW$L$_my_dichotomy_algorithm$2$B:
+      86                      .dwpsn  "algorithm.c",39,3
+      87 00000007 9243          MOV       AL,*-SP[3]            ; |39| 
+      88 00000008 FFC0          LSR       AL,1                  ; |39| 
+      89 00000009 2DA9          MOV       T,AL                  ; |39| 
+      90 0000000a 3344          MPY       P,T,*-SP[4]           ; |39| 
+      91 0000000b 0642          MOVL      ACC,*-SP[2]           ; |39| 
+      92 0000000c 0DAB          ADDU      ACC,PL                ; |39| 
+      93 0000000d 1E48          MOVL      *-SP[8],ACC           ; |39| 
+      94                      .dwpsn  "algorithm.c",40,3
+      95 0000000e 8A48          MOVL      XAR4,*-SP[8]          ; |40| 
+      96 0000000f 9245          MOV       AL,*-SP[5]            ; |40| 
+      97 00000010 54C4          CMP       AL,*+XAR4[0]          ; |40| 
+      98 00000011 ED03          BF        L2,NEQ                ; |40| 
+      99                      ; branchcc occurs ; |40| 
+     100              DW$L$_my_dichotomy_algorithm$2$E:
+     101                      .dwpsn  "algorithm.c",42,4
+     102 00000012 8A48          MOVL      XAR4,*-SP[8]          ; |42| 
+     103 00000013 6F19          B         L5,UNC                ; |42| 
+     104                      ; branch occurs ; |42| 
+     105              L2:    
+     106              DW$L$_my_dichotomy_algorithm$4$B:
+     107                      .dwpsn  "algorithm.c",44,3
+     108 00000014 9243          MOV       AL,*-SP[3]            ; |44| 
+     109 00000015 EC16          BF        L4,EQ                 ; |44| 
+     110                      ; branchcc occurs ; |44| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    3
+
+     111 00000016       DW$L$_my_dichotomy_algorithm$4$E:
+     112 00000016       DW$L$_my_dichotomy_algorithm$5$B:
+     113 00000016 FFC0          LSR       AL,1                  ; |44| 
+     114 00000017 EC14          BF        L4,EQ                 ; |44| 
+     115                      ; branchcc occurs ; |44| 
+     116              DW$L$_my_dichotomy_algorithm$5$E:
+     117              DW$L$_my_dichotomy_algorithm$6$B:
+     118                      .dwpsn  "algorithm.c",46,4
+     119                      .dwpsn  "algorithm.c",48,3
+     120 00000018 8A48          MOVL      XAR4,*-SP[8]          ; |48| 
+     121 00000019 9245          MOV       AL,*-SP[5]            ; |48| 
+     122 0000001a 54C4          CMP       AL,*+XAR4[0]          ; |48| 
+     123 0000001b 690B          B         L3,LOS                ; |48| 
+     124                      ; branchcc occurs ; |48| 
+     125              DW$L$_my_dichotomy_algorithm$6$E:
+     126              DW$L$_my_dichotomy_algorithm$7$B:
+     127                      .dwpsn  "algorithm.c",50,4
+     128 0000001c 0648          MOVL      ACC,*-SP[8]           ; |50| 
+     129 0000001d 1E42          MOVL      *-SP[2],ACC           ; |50| 
+     130                      .dwpsn  "algorithm.c",51,4
+     131 0000001e 9243          MOV       AL,*-SP[3]            ; |51| 
+     132 0000001f 9349          MOV       AH,*-SP[9]            ; |51| 
+     133 00000020 FFC0          LSR       AL,1                  ; |51| 
+     134 00000021 9FA9          SUB       AH,AL                 ; |51| 
+     135 00000022 9743          MOV       *-SP[3],AH            ; |51| 
+     136                      .dwpsn  "algorithm.c",52,4
+     137 00000023 9243          MOV       AL,*-SP[3]            ; |52| 
+     138 00000024 9649          MOV       *-SP[9],AL            ; |52| 
+     139                      .dwpsn  "algorithm.c",53,3
+     140 00000025 6FE2          B         L1,UNC                ; |53| 
+     141                      ; branch occurs ; |53| 
+     142              DW$L$_my_dichotomy_algorithm$7$E:
+     143              L3:    
+     144              DW$L$_my_dichotomy_algorithm$8$B:
+     145                      .dwpsn  "algorithm.c",56,4
+     146 00000026 9243          MOV       AL,*-SP[3]            ; |56| 
+     147 00000027 FFC0          LSR       AL,1                  ; |56| 
+     148 00000028 9643          MOV       *-SP[3],AL            ; |56| 
+     149                      .dwpsn  "algorithm.c",57,4
+     150 00000029 9649          MOV       *-SP[9],AL            ; |57| 
+     151                      .dwpsn  "algorithm.c",37,10
+     152 0000002a 6FDD          B         L1,UNC                ; |37| 
+     153                      ; branch occurs ; |37| 
+     154              DW$L$_my_dichotomy_algorithm$8$E:
+     155              L4:    
+     156                      .dwpsn  "algorithm.c",60,2
+     157 0000002b D400          MOVB      XAR4,#0
+     158              L5:    
+     159                      .dwpsn  "algorithm.c",61,1
+     160 0000002c FE8A          SUBB      SP,#10                ; |60| 
+     161                      .dwcfa  0x1d, -2
+     162 0000002d 0006          LRETR
+     163                      ; return occurs
+     164              
+     165              DW$12   .dwtag  DW_TAG_loop
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    4
+
+     166                      .dwattr DW$12, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163:L1:1:1286612159")
+     167                      .dwattr DW$12, DW_AT_begin_file("algorithm.c")
+     168                      .dwattr DW$12, DW_AT_begin_line(0x25)
+     169                      .dwattr DW$12, DW_AT_end_line(0x3b)
+     170              DW$13   .dwtag  DW_TAG_loop_range
+     171                      .dwattr DW$13, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$2$B)
+     172                      .dwattr DW$13, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$2$E)
+     173              DW$14   .dwtag  DW_TAG_loop_range
+     174                      .dwattr DW$14, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$4$B)
+     175                      .dwattr DW$14, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$4$E)
+     176              DW$15   .dwtag  DW_TAG_loop_range
+     177                      .dwattr DW$15, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$5$B)
+     178                      .dwattr DW$15, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$5$E)
+     179              DW$16   .dwtag  DW_TAG_loop_range
+     180                      .dwattr DW$16, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$6$B)
+     181                      .dwattr DW$16, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$6$E)
+     182              DW$17   .dwtag  DW_TAG_loop_range
+     183                      .dwattr DW$17, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$8$B)
+     184                      .dwattr DW$17, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$8$E)
+     185              DW$18   .dwtag  DW_TAG_loop_range
+     186                      .dwattr DW$18, DW_AT_low_pc(DW$L$_my_dichotomy_algorithm$7$B)
+     187                      .dwattr DW$18, DW_AT_high_pc(DW$L$_my_dichotomy_algorithm$7$E)
+     188                      .dwendtag DW$12
+     189              
+     190                      .dwattr DW$1, DW_AT_end_file("algorithm.c")
+     191                      .dwattr DW$1, DW_AT_end_line(0x3d)
+     192                      .dwattr DW$1, DW_AT_end_column(0x01)
+     193                      .dwendentry
+     194                      .dwendtag DW$1
+     195              
+     196 0000002e               .sect   ".text"
+     197                      .global _my_sort_algorithm
+     198              
+     199              DW$19   .dwtag  DW_TAG_subprogram, DW_AT_name("my_sort_algorithm"), DW_AT_symbol_name("_my_sort_algorithm")
+     200                      .dwattr DW$19, DW_AT_low_pc(_my_sort_algorithm)
+     201                      .dwattr DW$19, DW_AT_high_pc(0x00)
+     202                      .dwattr DW$19, DW_AT_begin_file("algorithm.c")
+     203                      .dwattr DW$19, DW_AT_begin_line(0x4a)
+     204                      .dwattr DW$19, DW_AT_begin_column(0x06)
+     205                      .dwpsn  "algorithm.c",75,1
+     206              
+     207                      .dwfde DW$CIE
+     208              
+     209              ;***************************************************************
+     210              ;* FNAME: _my_sort_algorithm            FR SIZE:   4           *
+     211              ;*                                                             *
+     212              ;* FUNCTION ENVIRONMENT                                        *
+     213              ;*                                                             *
+     214              ;* FUNCTION PROPERTIES                                         *
+     215              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     216              ;***************************************************************
+     217              
+     218              _my_sort_algorithm:
+     219                      .dwcfa  0x1d, -2
+     220                      .dwcfa  0x1c, 26, 0
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    5
+
+     221                      .dwcfa  0x09, 40, 26
+     222 0000002e FE04          ADDB      SP,#4
+     223                      .dwcfa  0x1d, -6
+     224              ;* AR4   assigned to _head_data
+     225              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_name("head_data"), DW_AT_symbol_name("_head_data")
+     226                      .dwattr DW$20, DW_AT_type(*DW$T$21)
+     227                      .dwattr DW$20, DW_AT_location[DW_OP_reg12]
+     228              ;* AL    assigned to _array_len
+     229              DW$21   .dwtag  DW_TAG_formal_parameter, DW_AT_name("array_len"), DW_AT_symbol_name("_array_len")
+     230                      .dwattr DW$21, DW_AT_type(*DW$T$20)
+     231                      .dwattr DW$21, DW_AT_location[DW_OP_reg0]
+     232              ;* AH    assigned to _data_len
+     233              DW$22   .dwtag  DW_TAG_formal_parameter, DW_AT_name("data_len"), DW_AT_symbol_name("_data_len")
+     234                      .dwattr DW$22, DW_AT_type(*DW$T$20)
+     235                      .dwattr DW$22, DW_AT_location[DW_OP_reg1]
+     236              DW$23   .dwtag  DW_TAG_variable, DW_AT_name("head_data"), DW_AT_symbol_name("_head_data")
+     237                      .dwattr DW$23, DW_AT_type(*DW$T$21)
+     238                      .dwattr DW$23, DW_AT_location[DW_OP_breg20 -2]
+     239              DW$24   .dwtag  DW_TAG_variable, DW_AT_name("array_len"), DW_AT_symbol_name("_array_len")
+     240                      .dwattr DW$24, DW_AT_type(*DW$T$20)
+     241                      .dwattr DW$24, DW_AT_location[DW_OP_breg20 -3]
+     242              DW$25   .dwtag  DW_TAG_variable, DW_AT_name("data_len"), DW_AT_symbol_name("_data_len")
+     243                      .dwattr DW$25, DW_AT_type(*DW$T$20)
+     244                      .dwattr DW$25, DW_AT_location[DW_OP_breg20 -4]
+     245 0000002f 9744          MOV       *-SP[4],AH            ; |75| 
+     246 00000030 9643          MOV       *-SP[3],AL            ; |75| 
+     247 00000031 A842          MOVL      *-SP[2],XAR4          ; |75| 
+     248                      .dwpsn  "algorithm.c",78,2
+     249                      .dwpsn  "algorithm.c",79,1
+     250 00000032 FE84          SUBB      SP,#4
+     251                      .dwcfa  0x1d, -2
+     252 00000033 0006          LRETR
+     253                      ; return occurs
+     254                      .dwattr DW$19, DW_AT_end_file("algorithm.c")
+     255                      .dwattr DW$19, DW_AT_end_line(0x4f)
+     256                      .dwattr DW$19, DW_AT_end_column(0x01)
+     257                      .dwendentry
+     258                      .dwendtag DW$19
+     259              
+     260              
+     261              ;***************************************************************
+     262              ;* TYPE INFORMATION                                            *
+     263              ;***************************************************************
+     264              
+     265              DW$T$22 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$3)
+     266                      .dwattr DW$T$22, DW_AT_language(DW_LANG_C)
+     267              DW$26   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$21)
+     268              DW$27   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     269              DW$28   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     270              DW$29   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     271                      .dwendtag DW$T$22
+     272              
+     273              
+     274              DW$T$23 .dwtag  DW_TAG_subroutine_type
+     275                      .dwattr DW$T$23, DW_AT_language(DW_LANG_C)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    6
+
+     276              DW$30   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$21)
+     277              DW$31   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     278              DW$32   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     279                      .dwendtag DW$T$23
+     280              
+     281              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$19)
+     282                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+     283              DW$T$21 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$20)
+     284                      .dwattr DW$T$21, DW_AT_address_class(0x16)
+     285              DW$T$3  .dwtag  DW_TAG_pointer_type
+     286                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+     287              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t"), DW_AT_type(*DW$T$11)
+     288                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     289              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+     290                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     291                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+     292              
+     293                      .dwattr DW$1, DW_AT_external(0x01)
+     294                      .dwattr DW$1, DW_AT_type(*DW$T$3)
+     295                      .dwattr DW$19, DW_AT_external(0x01)
+     296                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     297              
+     298              ;***************************************************************
+     299              ;* DWARF CIE ENTRIES                                           *
+     300              ;***************************************************************
+     301              
+     302              DW$CIE  .dwcie 1, 40
+     303                      .dwcfa  0x0c, 20, 0
+     304                      .dwcfa  0x07, 0
+     305                      .dwcfa  0x07, 1
+     306                      .dwcfa  0x07, 2
+     307                      .dwcfa  0x07, 3
+     308                      .dwcfa  0x07, 4
+     309                      .dwcfa  0x07, 5
+     310                      .dwcfa  0x08, 6
+     311                      .dwcfa  0x08, 7
+     312                      .dwcfa  0x08, 8
+     313                      .dwcfa  0x08, 9
+     314                      .dwcfa  0x08, 10
+     315                      .dwcfa  0x08, 11
+     316                      .dwcfa  0x07, 12
+     317                      .dwcfa  0x07, 13
+     318                      .dwcfa  0x07, 14
+     319                      .dwcfa  0x07, 15
+     320                      .dwcfa  0x07, 16
+     321                      .dwcfa  0x07, 17
+     322                      .dwcfa  0x07, 18
+     323                      .dwcfa  0x07, 19
+     324                      .dwcfa  0x07, 20
+     325                      .dwcfa  0x07, 21
+     326                      .dwcfa  0x07, 22
+     327                      .dwcfa  0x07, 23
+     328                      .dwcfa  0x07, 24
+     329                      .dwcfa  0x07, 25
+     330                      .dwcfa  0x07, 26
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    7
+
+     331                      .dwcfa  0x08, 27
+     332                      .dwcfa  0x07, 28
+     333                      .dwcfa  0x07, 29
+     334                      .dwcfa  0x07, 30
+     335                      .dwcfa  0x07, 31
+     336                      .dwcfa  0x07, 32
+     337                      .dwcfa  0x07, 33
+     338                      .dwcfa  0x07, 34
+     339                      .dwcfa  0x07, 35
+     340                      .dwcfa  0x07, 36
+     341                      .dwcfa  0x07, 37
+     342                      .dwcfa  0x07, 38
+     343                      .dwcfa  0x07, 39
+     344                      .dwcfa  0x07, 40
+     345              
+     346              ;***************************************************************
+     347              ;* DWARF REGISTER MAP                                          *
+     348              ;***************************************************************
+     349              
+     350              DW$33   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     351                      .dwattr DW$33, DW_AT_location[DW_OP_reg0]
+     352              DW$34   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     353                      .dwattr DW$34, DW_AT_location[DW_OP_reg1]
+     354              DW$35   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     355                      .dwattr DW$35, DW_AT_location[DW_OP_reg2]
+     356              DW$36   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     357                      .dwattr DW$36, DW_AT_location[DW_OP_reg3]
+     358              DW$37   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     359                      .dwattr DW$37, DW_AT_location[DW_OP_reg4]
+     360              DW$38   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     361                      .dwattr DW$38, DW_AT_location[DW_OP_reg5]
+     362              DW$39   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     363                      .dwattr DW$39, DW_AT_location[DW_OP_reg6]
+     364              DW$40   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     365                      .dwattr DW$40, DW_AT_location[DW_OP_reg7]
+     366              DW$41   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     367                      .dwattr DW$41, DW_AT_location[DW_OP_reg8]
+     368              DW$42   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     369                      .dwattr DW$42, DW_AT_location[DW_OP_reg9]
+     370              DW$43   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     371                      .dwattr DW$43, DW_AT_location[DW_OP_reg10]
+     372              DW$44   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+     373                      .dwattr DW$44, DW_AT_location[DW_OP_reg11]
+     374              DW$45   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     375                      .dwattr DW$45, DW_AT_location[DW_OP_reg12]
+     376              DW$46   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+     377                      .dwattr DW$46, DW_AT_location[DW_OP_reg13]
+     378              DW$47   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     379                      .dwattr DW$47, DW_AT_location[DW_OP_reg14]
+     380              DW$48   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     381                      .dwattr DW$48, DW_AT_location[DW_OP_reg15]
+     382              DW$49   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     383                      .dwattr DW$49, DW_AT_location[DW_OP_reg16]
+     384              DW$50   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     385                      .dwattr DW$50, DW_AT_location[DW_OP_reg17]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:15:59 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI9163                            PAGE    8
+
+     386              DW$51   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     387                      .dwattr DW$51, DW_AT_location[DW_OP_reg18]
+     388              DW$52   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     389                      .dwattr DW$52, DW_AT_location[DW_OP_reg19]
+     390              DW$53   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     391                      .dwattr DW$53, DW_AT_location[DW_OP_reg20]
+     392              DW$54   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     393                      .dwattr DW$54, DW_AT_location[DW_OP_reg21]
+     394              DW$55   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     395                      .dwattr DW$55, DW_AT_location[DW_OP_reg22]
+     396              DW$56   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     397                      .dwattr DW$56, DW_AT_location[DW_OP_reg23]
+     398              DW$57   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     399                      .dwattr DW$57, DW_AT_location[DW_OP_reg24]
+     400              DW$58   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     401                      .dwattr DW$58, DW_AT_location[DW_OP_reg25]
+     402              DW$59   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     403                      .dwattr DW$59, DW_AT_location[DW_OP_reg26]
+     404              DW$60   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     405                      .dwattr DW$60, DW_AT_location[DW_OP_reg27]
+     406              DW$61   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     407                      .dwattr DW$61, DW_AT_location[DW_OP_reg28]
+     408              DW$62   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     409                      .dwattr DW$62, DW_AT_location[DW_OP_reg29]
+     410              DW$63   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     411                      .dwattr DW$63, DW_AT_location[DW_OP_reg30]
+     412              DW$64   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     413                      .dwattr DW$64, DW_AT_location[DW_OP_reg31]
+     414              DW$65   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     415                      .dwattr DW$65, DW_AT_location[DW_OP_regx 0x20]
+     416              DW$66   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     417                      .dwattr DW$66, DW_AT_location[DW_OP_regx 0x21]
+     418              DW$67   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     419                      .dwattr DW$67, DW_AT_location[DW_OP_regx 0x22]
+     420              DW$68   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     421                      .dwattr DW$68, DW_AT_location[DW_OP_regx 0x23]
+     422              DW$69   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     423                      .dwattr DW$69, DW_AT_location[DW_OP_regx 0x24]
+     424              DW$70   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     425                      .dwattr DW$70, DW_AT_location[DW_OP_regx 0x25]
+     426              DW$71   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     427                      .dwattr DW$71, DW_AT_location[DW_OP_regx 0x26]
+     428              DW$72   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     429                      .dwattr DW$72, DW_AT_location[DW_OP_regx 0x27]
+     430              DW$73   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     431                      .dwattr DW$73, DW_AT_location[DW_OP_regx 0x28]
+     432                      .dwendtag DW$CU
+     433              
+
+No Assembly Errors, No Assembly Warnings

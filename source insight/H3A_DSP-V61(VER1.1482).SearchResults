@@ -1,0 +1,5 @@
+---- app_startmod_Expapp_obtain Matches (4 in 3 files) ----
+app_startmod_DelExp.c (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp_v61\user\app\app_start_mod\src):186:	app_startmod_Expapp_obtain();
+App_startmod_inside.h (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp_v61\user\app\app_start_mod\src):72:void 	 app_startmod_Expapp_obtain( void );
+App_startmod_interface.c (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp_v61\user\app\app_start_mod\src):311:void app_startmod_Expapp_obtain( void )
+App_startmod_interface.c (e:\projects\h3a(new3a)\h3a_dsp\used\h3a_dsp_v61\user\app\app_start_mod\src):647:	app_startmod_Expapp_obtain();

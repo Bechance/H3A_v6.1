@@ -1,0 +1,853 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Sat Oct 09 16:16:01 2010                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("fifo.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8404 
+      14 00000000               .sect   ".text"
+      15                      .global _fifo_buffer_init
+      16              
+      17              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_init"), DW_AT_symbol_name("_fifo_buffer_init")
+      18                      .dwattr DW$1, DW_AT_low_pc(_fifo_buffer_init)
+      19                      .dwattr DW$1, DW_AT_high_pc(0x00)
+      20                      .dwattr DW$1, DW_AT_begin_file("fifo.c")
+      21                      .dwattr DW$1, DW_AT_begin_line(0x4a)
+      22                      .dwattr DW$1, DW_AT_begin_column(0x07)
+      23                      .dwpsn  "fifo.c",75,1
+      24              
+      25                      .dwfde DW$CIE
+      26              
+      27              ;***************************************************************
+      28              ;* FNAME: _fifo_buffer_init             FR SIZE:   6           *
+      29              ;*                                                             *
+      30              ;* FUNCTION ENVIRONMENT                                        *
+      31              ;*                                                             *
+      32              ;* FUNCTION PROPERTIES                                         *
+      33              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+      34              ;***************************************************************
+      35              
+      36              _fifo_buffer_init:
+      37                      .dwcfa  0x1d, -2
+      38                      .dwcfa  0x1c, 26, 0
+      39                      .dwcfa  0x09, 40, 26
+      40 00000000 FE06          ADDB      SP,#6
+      41                      .dwcfa  0x1d, -8
+      42              ;* AR4   assigned to _self
+      43              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+      44                      .dwattr DW$2, DW_AT_type(*DW$T$24)
+      45                      .dwattr DW$2, DW_AT_location[DW_OP_reg12]
+      46              ;* AL    assigned to _buffer_size
+      47              DW$3    .dwtag  DW_TAG_formal_parameter, DW_AT_name("buffer_size"), DW_AT_symbol_name("_buffer_size")
+      48                      .dwattr DW$3, DW_AT_type(*DW$T$20)
+      49                      .dwattr DW$3, DW_AT_location[DW_OP_reg0]
+      50              ;* AR5   assigned to _buf_ptr
+      51              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_name("buf_ptr"), DW_AT_symbol_name("_buf_ptr")
+      52                      .dwattr DW$4, DW_AT_type(*DW$T$26)
+      53                      .dwattr DW$4, DW_AT_location[DW_OP_reg14]
+      54              DW$5    .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+      55                      .dwattr DW$5, DW_AT_type(*DW$T$24)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    2
+
+      56                      .dwattr DW$5, DW_AT_location[DW_OP_breg20 -2]
+      57              DW$6    .dwtag  DW_TAG_variable, DW_AT_name("buffer_size"), DW_AT_symbol_name("_buffer_size")
+      58                      .dwattr DW$6, DW_AT_type(*DW$T$20)
+      59                      .dwattr DW$6, DW_AT_location[DW_OP_breg20 -3]
+      60              DW$7    .dwtag  DW_TAG_variable, DW_AT_name("buf_ptr"), DW_AT_symbol_name("_buf_ptr")
+      61                      .dwattr DW$7, DW_AT_type(*DW$T$26)
+      62                      .dwattr DW$7, DW_AT_location[DW_OP_breg20 -6]
+      63 00000001 A046          MOVL      *-SP[6],XAR5          ; |75| 
+      64 00000002 9643          MOV       *-SP[3],AL            ; |75| 
+      65 00000003 A842          MOVL      *-SP[2],XAR4          ; |75| 
+      66                      .dwpsn  "fifo.c",76,2
+      67 00000004 8A42          MOVL      XAR4,*-SP[2]          ; |76| 
+      68 00000005 9243          MOV       AL,*-SP[3]            ; |76| 
+      69 00000006 96D4          MOV       *+XAR4[2],AL          ; |76| 
+      70                      .dwpsn  "fifo.c",77,2
+      71 00000007 8A42          MOVL      XAR4,*-SP[2]          ; |77| 
+      72 00000008 0646          MOVL      ACC,*-SP[6]           ; |77| 
+      73 00000009 1EE4          MOVL      *+XAR4[4],ACC         ; |77| 
+      74                      .dwpsn  "fifo.c",78,2
+      75 0000000a 8A42          MOVL      XAR4,*-SP[2]          ; |78| 
+      76 0000000b 2BCC          MOV       *+XAR4[1],#0          ; |78| 
+      77                      .dwpsn  "fifo.c",79,2
+      78 0000000c 8A42          MOVL      XAR4,*-SP[2]          ; |79| 
+      79 0000000d 2BC4          MOV       *+XAR4[0],#0          ; |79| 
+      80                      .dwpsn  "fifo.c",80,2
+      81                      .dwpsn  "fifo.c",81,1
+      82 0000000e FE86          SUBB      SP,#6
+      83                      .dwcfa  0x1d, -2
+      84 0000000f 0006          LRETR
+      85                      ; return occurs
+      86                      .dwattr DW$1, DW_AT_end_file("fifo.c")
+      87                      .dwattr DW$1, DW_AT_end_line(0x51)
+      88                      .dwattr DW$1, DW_AT_end_column(0x01)
+      89                      .dwendentry
+      90                      .dwendtag DW$1
+      91              
+      92 00000010               .sect   ".text"
+      93                      .global _fifo_buffer_shift
+      94              
+      95              DW$8    .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_shift"), DW_AT_symbol_name("_fifo_buffer_shift")
+      96                      .dwattr DW$8, DW_AT_low_pc(_fifo_buffer_shift)
+      97                      .dwattr DW$8, DW_AT_high_pc(0x00)
+      98                      .dwattr DW$8, DW_AT_begin_file("fifo.c")
+      99                      .dwattr DW$8, DW_AT_begin_line(0x5c)
+     100                      .dwattr DW$8, DW_AT_begin_column(0x0a)
+     101                      .dwpsn  "fifo.c",93,1
+     102              
+     103                      .dwfde DW$CIE
+     104              
+     105              ;***************************************************************
+     106              ;* FNAME: _fifo_buffer_shift            FR SIZE:   4           *
+     107              ;*                                                             *
+     108              ;* FUNCTION ENVIRONMENT                                        *
+     109              ;*                                                             *
+     110              ;* FUNCTION PROPERTIES                                         *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    3
+
+     111              ;*                            0 Parameter,  3 Auto,  0 SOE     *
+     112              ;***************************************************************
+     113              
+     114              _fifo_buffer_shift:
+     115                      .dwcfa  0x1d, -2
+     116                      .dwcfa  0x1c, 26, 0
+     117                      .dwcfa  0x09, 40, 26
+     118 00000010 FE04          ADDB      SP,#4
+     119                      .dwcfa  0x1d, -6
+     120              ;* AR4   assigned to _self
+     121              DW$9    .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     122                      .dwattr DW$9, DW_AT_type(*DW$T$24)
+     123                      .dwattr DW$9, DW_AT_location[DW_OP_reg12]
+     124              ;* AL    assigned to _pos
+     125              DW$10   .dwtag  DW_TAG_formal_parameter, DW_AT_name("pos"), DW_AT_symbol_name("_pos")
+     126                      .dwattr DW$10, DW_AT_type(*DW$T$20)
+     127                      .dwattr DW$10, DW_AT_location[DW_OP_reg0]
+     128              DW$11   .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     129                      .dwattr DW$11, DW_AT_type(*DW$T$24)
+     130                      .dwattr DW$11, DW_AT_location[DW_OP_breg20 -2]
+     131              DW$12   .dwtag  DW_TAG_variable, DW_AT_name("pos"), DW_AT_symbol_name("_pos")
+     132                      .dwattr DW$12, DW_AT_type(*DW$T$20)
+     133                      .dwattr DW$12, DW_AT_location[DW_OP_breg20 -3]
+     134 00000011 9643          MOV       *-SP[3],AL            ; |93| 
+     135 00000012 A842          MOVL      *-SP[2],XAR4          ; |93| 
+     136                      .dwpsn  "fifo.c",94,2
+     137 00000013 8A42          MOVL      XAR4,*-SP[2]          ; |94| 
+     138 00000014 9243          MOV       AL,*-SP[3]            ; |94| 
+     139 00000015 9C01          ADDB      AL,#1                 ; |94| 
+     140 00000016 54D4          CMP       AL,*+XAR4[2]          ; |94| 
+     141 00000017 ED03          BF        L1,NEQ                ; |94| 
+     142                      ; branchcc occurs ; |94| 
+     143                      .dwpsn  "fifo.c",96,3
+     144 00000018 9A00          MOVB      AL,#0
+     145 00000019 6F03          B         L2,UNC                ; |96| 
+     146                      ; branch occurs ; |96| 
+     147              L1:    
+     148                      .dwpsn  "fifo.c",100,3
+     149 0000001a 9243          MOV       AL,*-SP[3]            ; |100| 
+     150 0000001b 9C01          ADDB      AL,#1                 ; |100| 
+     151              L2:    
+     152                      .dwpsn  "fifo.c",102,1
+     153 0000001c FE84          SUBB      SP,#4                 ; |100| 
+     154                      .dwcfa  0x1d, -2
+     155 0000001d 0006          LRETR
+     156                      ; return occurs
+     157                      .dwattr DW$8, DW_AT_end_file("fifo.c")
+     158                      .dwattr DW$8, DW_AT_end_line(0x66)
+     159                      .dwattr DW$8, DW_AT_end_column(0x01)
+     160                      .dwendentry
+     161                      .dwendtag DW$8
+     162              
+     163 0000001e               .sect   ".text"
+     164                      .global _fifo_buffer_push
+     165              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    4
+
+     166              DW$13   .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_push"), DW_AT_symbol_name("_fifo_buffer_push")
+     167                      .dwattr DW$13, DW_AT_low_pc(_fifo_buffer_push)
+     168                      .dwattr DW$13, DW_AT_high_pc(0x00)
+     169                      .dwattr DW$13, DW_AT_begin_file("fifo.c")
+     170                      .dwattr DW$13, DW_AT_begin_line(0x70)
+     171                      .dwattr DW$13, DW_AT_begin_column(0x06)
+     172                      .dwpsn  "fifo.c",113,1
+     173              
+     174                      .dwfde DW$CIE
+     175              
+     176              ;***************************************************************
+     177              ;* FNAME: _fifo_buffer_push             FR SIZE:   6           *
+     178              ;*                                                             *
+     179              ;* FUNCTION ENVIRONMENT                                        *
+     180              ;*                                                             *
+     181              ;* FUNCTION PROPERTIES                                         *
+     182              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+     183              ;***************************************************************
+     184              
+     185              _fifo_buffer_push:
+     186                      .dwcfa  0x1d, -2
+     187                      .dwcfa  0x1c, 26, 0
+     188                      .dwcfa  0x09, 40, 26
+     189 0000001e FE06          ADDB      SP,#6
+     190                      .dwcfa  0x1d, -8
+     191              ;* AR4   assigned to _self
+     192              DW$14   .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     193                      .dwattr DW$14, DW_AT_type(*DW$T$24)
+     194                      .dwattr DW$14, DW_AT_location[DW_OP_reg12]
+     195              ;* AR5   assigned to _data
+     196              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_name("data"), DW_AT_symbol_name("_data")
+     197                      .dwattr DW$15, DW_AT_type(*DW$T$21)
+     198                      .dwattr DW$15, DW_AT_location[DW_OP_reg14]
+     199              ;* AL    assigned to _size
+     200              DW$16   .dwtag  DW_TAG_formal_parameter, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     201                      .dwattr DW$16, DW_AT_type(*DW$T$20)
+     202                      .dwattr DW$16, DW_AT_location[DW_OP_reg0]
+     203              DW$17   .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     204                      .dwattr DW$17, DW_AT_type(*DW$T$24)
+     205                      .dwattr DW$17, DW_AT_location[DW_OP_breg20 -2]
+     206              DW$18   .dwtag  DW_TAG_variable, DW_AT_name("data"), DW_AT_symbol_name("_data")
+     207                      .dwattr DW$18, DW_AT_type(*DW$T$21)
+     208                      .dwattr DW$18, DW_AT_location[DW_OP_breg20 -4]
+     209              DW$19   .dwtag  DW_TAG_variable, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     210                      .dwattr DW$19, DW_AT_type(*DW$T$20)
+     211                      .dwattr DW$19, DW_AT_location[DW_OP_breg20 -5]
+     212              DW$20   .dwtag  DW_TAG_variable, DW_AT_name("cur_size"), DW_AT_symbol_name("_cur_size")
+     213                      .dwattr DW$20, DW_AT_type(*DW$T$19)
+     214                      .dwattr DW$20, DW_AT_location[DW_OP_breg20 -6]
+     215 0000001f 9645          MOV       *-SP[5],AL            ; |113| 
+     216 00000020 A044          MOVL      *-SP[4],XAR5          ; |113| 
+     217 00000021 A842          MOVL      *-SP[2],XAR4          ; |113| 
+     218                      .dwpsn  "fifo.c",115,8
+     219 00000022 2B46          MOV       *-SP[6],#0            ; |115| 
+     220                      .dwpsn  "fifo.c",115,21
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    5
+
+     221 00000023 9245          MOV       AL,*-SP[5]            ; |115| 
+     222 00000024 5446          CMP       AL,*-SP[6]            ; |115| 
+     223 00000025 6920          B         L5,LOS                ; |115| 
+     224                      ; branchcc occurs ; |115| 
+     225              L3:    
+     226              DW$L$_fifo_buffer_push$2$B:
+     227                      .dwpsn  "fifo.c",117,3
+     228 00000026 5846          MOVZ      AR0,*-SP[6]           ; |117| 
+     229 00000027 8A44          MOVL      XAR4,*-SP[4]          ; |117| 
+     230 00000028 9294          MOV       AL,*+XAR4[AR0]        ; |117| 
+     231 00000029 8A42          MOVL      XAR4,*-SP[2]          ; |117| 
+     232 0000002a 58CC          MOVZ      AR0,*+XAR4[1]         ; |117| 
+     233 0000002b 8A42          MOVL      XAR4,*-SP[2]          ; |117| 
+     234 0000002c 8AE4          MOVL      XAR4,*+XAR4[4]        ; |117| 
+     235 0000002d 9694          MOV       *+XAR4[AR0],AL        ; |117| 
+     236                      .dwpsn  "fifo.c",118,3
+     237 0000002e 8A42          MOVL      XAR4,*-SP[2]          ; |118| 
+     238 0000002f 92CC          MOV       AL,*+XAR4[1]          ; |118| 
+     239 00000030 8A42          MOVL      XAR4,*-SP[2]          ; |118| 
+     240 00000031 7640'         LCR       #_fifo_buffer_shift   ; |118| 
+         00000032 0010 
+     241                      ; call occurs [#_fifo_buffer_shift] ; |118| 
+     242 00000033 8A42          MOVL      XAR4,*-SP[2]          ; |118| 
+     243 00000034 96CC          MOV       *+XAR4[1],AL          ; |118| 
+     244                      .dwpsn  "fifo.c",120,3
+     245 00000035 8A42          MOVL      XAR4,*-SP[2]          ; |120| 
+     246 00000036 92C4          MOV       AL,*+XAR4[0]          ; |120| 
+     247 00000037 8A42          MOVL      XAR4,*-SP[2]          ; |120| 
+     248 00000038 54CC          CMP       AL,*+XAR4[1]          ; |120| 
+     249 00000039 ED08          BF        L4,NEQ                ; |120| 
+     250                      ; branchcc occurs ; |120| 
+     251              DW$L$_fifo_buffer_push$2$E:
+     252              DW$L$_fifo_buffer_push$3$B:
+     253                      .dwpsn  "fifo.c",122,4
+     254 0000003a 8A42          MOVL      XAR4,*-SP[2]          ; |122| 
+     255 0000003b 92C4          MOV       AL,*+XAR4[0]          ; |122| 
+     256 0000003c 8A42          MOVL      XAR4,*-SP[2]          ; |122| 
+     257 0000003d 7640'         LCR       #_fifo_buffer_shift   ; |122| 
+         0000003e 0010 
+     258                      ; call occurs [#_fifo_buffer_shift] ; |122| 
+     259 0000003f 8A42          MOVL      XAR4,*-SP[2]          ; |122| 
+     260 00000040 96C4          MOV       *+XAR4[0],AL          ; |122| 
+     261              DW$L$_fifo_buffer_push$3$E:
+     262              L4:    
+     263              DW$L$_fifo_buffer_push$4$B:
+     264                      .dwpsn  "fifo.c",115,37
+     265 00000041 0A46          INC       *-SP[6]               ; |115| 
+     266                      .dwpsn  "fifo.c",115,21
+     267 00000042 9245          MOV       AL,*-SP[5]            ; |115| 
+     268 00000043 5446          CMP       AL,*-SP[6]            ; |115| 
+     269 00000044 66E2          B         L3,HI                 ; |115| 
+     270                      ; branchcc occurs ; |115| 
+     271              DW$L$_fifo_buffer_push$4$E:
+     272                      .dwpsn  "fifo.c",125,2
+     273              L5:    
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    6
+
+     274                      .dwpsn  "fifo.c",126,1
+     275 00000045 FE86          SUBB      SP,#6
+     276                      .dwcfa  0x1d, -2
+     277 00000046 0006          LRETR
+     278                      ; return occurs
+     279              
+     280              DW$21   .dwtag  DW_TAG_loop
+     281                      .dwattr DW$21, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402:L3:1:1286612161")
+     282                      .dwattr DW$21, DW_AT_begin_file("fifo.c")
+     283                      .dwattr DW$21, DW_AT_begin_line(0x73)
+     284                      .dwattr DW$21, DW_AT_end_line(0x7c)
+     285              DW$22   .dwtag  DW_TAG_loop_range
+     286                      .dwattr DW$22, DW_AT_low_pc(DW$L$_fifo_buffer_push$2$B)
+     287                      .dwattr DW$22, DW_AT_high_pc(DW$L$_fifo_buffer_push$2$E)
+     288              DW$23   .dwtag  DW_TAG_loop_range
+     289                      .dwattr DW$23, DW_AT_low_pc(DW$L$_fifo_buffer_push$3$B)
+     290                      .dwattr DW$23, DW_AT_high_pc(DW$L$_fifo_buffer_push$3$E)
+     291              DW$24   .dwtag  DW_TAG_loop_range
+     292                      .dwattr DW$24, DW_AT_low_pc(DW$L$_fifo_buffer_push$4$B)
+     293                      .dwattr DW$24, DW_AT_high_pc(DW$L$_fifo_buffer_push$4$E)
+     294                      .dwendtag DW$21
+     295              
+     296                      .dwattr DW$13, DW_AT_end_file("fifo.c")
+     297                      .dwattr DW$13, DW_AT_end_line(0x7e)
+     298                      .dwattr DW$13, DW_AT_end_column(0x01)
+     299                      .dwendentry
+     300                      .dwendtag DW$13
+     301              
+     302 00000047               .sect   ".text"
+     303                      .global _fifo_buffer_pop
+     304              
+     305              DW$25   .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_pop"), DW_AT_symbol_name("_fifo_buffer_pop")
+     306                      .dwattr DW$25, DW_AT_low_pc(_fifo_buffer_pop)
+     307                      .dwattr DW$25, DW_AT_high_pc(0x00)
+     308                      .dwattr DW$25, DW_AT_begin_file("fifo.c")
+     309                      .dwattr DW$25, DW_AT_begin_line(0x88)
+     310                      .dwattr DW$25, DW_AT_begin_column(0x08)
+     311                      .dwpsn  "fifo.c",137,1
+     312              
+     313                      .dwfde DW$CIE
+     314              
+     315              ;***************************************************************
+     316              ;* FNAME: _fifo_buffer_pop              FR SIZE:   6           *
+     317              ;*                                                             *
+     318              ;* FUNCTION ENVIRONMENT                                        *
+     319              ;*                                                             *
+     320              ;* FUNCTION PROPERTIES                                         *
+     321              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+     322              ;***************************************************************
+     323              
+     324              _fifo_buffer_pop:
+     325                      .dwcfa  0x1d, -2
+     326                      .dwcfa  0x1c, 26, 0
+     327                      .dwcfa  0x09, 40, 26
+     328 00000047 FE06          ADDB      SP,#6
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    7
+
+     329                      .dwcfa  0x1d, -8
+     330              ;* AR4   assigned to _self
+     331              DW$26   .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     332                      .dwattr DW$26, DW_AT_type(*DW$T$24)
+     333                      .dwattr DW$26, DW_AT_location[DW_OP_reg12]
+     334              ;* AR5   assigned to _data
+     335              DW$27   .dwtag  DW_TAG_formal_parameter, DW_AT_name("data"), DW_AT_symbol_name("_data")
+     336                      .dwattr DW$27, DW_AT_type(*DW$T$26)
+     337                      .dwattr DW$27, DW_AT_location[DW_OP_reg14]
+     338              ;* AL    assigned to _size
+     339              DW$28   .dwtag  DW_TAG_formal_parameter, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     340                      .dwattr DW$28, DW_AT_type(*DW$T$20)
+     341                      .dwattr DW$28, DW_AT_location[DW_OP_reg0]
+     342              DW$29   .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     343                      .dwattr DW$29, DW_AT_type(*DW$T$24)
+     344                      .dwattr DW$29, DW_AT_location[DW_OP_breg20 -2]
+     345              DW$30   .dwtag  DW_TAG_variable, DW_AT_name("data"), DW_AT_symbol_name("_data")
+     346                      .dwattr DW$30, DW_AT_type(*DW$T$26)
+     347                      .dwattr DW$30, DW_AT_location[DW_OP_breg20 -4]
+     348              DW$31   .dwtag  DW_TAG_variable, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     349                      .dwattr DW$31, DW_AT_type(*DW$T$20)
+     350                      .dwattr DW$31, DW_AT_location[DW_OP_breg20 -5]
+     351              DW$32   .dwtag  DW_TAG_variable, DW_AT_name("cur_size"), DW_AT_symbol_name("_cur_size")
+     352                      .dwattr DW$32, DW_AT_type(*DW$T$19)
+     353                      .dwattr DW$32, DW_AT_location[DW_OP_breg20 -6]
+     354 00000048 9645          MOV       *-SP[5],AL            ; |137| 
+     355 00000049 A044          MOVL      *-SP[4],XAR5          ; |137| 
+     356 0000004a A842          MOVL      *-SP[2],XAR4          ; |137| 
+     357                      .dwpsn  "fifo.c",139,8
+     358 0000004b 2B46          MOV       *-SP[6],#0            ; |139| 
+     359                      .dwpsn  "fifo.c",139,21
+     360 0000004c 9245          MOV       AL,*-SP[5]            ; |139| 
+     361 0000004d 5446          CMP       AL,*-SP[6]            ; |139| 
+     362 0000004e 6914          B         L7,LOS                ; |139| 
+     363                      ; branchcc occurs ; |139| 
+     364              L6:    
+     365              DW$L$_fifo_buffer_pop$2$B:
+     366                      .dwpsn  "fifo.c",141,3
+     367 0000004f 8A42          MOVL      XAR4,*-SP[2]          ; |141| 
+     368 00000050 58C4          MOVZ      AR0,*+XAR4[0]         ; |141| 
+     369 00000051 8A42          MOVL      XAR4,*-SP[2]          ; |141| 
+     370 00000052 8AE4          MOVL      XAR4,*+XAR4[4]        ; |141| 
+     371 00000053 9294          MOV       AL,*+XAR4[AR0]        ; |141| 
+     372 00000054 5846          MOVZ      AR0,*-SP[6]           ; |141| 
+     373 00000055 8A44          MOVL      XAR4,*-SP[4]          ; |141| 
+     374 00000056 9694          MOV       *+XAR4[AR0],AL        ; |141| 
+     375                      .dwpsn  "fifo.c",142,3
+     376 00000057 8A42          MOVL      XAR4,*-SP[2]          ; |142| 
+     377 00000058 92C4          MOV       AL,*+XAR4[0]          ; |142| 
+     378 00000059 8A42          MOVL      XAR4,*-SP[2]          ; |142| 
+     379 0000005a 7640'         LCR       #_fifo_buffer_shift   ; |142| 
+         0000005b 0010 
+     380                      ; call occurs [#_fifo_buffer_shift] ; |142| 
+     381 0000005c 8A42          MOVL      XAR4,*-SP[2]          ; |142| 
+     382 0000005d 96C4          MOV       *+XAR4[0],AL          ; |142| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    8
+
+     383                      .dwpsn  "fifo.c",139,37
+     384 0000005e 0A46          INC       *-SP[6]               ; |139| 
+     385                      .dwpsn  "fifo.c",139,21
+     386 0000005f 9245          MOV       AL,*-SP[5]            ; |139| 
+     387 00000060 5446          CMP       AL,*-SP[6]            ; |139| 
+     388 00000061 66EE          B         L6,HI                 ; |139| 
+     389                      ; branchcc occurs ; |139| 
+     390              DW$L$_fifo_buffer_pop$2$E:
+     391                      .dwpsn  "fifo.c",144,2
+     392              L7:    
+     393                      .dwpsn  "fifo.c",145,1
+     394 00000062 FE86          SUBB      SP,#6
+     395                      .dwcfa  0x1d, -2
+     396 00000063 0006          LRETR
+     397                      ; return occurs
+     398              
+     399              DW$33   .dwtag  DW_TAG_loop
+     400                      .dwattr DW$33, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402:L6:1:1286612161")
+     401                      .dwattr DW$33, DW_AT_begin_file("fifo.c")
+     402                      .dwattr DW$33, DW_AT_begin_line(0x8b)
+     403                      .dwattr DW$33, DW_AT_end_line(0x8f)
+     404              DW$34   .dwtag  DW_TAG_loop_range
+     405                      .dwattr DW$34, DW_AT_low_pc(DW$L$_fifo_buffer_pop$2$B)
+     406                      .dwattr DW$34, DW_AT_high_pc(DW$L$_fifo_buffer_pop$2$E)
+     407                      .dwendtag DW$33
+     408              
+     409                      .dwattr DW$25, DW_AT_end_file("fifo.c")
+     410                      .dwattr DW$25, DW_AT_end_line(0x91)
+     411                      .dwattr DW$25, DW_AT_end_column(0x01)
+     412                      .dwendentry
+     413                      .dwendtag DW$25
+     414              
+     415 00000064               .sect   ".text"
+     416                      .global _fifo_buffer_get_size
+     417              
+     418              DW$35   .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_get_size"), DW_AT_symbol_name("_fifo_buffer_get_si
+     419                      .dwattr DW$35, DW_AT_low_pc(_fifo_buffer_get_size)
+     420                      .dwattr DW$35, DW_AT_high_pc(0x00)
+     421                      .dwattr DW$35, DW_AT_begin_file("fifo.c")
+     422                      .dwattr DW$35, DW_AT_begin_line(0x99)
+     423                      .dwattr DW$35, DW_AT_begin_column(0x09)
+     424                      .dwpsn  "fifo.c",154,1
+     425              
+     426                      .dwfde DW$CIE
+     427              
+     428              ;***************************************************************
+     429              ;* FNAME: _fifo_buffer_get_size         FR SIZE:   2           *
+     430              ;*                                                             *
+     431              ;* FUNCTION ENVIRONMENT                                        *
+     432              ;*                                                             *
+     433              ;* FUNCTION PROPERTIES                                         *
+     434              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     435              ;***************************************************************
+     436              
+     437              _fifo_buffer_get_size:
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE    9
+
+     438                      .dwcfa  0x1d, -2
+     439                      .dwcfa  0x1c, 26, 0
+     440                      .dwcfa  0x09, 40, 26
+     441 00000064 FE02          ADDB      SP,#2
+     442                      .dwcfa  0x1d, -4
+     443              ;* AR4   assigned to _self
+     444              DW$36   .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     445                      .dwattr DW$36, DW_AT_type(*DW$T$24)
+     446                      .dwattr DW$36, DW_AT_location[DW_OP_reg12]
+     447              DW$37   .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     448                      .dwattr DW$37, DW_AT_type(*DW$T$24)
+     449                      .dwattr DW$37, DW_AT_location[DW_OP_breg20 -2]
+     450 00000065 A842          MOVL      *-SP[2],XAR4          ; |154| 
+     451                      .dwpsn  "fifo.c",155,2
+     452 00000066 8A42          MOVL      XAR4,*-SP[2]          ; |155| 
+     453 00000067 92C4          MOV       AL,*+XAR4[0]          ; |155| 
+     454 00000068 8A42          MOVL      XAR4,*-SP[2]          ; |155| 
+     455 00000069 54CC          CMP       AL,*+XAR4[1]          ; |155| 
+     456 0000006a 6606          B         L8,HI                 ; |155| 
+     457                      ; branchcc occurs ; |155| 
+     458                      .dwpsn  "fifo.c",157,3
+     459 0000006b 8342          MOVL      XAR5,*-SP[2]          ; |157| 
+     460 0000006c 8A42          MOVL      XAR4,*-SP[2]          ; |157| 
+     461 0000006d 92CD          MOV       AL,*+XAR5[1]          ; |157| 
+     462 0000006e 9EC4          SUB       AL,*+XAR4[0]          ; |157| 
+     463 0000006f 6F07          B         L9,UNC                ; |157| 
+     464                      ; branch occurs ; |157| 
+     465              L8:    
+     466                      .dwpsn  "fifo.c",161,3
+     467 00000070 8342          MOVL      XAR5,*-SP[2]          ; |161| 
+     468 00000071 8A42          MOVL      XAR4,*-SP[2]          ; |161| 
+     469 00000072 92D5          MOV       AL,*+XAR5[2]          ; |161| 
+     470 00000073 9EC4          SUB       AL,*+XAR4[0]          ; |161| 
+     471 00000074 8A42          MOVL      XAR4,*-SP[2]          ; |161| 
+     472 00000075 94CC          ADD       AL,*+XAR4[1]          ; |161| 
+     473              L9:    
+     474                      .dwpsn  "fifo.c",163,1
+     475 00000076 FE82          SUBB      SP,#2                 ; |161| 
+     476                      .dwcfa  0x1d, -2
+     477 00000077 0006          LRETR
+     478                      ; return occurs
+     479                      .dwattr DW$35, DW_AT_end_file("fifo.c")
+     480                      .dwattr DW$35, DW_AT_end_line(0xa3)
+     481                      .dwattr DW$35, DW_AT_end_column(0x01)
+     482                      .dwendentry
+     483                      .dwendtag DW$35
+     484              
+     485 00000078               .sect   ".text"
+     486                      .global _fifo_buffer_empty
+     487              
+     488              DW$38   .dwtag  DW_TAG_subprogram, DW_AT_name("fifo_buffer_empty"), DW_AT_symbol_name("_fifo_buffer_empty")
+     489                      .dwattr DW$38, DW_AT_low_pc(_fifo_buffer_empty)
+     490                      .dwattr DW$38, DW_AT_high_pc(0x00)
+     491                      .dwattr DW$38, DW_AT_begin_file("fifo.c")
+     492                      .dwattr DW$38, DW_AT_begin_line(0xab)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   10
+
+     493                      .dwattr DW$38, DW_AT_begin_column(0x06)
+     494                      .dwpsn  "fifo.c",172,1
+     495              
+     496                      .dwfde DW$CIE
+     497              
+     498              ;***************************************************************
+     499              ;* FNAME: _fifo_buffer_empty            FR SIZE:   2           *
+     500              ;*                                                             *
+     501              ;* FUNCTION ENVIRONMENT                                        *
+     502              ;*                                                             *
+     503              ;* FUNCTION PROPERTIES                                         *
+     504              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     505              ;***************************************************************
+     506              
+     507              _fifo_buffer_empty:
+     508                      .dwcfa  0x1d, -2
+     509                      .dwcfa  0x1c, 26, 0
+     510                      .dwcfa  0x09, 40, 26
+     511 00000078 FE02          ADDB      SP,#2
+     512                      .dwcfa  0x1d, -4
+     513              ;* AR4   assigned to _self
+     514              DW$39   .dwtag  DW_TAG_formal_parameter, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     515                      .dwattr DW$39, DW_AT_type(*DW$T$24)
+     516                      .dwattr DW$39, DW_AT_location[DW_OP_reg12]
+     517              DW$40   .dwtag  DW_TAG_variable, DW_AT_name("self"), DW_AT_symbol_name("_self")
+     518                      .dwattr DW$40, DW_AT_type(*DW$T$24)
+     519                      .dwattr DW$40, DW_AT_location[DW_OP_breg20 -2]
+     520 00000079 A842          MOVL      *-SP[2],XAR4          ; |172| 
+     521                      .dwpsn  "fifo.c",173,2
+     522 0000007a 8A42          MOVL      XAR4,*-SP[2]          ; |173| 
+     523 0000007b 2BC4          MOV       *+XAR4[0],#0          ; |173| 
+     524                      .dwpsn  "fifo.c",174,2
+     525 0000007c 8A42          MOVL      XAR4,*-SP[2]          ; |174| 
+     526 0000007d 2BCC          MOV       *+XAR4[1],#0          ; |174| 
+     527                      .dwpsn  "fifo.c",175,2
+     528                      .dwpsn  "fifo.c",176,1
+     529 0000007e FE82          SUBB      SP,#2
+     530                      .dwcfa  0x1d, -2
+     531 0000007f 0006          LRETR
+     532                      ; return occurs
+     533                      .dwattr DW$38, DW_AT_end_file("fifo.c")
+     534                      .dwattr DW$38, DW_AT_end_line(0xb0)
+     535                      .dwattr DW$38, DW_AT_end_column(0x01)
+     536                      .dwendentry
+     537                      .dwendtag DW$38
+     538              
+     539              
+     540              ;***************************************************************
+     541              ;* TYPE INFORMATION                                            *
+     542              ;***************************************************************
+     543              
+     544              DW$T$27 .dwtag  DW_TAG_subroutine_type
+     545                      .dwattr DW$T$27, DW_AT_language(DW_LANG_C)
+     546              DW$41   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     547              DW$42   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   11
+
+     548              DW$43   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+     549                      .dwendtag DW$T$27
+     550              
+     551              
+     552              DW$T$28 .dwtag  DW_TAG_subroutine_type
+     553                      .dwattr DW$T$28, DW_AT_language(DW_LANG_C)
+     554              DW$44   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     555              DW$45   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$21)
+     556              DW$46   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     557                      .dwendtag DW$T$28
+     558              
+     559              
+     560              DW$T$29 .dwtag  DW_TAG_subroutine_type
+     561                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+     562              DW$47   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     563              DW$48   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+     564              DW$49   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     565                      .dwendtag DW$T$29
+     566              
+     567              
+     568              DW$T$30 .dwtag  DW_TAG_subroutine_type
+     569                      .dwattr DW$T$30, DW_AT_language(DW_LANG_C)
+     570              DW$50   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     571                      .dwendtag DW$T$30
+     572              
+     573              DW$T$21 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$6)
+     574                      .dwattr DW$T$21, DW_AT_address_class(0x16)
+     575              DW$T$26 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$25)
+     576                      .dwattr DW$T$26, DW_AT_address_class(0x16)
+     577              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t"), DW_AT_type(*DW$T$11)
+     578                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+     579              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$19)
+     580                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+     581              
+     582              DW$T$31 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$20)
+     583                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+     584              DW$51   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     585              DW$52   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     586                      .dwendtag DW$T$31
+     587              
+     588              
+     589              DW$T$33 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$20)
+     590                      .dwattr DW$T$33, DW_AT_language(DW_LANG_C)
+     591              DW$53   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$24)
+     592                      .dwendtag DW$T$33
+     593              
+     594              DW$T$24 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$23)
+     595                      .dwattr DW$T$24, DW_AT_address_class(0x16)
+     596              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+     597                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     598                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+     599              DW$T$25 .dwtag  DW_TAG_typedef, DW_AT_name("uint8_t"), DW_AT_type(*DW$T$6)
+     600                      .dwattr DW$T$25, DW_AT_language(DW_LANG_C)
+     601              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+     602                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   12
+
+     603                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+     604              DW$T$23 .dwtag  DW_TAG_typedef, DW_AT_name("fifo_tcb_t"), DW_AT_type(*DW$T$22)
+     605                      .dwattr DW$T$23, DW_AT_language(DW_LANG_C)
+     606              
+     607              DW$T$22 .dwtag  DW_TAG_structure_type
+     608                      .dwattr DW$T$22, DW_AT_byte_size(0x06)
+     609              DW$54   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+     610                      .dwattr DW$54, DW_AT_name("start_pos"), DW_AT_symbol_name("_start_pos")
+     611                      .dwattr DW$54, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     612                      .dwattr DW$54, DW_AT_accessibility(DW_ACCESS_public)
+     613              DW$55   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+     614                      .dwattr DW$55, DW_AT_name("end_pos"), DW_AT_symbol_name("_end_pos")
+     615                      .dwattr DW$55, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+     616                      .dwattr DW$55, DW_AT_accessibility(DW_ACCESS_public)
+     617              DW$56   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+     618                      .dwattr DW$56, DW_AT_name("buffer_size"), DW_AT_symbol_name("_buffer_size")
+     619                      .dwattr DW$56, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     620                      .dwattr DW$56, DW_AT_accessibility(DW_ACCESS_public)
+     621              DW$57   .dwtag  DW_TAG_member, DW_AT_type(*DW$T$21)
+     622                      .dwattr DW$57, DW_AT_name("buffer_ptr"), DW_AT_symbol_name("_buffer_ptr")
+     623                      .dwattr DW$57, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     624                      .dwattr DW$57, DW_AT_accessibility(DW_ACCESS_public)
+     625                      .dwendtag DW$T$22
+     626              
+     627              
+     628                      .dwattr DW$38, DW_AT_external(0x01)
+     629                      .dwattr DW$35, DW_AT_external(0x01)
+     630                      .dwattr DW$35, DW_AT_type(*DW$T$20)
+     631                      .dwattr DW$1, DW_AT_external(0x01)
+     632                      .dwattr DW$25, DW_AT_external(0x01)
+     633                      .dwattr DW$13, DW_AT_external(0x01)
+     634                      .dwattr DW$8, DW_AT_external(0x01)
+     635                      .dwattr DW$8, DW_AT_type(*DW$T$20)
+     636                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+     637              
+     638              ;***************************************************************
+     639              ;* DWARF CIE ENTRIES                                           *
+     640              ;***************************************************************
+     641              
+     642              DW$CIE  .dwcie 1, 40
+     643                      .dwcfa  0x0c, 20, 0
+     644                      .dwcfa  0x07, 0
+     645                      .dwcfa  0x07, 1
+     646                      .dwcfa  0x07, 2
+     647                      .dwcfa  0x07, 3
+     648                      .dwcfa  0x07, 4
+     649                      .dwcfa  0x07, 5
+     650                      .dwcfa  0x08, 6
+     651                      .dwcfa  0x08, 7
+     652                      .dwcfa  0x08, 8
+     653                      .dwcfa  0x08, 9
+     654                      .dwcfa  0x08, 10
+     655                      .dwcfa  0x08, 11
+     656                      .dwcfa  0x07, 12
+     657                      .dwcfa  0x07, 13
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   13
+
+     658                      .dwcfa  0x07, 14
+     659                      .dwcfa  0x07, 15
+     660                      .dwcfa  0x07, 16
+     661                      .dwcfa  0x07, 17
+     662                      .dwcfa  0x07, 18
+     663                      .dwcfa  0x07, 19
+     664                      .dwcfa  0x07, 20
+     665                      .dwcfa  0x07, 21
+     666                      .dwcfa  0x07, 22
+     667                      .dwcfa  0x07, 23
+     668                      .dwcfa  0x07, 24
+     669                      .dwcfa  0x07, 25
+     670                      .dwcfa  0x07, 26
+     671                      .dwcfa  0x08, 27
+     672                      .dwcfa  0x07, 28
+     673                      .dwcfa  0x07, 29
+     674                      .dwcfa  0x07, 30
+     675                      .dwcfa  0x07, 31
+     676                      .dwcfa  0x07, 32
+     677                      .dwcfa  0x07, 33
+     678                      .dwcfa  0x07, 34
+     679                      .dwcfa  0x07, 35
+     680                      .dwcfa  0x07, 36
+     681                      .dwcfa  0x07, 37
+     682                      .dwcfa  0x07, 38
+     683                      .dwcfa  0x07, 39
+     684                      .dwcfa  0x07, 40
+     685              
+     686              ;***************************************************************
+     687              ;* DWARF REGISTER MAP                                          *
+     688              ;***************************************************************
+     689              
+     690              DW$58   .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+     691                      .dwattr DW$58, DW_AT_location[DW_OP_reg0]
+     692              DW$59   .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+     693                      .dwattr DW$59, DW_AT_location[DW_OP_reg1]
+     694              DW$60   .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+     695                      .dwattr DW$60, DW_AT_location[DW_OP_reg2]
+     696              DW$61   .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+     697                      .dwattr DW$61, DW_AT_location[DW_OP_reg3]
+     698              DW$62   .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+     699                      .dwattr DW$62, DW_AT_location[DW_OP_reg4]
+     700              DW$63   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+     701                      .dwattr DW$63, DW_AT_location[DW_OP_reg5]
+     702              DW$64   .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+     703                      .dwattr DW$64, DW_AT_location[DW_OP_reg6]
+     704              DW$65   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+     705                      .dwattr DW$65, DW_AT_location[DW_OP_reg7]
+     706              DW$66   .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+     707                      .dwattr DW$66, DW_AT_location[DW_OP_reg8]
+     708              DW$67   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+     709                      .dwattr DW$67, DW_AT_location[DW_OP_reg9]
+     710              DW$68   .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+     711                      .dwattr DW$68, DW_AT_location[DW_OP_reg10]
+     712              DW$69   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   14
+
+     713                      .dwattr DW$69, DW_AT_location[DW_OP_reg11]
+     714              DW$70   .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+     715                      .dwattr DW$70, DW_AT_location[DW_OP_reg12]
+     716              DW$71   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+     717                      .dwattr DW$71, DW_AT_location[DW_OP_reg13]
+     718              DW$72   .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+     719                      .dwattr DW$72, DW_AT_location[DW_OP_reg14]
+     720              DW$73   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+     721                      .dwattr DW$73, DW_AT_location[DW_OP_reg15]
+     722              DW$74   .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+     723                      .dwattr DW$74, DW_AT_location[DW_OP_reg16]
+     724              DW$75   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+     725                      .dwattr DW$75, DW_AT_location[DW_OP_reg17]
+     726              DW$76   .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+     727                      .dwattr DW$76, DW_AT_location[DW_OP_reg18]
+     728              DW$77   .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+     729                      .dwattr DW$77, DW_AT_location[DW_OP_reg19]
+     730              DW$78   .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+     731                      .dwattr DW$78, DW_AT_location[DW_OP_reg20]
+     732              DW$79   .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+     733                      .dwattr DW$79, DW_AT_location[DW_OP_reg21]
+     734              DW$80   .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+     735                      .dwattr DW$80, DW_AT_location[DW_OP_reg22]
+     736              DW$81   .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+     737                      .dwattr DW$81, DW_AT_location[DW_OP_reg23]
+     738              DW$82   .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+     739                      .dwattr DW$82, DW_AT_location[DW_OP_reg24]
+     740              DW$83   .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+     741                      .dwattr DW$83, DW_AT_location[DW_OP_reg25]
+     742              DW$84   .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+     743                      .dwattr DW$84, DW_AT_location[DW_OP_reg26]
+     744              DW$85   .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+     745                      .dwattr DW$85, DW_AT_location[DW_OP_reg27]
+     746              DW$86   .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+     747                      .dwattr DW$86, DW_AT_location[DW_OP_reg28]
+     748              DW$87   .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+     749                      .dwattr DW$87, DW_AT_location[DW_OP_reg29]
+     750              DW$88   .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+     751                      .dwattr DW$88, DW_AT_location[DW_OP_reg30]
+     752              DW$89   .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+     753                      .dwattr DW$89, DW_AT_location[DW_OP_reg31]
+     754              DW$90   .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+     755                      .dwattr DW$90, DW_AT_location[DW_OP_regx 0x20]
+     756              DW$91   .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+     757                      .dwattr DW$91, DW_AT_location[DW_OP_regx 0x21]
+     758              DW$92   .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+     759                      .dwattr DW$92, DW_AT_location[DW_OP_regx 0x22]
+     760              DW$93   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     761                      .dwattr DW$93, DW_AT_location[DW_OP_regx 0x23]
+     762              DW$94   .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+     763                      .dwattr DW$94, DW_AT_location[DW_OP_regx 0x24]
+     764              DW$95   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+     765                      .dwattr DW$95, DW_AT_location[DW_OP_regx 0x25]
+     766              DW$96   .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+     767                      .dwattr DW$96, DW_AT_location[DW_OP_regx 0x26]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Oct 09 16:16:01 2010
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8402                            PAGE   15
+
+     768              DW$97   .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+     769                      .dwattr DW$97, DW_AT_location[DW_OP_regx 0x27]
+     770              DW$98   .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+     771                      .dwattr DW$98, DW_AT_location[DW_OP_regx 0x28]
+     772                      .dwendtag DW$CU
+     773              
+
+No Assembly Errors, No Assembly Warnings

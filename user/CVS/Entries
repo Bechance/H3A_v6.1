@@ -1,0 +1,16 @@
+D/app////
+D/C_E////
+D/drivers////
+D/Fatfs////
+D/Gui////
+D/Keyinput_method////
+D/os_connect////
+D/support////
+D/USBstack////
+D/voice////
+/compile_cfg.h/1.1/Thu Apr 16 05:50:59 2015/-kkv/
+/global_user_data.h/1.3/Thu Apr 16 05:50:59 2015/-kkv/
+/includes.h/1.3/Thu Apr 16 05:50:59 2015/-kkv/
+/usertype.h/1.1/Thu Apr 16 05:50:59 2015/-kkv/
+/main.c/1.3/Thu Apr  9 03:14:14 2015/-kkv/
+/main_ext.c/1.6/Thu Apr  9 03:14:14 2015/-kkv/

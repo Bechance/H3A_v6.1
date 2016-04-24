@@ -1,0 +1,41 @@
+typedef  struct
+{
+	Bsize_t(  * os_mod_add )( void );
+    	Bsize_t* pmod_id;
+	uint32_t crc;
+}mod_member_t;
+
+
+
+1 
+#pragma DATA_SECTION (app_err_mod_list,"MOD_LIST_ADDR")
+const mod_member_t app_err_mod_list[]=
+{
+	app_ERRmod_add,
+	&g_module_id_array.correct_mod_id,
+	0x5a5a
+};
+
+
+2  /********************************************************************
+ * @作者 :揭成
+ * @功能:初始化系统功能模块，对各个模块的注册
+ *
+ * @输入:NONE
+ *
+ *@输出:NONE
+********************************************************************/
+void app_mod_mount( void )
+{   
+    Bsize_t offset;
+	mod_member_t*plist;
+    plist=GET_MODLIST_ADDR();
+	for(offset=0;offset<25;offset++)
+	{
+		if(plist[offset].crc==0x5a5a)
+		{
+           *(plist[offset].pmod_id)=(plist[offset].os_mod_add());
+		}
+	}
+	return;
+}

@@ -1,0 +1,2713 @@
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
+       3              ;* Date/Time created: Sat Sep 24 16:15:20 2011                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
+       6        0002  FP      .set    XAR2
+       7              
+       8              DW$CU   .dwtag  DW_TAG_compile_unit
+       9                      .dwattr DW$CU, DW_AT_name("os_connect_maneger.c")
+      10                      .dwattr DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v4.1.3 Copyright (c) 1996-2006 Texas Inst
+      11                      .dwattr DW$CU, DW_AT_stmt_list(0x00)
+      12                      .dwattr DW$CU, DW_AT_TI_VERSION(0x01)
+      13              ;**************************************************************
+      14              ;* CINIT RECORDS                                              *
+      15              ;**************************************************************
+      16 00000000               .sect   ".cinit"
+      17                      .align  1
+      18 00000000 FFFF          .field          -1,16
+      19 00000001 0000-         .field          _m_event_stat_cnt+0,32
+         00000002 0000 
+      20 00000003 0000          .field          0,16                    ; _m_event_stat_cnt @ 0
+      21              
+      22 00000004               .sect   ".cinit"
+      23                      .align  1
+      24 00000004 FFFE          .field          -2,16
+      25 00000005 0002-         .field          _m_task_lock+0,32
+         00000006 0000 
+      26 00000007 0000          .field          0,32                    ; _m_task_lock @ 0
+         00000008 0000 
+      27              
+      28 00000009               .sect   ".cinit"
+      29                      .align  1
+      30 00000009 FFFF          .field          -IR_1,16
+      31 0000000a 0000-         .field          _OSTaskStatStk+0,32
+         0000000b 0000 
+      32 0000000c 0000          .field          0,16                    ; _OSTaskStatStk[0] @ 0
+      33        0001  IR_1:   .set    1
+      34              
+      35 0000000d               .sect   ".cinit"
+      36                      .align  1
+      37 0000000d FFFF          .field          -IR_2,16
+      38 0000000e 0080-         .field          _OSTaskIdleStk+0,32
+         0000000f 0000 
+      39 00000010 0000          .field          0,16                    ; _OSTaskIdleStk[0] @ 0
+      40        0001  IR_2:   .set    1
+      41              
+      42 00000011               .sect   ".cinit"
+      43                      .align  1
+      44 00000011 FFFF          .field          -IR_3,16
+      45 00000012 0180-         .field          _m_stk_array+0,32
+         00000013 0000 
+      46 00000014 0000          .field          0,16                    ; _m_stk_array[0][0] @ 0
+      47        0001  IR_3:   .set    1
+      48              
+      49              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    2
+
+      50              DW$1    .dwtag  DW_TAG_subprogram, DW_AT_name("app_module_maneger_exit"), DW_AT_symbol_name("_app_module_mane
+      51                      .dwattr DW$1, DW_AT_declaration(0x01)
+      52                      .dwattr DW$1, DW_AT_external(0x01)
+      53              DW$2    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+      54                      .dwendtag DW$1
+      55              
+      56              
+      57              DW$3    .dwtag  DW_TAG_subprogram, DW_AT_name("global_memset"), DW_AT_symbol_name("_global_memset")
+      58                      .dwattr DW$3, DW_AT_declaration(0x01)
+      59                      .dwattr DW$3, DW_AT_external(0x01)
+      60              DW$4    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+      61              DW$5    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+      62              DW$6    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+      63                      .dwendtag DW$3
+      64              
+      65              
+      66              DW$7    .dwtag  DW_TAG_subprogram, DW_AT_name("OS_EventWaitListInit"), DW_AT_symbol_name("_OS_EventWaitListIn
+      67                      .dwattr DW$7, DW_AT_declaration(0x01)
+      68                      .dwattr DW$7, DW_AT_external(0x01)
+      69              DW$8    .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      70                      .dwendtag DW$7
+      71              
+      72              
+      73              DW$9    .dwtag  DW_TAG_subprogram, DW_AT_name("os_driver_maneger_tab_init"), DW_AT_symbol_name("_os_driver_ma
+      74                      .dwattr DW$9, DW_AT_declaration(0x01)
+      75                      .dwattr DW$9, DW_AT_external(0x01)
+      76              
+      77              DW$10   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTaskNameSet"), DW_AT_symbol_name("_OSTaskNameSet")
+      78                      .dwattr DW$10, DW_AT_declaration(0x01)
+      79                      .dwattr DW$10, DW_AT_external(0x01)
+      80              DW$11   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+      81              DW$12   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+      82              DW$13   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+      83                      .dwendtag DW$10
+      84              
+      85              
+      86              DW$14   .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemPend"), DW_AT_symbol_name("_OSSemPend")
+      87                      .dwattr DW$14, DW_AT_declaration(0x01)
+      88                      .dwattr DW$14, DW_AT_external(0x01)
+      89              DW$15   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      90              DW$16   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+      91              DW$17   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+      92                      .dwendtag DW$14
+      93              
+      94              
+      95              DW$18   .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemSet"), DW_AT_symbol_name("_OSSemSet")
+      96                      .dwattr DW$18, DW_AT_declaration(0x01)
+      97                      .dwattr DW$18, DW_AT_external(0x01)
+      98              DW$19   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+      99              DW$20   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     100              DW$21   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+     101                      .dwendtag DW$18
+     102              
+     103                      .global _m_event_stat_cnt
+     104 00000000       _m_event_stat_cnt:      .usect  ".ebss",1,1,0
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    3
+
+     105              DW$22   .dwtag  DW_TAG_variable, DW_AT_name("m_event_stat_cnt"), DW_AT_symbol_name("_m_event_stat_cnt")
+     106                      .dwattr DW$22, DW_AT_location[DW_OP_addr _m_event_stat_cnt]
+     107                      .dwattr DW$22, DW_AT_type(*DW$T$37)
+     108                      .dwattr DW$22, DW_AT_external(0x01)
+     109              DW$23   .dwtag  DW_TAG_variable, DW_AT_name("OSPrioCur"), DW_AT_symbol_name("_OSPrioCur")
+     110                      .dwattr DW$23, DW_AT_type(*DW$T$19)
+     111                      .dwattr DW$23, DW_AT_declaration(0x01)
+     112                      .dwattr DW$23, DW_AT_external(0x01)
+     113              
+     114              DW$24   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTaskNameGet"), DW_AT_symbol_name("_OSTaskNameGet")
+     115                      .dwattr DW$24, DW_AT_type(*DW$T$19)
+     116                      .dwattr DW$24, DW_AT_declaration(0x01)
+     117                      .dwattr DW$24, DW_AT_external(0x01)
+     118              DW$25   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+     119              DW$26   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+     120              DW$27   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+     121                      .dwendtag DW$24
+     122              
+     123              
+     124              DW$28   .dwtag  DW_TAG_subprogram, DW_AT_name("global_memcmp"), DW_AT_symbol_name("_global_memcmp")
+     125                      .dwattr DW$28, DW_AT_type(*DW$T$63)
+     126                      .dwattr DW$28, DW_AT_declaration(0x01)
+     127                      .dwattr DW$28, DW_AT_external(0x01)
+     128              DW$29   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     129              DW$30   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     130              DW$31   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+     131                      .dwendtag DW$28
+     132              
+     133              
+     134              DW$32   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTaskDel"), DW_AT_symbol_name("_OSTaskDel")
+     135                      .dwattr DW$32, DW_AT_type(*DW$T$19)
+     136                      .dwattr DW$32, DW_AT_declaration(0x01)
+     137                      .dwattr DW$32, DW_AT_external(0x01)
+     138              DW$33   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+     139                      .dwendtag DW$32
+     140              
+     141              
+     142              DW$34   .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemPost"), DW_AT_symbol_name("_OSSemPost")
+     143                      .dwattr DW$34, DW_AT_type(*DW$T$19)
+     144                      .dwattr DW$34, DW_AT_declaration(0x01)
+     145                      .dwattr DW$34, DW_AT_external(0x01)
+     146              DW$35   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     147                      .dwendtag DW$34
+     148              
+     149              
+     150              DW$36   .dwtag  DW_TAG_subprogram, DW_AT_name("OSTaskCreateExt"), DW_AT_symbol_name("_OSTaskCreateExt")
+     151                      .dwattr DW$36, DW_AT_type(*DW$T$19)
+     152                      .dwattr DW$36, DW_AT_declaration(0x01)
+     153                      .dwattr DW$36, DW_AT_external(0x01)
+     154              DW$37   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+     155              DW$38   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     156              DW$39   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+     157              DW$40   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+     158              DW$41   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     159              DW$42   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    4
+
+     160              DW$43   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$56)
+     161              DW$44   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+     162              DW$45   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     163                      .dwendtag DW$36
+     164              
+     165              
+     166              DW$46   .dwtag  DW_TAG_subprogram, DW_AT_name("OSQFlush"), DW_AT_symbol_name("_OSQFlush")
+     167                      .dwattr DW$46, DW_AT_type(*DW$T$19)
+     168                      .dwattr DW$46, DW_AT_declaration(0x01)
+     169                      .dwattr DW$46, DW_AT_external(0x01)
+     170              DW$47   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+     171                      .dwendtag DW$46
+     172              
+     173              
+     174              DW$48   .dwtag  DW_TAG_subprogram, DW_AT_name("app_module_maneger_init"), DW_AT_symbol_name("_app_module_mane
+     175                      .dwattr DW$48, DW_AT_type(*DW$T$10)
+     176                      .dwattr DW$48, DW_AT_declaration(0x01)
+     177                      .dwattr DW$48, DW_AT_external(0x01)
+     178              
+     179              DW$49   .dwtag  DW_TAG_subprogram, DW_AT_name("OSQCreate"), DW_AT_symbol_name("_OSQCreate")
+     180                      .dwattr DW$49, DW_AT_type(*DW$T$25)
+     181                      .dwattr DW$49, DW_AT_declaration(0x01)
+     182                      .dwattr DW$49, DW_AT_external(0x01)
+     183              DW$50   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+     184              DW$51   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     185                      .dwendtag DW$49
+     186              
+     187                      .global _m_task_lock
+     188 00000002       _m_task_lock:   .usect  ".ebss",2,1,1
+     189              DW$52   .dwtag  DW_TAG_variable, DW_AT_name("m_task_lock"), DW_AT_symbol_name("_m_task_lock")
+     190                      .dwattr DW$52, DW_AT_location[DW_OP_addr _m_task_lock]
+     191                      .dwattr DW$52, DW_AT_type(*DW$T$43)
+     192                      .dwattr DW$52, DW_AT_external(0x01)
+     193              
+     194              DW$53   .dwtag  DW_TAG_subprogram, DW_AT_name("OSSemCreate"), DW_AT_symbol_name("_OSSemCreate")
+     195                      .dwattr DW$53, DW_AT_type(*DW$T$25)
+     196                      .dwattr DW$53, DW_AT_declaration(0x01)
+     197                      .dwattr DW$53, DW_AT_external(0x01)
+     198              DW$54   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+     199                      .dwendtag DW$53
+     200              
+     201              
+     202              DW$55   .dwtag  DW_TAG_subprogram, DW_AT_name("global_string_locate_first"), DW_AT_symbol_name("_global_strin
+     203                      .dwattr DW$55, DW_AT_type(*DW$T$84)
+     204                      .dwattr DW$55, DW_AT_declaration(0x01)
+     205                      .dwattr DW$55, DW_AT_external(0x01)
+     206              DW$56   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$84)
+     207              DW$57   .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$84)
+     208                      .dwendtag DW$55
+     209              
+     210                      .global _m_task_pro_array
+     211 00000004       _m_task_pro_array:      .usect  ".ebss",48,1,0
+     212              DW$58   .dwtag  DW_TAG_variable, DW_AT_name("m_task_pro_array"), DW_AT_symbol_name("_m_task_pro_array")
+     213                      .dwattr DW$58, DW_AT_location[DW_OP_addr _m_task_pro_array]
+     214                      .dwattr DW$58, DW_AT_type(*DW$T$86)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    5
+
+     215                      .dwattr DW$58, DW_AT_external(0x01)
+     216                      .global _OSTaskStatStk
+     217 00000000       _OSTaskStatStk: .usect  "MY_MEM",128,1,0
+     218              DW$59   .dwtag  DW_TAG_variable, DW_AT_name("OSTaskStatStk"), DW_AT_symbol_name("_OSTaskStatStk")
+     219                      .dwattr DW$59, DW_AT_location[DW_OP_addr _OSTaskStatStk]
+     220                      .dwattr DW$59, DW_AT_type(*DW$T$91)
+     221                      .dwattr DW$59, DW_AT_external(0x01)
+     222                      .global _OSTaskIdleStk
+     223 00000080       _OSTaskIdleStk: .usect  "MY_MEM",256,1,0
+     224              DW$60   .dwtag  DW_TAG_variable, DW_AT_name("OSTaskIdleStk"), DW_AT_symbol_name("_OSTaskIdleStk")
+     225                      .dwattr DW$60, DW_AT_location[DW_OP_addr _OSTaskIdleStk]
+     226                      .dwattr DW$60, DW_AT_type(*DW$T$95)
+     227                      .dwattr DW$60, DW_AT_external(0x01)
+     228                      .global _m_stk_array
+     229 00000180       _m_stk_array:   .usect  "MY_MEM",7520,1,0
+     230              DW$61   .dwtag  DW_TAG_variable, DW_AT_name("m_stk_array"), DW_AT_symbol_name("_m_stk_array")
+     231                      .dwattr DW$61, DW_AT_location[DW_OP_addr _m_stk_array]
+     232                      .dwattr DW$61, DW_AT_type(*DW$T$93)
+     233                      .dwattr DW$61, DW_AT_external(0x01)
+     234              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8604 
+     235 00000000               .sect   ".text"
+     236                      .global _os_lock
+     237              
+     238              DW$62   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock"), DW_AT_symbol_name("_os_lock")
+     239                      .dwattr DW$62, DW_AT_low_pc(_os_lock)
+     240                      .dwattr DW$62, DW_AT_high_pc(0x00)
+     241                      .dwattr DW$62, DW_AT_begin_file("os_connect_maneger.c")
+     242                      .dwattr DW$62, DW_AT_begin_line(0x4a)
+     243                      .dwattr DW$62, DW_AT_begin_column(0x07)
+     244                      .dwpsn  "os_connect_maneger.c",75,1
+     245              
+     246                      .dwfde DW$CIE
+     247              
+     248              ;***************************************************************
+     249              ;* FNAME: _os_lock                      FR SIZE:   4           *
+     250              ;*                                                             *
+     251              ;* FUNCTION ENVIRONMENT                                        *
+     252              ;*                                                             *
+     253              ;* FUNCTION PROPERTIES                                         *
+     254              ;*                            0 Parameter,  3 Auto,  0 SOE     *
+     255              ;***************************************************************
+     256              
+     257              _os_lock:
+     258                      .dwcfa  0x1d, -2
+     259                      .dwcfa  0x1c, 26, 0
+     260                      .dwcfa  0x09, 40, 26
+     261 00000000 FE04          ADDB      SP,#4
+     262                      .dwcfa  0x1d, -6
+     263              ;* AR4   assigned to _sem
+     264              DW$63   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     265                      .dwattr DW$63, DW_AT_type(*DW$T$43)
+     266                      .dwattr DW$63, DW_AT_location[DW_OP_reg12]
+     267              DW$64   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     268                      .dwattr DW$64, DW_AT_type(*DW$T$43)
+     269                      .dwattr DW$64, DW_AT_location[DW_OP_breg20 -2]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    6
+
+     270              DW$65   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+     271                      .dwattr DW$65, DW_AT_type(*DW$T$6)
+     272                      .dwattr DW$65, DW_AT_location[DW_OP_breg20 -3]
+     273 00000001 A842          MOVL      *-SP[2],XAR4          ; |75| 
+     274                      .dwpsn  "os_connect_maneger.c",77,2
+     275 00000002 5DAD          MOVZ      AR5,SP                ; |77| 
+     276 00000003 8A42          MOVL      XAR4,*-SP[2]          ; |77| 
+     277 00000004 9A00          MOVB      AL,#0
+     278 00000005 DD83          SUBB      XAR5,#3               ; |77| 
+     279 00000006 7640!         LCR       #_OSSemPend           ; |77| 
+         00000007 0000 
+     280                      ; call occurs [#_OSSemPend] ; |77| 
+     281                      .dwpsn  "os_connect_maneger.c",78,2
+     282                      .dwpsn  "os_connect_maneger.c",79,1
+     283 00000008 FE84          SUBB      SP,#4
+     284                      .dwcfa  0x1d, -2
+     285 00000009 0006          LRETR
+     286                      ; return occurs
+     287                      .dwattr DW$62, DW_AT_end_file("os_connect_maneger.c")
+     288                      .dwattr DW$62, DW_AT_end_line(0x4f)
+     289                      .dwattr DW$62, DW_AT_end_column(0x01)
+     290                      .dwendentry
+     291                      .dwendtag DW$62
+     292              
+     293 0000000a               .sect   ".text"
+     294                      .global _os_unlock
+     295              
+     296              DW$66   .dwtag  DW_TAG_subprogram, DW_AT_name("os_unlock"), DW_AT_symbol_name("_os_unlock")
+     297                      .dwattr DW$66, DW_AT_low_pc(_os_unlock)
+     298                      .dwattr DW$66, DW_AT_high_pc(0x00)
+     299                      .dwattr DW$66, DW_AT_begin_file("os_connect_maneger.c")
+     300                      .dwattr DW$66, DW_AT_begin_line(0x50)
+     301                      .dwattr DW$66, DW_AT_begin_column(0x06)
+     302                      .dwpsn  "os_connect_maneger.c",81,1
+     303              
+     304                      .dwfde DW$CIE
+     305              
+     306              ;***************************************************************
+     307              ;* FNAME: _os_unlock                    FR SIZE:   2           *
+     308              ;*                                                             *
+     309              ;* FUNCTION ENVIRONMENT                                        *
+     310              ;*                                                             *
+     311              ;* FUNCTION PROPERTIES                                         *
+     312              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     313              ;***************************************************************
+     314              
+     315              _os_unlock:
+     316                      .dwcfa  0x1d, -2
+     317                      .dwcfa  0x1c, 26, 0
+     318                      .dwcfa  0x09, 40, 26
+     319 0000000a FE02          ADDB      SP,#2
+     320                      .dwcfa  0x1d, -4
+     321              ;* AR4   assigned to _sem
+     322              DW$67   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     323                      .dwattr DW$67, DW_AT_type(*DW$T$43)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    7
+
+     324                      .dwattr DW$67, DW_AT_location[DW_OP_reg12]
+     325              DW$68   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     326                      .dwattr DW$68, DW_AT_type(*DW$T$43)
+     327                      .dwattr DW$68, DW_AT_location[DW_OP_breg20 -2]
+     328 0000000b A842          MOVL      *-SP[2],XAR4          ; |81| 
+     329                      .dwpsn  "os_connect_maneger.c",82,2
+     330 0000000c 8A42          MOVL      XAR4,*-SP[2]          ; |82| 
+     331 0000000d 7640!         LCR       #_OSSemPost           ; |82| 
+         0000000e 0000 
+     332                      ; call occurs [#_OSSemPost] ; |82| 
+     333                      .dwpsn  "os_connect_maneger.c",83,2
+     334                      .dwpsn  "os_connect_maneger.c",84,1
+     335 0000000f FE82          SUBB      SP,#2
+     336                      .dwcfa  0x1d, -2
+     337 00000010 0006          LRETR
+     338                      ; return occurs
+     339                      .dwattr DW$66, DW_AT_end_file("os_connect_maneger.c")
+     340                      .dwattr DW$66, DW_AT_end_line(0x54)
+     341                      .dwattr DW$66, DW_AT_end_column(0x01)
+     342                      .dwendentry
+     343                      .dwendtag DW$66
+     344              
+     345 00000011               .sect   ".text"
+     346                      .global _os_lock_revert
+     347              
+     348              DW$69   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock_revert"), DW_AT_symbol_name("_os_lock_revert")
+     349                      .dwattr DW$69, DW_AT_low_pc(_os_lock_revert)
+     350                      .dwattr DW$69, DW_AT_high_pc(0x00)
+     351                      .dwattr DW$69, DW_AT_begin_file("os_connect_maneger.c")
+     352                      .dwattr DW$69, DW_AT_begin_line(0x55)
+     353                      .dwattr DW$69, DW_AT_begin_column(0x06)
+     354                      .dwpsn  "os_connect_maneger.c",86,1
+     355              
+     356                      .dwfde DW$CIE
+     357              
+     358              ;***************************************************************
+     359              ;* FNAME: _os_lock_revert               FR SIZE:   2           *
+     360              ;*                                                             *
+     361              ;* FUNCTION ENVIRONMENT                                        *
+     362              ;*                                                             *
+     363              ;* FUNCTION PROPERTIES                                         *
+     364              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     365              ;***************************************************************
+     366              
+     367              _os_lock_revert:
+     368                      .dwcfa  0x1d, -2
+     369                      .dwcfa  0x1c, 26, 0
+     370                      .dwcfa  0x09, 40, 26
+     371 00000011 FE02          ADDB      SP,#2
+     372                      .dwcfa  0x1d, -4
+     373              ;* AR4   assigned to _sem
+     374              DW$70   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     375                      .dwattr DW$70, DW_AT_type(*DW$T$43)
+     376                      .dwattr DW$70, DW_AT_location[DW_OP_reg12]
+     377              DW$71   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    8
+
+     378                      .dwattr DW$71, DW_AT_type(*DW$T$43)
+     379                      .dwattr DW$71, DW_AT_location[DW_OP_breg20 -2]
+     380 00000012 A842          MOVL      *-SP[2],XAR4          ; |86| 
+     381                      .dwpsn  "os_connect_maneger.c",87,2
+     382 00000013 8A42          MOVL      XAR4,*-SP[2]          ; |87| 
+     383 00000014 9A01          MOVB      AL,#1                 ; |87| 
+     384 00000015 7640'         LCR       #_os_sem_revert       ; |87| 
+         00000016 0057 
+     385                      ; call occurs [#_os_sem_revert] ; |87| 
+     386                      .dwpsn  "os_connect_maneger.c",88,2
+     387                      .dwpsn  "os_connect_maneger.c",89,1
+     388 00000017 FE82          SUBB      SP,#2
+     389                      .dwcfa  0x1d, -2
+     390 00000018 0006          LRETR
+     391                      ; return occurs
+     392                      .dwattr DW$69, DW_AT_end_file("os_connect_maneger.c")
+     393                      .dwattr DW$69, DW_AT_end_line(0x59)
+     394                      .dwattr DW$69, DW_AT_end_column(0x01)
+     395                      .dwendentry
+     396                      .dwendtag DW$69
+     397              
+     398 00000019               .sect   ".text"
+     399                      .global _os_lock_creat
+     400              
+     401              DW$72   .dwtag  DW_TAG_subprogram, DW_AT_name("os_lock_creat"), DW_AT_symbol_name("_os_lock_creat")
+     402                      .dwattr DW$72, DW_AT_low_pc(_os_lock_creat)
+     403                      .dwattr DW$72, DW_AT_high_pc(0x00)
+     404                      .dwattr DW$72, DW_AT_begin_file("os_connect_maneger.c")
+     405                      .dwattr DW$72, DW_AT_begin_line(0x5a)
+     406                      .dwattr DW$72, DW_AT_begin_column(0x09)
+     407                      .dwpsn  "os_connect_maneger.c",91,1
+     408              
+     409                      .dwfde DW$CIE
+     410              
+     411              ;***************************************************************
+     412              ;* FNAME: _os_lock_creat                FR SIZE:   2           *
+     413              ;*                                                             *
+     414              ;* FUNCTION ENVIRONMENT                                        *
+     415              ;*                                                             *
+     416              ;* FUNCTION PROPERTIES                                         *
+     417              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     418              ;***************************************************************
+     419              
+     420              _os_lock_creat:
+     421                      .dwcfa  0x1d, -2
+     422                      .dwcfa  0x1c, 26, 0
+     423                      .dwcfa  0x09, 40, 26
+     424 00000019 FE02          ADDB      SP,#2
+     425                      .dwcfa  0x1d, -4
+     426              ;* AR4   assigned to _sem
+     427              DW$73   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     428                      .dwattr DW$73, DW_AT_type(*DW$T$67)
+     429                      .dwattr DW$73, DW_AT_location[DW_OP_reg12]
+     430              DW$74   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     431                      .dwattr DW$74, DW_AT_type(*DW$T$67)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE    9
+
+     432                      .dwattr DW$74, DW_AT_location[DW_OP_breg20 -2]
+     433 0000001a A842          MOVL      *-SP[2],XAR4          ; |91| 
+     434                      .dwpsn  "os_connect_maneger.c",92,2
+     435 0000001b 8A42          MOVL      XAR4,*-SP[2]          ; |92| 
+     436 0000001c 06C4          MOVL      ACC,*+XAR4[0]         ; |92| 
+     437 0000001d ED10          BF        L2,NEQ                ; |92| 
+     438                      ; branchcc occurs ; |92| 
+     439                      .dwpsn  "os_connect_maneger.c",94,3
+     440 0000001e 9A01          MOVB      AL,#1                 ; |94| 
+     441 0000001f 7640!         LCR       #_OSSemCreate         ; |94| 
+         00000020 0000 
+     442                      ; call occurs [#_OSSemCreate] ; |94| 
+     443 00000021 8342          MOVL      XAR5,*-SP[2]          ; |94| 
+     444 00000022 A8C5          MOVL      *+XAR5[0],XAR4        ; |94| 
+     445                      .dwpsn  "os_connect_maneger.c",95,3
+     446 00000023 8A42          MOVL      XAR4,*-SP[2]          ; |95| 
+     447 00000024 06C4          MOVL      ACC,*+XAR4[0]         ; |95| 
+     448 00000025 ED03          BF        L1,NEQ                ; |95| 
+     449                      ; branchcc occurs ; |95| 
+     450                      .dwpsn  "os_connect_maneger.c",98,4
+     451 00000026 9A01          MOVB      AL,#1                 ; |98| 
+     452 00000027 6F0B          B         L3,UNC                ; |98| 
+     453                      ; branch occurs ; |98| 
+     454              L1:    
+     455                      .dwpsn  "os_connect_maneger.c",100,3
+     456 00000028 761F-         MOVW      DP,#_m_event_stat_cnt
+         00000029 0000 
+     457 0000002a 0A00-         INC       @_m_event_stat_cnt    ; |100| 
+     458                      .dwpsn  "os_connect_maneger.c",101,3
+     459 0000002b 9A00          MOVB      AL,#0
+     460 0000002c 6F06          B         L3,UNC                ; |101| 
+     461                      ; branch occurs ; |101| 
+     462              L2:    
+     463                      .dwpsn  "os_connect_maneger.c",103,2
+     464 0000002d 8A42          MOVL      XAR4,*-SP[2]          ; |103| 
+     465 0000002e 8AC4          MOVL      XAR4,*+XAR4[0]        ; |103| 
+     466 0000002f 7640'         LCR       #_os_lock_revert      ; |103| 
+         00000030 0011 
+     467                      ; call occurs [#_os_lock_revert] ; |103| 
+     468                      .dwpsn  "os_connect_maneger.c",104,2
+     469 00000031 9A02          MOVB      AL,#2                 ; |104| 
+     470              L3:    
+     471                      .dwpsn  "os_connect_maneger.c",105,1
+     472 00000032 FE82          SUBB      SP,#2                 ; |104| 
+     473                      .dwcfa  0x1d, -2
+     474 00000033 0006          LRETR
+     475                      ; return occurs
+     476                      .dwattr DW$72, DW_AT_end_file("os_connect_maneger.c")
+     477                      .dwattr DW$72, DW_AT_end_line(0x69)
+     478                      .dwattr DW$72, DW_AT_end_column(0x01)
+     479                      .dwendentry
+     480                      .dwendtag DW$72
+     481              
+     482 00000034               .sect   ".text"
+     483                      .global _os_sem_creat
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   10
+
+     484              
+     485              DW$75   .dwtag  DW_TAG_subprogram, DW_AT_name("os_sem_creat"), DW_AT_symbol_name("_os_sem_creat")
+     486                      .dwattr DW$75, DW_AT_low_pc(_os_sem_creat)
+     487                      .dwattr DW$75, DW_AT_high_pc(0x00)
+     488                      .dwattr DW$75, DW_AT_begin_file("os_connect_maneger.c")
+     489                      .dwattr DW$75, DW_AT_begin_line(0x72)
+     490                      .dwattr DW$75, DW_AT_begin_column(0x09)
+     491                      .dwpsn  "os_connect_maneger.c",115,1
+     492              
+     493                      .dwfde DW$CIE
+     494              
+     495              ;***************************************************************
+     496              ;* FNAME: _os_sem_creat                 FR SIZE:   4           *
+     497              ;*                                                             *
+     498              ;* FUNCTION ENVIRONMENT                                        *
+     499              ;*                                                             *
+     500              ;* FUNCTION PROPERTIES                                         *
+     501              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     502              ;***************************************************************
+     503              
+     504              _os_sem_creat:
+     505                      .dwcfa  0x1d, -2
+     506                      .dwcfa  0x1c, 26, 0
+     507                      .dwcfa  0x09, 40, 26
+     508 00000034 FE04          ADDB      SP,#4
+     509                      .dwcfa  0x1d, -6
+     510              ;* AR4   assigned to _sem
+     511              DW$76   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     512                      .dwattr DW$76, DW_AT_type(*DW$T$72)
+     513                      .dwattr DW$76, DW_AT_location[DW_OP_reg12]
+     514              ;* AL    assigned to _cnt
+     515              DW$77   .dwtag  DW_TAG_formal_parameter, DW_AT_name("cnt"), DW_AT_symbol_name("_cnt")
+     516                      .dwattr DW$77, DW_AT_type(*DW$T$11)
+     517                      .dwattr DW$77, DW_AT_location[DW_OP_reg0]
+     518              DW$78   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     519                      .dwattr DW$78, DW_AT_type(*DW$T$72)
+     520                      .dwattr DW$78, DW_AT_location[DW_OP_breg20 -2]
+     521              DW$79   .dwtag  DW_TAG_variable, DW_AT_name("cnt"), DW_AT_symbol_name("_cnt")
+     522                      .dwattr DW$79, DW_AT_type(*DW$T$11)
+     523                      .dwattr DW$79, DW_AT_location[DW_OP_breg20 -3]
+     524              DW$80   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+     525                      .dwattr DW$80, DW_AT_type(*DW$T$6)
+     526                      .dwattr DW$80, DW_AT_location[DW_OP_breg20 -4]
+     527 00000035 9643          MOV       *-SP[3],AL            ; |115| 
+     528 00000036 A842          MOVL      *-SP[2],XAR4          ; |115| 
+     529                      .dwpsn  "os_connect_maneger.c",116,10
+     530 00000037 2B44          MOV       *-SP[4],#0            ; |116| 
+     531                      .dwpsn  "os_connect_maneger.c",117,2
+     532 00000038 8A42          MOVL      XAR4,*-SP[2]          ; |117| 
+     533 00000039 06C4          MOVL      ACC,*+XAR4[0]         ; |117| 
+     534 0000003a ED10          BF        L5,NEQ                ; |117| 
+     535                      ; branchcc occurs ; |117| 
+     536                      .dwpsn  "os_connect_maneger.c",119,3
+     537 0000003b 9243          MOV       AL,*-SP[3]            ; |119| 
+     538 0000003c 7640!         LCR       #_OSSemCreate         ; |119| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   11
+
+         0000003d 0000 
+     539                      ; call occurs [#_OSSemCreate] ; |119| 
+     540 0000003e 8342          MOVL      XAR5,*-SP[2]          ; |119| 
+     541 0000003f A8C5          MOVL      *+XAR5[0],XAR4        ; |119| 
+     542                      .dwpsn  "os_connect_maneger.c",120,3
+     543 00000040 8A42          MOVL      XAR4,*-SP[2]          ; |120| 
+     544 00000041 06C4          MOVL      ACC,*+XAR4[0]         ; |120| 
+     545 00000042 ED03          BF        L4,NEQ                ; |120| 
+     546                      ; branchcc occurs ; |120| 
+     547                      .dwpsn  "os_connect_maneger.c",123,4
+     548 00000043 9A04          MOVB      AL,#4                 ; |123| 
+     549 00000044 6F11          B         L7,UNC                ; |123| 
+     550                      ; branch occurs ; |123| 
+     551              L4:    
+     552                      .dwpsn  "os_connect_maneger.c",125,3
+     553 00000045 761F-         MOVW      DP,#_m_event_stat_cnt
+         00000046 0000 
+     554 00000047 0A00-         INC       @_m_event_stat_cnt    ; |125| 
+     555                      .dwpsn  "os_connect_maneger.c",126,3
+     556 00000048 9A03          MOVB      AL,#3                 ; |126| 
+     557 00000049 6F0C          B         L7,UNC                ; |126| 
+     558                      ; branch occurs ; |126| 
+     559              L5:    
+     560                      .dwpsn  "os_connect_maneger.c",128,2
+     561 0000004a 8A42          MOVL      XAR4,*-SP[2]          ; |128| 
+     562 0000004b 8AC4          MOVL      XAR4,*+XAR4[0]        ; |128| 
+     563 0000004c 9243          MOV       AL,*-SP[3]            ; |128| 
+     564 0000004d 7640'         LCR       #_os_sem_revert       ; |128| 
+         0000004e 0057 
+     565                      ; call occurs [#_os_sem_revert] ; |128| 
+     566 0000004f 9644          MOV       *-SP[4],AL            ; |128| 
+     567                      .dwpsn  "os_connect_maneger.c",129,2
+     568 00000050 5200          CMPB      AL,#0                 ; |129| 
+     569 00000051 EC03          BF        L6,EQ                 ; |129| 
+     570                      ; branchcc occurs ; |129| 
+     571                      .dwpsn  "os_connect_maneger.c",131,3
+     572 00000052 9A04          MOVB      AL,#4                 ; |131| 
+     573 00000053 6F02          B         L7,UNC                ; |131| 
+     574                      ; branch occurs ; |131| 
+     575              L6:    
+     576                      .dwpsn  "os_connect_maneger.c",133,2
+     577 00000054 9A05          MOVB      AL,#5                 ; |133| 
+     578              L7:    
+     579                      .dwpsn  "os_connect_maneger.c",134,1
+     580 00000055 FE84          SUBB      SP,#4                 ; |133| 
+     581                      .dwcfa  0x1d, -2
+     582 00000056 0006          LRETR
+     583                      ; return occurs
+     584                      .dwattr DW$75, DW_AT_end_file("os_connect_maneger.c")
+     585                      .dwattr DW$75, DW_AT_end_line(0x86)
+     586                      .dwattr DW$75, DW_AT_end_column(0x01)
+     587                      .dwendentry
+     588                      .dwendtag DW$75
+     589              
+     590 00000057               .sect   ".text"
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   12
+
+     591                      .global _os_sem_revert
+     592              
+     593              DW$81   .dwtag  DW_TAG_subprogram, DW_AT_name("os_sem_revert"), DW_AT_symbol_name("_os_sem_revert")
+     594                      .dwattr DW$81, DW_AT_low_pc(_os_sem_revert)
+     595                      .dwattr DW$81, DW_AT_high_pc(0x00)
+     596                      .dwattr DW$81, DW_AT_begin_file("os_connect_maneger.c")
+     597                      .dwattr DW$81, DW_AT_begin_line(0x87)
+     598                      .dwattr DW$81, DW_AT_begin_column(0x09)
+     599                      .dwpsn  "os_connect_maneger.c",136,1
+     600              
+     601                      .dwfde DW$CIE
+     602              
+     603              ;***************************************************************
+     604              ;* FNAME: _os_sem_revert                FR SIZE:   4           *
+     605              ;*                                                             *
+     606              ;* FUNCTION ENVIRONMENT                                        *
+     607              ;*                                                             *
+     608              ;* FUNCTION PROPERTIES                                         *
+     609              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     610              ;***************************************************************
+     611              
+     612              _os_sem_revert:
+     613                      .dwcfa  0x1d, -2
+     614                      .dwcfa  0x1c, 26, 0
+     615                      .dwcfa  0x09, 40, 26
+     616 00000057 FE04          ADDB      SP,#4
+     617                      .dwcfa  0x1d, -6
+     618              ;* AR4   assigned to _sem
+     619              DW$82   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     620                      .dwattr DW$82, DW_AT_type(*DW$T$71)
+     621                      .dwattr DW$82, DW_AT_location[DW_OP_reg12]
+     622              ;* AL    assigned to _cnt
+     623              DW$83   .dwtag  DW_TAG_formal_parameter, DW_AT_name("cnt"), DW_AT_symbol_name("_cnt")
+     624                      .dwattr DW$83, DW_AT_type(*DW$T$11)
+     625                      .dwattr DW$83, DW_AT_location[DW_OP_reg0]
+     626              DW$84   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     627                      .dwattr DW$84, DW_AT_type(*DW$T$71)
+     628                      .dwattr DW$84, DW_AT_location[DW_OP_breg20 -2]
+     629              DW$85   .dwtag  DW_TAG_variable, DW_AT_name("cnt"), DW_AT_symbol_name("_cnt")
+     630                      .dwattr DW$85, DW_AT_type(*DW$T$11)
+     631                      .dwattr DW$85, DW_AT_location[DW_OP_breg20 -3]
+     632              DW$86   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+     633                      .dwattr DW$86, DW_AT_type(*DW$T$6)
+     634                      .dwattr DW$86, DW_AT_location[DW_OP_breg20 -4]
+     635 00000058 9643          MOV       *-SP[3],AL            ; |136| 
+     636 00000059 A842          MOVL      *-SP[2],XAR4          ; |136| 
+     637                      .dwpsn  "os_connect_maneger.c",137,10
+     638 0000005a 2B44          MOV       *-SP[4],#0            ; |137| 
+     639                      .dwpsn  "os_connect_maneger.c",138,2
+     640 0000005b 3B10   setc INTM
+     641                      .dwpsn  "os_connect_maneger.c",139,2
+     642 0000005c 8A42          MOVL      XAR4,*-SP[2]          ; |139| 
+     643 0000005d FF69          SPM       #0
+     644 0000005e 7640!         LCR       #_OS_EventWaitListInit ; |139| 
+         0000005f 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   13
+
+     645                      ; call occurs [#_OS_EventWaitListInit] ; |139| 
+     646                      .dwpsn  "os_connect_maneger.c",140,2
+     647 00000060 2910   clrc INTM
+     648                      .dwpsn  "os_connect_maneger.c",141,2
+     649 00000061 5DAD          MOVZ      AR5,SP                ; |141| 
+     650 00000062 FF69          SPM       #0
+     651 00000063 8A42          MOVL      XAR4,*-SP[2]          ; |141| 
+     652 00000064 9243          MOV       AL,*-SP[3]            ; |141| 
+     653 00000065 DD84          SUBB      XAR5,#4               ; |141| 
+     654 00000066 7640!         LCR       #_OSSemSet            ; |141| 
+         00000067 0000 
+     655                      ; call occurs [#_OSSemSet] ; |141| 
+     656                      .dwpsn  "os_connect_maneger.c",142,2
+     657 00000068 9244          MOV       AL,*-SP[4]            ; |142| 
+     658                      .dwpsn  "os_connect_maneger.c",146,2
+     659                      .dwpsn  "os_connect_maneger.c",147,1
+     660 00000069 FE84          SUBB      SP,#4                 ; |146| 
+     661                      .dwcfa  0x1d, -2
+     662 0000006a 0006          LRETR
+     663                      ; return occurs
+     664                      .dwattr DW$81, DW_AT_end_file("os_connect_maneger.c")
+     665                      .dwattr DW$81, DW_AT_end_line(0x93)
+     666                      .dwattr DW$81, DW_AT_end_column(0x01)
+     667                      .dwendentry
+     668                      .dwendtag DW$81
+     669              
+     670 0000006b               .sect   ".text"
+     671                      .global _os_sem_pend
+     672              
+     673              DW$87   .dwtag  DW_TAG_subprogram, DW_AT_name("os_sem_pend"), DW_AT_symbol_name("_os_sem_pend")
+     674                      .dwattr DW$87, DW_AT_low_pc(_os_sem_pend)
+     675                      .dwattr DW$87, DW_AT_high_pc(0x00)
+     676                      .dwattr DW$87, DW_AT_begin_file("os_connect_maneger.c")
+     677                      .dwattr DW$87, DW_AT_begin_line(0x94)
+     678                      .dwattr DW$87, DW_AT_begin_column(0x09)
+     679                      .dwpsn  "os_connect_maneger.c",149,1
+     680              
+     681                      .dwfde DW$CIE
+     682              
+     683              ;***************************************************************
+     684              ;* FNAME: _os_sem_pend                  FR SIZE:   4           *
+     685              ;*                                                             *
+     686              ;* FUNCTION ENVIRONMENT                                        *
+     687              ;*                                                             *
+     688              ;* FUNCTION PROPERTIES                                         *
+     689              ;*                            0 Parameter,  4 Auto,  0 SOE     *
+     690              ;***************************************************************
+     691              
+     692              _os_sem_pend:
+     693                      .dwcfa  0x1d, -2
+     694                      .dwcfa  0x1c, 26, 0
+     695                      .dwcfa  0x09, 40, 26
+     696 0000006b FE04          ADDB      SP,#4
+     697                      .dwcfa  0x1d, -6
+     698              ;* AR4   assigned to _sem
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   14
+
+     699              DW$88   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     700                      .dwattr DW$88, DW_AT_type(*DW$T$71)
+     701                      .dwattr DW$88, DW_AT_location[DW_OP_reg12]
+     702              ;* AL    assigned to _timeout
+     703              DW$89   .dwtag  DW_TAG_formal_parameter, DW_AT_name("timeout"), DW_AT_symbol_name("_timeout")
+     704                      .dwattr DW$89, DW_AT_type(*DW$T$11)
+     705                      .dwattr DW$89, DW_AT_location[DW_OP_reg0]
+     706              DW$90   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     707                      .dwattr DW$90, DW_AT_type(*DW$T$71)
+     708                      .dwattr DW$90, DW_AT_location[DW_OP_breg20 -2]
+     709              DW$91   .dwtag  DW_TAG_variable, DW_AT_name("timeout"), DW_AT_symbol_name("_timeout")
+     710                      .dwattr DW$91, DW_AT_type(*DW$T$11)
+     711                      .dwattr DW$91, DW_AT_location[DW_OP_breg20 -3]
+     712              DW$92   .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+     713                      .dwattr DW$92, DW_AT_type(*DW$T$6)
+     714                      .dwattr DW$92, DW_AT_location[DW_OP_breg20 -4]
+     715 0000006c 9643          MOV       *-SP[3],AL            ; |149| 
+     716 0000006d A842          MOVL      *-SP[2],XAR4          ; |149| 
+     717                      .dwpsn  "os_connect_maneger.c",151,2
+     718 0000006e 5DAD          MOVZ      AR5,SP                ; |151| 
+     719 0000006f 8A42          MOVL      XAR4,*-SP[2]          ; |151| 
+     720 00000070 9243          MOV       AL,*-SP[3]            ; |151| 
+     721 00000071 DD84          SUBB      XAR5,#4               ; |151| 
+     722 00000072 7640!         LCR       #_OSSemPend           ; |151| 
+         00000073 0000 
+     723                      ; call occurs [#_OSSemPend] ; |151| 
+     724                      .dwpsn  "os_connect_maneger.c",152,2
+     725 00000074 9244          MOV       AL,*-SP[4]            ; |152| 
+     726                      .dwpsn  "os_connect_maneger.c",153,1
+     727 00000075 FE84          SUBB      SP,#4                 ; |152| 
+     728                      .dwcfa  0x1d, -2
+     729 00000076 0006          LRETR
+     730                      ; return occurs
+     731                      .dwattr DW$87, DW_AT_end_file("os_connect_maneger.c")
+     732                      .dwattr DW$87, DW_AT_end_line(0x99)
+     733                      .dwattr DW$87, DW_AT_end_column(0x01)
+     734                      .dwendentry
+     735                      .dwendtag DW$87
+     736              
+     737 00000077               .sect   ".text"
+     738                      .global _os_q_creat
+     739              
+     740              DW$93   .dwtag  DW_TAG_subprogram, DW_AT_name("os_q_creat"), DW_AT_symbol_name("_os_q_creat")
+     741                      .dwattr DW$93, DW_AT_low_pc(_os_q_creat)
+     742                      .dwattr DW$93, DW_AT_high_pc(0x00)
+     743                      .dwattr DW$93, DW_AT_begin_file("os_connect_maneger.c")
+     744                      .dwattr DW$93, DW_AT_begin_line(0xa2)
+     745                      .dwattr DW$93, DW_AT_begin_column(0x07)
+     746                      .dwpsn  "os_connect_maneger.c",163,1
+     747              
+     748                      .dwfde DW$CIE
+     749              
+     750              ;***************************************************************
+     751              ;* FNAME: _os_q_creat                   FR SIZE:   6           *
+     752              ;*                                                             *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   15
+
+     753              ;* FUNCTION ENVIRONMENT                                        *
+     754              ;*                                                             *
+     755              ;* FUNCTION PROPERTIES                                         *
+     756              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+     757              ;***************************************************************
+     758              
+     759              _os_q_creat:
+     760                      .dwcfa  0x1d, -2
+     761                      .dwcfa  0x1c, 26, 0
+     762                      .dwcfa  0x09, 40, 26
+     763 00000077 FE06          ADDB      SP,#6
+     764                      .dwcfa  0x1d, -8
+     765              ;* AR4   assigned to _sem
+     766              DW$94   .dwtag  DW_TAG_formal_parameter, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     767                      .dwattr DW$94, DW_AT_type(*DW$T$48)
+     768                      .dwattr DW$94, DW_AT_location[DW_OP_reg12]
+     769              ;* AR5   assigned to _pbuf
+     770              DW$95   .dwtag  DW_TAG_formal_parameter, DW_AT_name("pbuf"), DW_AT_symbol_name("_pbuf")
+     771                      .dwattr DW$95, DW_AT_type(*DW$T$23)
+     772                      .dwattr DW$95, DW_AT_location[DW_OP_reg14]
+     773              ;* AL    assigned to _size
+     774              DW$96   .dwtag  DW_TAG_formal_parameter, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     775                      .dwattr DW$96, DW_AT_type(*DW$T$11)
+     776                      .dwattr DW$96, DW_AT_location[DW_OP_reg0]
+     777              DW$97   .dwtag  DW_TAG_variable, DW_AT_name("sem"), DW_AT_symbol_name("_sem")
+     778                      .dwattr DW$97, DW_AT_type(*DW$T$48)
+     779                      .dwattr DW$97, DW_AT_location[DW_OP_breg20 -2]
+     780              DW$98   .dwtag  DW_TAG_variable, DW_AT_name("pbuf"), DW_AT_symbol_name("_pbuf")
+     781                      .dwattr DW$98, DW_AT_type(*DW$T$23)
+     782                      .dwattr DW$98, DW_AT_location[DW_OP_breg20 -4]
+     783              DW$99   .dwtag  DW_TAG_variable, DW_AT_name("size"), DW_AT_symbol_name("_size")
+     784                      .dwattr DW$99, DW_AT_type(*DW$T$11)
+     785                      .dwattr DW$99, DW_AT_location[DW_OP_breg20 -5]
+     786 00000078 9645          MOV       *-SP[5],AL            ; |163| 
+     787 00000079 A044          MOVL      *-SP[4],XAR5          ; |163| 
+     788 0000007a A842          MOVL      *-SP[2],XAR4          ; |163| 
+     789                      .dwpsn  "os_connect_maneger.c",164,2
+     790 0000007b 8A42          MOVL      XAR4,*-SP[2]          ; |164| 
+     791 0000007c 06C4          MOVL      ACC,*+XAR4[0]         ; |164| 
+     792 0000007d ED0E          BF        L8,NEQ                ; |164| 
+     793                      ; branchcc occurs ; |164| 
+     794                      .dwpsn  "os_connect_maneger.c",166,3
+     795 0000007e 8A44          MOVL      XAR4,*-SP[4]          ; |166| 
+     796 0000007f 9245          MOV       AL,*-SP[5]            ; |166| 
+     797 00000080 7640!         LCR       #_OSQCreate           ; |166| 
+         00000081 0000 
+     798                      ; call occurs [#_OSQCreate] ; |166| 
+     799 00000082 8342          MOVL      XAR5,*-SP[2]          ; |166| 
+     800 00000083 A8C5          MOVL      *+XAR5[0],XAR4        ; |166| 
+     801                      .dwpsn  "os_connect_maneger.c",167,3
+     802 00000084 8A42          MOVL      XAR4,*-SP[2]          ; |167| 
+     803 00000085 06C4          MOVL      ACC,*+XAR4[0]         ; |167| 
+     804 00000086 EC0C          BF        L9,EQ                 ; |167| 
+     805                      ; branchcc occurs ; |167| 
+     806                      .dwpsn  "os_connect_maneger.c",170,3
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   16
+
+     807                      .dwpsn  "os_connect_maneger.c",173,4
+     808 00000087 761F-         MOVW      DP,#_m_event_stat_cnt
+         00000088 0000 
+     809 00000089 0A00-         INC       @_m_event_stat_cnt    ; |173| 
+     810                      .dwpsn  "os_connect_maneger.c",175,2
+     811 0000008a 6F08          B         L9,UNC                ; |175| 
+     812                      ; branch occurs ; |175| 
+     813              L8:    
+     814                      .dwpsn  "os_connect_maneger.c",178,3
+     815 0000008b 3B10   setc INTM
+     816                      .dwpsn  "os_connect_maneger.c",179,3
+     817 0000008c 8A42          MOVL      XAR4,*-SP[2]          ; |179| 
+     818 0000008d 8AC4          MOVL      XAR4,*+XAR4[0]        ; |179| 
+     819 0000008e FF69          SPM       #0
+     820 0000008f 7640!         LCR       #_OS_EventWaitListInit ; |179| 
+         00000090 0000 
+     821                      ; call occurs [#_OS_EventWaitListInit] ; |179| 
+     822                      .dwpsn  "os_connect_maneger.c",180,3
+     823 00000091 2910   clrc INTM
+     824              L9:    
+     825                      .dwpsn  "os_connect_maneger.c",182,2
+     826 00000092 8A42          MOVL      XAR4,*-SP[2]          ; |182| 
+     827 00000093 8AC4          MOVL      XAR4,*+XAR4[0]        ; |182| 
+     828 00000094 FF69          SPM       #0
+     829 00000095 7640!         LCR       #_OSQFlush            ; |182| 
+         00000096 0000 
+     830                      ; call occurs [#_OSQFlush] ; |182| 
+     831                      .dwpsn  "os_connect_maneger.c",183,2
+     832                      .dwpsn  "os_connect_maneger.c",184,1
+     833 00000097 FE86          SUBB      SP,#6
+     834                      .dwcfa  0x1d, -2
+     835 00000098 0006          LRETR
+     836                      ; return occurs
+     837                      .dwattr DW$93, DW_AT_end_file("os_connect_maneger.c")
+     838                      .dwattr DW$93, DW_AT_end_line(0xb8)
+     839                      .dwattr DW$93, DW_AT_end_column(0x01)
+     840                      .dwendentry
+     841                      .dwendtag DW$93
+     842              
+     843 00000099               .sect   ".text"
+     844                      .global _os_task_req_pro_array
+     845              
+     846              DW$100  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_req_pro_array"), DW_AT_symbol_name("_os_task_req_pro_a
+     847                      .dwattr DW$100, DW_AT_low_pc(_os_task_req_pro_array)
+     848                      .dwattr DW$100, DW_AT_high_pc(0x00)
+     849                      .dwattr DW$100, DW_AT_begin_file("os_connect_maneger.c")
+     850                      .dwattr DW$100, DW_AT_begin_line(0xc4)
+     851                      .dwattr DW$100, DW_AT_begin_column(0x09)
+     852                      .dwpsn  "os_connect_maneger.c",197,1
+     853              
+     854                      .dwfde DW$CIE
+     855              
+     856              ;***************************************************************
+     857              ;* FNAME: _os_task_req_pro_array        FR SIZE:  16           *
+     858              ;*                                                             *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   17
+
+     859              ;* FUNCTION ENVIRONMENT                                        *
+     860              ;*                                                             *
+     861              ;* FUNCTION PROPERTIES                                         *
+     862              ;*                            0 Parameter, 16 Auto,  0 SOE     *
+     863              ;***************************************************************
+     864              
+     865              _os_task_req_pro_array:
+     866                      .dwcfa  0x1d, -2
+     867                      .dwcfa  0x1c, 26, 0
+     868                      .dwcfa  0x09, 40, 26
+     869 00000099 FE10          ADDB      SP,#16
+     870                      .dwcfa  0x1d, -18
+     871              ;* AL    assigned to _nblk
+     872              DW$101  .dwtag  DW_TAG_formal_parameter, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+     873                      .dwattr DW$101, DW_AT_type(*DW$T$37)
+     874                      .dwattr DW$101, DW_AT_location[DW_OP_reg0]
+     875              DW$102  .dwtag  DW_TAG_variable, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+     876                      .dwattr DW$102, DW_AT_type(*DW$T$37)
+     877                      .dwattr DW$102, DW_AT_location[DW_OP_breg20 -1]
+     878              DW$103  .dwtag  DW_TAG_variable, DW_AT_name("pro_str"), DW_AT_symbol_name("_pro_str")
+     879                      .dwattr DW$103, DW_AT_type(*DW$T$102)
+     880                      .dwattr DW$103, DW_AT_location[DW_OP_breg20 -13]
+     881              DW$104  .dwtag  DW_TAG_variable, DW_AT_name("pstk"), DW_AT_symbol_name("_pstk")
+     882                      .dwattr DW$104, DW_AT_type(*DW$T$84)
+     883                      .dwattr DW$104, DW_AT_location[DW_OP_breg20 -16]
+     884 0000009a 9641          MOV       *-SP[1],AL            ; |197| 
+     885                      .dwpsn  "os_connect_maneger.c",200,2
+     886 0000009b 520B          CMPB      AL,#11                ; |200| 
+     887 0000009c 6905          B         L10,LOS               ; |200| 
+     888                      ; branchcc occurs ; |200| 
+     889                      .dwpsn  "os_connect_maneger.c",202,3
+     890 0000009d 2841          MOV       *-SP[1],#11           ; |202| 
+         0000009e 000B 
+     891                      .dwpsn  "os_connect_maneger.c",204,3
+     892 0000009f 9ABE          MOVB      AL,#190               ; |204| 
+     893 000000a0 6F35          B         L12,UNC               ; |204| 
+     894                      ; branch occurs ; |204| 
+     895              L10:    
+     896                      .dwpsn  "os_connect_maneger.c",206,2
+     897 000000a1 5CAD          MOVZ      AR4,SP                ; |206| 
+     898 000000a2 9A00          MOVB      AL,#0
+     899 000000a3 9B0C          MOVB      AH,#12                ; |206| 
+     900 000000a4 DC8D          SUBB      XAR4,#13              ; |206| 
+     901 000000a5 7640!         LCR       #_global_memset       ; |206| 
+         000000a6 0000 
+     902                      ; call occurs [#_global_memset] ; |206| 
+     903                      .dwpsn  "os_connect_maneger.c",207,2
+     904 000000a7 5CAD          MOVZ      AR4,SP                ; |207| 
+     905 000000a8 9341          MOV       AH,*-SP[1]            ; |207| 
+     906 000000a9 DC8D          SUBB      XAR4,#13              ; |207| 
+     907 000000aa 9A46          MOVB      AL,#70                ; |207| 
+     908 000000ab 7640!         LCR       #_global_memset       ; |207| 
+         000000ac 0000 
+     909                      ; call occurs [#_global_memset] ; |207| 
+     910                      .dwpsn  "os_connect_maneger.c",208,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   18
+
+     911 000000ad 761F-         MOVW      DP,#_m_task_lock
+         000000ae 0000 
+     912 000000af 8A02-         MOVL      XAR4,@_m_task_lock    ; |208| 
+     913 000000b0 7640'         LCR       #_os_lock             ; |208| 
+         000000b1 0000 
+     914                      ; call occurs [#_os_lock] ; |208| 
+     915                      .dwpsn  "os_connect_maneger.c",209,2
+     916 000000b2 5DAD          MOVZ      AR5,SP                ; |209| 
+     917 000000b3 DD8D          SUBB      XAR5,#13              ; |209| 
+     918 000000b4 8F00-         MOVL      XAR4,#_m_task_pro_array ; |209| 
+         000000b5 0004 
+     919 000000b6 7640!         LCR       #_global_string_locate_first ; |209| 
+         000000b7 0000 
+     920                      ; call occurs [#_global_string_locate_first] ; |209| 
+     921 000000b8 A850          MOVL      *-SP[16],XAR4         ; |209| 
+     922                      .dwpsn  "os_connect_maneger.c",210,2
+     923 000000b9 0650          MOVL      ACC,*-SP[16]          ; |210| 
+     924 000000ba EC15          BF        L11,EQ                ; |210| 
+     925                      ; branchcc occurs ; |210| 
+     926                      .dwpsn  "os_connect_maneger.c",212,3
+     927 000000bb 8A50          MOVL      XAR4,*-SP[16]         ; |212| 
+     928 000000bc 28C4          MOV       *+XAR4[0],#77         ; |212| 
+         000000bd 004D 
+     929                      .dwpsn  "os_connect_maneger.c",213,3
+     930 000000be 8A50          MOVL      XAR4,*-SP[16]         ; |213| 
+     931 000000bf 9341          MOV       AH,*-SP[1]            ; |213| 
+     932 000000c0 9DFF          ADDB      AH,#-1
+     933 000000c1 9A53          MOVB      AL,#83                ; |213| 
+     934 000000c2 DC01          ADDB      XAR4,#1               ; |213| 
+     935 000000c3 7640!         LCR       #_global_memset       ; |213| 
+         000000c4 0000 
+     936                      ; call occurs [#_global_memset] ; |213| 
+     937                      .dwpsn  "os_connect_maneger.c",214,3
+     938 000000c5 761F-         MOVW      DP,#_m_task_lock
+         000000c6 0000 
+     939 000000c7 8A02-         MOVL      XAR4,@_m_task_lock    ; |214| 
+     940 000000c8 7640'         LCR       #_os_unlock           ; |214| 
+         000000c9 000A 
+     941                      ; call occurs [#_os_unlock] ; |214| 
+     942                      .dwpsn  "os_connect_maneger.c",215,3
+     943 000000ca 8F00-         MOVL      XAR4,#_m_task_pro_array ; |215| 
+         000000cb 0004 
+     944 000000cc 0650          MOVL      ACC,*-SP[16]          ; |215| 
+     945 000000cd 03A4          SUBL      ACC,XAR4
+     946 000000ce 6F07          B         L12,UNC               ; |215| 
+     947                      ; branch occurs ; |215| 
+     948              L11:    
+     949                      .dwpsn  "os_connect_maneger.c",217,2
+     950 000000cf 761F-         MOVW      DP,#_m_task_lock
+         000000d0 0000 
+     951 000000d1 8A02-         MOVL      XAR4,@_m_task_lock    ; |217| 
+     952 000000d2 7640'         LCR       #_os_unlock           ; |217| 
+         000000d3 000A 
+     953                      ; call occurs [#_os_unlock] ; |217| 
+     954                      .dwpsn  "os_connect_maneger.c",218,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   19
+
+     955 000000d4 9ABE          MOVB      AL,#190               ; |218| 
+     956              L12:    
+     957                      .dwpsn  "os_connect_maneger.c",219,1
+     958 000000d5 FE90          SUBB      SP,#16                ; |218| 
+     959                      .dwcfa  0x1d, -2
+     960 000000d6 0006          LRETR
+     961                      ; return occurs
+     962                      .dwattr DW$100, DW_AT_end_file("os_connect_maneger.c")
+     963                      .dwattr DW$100, DW_AT_end_line(0xdb)
+     964                      .dwattr DW$100, DW_AT_end_column(0x01)
+     965                      .dwendentry
+     966                      .dwendtag DW$100
+     967              
+     968 000000d7               .sect   ".text"
+     969                      .global _os_task_release_pro_array
+     970              
+     971              DW$105  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_release_pro_array"), DW_AT_symbol_name("_os_task_relea
+     972                      .dwattr DW$105, DW_AT_low_pc(_os_task_release_pro_array)
+     973                      .dwattr DW$105, DW_AT_high_pc(0x00)
+     974                      .dwattr DW$105, DW_AT_begin_file("os_connect_maneger.c")
+     975                      .dwattr DW$105, DW_AT_begin_line(0xe4)
+     976                      .dwattr DW$105, DW_AT_begin_column(0x06)
+     977                      .dwpsn  "os_connect_maneger.c",229,1
+     978              
+     979                      .dwfde DW$CIE
+     980              
+     981              ;***************************************************************
+     982              ;* FNAME: _os_task_release_pro_array    FR SIZE:   2           *
+     983              ;*                                                             *
+     984              ;* FUNCTION ENVIRONMENT                                        *
+     985              ;*                                                             *
+     986              ;* FUNCTION PROPERTIES                                         *
+     987              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     988              ;***************************************************************
+     989              
+     990              _os_task_release_pro_array:
+     991                      .dwcfa  0x1d, -2
+     992                      .dwcfa  0x1c, 26, 0
+     993                      .dwcfa  0x09, 40, 26
+     994 000000d7 FE02          ADDB      SP,#2
+     995                      .dwcfa  0x1d, -4
+     996              ;* AL    assigned to _pro
+     997              DW$106  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+     998                      .dwattr DW$106, DW_AT_type(*DW$T$6)
+     999                      .dwattr DW$106, DW_AT_location[DW_OP_reg0]
+    1000              DW$107  .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1001                      .dwattr DW$107, DW_AT_type(*DW$T$6)
+    1002                      .dwattr DW$107, DW_AT_location[DW_OP_breg20 -1]
+    1003              DW$108  .dwtag  DW_TAG_variable, DW_AT_name("offset"), DW_AT_symbol_name("_offset")
+    1004                      .dwattr DW$108, DW_AT_type(*DW$T$6)
+    1005                      .dwattr DW$108, DW_AT_location[DW_OP_breg20 -2]
+    1006 000000d8 9641          MOV       *-SP[1],AL            ; |229| 
+    1007                      .dwpsn  "os_connect_maneger.c",231,2
+    1008 000000d9 761F-         MOVW      DP,#_m_task_lock
+         000000da 0000 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   20
+
+    1009 000000db 8A02-         MOVL      XAR4,@_m_task_lock    ; |231| 
+    1010 000000dc 7640'         LCR       #_os_lock             ; |231| 
+         000000dd 0000 
+    1011                      ; call occurs [#_os_lock] ; |231| 
+    1012                      .dwpsn  "os_connect_maneger.c",232,2
+    1013 000000de 9241          MOV       AL,*-SP[1]            ; |232| 
+    1014 000000df 52FF          CMPB      AL,#255               ; |232| 
+    1015 000000e0 ED06          BF        L13,NEQ               ; |232| 
+    1016                      ; branchcc occurs ; |232| 
+    1017                      .dwpsn  "os_connect_maneger.c",234,3
+    1018 000000e1 761F!         MOVW      DP,#_OSPrioCur
+         000000e2 0000 
+    1019 000000e3 9200!         MOV       AL,@_OSPrioCur        ; |234| 
+    1020 000000e4 9642          MOV       *-SP[2],AL            ; |234| 
+    1021                      .dwpsn  "os_connect_maneger.c",235,2
+    1022 000000e5 6F02          B         L14,UNC               ; |235| 
+    1023                      ; branch occurs ; |235| 
+    1024              L13:    
+    1025                      .dwpsn  "os_connect_maneger.c",238,3
+    1026 000000e6 9642          MOV       *-SP[2],AL            ; |238| 
+    1027              L14:    
+    1028                      .dwpsn  "os_connect_maneger.c",240,2
+    1029 000000e7 5842          MOVZ      AR0,*-SP[2]           ; |240| 
+    1030 000000e8 8F00-         MOVL      XAR4,#_m_task_pro_array ; |240| 
+         000000e9 0004 
+    1031 000000ea 2894          MOV       *+XAR4[AR0],#70       ; |240| 
+         000000eb 0046 
+    1032                      .dwpsn  "os_connect_maneger.c",241,2
+    1033 000000ec 0A42          INC       *-SP[2]               ; |241| 
+    1034                      .dwpsn  "os_connect_maneger.c",242,2
+    1035 000000ed 6F04          B         L16,UNC               ; |242| 
+    1036                      ; branch occurs ; |242| 
+    1037              L15:    
+    1038              DW$L$_os_task_release_pro_array$5$B:
+    1039                      .dwpsn  "os_connect_maneger.c",244,3
+    1040 000000ee 2894          MOV       *+XAR4[AR0],#70       ; |244| 
+         000000ef 0046 
+    1041                      .dwpsn  "os_connect_maneger.c",245,3
+    1042 000000f0 0A42          INC       *-SP[2]               ; |245| 
+    1043              DW$L$_os_task_release_pro_array$5$E:
+    1044              L16:    
+    1045              DW$L$_os_task_release_pro_array$6$B:
+    1046                      .dwpsn  "os_connect_maneger.c",242,10
+    1047 000000f1 5842          MOVZ      AR0,*-SP[2]           ; |242| 
+    1048 000000f2 9294          MOV       AL,*+XAR4[AR0]        ; |242| 
+    1049 000000f3 5253          CMPB      AL,#83                ; |242| 
+    1050 000000f4 ECFA          BF        L15,EQ                ; |242| 
+    1051                      ; branchcc occurs ; |242| 
+    1052              DW$L$_os_task_release_pro_array$6$E:
+    1053                      .dwpsn  "os_connect_maneger.c",247,2
+    1054 000000f5 761F-         MOVW      DP,#_m_task_lock
+         000000f6 0000 
+    1055 000000f7 8A02-         MOVL      XAR4,@_m_task_lock    ; |247| 
+    1056 000000f8 7640'         LCR       #_os_unlock           ; |247| 
+         000000f9 000A 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   21
+
+    1057                      ; call occurs [#_os_unlock] ; |247| 
+    1058                      .dwpsn  "os_connect_maneger.c",248,2
+    1059                      .dwpsn  "os_connect_maneger.c",249,1
+    1060 000000fa FE82          SUBB      SP,#2
+    1061                      .dwcfa  0x1d, -2
+    1062 000000fb 0006          LRETR
+    1063                      ; return occurs
+    1064              
+    1065              DW$109  .dwtag  DW_TAG_loop
+    1066                      .dwattr DW$109, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602:L16:1:1316852120")
+    1067                      .dwattr DW$109, DW_AT_begin_file("os_connect_maneger.c")
+    1068                      .dwattr DW$109, DW_AT_begin_line(0xf2)
+    1069                      .dwattr DW$109, DW_AT_end_line(0xf5)
+    1070              DW$110  .dwtag  DW_TAG_loop_range
+    1071                      .dwattr DW$110, DW_AT_low_pc(DW$L$_os_task_release_pro_array$6$B)
+    1072                      .dwattr DW$110, DW_AT_high_pc(DW$L$_os_task_release_pro_array$6$E)
+    1073              DW$111  .dwtag  DW_TAG_loop_range
+    1074                      .dwattr DW$111, DW_AT_low_pc(DW$L$_os_task_release_pro_array$5$B)
+    1075                      .dwattr DW$111, DW_AT_high_pc(DW$L$_os_task_release_pro_array$5$E)
+    1076                      .dwendtag DW$109
+    1077              
+    1078                      .dwattr DW$105, DW_AT_end_file("os_connect_maneger.c")
+    1079                      .dwattr DW$105, DW_AT_end_line(0xf9)
+    1080                      .dwattr DW$105, DW_AT_end_column(0x01)
+    1081                      .dwendentry
+    1082                      .dwendtag DW$105
+    1083              
+    1084 000000fc               .sect   ".text"
+    1085                      .global _os_task_assign_pro_build
+    1086              
+    1087              DW$112  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_assign_pro_build"), DW_AT_symbol_name("_os_task_assign
+    1088                      .dwattr DW$112, DW_AT_low_pc(_os_task_assign_pro_build)
+    1089                      .dwattr DW$112, DW_AT_high_pc(0x00)
+    1090                      .dwattr DW$112, DW_AT_begin_file("os_connect_maneger.c")
+    1091                      .dwattr DW$112, DW_AT_begin_line(0x102)
+    1092                      .dwattr DW$112, DW_AT_begin_column(0x07)
+    1093                      .dwpsn  "os_connect_maneger.c",259,1
+    1094              
+    1095                      .dwfde DW$CIE
+    1096              
+    1097              ;***************************************************************
+    1098              ;* FNAME: _os_task_assign_pro_build     FR SIZE:  30           *
+    1099              ;*                                                             *
+    1100              ;* FUNCTION ENVIRONMENT                                        *
+    1101              ;*                                                             *
+    1102              ;* FUNCTION PROPERTIES                                         *
+    1103              ;*                            9 Parameter, 21 Auto,  0 SOE     *
+    1104              ;***************************************************************
+    1105              
+    1106              _os_task_assign_pro_build:
+    1107                      .dwcfa  0x1d, -2
+    1108                      .dwcfa  0x1c, 26, 0
+    1109                      .dwcfa  0x09, 40, 26
+    1110 000000fc FE1E          ADDB      SP,#30
+    1111                      .dwcfa  0x1d, -32
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   22
+
+    1112              ;* AR4   assigned to _task
+    1113              DW$113  .dwtag  DW_TAG_formal_parameter, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1114                      .dwattr DW$113, DW_AT_type(*DW$T$30)
+    1115                      .dwattr DW$113, DW_AT_location[DW_OP_reg12]
+    1116              ;* AL    assigned to _pro
+    1117              DW$114  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1118                      .dwattr DW$114, DW_AT_type(*DW$T$6)
+    1119                      .dwattr DW$114, DW_AT_location[DW_OP_reg0]
+    1120              ;* AH    assigned to _nblk
+    1121              DW$115  .dwtag  DW_TAG_formal_parameter, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+    1122                      .dwattr DW$115, DW_AT_type(*DW$T$37)
+    1123                      .dwattr DW$115, DW_AT_location[DW_OP_reg1]
+    1124              DW$116  .dwtag  DW_TAG_variable, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1125                      .dwattr DW$116, DW_AT_type(*DW$T$30)
+    1126                      .dwattr DW$116, DW_AT_location[DW_OP_breg20 -12]
+    1127              DW$117  .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1128                      .dwattr DW$117, DW_AT_type(*DW$T$6)
+    1129                      .dwattr DW$117, DW_AT_location[DW_OP_breg20 -13]
+    1130              DW$118  .dwtag  DW_TAG_variable, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+    1131                      .dwattr DW$118, DW_AT_type(*DW$T$37)
+    1132                      .dwattr DW$118, DW_AT_location[DW_OP_breg20 -14]
+    1133              DW$119  .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+    1134                      .dwattr DW$119, DW_AT_type(*DW$T$6)
+    1135                      .dwattr DW$119, DW_AT_location[DW_OP_breg20 -15]
+    1136              DW$120  .dwtag  DW_TAG_variable, DW_AT_name("pstk"), DW_AT_symbol_name("_pstk")
+    1137                      .dwattr DW$120, DW_AT_type(*DW$T$84)
+    1138                      .dwattr DW$120, DW_AT_location[DW_OP_breg20 -18]
+    1139              DW$121  .dwtag  DW_TAG_variable, DW_AT_name("pro_str"), DW_AT_symbol_name("_pro_str")
+    1140                      .dwattr DW$121, DW_AT_type(*DW$T$102)
+    1141                      .dwattr DW$121, DW_AT_location[DW_OP_breg20 -30]
+    1142 000000fd 974E          MOV       *-SP[14],AH           ; |259| 
+    1143 000000fe 964D          MOV       *-SP[13],AL           ; |259| 
+    1144 000000ff A84C          MOVL      *-SP[12],XAR4         ; |259| 
+    1145                      .dwpsn  "os_connect_maneger.c",263,2
+    1146 00000100 924E          MOV       AL,*-SP[14]           ; |263| 
+    1147 00000101 520B          CMPB      AL,#11                ; |263| 
+    1148 00000102 6905          B         L17,LOS               ; |263| 
+    1149                      ; branchcc occurs ; |263| 
+    1150                      .dwpsn  "os_connect_maneger.c",265,3
+    1151 00000103 284E          MOV       *-SP[14],#11          ; |265| 
+         00000104 000B 
+    1152                      .dwpsn  "os_connect_maneger.c",267,3
+    1153 00000105 9A00          MOVB      AL,#0
+    1154 00000106 6F64          B         L22,UNC               ; |267| 
+    1155                      ; branch occurs ; |267| 
+    1156              L17:    
+    1157                      .dwpsn  "os_connect_maneger.c",269,2
+    1158 00000107 924D          MOV       AL,*-SP[13]           ; |269| 
+    1159 00000108 522F          CMPB      AL,#47                ; |269| 
+    1160 00000109 6803          B         L18,LO                ; |269| 
+    1161                      ; branchcc occurs ; |269| 
+    1162                      .dwpsn  "os_connect_maneger.c",272,3
+    1163 0000010a 9A00          MOVB      AL,#0
+    1164 0000010b 6F5F          B         L22,UNC               ; |272| 
+    1165                      ; branch occurs ; |272| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   23
+
+    1166              L18:    
+    1167                      .dwpsn  "os_connect_maneger.c",274,2
+    1168 0000010c 5CAD          MOVZ      AR4,SP                ; |274| 
+    1169 0000010d 9A00          MOVB      AL,#0
+    1170 0000010e 9B0C          MOVB      AH,#12                ; |274| 
+    1171 0000010f DC9E          SUBB      XAR4,#30              ; |274| 
+    1172 00000110 7640!         LCR       #_global_memset       ; |274| 
+         00000111 0000 
+    1173                      ; call occurs [#_global_memset] ; |274| 
+    1174                      .dwpsn  "os_connect_maneger.c",275,2
+    1175 00000112 5CAD          MOVZ      AR4,SP                ; |275| 
+    1176 00000113 9A46          MOVB      AL,#70                ; |275| 
+    1177 00000114 934E          MOV       AH,*-SP[14]           ; |275| 
+    1178 00000115 DC9E          SUBB      XAR4,#30              ; |275| 
+    1179 00000116 7640!         LCR       #_global_memset       ; |275| 
+         00000117 0000 
+    1180                      ; call occurs [#_global_memset] ; |275| 
+    1181                      .dwpsn  "os_connect_maneger.c",276,2
+    1182 00000118 761F-         MOVW      DP,#_m_task_lock
+         00000119 0000 
+    1183 0000011a 8A02-         MOVL      XAR4,@_m_task_lock    ; |276| 
+    1184 0000011b 7640'         LCR       #_os_lock             ; |276| 
+         0000011c 0000 
+    1185                      ; call occurs [#_os_lock] ; |276| 
+    1186                      .dwpsn  "os_connect_maneger.c",277,2
+    1187 0000011d 884D          MOVZ      AR6,*-SP[13]          ; |277| 
+    1188 0000011e 8F00-         MOVL      XAR4,#_m_task_pro_array ; |277| 
+         0000011f 0004 
+    1189 00000120 A8A9          MOVL      ACC,XAR4              ; |277| 
+    1190 00000121 0DA6          ADDU      ACC,AR6               ; |277| 
+    1191 00000122 1E52          MOVL      *-SP[18],ACC          ; |277| 
+    1192                      .dwpsn  "os_connect_maneger.c",278,2
+    1193 00000123 5DAD          MOVZ      AR5,SP                ; |278| 
+    1194 00000124 8A52          MOVL      XAR4,*-SP[18]         ; |278| 
+    1195 00000125 924E          MOV       AL,*-SP[14]           ; |278| 
+    1196 00000126 DD9E          SUBB      XAR5,#30              ; |278| 
+    1197 00000127 7640!         LCR       #_global_memcmp       ; |278| 
+         00000128 0000 
+    1198                      ; call occurs [#_global_memcmp] ; |278| 
+    1199 00000129 5200          CMPB      AL,#0                 ; |278| 
+    1200 0000012a ED08          BF        L19,NEQ               ; |278| 
+    1201                      ; branchcc occurs ; |278| 
+    1202                      .dwpsn  "os_connect_maneger.c",281,3
+    1203 0000012b 761F-         MOVW      DP,#_m_task_lock
+         0000012c 0000 
+    1204 0000012d 8A02-         MOVL      XAR4,@_m_task_lock    ; |281| 
+    1205 0000012e 7640'         LCR       #_os_unlock           ; |281| 
+         0000012f 000A 
+    1206                      ; call occurs [#_os_unlock] ; |281| 
+    1207                      .dwpsn  "os_connect_maneger.c",282,3
+    1208 00000130 9A00          MOVB      AL,#0
+    1209 00000131 6F39          B         L22,UNC               ; |282| 
+    1210                      ; branch occurs ; |282| 
+    1211              L19:    
+    1212                      .dwpsn  "os_connect_maneger.c",284,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   24
+
+    1213 00000132 8A52          MOVL      XAR4,*-SP[18]         ; |284| 
+    1214 00000133 28C4          MOV       *+XAR4[0],#77         ; |284| 
+         00000134 004D 
+    1215                      .dwpsn  "os_connect_maneger.c",285,2
+    1216 00000135 8A52          MOVL      XAR4,*-SP[18]         ; |285| 
+    1217 00000136 934E          MOV       AH,*-SP[14]           ; |285| 
+    1218 00000137 9DFF          ADDB      AH,#-1
+    1219 00000138 9A53          MOVB      AL,#83                ; |285| 
+    1220 00000139 DC01          ADDB      XAR4,#1               ; |285| 
+    1221 0000013a 7640!         LCR       #_global_memset       ; |285| 
+         0000013b 0000 
+    1222                      ; call occurs [#_global_memset] ; |285| 
+    1223                      .dwpsn  "os_connect_maneger.c",286,2
+    1224 0000013c 761F-         MOVW      DP,#_m_task_lock
+         0000013d 0000 
+    1225 0000013e 8A02-         MOVL      XAR4,@_m_task_lock    ; |286| 
+    1226 0000013f 7640'         LCR       #_os_unlock           ; |286| 
+         00000140 000A 
+    1227                      ; call occurs [#_os_unlock] ; |286| 
+    1228                      .dwpsn  "os_connect_maneger.c",288,2
+    1229 00000141 28AC          MOV       T,#160                ; |288| 
+         00000142 00A0 
+    1230 00000143 8F00-         MOVL      XAR4,#_m_stk_array    ; |288| 
+         00000144 0180 
+    1231 00000145 304D          MPYXU     ACC,T,*-SP[13]        ; |288| 
+    1232 00000146 5601          ADDL      XAR4,ACC
+         00000147 00A4 
+    1233 00000148 A842          MOVL      *-SP[2],XAR4          ; |288| 
+    1234 00000149 924D          MOV       AL,*-SP[13]           ; |288| 
+    1235 0000014a 9643          MOV       *-SP[3],AL            ; |288| 
+    1236 0000014b 924D          MOV       AL,*-SP[13]           ; |288| 
+    1237 0000014c 9644          MOV       *-SP[4],AL            ; |288| 
+    1238 0000014d 924E          MOV       AL,*-SP[14]           ; |288| 
+    1239 0000014e 944D          ADD       AL,*-SP[13]           ; |288| 
+    1240 0000014f 28AC          MOV       T,#160                ; |288| 
+         00000150 00A0 
+    1241 00000151 9CFF          ADDB      AL,#-1
+    1242 00000152 8F00-         MOVL      XAR4,#_m_stk_array+159 ; |288| 
+         00000153 021F 
+    1243 00000154 30A9          MPYXU     ACC,T,AL              ; |288| 
+    1244 00000155 5601          ADDL      XAR4,ACC
+         00000156 00A4 
+    1245 00000157 0200          MOVB      ACC,#0
+    1246 00000158 A846          MOVL      *-SP[6],XAR4          ; |288| 
+    1247 00000159 1E48          MOVL      *-SP[8],ACC           ; |288| 
+    1248 0000015a 2849          MOV       *-SP[9],#3            ; |288| 
+         0000015b 0003 
+    1249 0000015c D500          MOVB      XAR5,#0
+    1250 0000015d 2D4E          MOV       T,*-SP[14]            ; |288| 
+    1251 0000015e 8A4C          MOVL      XAR4,*-SP[12]         ; |288| 
+    1252 0000015f 35A0          MPYB      ACC,T,#160            ; |288| 
+    1253 00000160 0EA9          MOVU      ACC,AL
+    1254 00000161 7640!         LCR       #_OSTaskCreateExt     ; |288| 
+         00000162 0000 
+    1255                      ; call occurs [#_OSTaskCreateExt] ; |288| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   25
+
+    1256 00000163 5200          CMPB      AL,#0                 ; |288| 
+    1257 00000164 ED04          BF        L20,NEQ               ; |288| 
+    1258                      ; branchcc occurs ; |288| 
+    1259                      .dwpsn  "os_connect_maneger.c",305,3
+    1260 00000165 284F          MOV       *-SP[15],#1           ; |305| 
+         00000166 0001 
+    1261                      .dwpsn  "os_connect_maneger.c",306,2
+    1262 00000167 6F02          B         L21,UNC               ; |306| 
+    1263                      ; branch occurs ; |306| 
+    1264              L20:    
+    1265                      .dwpsn  "os_connect_maneger.c",309,3
+    1266 00000168 2B4F          MOV       *-SP[15],#0           ; |309| 
+    1267              L21:    
+    1268                      .dwpsn  "os_connect_maneger.c",312,2
+    1269 00000169 924F          MOV       AL,*-SP[15]           ; |312| 
+    1270              L22:    
+    1271                      .dwpsn  "os_connect_maneger.c",313,1
+    1272 0000016a FE9E          SUBB      SP,#30                ; |312| 
+    1273                      .dwcfa  0x1d, -2
+    1274 0000016b 0006          LRETR
+    1275                      ; return occurs
+    1276                      .dwattr DW$112, DW_AT_end_file("os_connect_maneger.c")
+    1277                      .dwattr DW$112, DW_AT_end_line(0x139)
+    1278                      .dwattr DW$112, DW_AT_end_column(0x01)
+    1279                      .dwendentry
+    1280                      .dwendtag DW$112
+    1281              
+    1282 0000016c               .sect   ".text"
+    1283                      .global _os_task_assign_stk_build
+    1284              
+    1285              DW$122  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_assign_stk_build"), DW_AT_symbol_name("_os_task_assign
+    1286                      .dwattr DW$122, DW_AT_low_pc(_os_task_assign_stk_build)
+    1287                      .dwattr DW$122, DW_AT_high_pc(0x00)
+    1288                      .dwattr DW$122, DW_AT_begin_file("os_connect_maneger.c")
+    1289                      .dwattr DW$122, DW_AT_begin_line(0x142)
+    1290                      .dwattr DW$122, DW_AT_begin_column(0x09)
+    1291                      .dwpsn  "os_connect_maneger.c",323,1
+    1292              
+    1293                      .dwfde DW$CIE
+    1294              
+    1295              ;***************************************************************
+    1296              ;* FNAME: _os_task_assign_stk_build     FR SIZE:  16           *
+    1297              ;*                                                             *
+    1298              ;* FUNCTION ENVIRONMENT                                        *
+    1299              ;*                                                             *
+    1300              ;* FUNCTION PROPERTIES                                         *
+    1301              ;*                            9 Parameter,  6 Auto,  0 SOE     *
+    1302              ;***************************************************************
+    1303              
+    1304              _os_task_assign_stk_build:
+    1305                      .dwcfa  0x1d, -2
+    1306                      .dwcfa  0x1c, 26, 0
+    1307                      .dwcfa  0x09, 40, 26
+    1308 0000016c FE10          ADDB      SP,#16
+    1309                      .dwcfa  0x1d, -18
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   26
+
+    1310              ;* AR4   assigned to _task
+    1311              DW$123  .dwtag  DW_TAG_formal_parameter, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1312                      .dwattr DW$123, DW_AT_type(*DW$T$30)
+    1313                      .dwattr DW$123, DW_AT_location[DW_OP_reg12]
+    1314              ;* AL    assigned to _nblk
+    1315              DW$124  .dwtag  DW_TAG_formal_parameter, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+    1316                      .dwattr DW$124, DW_AT_type(*DW$T$37)
+    1317                      .dwattr DW$124, DW_AT_location[DW_OP_reg0]
+    1318              DW$125  .dwtag  DW_TAG_variable, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1319                      .dwattr DW$125, DW_AT_type(*DW$T$30)
+    1320                      .dwattr DW$125, DW_AT_location[DW_OP_breg20 -12]
+    1321              DW$126  .dwtag  DW_TAG_variable, DW_AT_name("nblk"), DW_AT_symbol_name("_nblk")
+    1322                      .dwattr DW$126, DW_AT_type(*DW$T$37)
+    1323                      .dwattr DW$126, DW_AT_location[DW_OP_breg20 -13]
+    1324              DW$127  .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+    1325                      .dwattr DW$127, DW_AT_type(*DW$T$37)
+    1326                      .dwattr DW$127, DW_AT_location[DW_OP_breg20 -14]
+    1327              DW$128  .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+    1328                      .dwattr DW$128, DW_AT_type(*DW$T$6)
+    1329                      .dwattr DW$128, DW_AT_location[DW_OP_breg20 -15]
+    1330 0000016d 964D          MOV       *-SP[13],AL           ; |323| 
+    1331 0000016e A84C          MOVL      *-SP[12],XAR4         ; |323| 
+    1332                      .dwpsn  "os_connect_maneger.c",326,2
+    1333 0000016f 924D          MOV       AL,*-SP[13]           ; |326| 
+    1334 00000170 7640'         LCR       #_os_task_req_pro_array ; |326| 
+         00000171 0099 
+    1335                      ; call occurs [#_os_task_req_pro_array] ; |326| 
+    1336 00000172 964E          MOV       *-SP[14],AL           ; |326| 
+    1337                      .dwpsn  "os_connect_maneger.c",327,2
+    1338 00000173 52BE          CMPB      AL,#190               ; |327| 
+    1339 00000174 ED03          BF        L23,NEQ               ; |327| 
+    1340                      ; branchcc occurs ; |327| 
+    1341                      .dwpsn  "os_connect_maneger.c",330,3
+    1342 00000175 9ABE          MOVB      AL,#190               ; |330| 
+    1343 00000176 6F29          B         L25,UNC               ; |330| 
+    1344                      ; branch occurs ; |330| 
+    1345              L23:    
+    1346                      .dwpsn  "os_connect_maneger.c",333,2
+    1347 00000177 28AC          MOV       T,#160                ; |333| 
+         00000178 00A0 
+    1348 00000179 8F00-         MOVL      XAR4,#_m_stk_array    ; |333| 
+         0000017a 0180 
+    1349 0000017b 304E          MPYXU     ACC,T,*-SP[14]        ; |333| 
+    1350 0000017c 5601          ADDL      XAR4,ACC
+         0000017d 00A4 
+    1351 0000017e A842          MOVL      *-SP[2],XAR4          ; |333| 
+    1352 0000017f 924E          MOV       AL,*-SP[14]           ; |333| 
+    1353 00000180 9643          MOV       *-SP[3],AL            ; |333| 
+    1354 00000181 28AC          MOV       T,#160                ; |333| 
+         00000182 00A0 
+    1355 00000183 924E          MOV       AL,*-SP[14]           ; |333| 
+    1356 00000184 9644          MOV       *-SP[4],AL            ; |333| 
+    1357 00000185 924D          MOV       AL,*-SP[13]           ; |333| 
+    1358 00000186 944E          ADD       AL,*-SP[14]           ; |333| 
+    1359 00000187 9CFF          ADDB      AL,#-1
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   27
+
+    1360 00000188 8F00-         MOVL      XAR4,#_m_stk_array+159 ; |333| 
+         00000189 021F 
+    1361 0000018a 30A9          MPYXU     ACC,T,AL              ; |333| 
+    1362 0000018b 5601          ADDL      XAR4,ACC
+         0000018c 00A4 
+    1363 0000018d D500          MOVB      XAR5,#0
+    1364 0000018e 0200          MOVB      ACC,#0
+    1365 0000018f A846          MOVL      *-SP[6],XAR4          ; |333| 
+    1366 00000190 1E48          MOVL      *-SP[8],ACC           ; |333| 
+    1367 00000191 2849          MOV       *-SP[9],#3            ; |333| 
+         00000192 0003 
+    1368 00000193 2D4D          MOV       T,*-SP[13]            ; |333| 
+    1369 00000194 8A4C          MOVL      XAR4,*-SP[12]         ; |333| 
+    1370 00000195 35A0          MPYB      ACC,T,#160            ; |333| 
+    1371 00000196 0EA9          MOVU      ACC,AL
+    1372 00000197 7640!         LCR       #_OSTaskCreateExt     ; |333| 
+         00000198 0000 
+    1373                      ; call occurs [#_OSTaskCreateExt] ; |333| 
+    1374 00000199 964F          MOV       *-SP[15],AL           ; |333| 
+    1375                      .dwpsn  "os_connect_maneger.c",348,2
+    1376 0000019a 5200          CMPB      AL,#0                 ; |348| 
+    1377 0000019b ED03          BF        L24,NEQ               ; |348| 
+    1378                      ; branchcc occurs ; |348| 
+    1379                      .dwpsn  "os_connect_maneger.c",350,3
+    1380 0000019c 924E          MOV       AL,*-SP[14]           ; |350| 
+    1381 0000019d 6F02          B         L25,UNC               ; |350| 
+    1382                      ; branch occurs ; |350| 
+    1383              L24:    
+    1384                      .dwpsn  "os_connect_maneger.c",355,3
+    1385 0000019e 9ABE          MOVB      AL,#190               ; |355| 
+    1386              L25:    
+    1387                      .dwpsn  "os_connect_maneger.c",357,1
+    1388 0000019f FE90          SUBB      SP,#16                ; |355| 
+    1389                      .dwcfa  0x1d, -2
+    1390 000001a0 0006          LRETR
+    1391                      ; return occurs
+    1392                      .dwattr DW$122, DW_AT_end_file("os_connect_maneger.c")
+    1393                      .dwattr DW$122, DW_AT_end_line(0x165)
+    1394                      .dwattr DW$122, DW_AT_end_column(0x01)
+    1395                      .dwendentry
+    1396                      .dwendtag DW$122
+    1397              
+    1398 000001a1               .sect   ".text"
+    1399                      .global _os_task_random_build
+    1400              
+    1401              DW$129  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_random_build"), DW_AT_symbol_name("_os_task_random_bui
+    1402                      .dwattr DW$129, DW_AT_low_pc(_os_task_random_build)
+    1403                      .dwattr DW$129, DW_AT_high_pc(0x00)
+    1404                      .dwattr DW$129, DW_AT_begin_file("os_connect_maneger.c")
+    1405                      .dwattr DW$129, DW_AT_begin_line(0x16e)
+    1406                      .dwattr DW$129, DW_AT_begin_column(0x09)
+    1407                      .dwpsn  "os_connect_maneger.c",367,1
+    1408              
+    1409                      .dwfde DW$CIE
+    1410              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   28
+
+    1411              ;***************************************************************
+    1412              ;* FNAME: _os_task_random_build         FR SIZE:   2           *
+    1413              ;*                                                             *
+    1414              ;* FUNCTION ENVIRONMENT                                        *
+    1415              ;*                                                             *
+    1416              ;* FUNCTION PROPERTIES                                         *
+    1417              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+    1418              ;***************************************************************
+    1419              
+    1420              _os_task_random_build:
+    1421                      .dwcfa  0x1d, -2
+    1422                      .dwcfa  0x1c, 26, 0
+    1423                      .dwcfa  0x09, 40, 26
+    1424 000001a1 FE02          ADDB      SP,#2
+    1425                      .dwcfa  0x1d, -4
+    1426              ;* AR4   assigned to _task
+    1427              DW$130  .dwtag  DW_TAG_formal_parameter, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1428                      .dwattr DW$130, DW_AT_type(*DW$T$30)
+    1429                      .dwattr DW$130, DW_AT_location[DW_OP_reg12]
+    1430              DW$131  .dwtag  DW_TAG_variable, DW_AT_name("task"), DW_AT_symbol_name("_task")
+    1431                      .dwattr DW$131, DW_AT_type(*DW$T$30)
+    1432                      .dwattr DW$131, DW_AT_location[DW_OP_breg20 -2]
+    1433 000001a2 A842          MOVL      *-SP[2],XAR4          ; |367| 
+    1434                      .dwpsn  "os_connect_maneger.c",368,2
+    1435 000001a3 8A42          MOVL      XAR4,*-SP[2]          ; |368| 
+    1436 000001a4 9A02          MOVB      AL,#2                 ; |368| 
+    1437 000001a5 7640'         LCR       #_os_task_assign_stk_build ; |368| 
+         000001a6 016C 
+    1438                      ; call occurs [#_os_task_assign_stk_build] ; |368| 
+    1439                      .dwpsn  "os_connect_maneger.c",369,1
+    1440 000001a7 FE82          SUBB      SP,#2                 ; |368| 
+    1441                      .dwcfa  0x1d, -2
+    1442 000001a8 0006          LRETR
+    1443                      ; return occurs
+    1444                      .dwattr DW$129, DW_AT_end_file("os_connect_maneger.c")
+    1445                      .dwattr DW$129, DW_AT_end_line(0x171)
+    1446                      .dwattr DW$129, DW_AT_end_column(0x01)
+    1447                      .dwendentry
+    1448                      .dwendtag DW$129
+    1449              
+    1450 000001a9               .sect   ".text"
+    1451                      .global _os_task_delete
+    1452              
+    1453              DW$132  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_delete"), DW_AT_symbol_name("_os_task_delete")
+    1454                      .dwattr DW$132, DW_AT_low_pc(_os_task_delete)
+    1455                      .dwattr DW$132, DW_AT_high_pc(0x00)
+    1456                      .dwattr DW$132, DW_AT_begin_file("os_connect_maneger.c")
+    1457                      .dwattr DW$132, DW_AT_begin_line(0x182)
+    1458                      .dwattr DW$132, DW_AT_begin_column(0x09)
+    1459                      .dwpsn  "os_connect_maneger.c",387,1
+    1460              
+    1461                      .dwfde DW$CIE
+    1462              
+    1463              ;***************************************************************
+    1464              ;* FNAME: _os_task_delete               FR SIZE:   2           *
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   29
+
+    1465              ;*                                                             *
+    1466              ;* FUNCTION ENVIRONMENT                                        *
+    1467              ;*                                                             *
+    1468              ;* FUNCTION PROPERTIES                                         *
+    1469              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+    1470              ;***************************************************************
+    1471              
+    1472              _os_task_delete:
+    1473                      .dwcfa  0x1d, -2
+    1474                      .dwcfa  0x1c, 26, 0
+    1475                      .dwcfa  0x09, 40, 26
+    1476 000001a9 FE02          ADDB      SP,#2
+    1477                      .dwcfa  0x1d, -4
+    1478              ;* AL    assigned to _pro
+    1479              DW$133  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1480                      .dwattr DW$133, DW_AT_type(*DW$T$6)
+    1481                      .dwattr DW$133, DW_AT_location[DW_OP_reg0]
+    1482              DW$134  .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1483                      .dwattr DW$134, DW_AT_type(*DW$T$6)
+    1484                      .dwattr DW$134, DW_AT_location[DW_OP_breg20 -1]
+    1485              DW$135  .dwtag  DW_TAG_variable, DW_AT_name("ret"), DW_AT_symbol_name("_ret")
+    1486                      .dwattr DW$135, DW_AT_type(*DW$T$6)
+    1487                      .dwattr DW$135, DW_AT_location[DW_OP_breg20 -2]
+    1488 000001aa 9641          MOV       *-SP[1],AL            ; |387| 
+    1489                      .dwpsn  "os_connect_maneger.c",389,2
+    1490 000001ab 523C          CMPB      AL,#60                ; |389| 
+    1491 000001ac 6805          B         L26,LO                ; |389| 
+    1492                      ; branchcc occurs ; |389| 
+    1493 000001ad 523F          CMPB      AL,#63                ; |389| 
+    1494 000001ae 6603          B         L26,HI                ; |389| 
+    1495                      ; branchcc occurs ; |389| 
+    1496                      .dwpsn  "os_connect_maneger.c",392,3
+    1497 000001af 9A00          MOVB      AL,#0
+    1498 000001b0 6F0E          B         L28,UNC               ; |392| 
+    1499                      ; branch occurs ; |392| 
+    1500              L26:    
+    1501                      .dwpsn  "os_connect_maneger.c",394,7
+    1502 000001b1 5203          CMPB      AL,#3                 ; |394| 
+    1503 000001b2 ED06          BF        L27,NEQ               ; |394| 
+    1504                      ; branchcc occurs ; |394| 
+    1505                      .dwpsn  "os_connect_maneger.c",397,3
+    1506 000001b3 9A01          MOVB      AL,#1                 ; |397| 
+    1507 000001b4 7640!         LCR       #_app_module_maneger_exit ; |397| 
+         000001b5 0000 
+    1508                      ; call occurs [#_app_module_maneger_exit] ; |397| 
+    1509                      .dwpsn  "os_connect_maneger.c",398,3
+    1510 000001b6 9A00          MOVB      AL,#0
+    1511 000001b7 6F07          B         L28,UNC               ; |398| 
+    1512                      ; branch occurs ; |398| 
+    1513              L27:    
+    1514                      .dwpsn  "os_connect_maneger.c",400,2
+    1515 000001b8 7640'         LCR       #_os_task_release_pro_array ; |400| 
+         000001b9 00D7 
+    1516                      ; call occurs [#_os_task_release_pro_array] ; |400| 
+    1517                      .dwpsn  "os_connect_maneger.c",401,2
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   30
+
+    1518 000001ba 9241          MOV       AL,*-SP[1]            ; |401| 
+    1519 000001bb 7640!         LCR       #_OSTaskDel           ; |401| 
+         000001bc 0000 
+    1520                      ; call occurs [#_OSTaskDel] ; |401| 
+    1521 000001bd 9642          MOV       *-SP[2],AL            ; |401| 
+    1522                      .dwpsn  "os_connect_maneger.c",408,2
+    1523              L28:    
+    1524                      .dwpsn  "os_connect_maneger.c",409,1
+    1525 000001be FE82          SUBB      SP,#2                 ; |408| 
+    1526                      .dwcfa  0x1d, -2
+    1527 000001bf 0006          LRETR
+    1528                      ; return occurs
+    1529                      .dwattr DW$132, DW_AT_end_file("os_connect_maneger.c")
+    1530                      .dwattr DW$132, DW_AT_end_line(0x199)
+    1531                      .dwattr DW$132, DW_AT_end_column(0x01)
+    1532                      .dwendentry
+    1533                      .dwendtag DW$132
+    1534              
+    1535 000001c0               .sect   ".text"
+    1536                      .global _os_task_delete_all
+    1537              
+    1538              DW$136  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_delete_all"), DW_AT_symbol_name("_os_task_delete_all")
+    1539                      .dwattr DW$136, DW_AT_low_pc(_os_task_delete_all)
+    1540                      .dwattr DW$136, DW_AT_high_pc(0x00)
+    1541                      .dwattr DW$136, DW_AT_begin_file("os_connect_maneger.c")
+    1542                      .dwattr DW$136, DW_AT_begin_line(0x1a3)
+    1543                      .dwattr DW$136, DW_AT_begin_column(0x07)
+    1544                      .dwpsn  "os_connect_maneger.c",420,1
+    1545              
+    1546                      .dwfde DW$CIE
+    1547              
+    1548              ;***************************************************************
+    1549              ;* FNAME: _os_task_delete_all           FR SIZE:   2           *
+    1550              ;*                                                             *
+    1551              ;* FUNCTION ENVIRONMENT                                        *
+    1552              ;*                                                             *
+    1553              ;* FUNCTION PROPERTIES                                         *
+    1554              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+    1555              ;***************************************************************
+    1556              
+    1557              _os_task_delete_all:
+    1558                      .dwcfa  0x1d, -2
+    1559                      .dwcfa  0x1c, 26, 0
+    1560                      .dwcfa  0x09, 40, 26
+    1561 000001c0 FE02          ADDB      SP,#2
+    1562                      .dwcfa  0x1d, -4
+    1563              DW$137  .dwtag  DW_TAG_variable, DW_AT_name("index"), DW_AT_symbol_name("_index")
+    1564                      .dwattr DW$137, DW_AT_type(*DW$T$37)
+    1565                      .dwattr DW$137, DW_AT_location[DW_OP_breg20 -1]
+    1566                      .dwpsn  "os_connect_maneger.c",422,8
+    1567 000001c1 2B41          MOV       *-SP[1],#0            ; |422| 
+    1568                      .dwpsn  "os_connect_maneger.c",422,18
+    1569 000001c2 9241          MOV       AL,*-SP[1]            ; |422| 
+    1570 000001c3 522F          CMPB      AL,#47                ; |422| 
+    1571 000001c4 6718          B         L33,HIS               ; |422| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   31
+
+    1572                      ; branchcc occurs ; |422| 
+    1573              L29:    
+    1574              DW$L$_os_task_delete_all$2$B:
+    1575                      .dwpsn  "os_connect_maneger.c",424,3
+    1576 000001c5 5841          MOVZ      AR0,*-SP[1]           ; |424| 
+    1577 000001c6 8F00-         MOVL      XAR4,#_m_task_pro_array ; |424| 
+         000001c7 0004 
+    1578 000001c8 9294          MOV       AL,*+XAR4[AR0]        ; |424| 
+    1579 000001c9 5246          CMPB      AL,#70                ; |424| 
+    1580 000001ca ED02          BF        L30,NEQ               ; |424| 
+    1581                      ; branchcc occurs ; |424| 
+    1582              DW$L$_os_task_delete_all$2$E:
+    1583              DW$L$_os_task_delete_all$3$B:
+    1584                      .dwpsn  "os_connect_maneger.c",426,4
+    1585 000001cb 6F0D          B         L32,UNC               ; |426| 
+    1586                      ; branch occurs ; |426| 
+    1587              DW$L$_os_task_delete_all$3$E:
+    1588              L30:    
+    1589              DW$L$_os_task_delete_all$5$B:
+    1590                      .dwpsn  "os_connect_maneger.c",428,8
+    1591 000001cc 761F!         MOVW      DP,#_OSPrioCur
+         000001cd 0000 
+    1592 000001ce 9200!         MOV       AL,@_OSPrioCur        ; |428| 
+    1593 000001cf 5441          CMP       AL,*-SP[1]            ; |428| 
+    1594 000001d0 ED02          BF        L31,NEQ               ; |428| 
+    1595                      ; branchcc occurs ; |428| 
+    1596              DW$L$_os_task_delete_all$5$E:
+    1597              DW$L$_os_task_delete_all$6$B:
+    1598                      .dwpsn  "os_connect_maneger.c",430,4
+    1599 000001d1 6F07          B         L32,UNC               ; |430| 
+    1600                      ; branch occurs ; |430| 
+    1601              DW$L$_os_task_delete_all$6$E:
+    1602              L31:    
+    1603              DW$L$_os_task_delete_all$8$B:
+    1604                      .dwpsn  "os_connect_maneger.c",432,8
+    1605 000001d2 9294          MOV       AL,*+XAR4[AR0]        ; |432| 
+    1606 000001d3 524D          CMPB      AL,#77                ; |432| 
+    1607 000001d4 ED04          BF        L32,NEQ               ; |432| 
+    1608                      ; branchcc occurs ; |432| 
+    1609              DW$L$_os_task_delete_all$8$E:
+    1610              DW$L$_os_task_delete_all$9$B:
+    1611                      .dwpsn  "os_connect_maneger.c",434,4
+    1612 000001d5 9241          MOV       AL,*-SP[1]            ; |434| 
+    1613 000001d6 7640'         LCR       #_os_task_delete      ; |434| 
+         000001d7 01A9 
+    1614                      ; call occurs [#_os_task_delete] ; |434| 
+    1615              DW$L$_os_task_delete_all$9$E:
+    1616              L32:    
+    1617              DW$L$_os_task_delete_all$10$B:
+    1618                      .dwpsn  "os_connect_maneger.c",422,42
+    1619 000001d8 0A41          INC       *-SP[1]               ; |422| 
+    1620                      .dwpsn  "os_connect_maneger.c",422,18
+    1621 000001d9 9241          MOV       AL,*-SP[1]            ; |422| 
+    1622 000001da 522F          CMPB      AL,#47                ; |422| 
+    1623 000001db 68EA          B         L29,LO                ; |422| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   32
+
+    1624                      ; branchcc occurs ; |422| 
+    1625              DW$L$_os_task_delete_all$10$E:
+    1626                      .dwpsn  "os_connect_maneger.c",437,2
+    1627              L33:    
+    1628                      .dwpsn  "os_connect_maneger.c",438,1
+    1629 000001dc FE82          SUBB      SP,#2
+    1630                      .dwcfa  0x1d, -2
+    1631 000001dd 0006          LRETR
+    1632                      ; return occurs
+    1633              
+    1634              DW$138  .dwtag  DW_TAG_loop
+    1635                      .dwattr DW$138, DW_AT_name("C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602:L29:1:1316852120")
+    1636                      .dwattr DW$138, DW_AT_begin_file("os_connect_maneger.c")
+    1637                      .dwattr DW$138, DW_AT_begin_line(0x1a6)
+    1638                      .dwattr DW$138, DW_AT_end_line(0x1b4)
+    1639              DW$139  .dwtag  DW_TAG_loop_range
+    1640                      .dwattr DW$139, DW_AT_low_pc(DW$L$_os_task_delete_all$2$B)
+    1641                      .dwattr DW$139, DW_AT_high_pc(DW$L$_os_task_delete_all$2$E)
+    1642              DW$140  .dwtag  DW_TAG_loop_range
+    1643                      .dwattr DW$140, DW_AT_low_pc(DW$L$_os_task_delete_all$5$B)
+    1644                      .dwattr DW$140, DW_AT_high_pc(DW$L$_os_task_delete_all$5$E)
+    1645              DW$141  .dwtag  DW_TAG_loop_range
+    1646                      .dwattr DW$141, DW_AT_low_pc(DW$L$_os_task_delete_all$3$B)
+    1647                      .dwattr DW$141, DW_AT_high_pc(DW$L$_os_task_delete_all$3$E)
+    1648              DW$142  .dwtag  DW_TAG_loop_range
+    1649                      .dwattr DW$142, DW_AT_low_pc(DW$L$_os_task_delete_all$6$B)
+    1650                      .dwattr DW$142, DW_AT_high_pc(DW$L$_os_task_delete_all$6$E)
+    1651              DW$143  .dwtag  DW_TAG_loop_range
+    1652                      .dwattr DW$143, DW_AT_low_pc(DW$L$_os_task_delete_all$8$B)
+    1653                      .dwattr DW$143, DW_AT_high_pc(DW$L$_os_task_delete_all$8$E)
+    1654              DW$144  .dwtag  DW_TAG_loop_range
+    1655                      .dwattr DW$144, DW_AT_low_pc(DW$L$_os_task_delete_all$9$B)
+    1656                      .dwattr DW$144, DW_AT_high_pc(DW$L$_os_task_delete_all$9$E)
+    1657              DW$145  .dwtag  DW_TAG_loop_range
+    1658                      .dwattr DW$145, DW_AT_low_pc(DW$L$_os_task_delete_all$10$B)
+    1659                      .dwattr DW$145, DW_AT_high_pc(DW$L$_os_task_delete_all$10$E)
+    1660                      .dwendtag DW$138
+    1661              
+    1662                      .dwattr DW$136, DW_AT_end_file("os_connect_maneger.c")
+    1663                      .dwattr DW$136, DW_AT_end_line(0x1b6)
+    1664                      .dwattr DW$136, DW_AT_end_column(0x01)
+    1665                      .dwendentry
+    1666                      .dwendtag DW$136
+    1667              
+    1668 000001de               .sect   ".text"
+    1669                      .global _os_task_name_set
+    1670              
+    1671              DW$146  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_name_set"), DW_AT_symbol_name("_os_task_name_set")
+    1672                      .dwattr DW$146, DW_AT_low_pc(_os_task_name_set)
+    1673                      .dwattr DW$146, DW_AT_high_pc(0x00)
+    1674                      .dwattr DW$146, DW_AT_begin_file("os_connect_maneger.c")
+    1675                      .dwattr DW$146, DW_AT_begin_line(0x1c8)
+    1676                      .dwattr DW$146, DW_AT_begin_column(0x09)
+    1677                      .dwpsn  "os_connect_maneger.c",457,1
+    1678              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   33
+
+    1679                      .dwfde DW$CIE
+    1680              
+    1681              ;***************************************************************
+    1682              ;* FNAME: _os_task_name_set             FR SIZE:   6           *
+    1683              ;*                                                             *
+    1684              ;* FUNCTION ENVIRONMENT                                        *
+    1685              ;*                                                             *
+    1686              ;* FUNCTION PROPERTIES                                         *
+    1687              ;*                            0 Parameter,  5 Auto,  0 SOE     *
+    1688              ;***************************************************************
+    1689              
+    1690              _os_task_name_set:
+    1691                      .dwcfa  0x1d, -2
+    1692                      .dwcfa  0x1c, 26, 0
+    1693                      .dwcfa  0x09, 40, 26
+    1694 000001de FE06          ADDB      SP,#6
+    1695                      .dwcfa  0x1d, -8
+    1696              ;* AL    assigned to _pro
+    1697              DW$147  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1698                      .dwattr DW$147, DW_AT_type(*DW$T$6)
+    1699                      .dwattr DW$147, DW_AT_location[DW_OP_reg0]
+    1700              ;* AR4   assigned to _pname
+    1701              DW$148  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pname"), DW_AT_symbol_name("_pname")
+    1702                      .dwattr DW$148, DW_AT_type(*DW$T$84)
+    1703                      .dwattr DW$148, DW_AT_location[DW_OP_reg12]
+    1704              DW$149  .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1705                      .dwattr DW$149, DW_AT_type(*DW$T$6)
+    1706                      .dwattr DW$149, DW_AT_location[DW_OP_breg20 -1]
+    1707              DW$150  .dwtag  DW_TAG_variable, DW_AT_name("pname"), DW_AT_symbol_name("_pname")
+    1708                      .dwattr DW$150, DW_AT_type(*DW$T$84)
+    1709                      .dwattr DW$150, DW_AT_location[DW_OP_breg20 -4]
+    1710              DW$151  .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+    1711                      .dwattr DW$151, DW_AT_type(*DW$T$6)
+    1712                      .dwattr DW$151, DW_AT_location[DW_OP_breg20 -5]
+    1713 000001df A844          MOVL      *-SP[4],XAR4          ; |457| 
+    1714 000001e0 9641          MOV       *-SP[1],AL            ; |457| 
+    1715                      .dwpsn  "os_connect_maneger.c",460,2
+    1716 000001e1 5DAD          MOVZ      AR5,SP                ; |460| 
+    1717 000001e2 8A44          MOVL      XAR4,*-SP[4]          ; |460| 
+    1718 000001e3 DD85          SUBB      XAR5,#5               ; |460| 
+    1719 000001e4 7640!         LCR       #_OSTaskNameSet       ; |460| 
+         000001e5 0000 
+    1720                      ; call occurs [#_OSTaskNameSet] ; |460| 
+    1721                      .dwpsn  "os_connect_maneger.c",461,2
+    1722 000001e6 9245          MOV       AL,*-SP[5]            ; |461| 
+    1723                      .dwpsn  "os_connect_maneger.c",465,2
+    1724                      .dwpsn  "os_connect_maneger.c",469,1
+    1725 000001e7 FE86          SUBB      SP,#6                 ; |465| 
+    1726                      .dwcfa  0x1d, -2
+    1727 000001e8 0006          LRETR
+    1728                      ; return occurs
+    1729                      .dwattr DW$146, DW_AT_end_file("os_connect_maneger.c")
+    1730                      .dwattr DW$146, DW_AT_end_line(0x1d5)
+    1731                      .dwattr DW$146, DW_AT_end_column(0x01)
+    1732                      .dwendentry
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   34
+
+    1733                      .dwendtag DW$146
+    1734              
+    1735 000001e9               .sect   ".text"
+    1736                      .global _os_task_name_get
+    1737              
+    1738              DW$152  .dwtag  DW_TAG_subprogram, DW_AT_name("os_task_name_get"), DW_AT_symbol_name("_os_task_name_get")
+    1739                      .dwattr DW$152, DW_AT_low_pc(_os_task_name_get)
+    1740                      .dwattr DW$152, DW_AT_high_pc(0x00)
+    1741                      .dwattr DW$152, DW_AT_begin_file("os_connect_maneger.c")
+    1742                      .dwattr DW$152, DW_AT_begin_line(0x1df)
+    1743                      .dwattr DW$152, DW_AT_begin_column(0x09)
+    1744                      .dwpsn  "os_connect_maneger.c",480,1
+    1745              
+    1746                      .dwfde DW$CIE
+    1747              
+    1748              ;***************************************************************
+    1749              ;* FNAME: _os_task_name_get             FR SIZE:   6           *
+    1750              ;*                                                             *
+    1751              ;* FUNCTION ENVIRONMENT                                        *
+    1752              ;*                                                             *
+    1753              ;* FUNCTION PROPERTIES                                         *
+    1754              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+    1755              ;***************************************************************
+    1756              
+    1757              _os_task_name_get:
+    1758                      .dwcfa  0x1d, -2
+    1759                      .dwcfa  0x1c, 26, 0
+    1760                      .dwcfa  0x09, 40, 26
+    1761 000001e9 FE06          ADDB      SP,#6
+    1762                      .dwcfa  0x1d, -8
+    1763              ;* AL    assigned to _pro
+    1764              DW$153  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1765                      .dwattr DW$153, DW_AT_type(*DW$T$6)
+    1766                      .dwattr DW$153, DW_AT_location[DW_OP_reg0]
+    1767              ;* AR4   assigned to _pname
+    1768              DW$154  .dwtag  DW_TAG_formal_parameter, DW_AT_name("pname"), DW_AT_symbol_name("_pname")
+    1769                      .dwattr DW$154, DW_AT_type(*DW$T$84)
+    1770                      .dwattr DW$154, DW_AT_location[DW_OP_reg12]
+    1771              DW$155  .dwtag  DW_TAG_variable, DW_AT_name("pro"), DW_AT_symbol_name("_pro")
+    1772                      .dwattr DW$155, DW_AT_type(*DW$T$6)
+    1773                      .dwattr DW$155, DW_AT_location[DW_OP_breg20 -1]
+    1774              DW$156  .dwtag  DW_TAG_variable, DW_AT_name("pname"), DW_AT_symbol_name("_pname")
+    1775                      .dwattr DW$156, DW_AT_type(*DW$T$84)
+    1776                      .dwattr DW$156, DW_AT_location[DW_OP_breg20 -4]
+    1777              DW$157  .dwtag  DW_TAG_variable, DW_AT_name("len"), DW_AT_symbol_name("_len")
+    1778                      .dwattr DW$157, DW_AT_type(*DW$T$6)
+    1779                      .dwattr DW$157, DW_AT_location[DW_OP_breg20 -5]
+    1780              DW$158  .dwtag  DW_TAG_variable, DW_AT_name("err"), DW_AT_symbol_name("_err")
+    1781                      .dwattr DW$158, DW_AT_type(*DW$T$6)
+    1782                      .dwattr DW$158, DW_AT_location[DW_OP_breg20 -6]
+    1783 000001ea A844          MOVL      *-SP[4],XAR4          ; |480| 
+    1784 000001eb 9641          MOV       *-SP[1],AL            ; |480| 
+    1785                      .dwpsn  "os_connect_maneger.c",484,2
+    1786 000001ec 5DAD          MOVZ      AR5,SP                ; |484| 
+    1787 000001ed 8A44          MOVL      XAR4,*-SP[4]          ; |484| 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   35
+
+    1788 000001ee DD86          SUBB      XAR5,#6               ; |484| 
+    1789 000001ef 7640!         LCR       #_OSTaskNameGet       ; |484| 
+         000001f0 0000 
+    1790                      ; call occurs [#_OSTaskNameGet] ; |484| 
+    1791 000001f1 9645          MOV       *-SP[5],AL            ; |484| 
+    1792                      .dwpsn  "os_connect_maneger.c",485,2
+    1793 000001f2 9246          MOV       AL,*-SP[6]            ; |485| 
+    1794 000001f3 ED01          BF        L34,NEQ               ; |485| 
+    1795                      ; branchcc occurs ; |485| 
+    1796                      .dwpsn  "os_connect_maneger.c",488,2
+    1797                      .dwpsn  "os_connect_maneger.c",489,7
+    1798              L34:    
+    1799                      .dwpsn  "os_connect_maneger.c",493,2
+    1800 000001f4 9245          MOV       AL,*-SP[5]            ; |493| 
+    1801                      .dwpsn  "os_connect_maneger.c",497,1
+    1802 000001f5 FE86          SUBB      SP,#6                 ; |493| 
+    1803                      .dwcfa  0x1d, -2
+    1804 000001f6 0006          LRETR
+    1805                      ; return occurs
+    1806                      .dwattr DW$152, DW_AT_end_file("os_connect_maneger.c")
+    1807                      .dwattr DW$152, DW_AT_end_line(0x1f1)
+    1808                      .dwattr DW$152, DW_AT_end_column(0x01)
+    1809                      .dwendentry
+    1810                      .dwendtag DW$152
+    1811              
+    1812 000001f7               .sect   ".text"
+    1813                      .global _os_connect_init
+    1814              
+    1815              DW$159  .dwtag  DW_TAG_subprogram, DW_AT_name("os_connect_init"), DW_AT_symbol_name("_os_connect_init")
+    1816                      .dwattr DW$159, DW_AT_low_pc(_os_connect_init)
+    1817                      .dwattr DW$159, DW_AT_high_pc(0x00)
+    1818                      .dwattr DW$159, DW_AT_begin_file("os_connect_maneger.c")
+    1819                      .dwattr DW$159, DW_AT_begin_line(0x1fa)
+    1820                      .dwattr DW$159, DW_AT_begin_column(0x06)
+    1821                      .dwpsn  "os_connect_maneger.c",507,1
+    1822              
+    1823                      .dwfde DW$CIE
+    1824              
+    1825              ;***************************************************************
+    1826              ;* FNAME: _os_connect_init              FR SIZE:   0           *
+    1827              ;*                                                             *
+    1828              ;* FUNCTION ENVIRONMENT                                        *
+    1829              ;*                                                             *
+    1830              ;* FUNCTION PROPERTIES                                         *
+    1831              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1832              ;***************************************************************
+    1833              
+    1834              _os_connect_init:
+    1835                      .dwcfa  0x1d, -2
+    1836                      .dwcfa  0x1c, 26, 0
+    1837                      .dwcfa  0x09, 40, 26
+    1838                      .dwpsn  "os_connect_maneger.c",508,2
+    1839 000001f7 9A46          MOVB      AL,#70                ; |508| 
+    1840 000001f8 8F00-         MOVL      XAR4,#_m_task_pro_array ; |508| 
+         000001f9 0004 
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   36
+
+    1841 000001fa 9B2F          MOVB      AH,#47                ; |508| 
+    1842 000001fb 7640!         LCR       #_global_memset       ; |508| 
+         000001fc 0000 
+    1843                      ; call occurs [#_global_memset] ; |508| 
+    1844                      .dwpsn  "os_connect_maneger.c",509,2
+    1845 000001fd 761F-         MOVW      DP,#_m_task_pro_array+47
+         000001fe 0000 
+    1846 000001ff 2B33-         MOV       @_m_task_pro_array+47,#0 ; |509| 
+    1847                      .dwpsn  "os_connect_maneger.c",510,2
+    1848 00000200 8F00-         MOVL      XAR4,#_m_task_lock    ; |510| 
+         00000201 0002 
+    1849 00000202 7640'         LCR       #_os_lock_creat       ; |510| 
+         00000203 0019 
+    1850                      ; call occurs [#_os_lock_creat] ; |510| 
+    1851                      .dwpsn  "os_connect_maneger.c",511,2
+    1852 00000204 761F-         MOVW      DP,#_m_event_stat_cnt
+         00000205 0000 
+    1853 00000206 2B00-         MOV       @_m_event_stat_cnt,#0 ; |511| 
+    1854                      .dwpsn  "os_connect_maneger.c",512,2
+    1855 00000207 7640!         LCR       #_os_driver_maneger_tab_init ; |512| 
+         00000208 0000 
+    1856                      ; call occurs [#_os_driver_maneger_tab_init] ; |512| 
+    1857                      .dwpsn  "os_connect_maneger.c",513,2
+    1858 00000209 7640!         LCR       #_app_module_maneger_init ; |513| 
+         0000020a 0000 
+    1859                      ; call occurs [#_app_module_maneger_init] ; |513| 
+    1860                      .dwpsn  "os_connect_maneger.c",514,2
+    1861                      .dwpsn  "os_connect_maneger.c",515,1
+    1862 0000020b 0006          LRETR
+    1863                      ; return occurs
+    1864                      .dwattr DW$159, DW_AT_end_file("os_connect_maneger.c")
+    1865                      .dwattr DW$159, DW_AT_end_line(0x203)
+    1866                      .dwattr DW$159, DW_AT_end_column(0x01)
+    1867                      .dwendentry
+    1868                      .dwendtag DW$159
+    1869              
+    1870              ;***************************************************************
+    1871              ;* UNDEFINED EXTERNAL REFERENCES                               *
+    1872              ;***************************************************************
+    1873                      .global _app_module_maneger_exit
+    1874                      .global _global_memset
+    1875                      .global _OS_EventWaitListInit
+    1876                      .global _os_driver_maneger_tab_init
+    1877                      .global _OSTaskNameSet
+    1878                      .global _OSSemPend
+    1879                      .global _OSSemSet
+    1880                      .global _OSPrioCur
+    1881                      .global _OSTaskNameGet
+    1882                      .global _global_memcmp
+    1883                      .global _OSTaskDel
+    1884                      .global _OSSemPost
+    1885                      .global _OSTaskCreateExt
+    1886                      .global _OSQFlush
+    1887                      .global _app_module_maneger_init
+    1888                      .global _OSQCreate
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   37
+
+    1889                      .global _OSSemCreate
+    1890                      .global _global_string_locate_first
+    1891              
+    1892              ;***************************************************************
+    1893              ;* TYPE INFORMATION                                            *
+    1894              ;***************************************************************
+    1895              DW$T$3  .dwtag  DW_TAG_pointer_type
+    1896                      .dwattr DW$T$3, DW_AT_address_class(0x16)
+    1897              DW$T$23 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$3)
+    1898                      .dwattr DW$T$23, DW_AT_address_class(0x16)
+    1899              
+    1900              DW$T$27 .dwtag  DW_TAG_subroutine_type
+    1901                      .dwattr DW$T$27, DW_AT_language(DW_LANG_C)
+    1902              DW$160  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1903              DW$161  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    1904              DW$162  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+    1905                      .dwendtag DW$T$27
+    1906              
+    1907              DW$T$30 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$29)
+    1908                      .dwattr DW$T$30, DW_AT_address_class(0x16)
+    1909              
+    1910              DW$T$31 .dwtag  DW_TAG_subroutine_type
+    1911                      .dwattr DW$T$31, DW_AT_language(DW_LANG_C)
+    1912              DW$163  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+    1913              DW$164  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+    1914              DW$165  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+    1915                      .dwendtag DW$T$31
+    1916              
+    1917              
+    1918              DW$T$33 .dwtag  DW_TAG_subroutine_type
+    1919                      .dwattr DW$T$33, DW_AT_language(DW_LANG_C)
+    1920              DW$166  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1921                      .dwendtag DW$T$33
+    1922              
+    1923              
+    1924              DW$T$35 .dwtag  DW_TAG_subroutine_type
+    1925                      .dwattr DW$T$35, DW_AT_language(DW_LANG_C)
+    1926              
+    1927              DW$T$38 .dwtag  DW_TAG_subroutine_type
+    1928                      .dwattr DW$T$38, DW_AT_language(DW_LANG_C)
+    1929              DW$167  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    1930                      .dwendtag DW$T$38
+    1931              
+    1932              
+    1933              DW$T$40 .dwtag  DW_TAG_subroutine_type
+    1934                      .dwattr DW$T$40, DW_AT_language(DW_LANG_C)
+    1935              DW$168  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1936              DW$169  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+    1937              DW$170  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    1938                      .dwendtag DW$T$40
+    1939              
+    1940              
+    1941              DW$T$44 .dwtag  DW_TAG_subroutine_type
+    1942                      .dwattr DW$T$44, DW_AT_language(DW_LANG_C)
+    1943              DW$171  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$43)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   38
+
+    1944                      .dwendtag DW$T$44
+    1945              
+    1946              
+    1947              DW$T$49 .dwtag  DW_TAG_subroutine_type
+    1948                      .dwattr DW$T$49, DW_AT_language(DW_LANG_C)
+    1949              DW$172  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$48)
+    1950              DW$173  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+    1951              DW$174  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$11)
+    1952                      .dwendtag DW$T$49
+    1953              
+    1954              
+    1955              DW$T$50 .dwtag  DW_TAG_subroutine_type
+    1956                      .dwattr DW$T$50, DW_AT_language(DW_LANG_C)
+    1957              DW$175  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+    1958                      .dwendtag DW$T$50
+    1959              
+    1960              DW$T$6  .dwtag  DW_TAG_base_type, DW_AT_name("unsigned char")
+    1961                      .dwattr DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1962                      .dwattr DW$T$6, DW_AT_byte_size(0x01)
+    1963              DW$T$19 .dwtag  DW_TAG_typedef, DW_AT_name("INT8U"), DW_AT_type(*DW$T$6)
+    1964                      .dwattr DW$T$19, DW_AT_language(DW_LANG_C)
+    1965              DW$T$26 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$19)
+    1966                      .dwattr DW$T$26, DW_AT_address_class(0x16)
+    1967              
+    1968              DW$T$52 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+    1969                      .dwattr DW$T$52, DW_AT_language(DW_LANG_C)
+    1970              DW$176  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$25)
+    1971                      .dwendtag DW$T$52
+    1972              
+    1973              
+    1974              DW$T$57 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+    1975                      .dwattr DW$T$57, DW_AT_language(DW_LANG_C)
+    1976              DW$177  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    1977              DW$178  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1978              DW$179  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+    1979              DW$180  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+    1980              DW$181  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    1981              DW$182  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$55)
+    1982              DW$183  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$56)
+    1983              DW$184  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    1984              DW$185  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    1985                      .dwendtag DW$T$57
+    1986              
+    1987              
+    1988              DW$T$59 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+    1989                      .dwattr DW$T$59, DW_AT_language(DW_LANG_C)
+    1990              DW$186  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+    1991                      .dwendtag DW$T$59
+    1992              
+    1993              
+    1994              DW$T$61 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$19)
+    1995                      .dwattr DW$T$61, DW_AT_language(DW_LANG_C)
+    1996              DW$187  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$19)
+    1997              DW$188  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+    1998              DW$189  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$26)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   39
+
+    1999                      .dwendtag DW$T$61
+    2000              
+    2001              DW$T$63 .dwtag  DW_TAG_typedef, DW_AT_name("BOOL"), DW_AT_type(*DW$T$6)
+    2002                      .dwattr DW$T$63, DW_AT_language(DW_LANG_C)
+    2003              
+    2004              DW$T$64 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$63)
+    2005                      .dwattr DW$T$64, DW_AT_language(DW_LANG_C)
+    2006              DW$190  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    2007              DW$191  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    2008              DW$192  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    2009                      .dwendtag DW$T$64
+    2010              
+    2011              
+    2012              DW$T$66 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$63)
+    2013                      .dwattr DW$T$66, DW_AT_language(DW_LANG_C)
+    2014              DW$193  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    2015              DW$194  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+    2016              DW$195  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    2017                      .dwendtag DW$T$66
+    2018              
+    2019              
+    2020              DW$T$68 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2021                      .dwattr DW$T$68, DW_AT_language(DW_LANG_C)
+    2022              DW$196  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$67)
+    2023                      .dwendtag DW$T$68
+    2024              
+    2025              
+    2026              DW$T$73 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2027                      .dwattr DW$T$73, DW_AT_language(DW_LANG_C)
+    2028              DW$197  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$72)
+    2029              DW$198  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$11)
+    2030                      .dwendtag DW$T$73
+    2031              
+    2032              
+    2033              DW$T$74 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2034                      .dwattr DW$T$74, DW_AT_language(DW_LANG_C)
+    2035              DW$199  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$71)
+    2036              DW$200  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$11)
+    2037                      .dwendtag DW$T$74
+    2038              
+    2039              
+    2040              DW$T$76 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2041                      .dwattr DW$T$76, DW_AT_language(DW_LANG_C)
+    2042              DW$201  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    2043                      .dwendtag DW$T$76
+    2044              
+    2045              
+    2046              DW$T$78 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2047                      .dwattr DW$T$78, DW_AT_language(DW_LANG_C)
+    2048              DW$202  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    2049              DW$203  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$37)
+    2050                      .dwendtag DW$T$78
+    2051              
+    2052              
+    2053              DW$T$80 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   40
+
+    2054                      .dwattr DW$T$80, DW_AT_language(DW_LANG_C)
+    2055              DW$204  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$30)
+    2056                      .dwendtag DW$T$80
+    2057              
+    2058              
+    2059              DW$T$81 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2060                      .dwattr DW$T$81, DW_AT_language(DW_LANG_C)
+    2061              DW$205  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+    2062                      .dwendtag DW$T$81
+    2063              
+    2064              
+    2065              DW$T$85 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$6)
+    2066                      .dwattr DW$T$85, DW_AT_language(DW_LANG_C)
+    2067              DW$206  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$6)
+    2068              DW$207  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$84)
+    2069                      .dwendtag DW$T$85
+    2070              
+    2071              
+    2072              DW$T$86 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$6)
+    2073                      .dwattr DW$T$86, DW_AT_language(DW_LANG_C)
+    2074                      .dwattr DW$T$86, DW_AT_byte_size(0x30)
+    2075              DW$208  .dwtag  DW_TAG_subrange_type
+    2076                      .dwattr DW$208, DW_AT_upper_bound(0x2f)
+    2077                      .dwendtag DW$T$86
+    2078              
+    2079              DW$T$10 .dwtag  DW_TAG_base_type, DW_AT_name("int")
+    2080                      .dwattr DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    2081                      .dwattr DW$T$10, DW_AT_byte_size(0x01)
+    2082              
+    2083              DW$T$89 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$10)
+    2084                      .dwattr DW$T$89, DW_AT_language(DW_LANG_C)
+    2085              DW$T$11 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned int")
+    2086                      .dwattr DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    2087                      .dwattr DW$T$11, DW_AT_byte_size(0x01)
+    2088              DW$T$20 .dwtag  DW_TAG_typedef, DW_AT_name("INT16U"), DW_AT_type(*DW$T$11)
+    2089                      .dwattr DW$T$20, DW_AT_language(DW_LANG_C)
+    2090              DW$T$37 .dwtag  DW_TAG_typedef, DW_AT_name("Bsize_t"), DW_AT_type(*DW$T$11)
+    2091                      .dwattr DW$T$37, DW_AT_language(DW_LANG_C)
+    2092              DW$T$55 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$54)
+    2093                      .dwattr DW$T$55, DW_AT_address_class(0x16)
+    2094              
+    2095              DW$T$91 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$54)
+    2096                      .dwattr DW$T$91, DW_AT_language(DW_LANG_C)
+    2097                      .dwattr DW$T$91, DW_AT_byte_size(0x80)
+    2098              DW$209  .dwtag  DW_TAG_subrange_type
+    2099                      .dwattr DW$209, DW_AT_upper_bound(0x7f)
+    2100                      .dwendtag DW$T$91
+    2101              
+    2102              
+    2103              DW$T$93 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$54)
+    2104                      .dwattr DW$T$93, DW_AT_language(DW_LANG_C)
+    2105                      .dwattr DW$T$93, DW_AT_byte_size(0x1d60)
+    2106              DW$210  .dwtag  DW_TAG_subrange_type
+    2107                      .dwattr DW$210, DW_AT_upper_bound(0x2e)
+    2108              DW$211  .dwtag  DW_TAG_subrange_type
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   41
+
+    2109                      .dwattr DW$211, DW_AT_upper_bound(0x9f)
+    2110                      .dwendtag DW$T$93
+    2111              
+    2112              
+    2113              DW$T$95 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$54)
+    2114                      .dwattr DW$T$95, DW_AT_language(DW_LANG_C)
+    2115                      .dwattr DW$T$95, DW_AT_byte_size(0x100)
+    2116              DW$212  .dwtag  DW_TAG_subrange_type
+    2117                      .dwattr DW$212, DW_AT_upper_bound(0xff)
+    2118                      .dwendtag DW$T$95
+    2119              
+    2120              DW$T$56 .dwtag  DW_TAG_typedef, DW_AT_name("INT32U"), DW_AT_type(*DW$T$13)
+    2121                      .dwattr DW$T$56, DW_AT_language(DW_LANG_C)
+    2122              DW$T$25 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$24)
+    2123                      .dwattr DW$T$25, DW_AT_address_class(0x16)
+    2124              
+    2125              DW$T$96 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    2126                      .dwattr DW$T$96, DW_AT_language(DW_LANG_C)
+    2127              DW$213  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$23)
+    2128              DW$214  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    2129                      .dwendtag DW$T$96
+    2130              
+    2131              
+    2132              DW$T$98 .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$25)
+    2133                      .dwattr DW$T$98, DW_AT_language(DW_LANG_C)
+    2134              DW$215  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$20)
+    2135                      .dwendtag DW$T$98
+    2136              
+    2137              DW$T$43 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$42)
+    2138                      .dwattr DW$T$43, DW_AT_address_class(0x16)
+    2139              DW$T$67 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$43)
+    2140                      .dwattr DW$T$67, DW_AT_address_class(0x16)
+    2141              DW$T$48 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$47)
+    2142                      .dwattr DW$T$48, DW_AT_address_class(0x16)
+    2143              DW$T$71 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$70)
+    2144                      .dwattr DW$T$71, DW_AT_address_class(0x16)
+    2145              DW$T$72 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$71)
+    2146                      .dwattr DW$T$72, DW_AT_address_class(0x16)
+    2147              DW$T$84 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$83)
+    2148                      .dwattr DW$T$84, DW_AT_address_class(0x16)
+    2149              
+    2150              DW$T$100        .dwtag  DW_TAG_subroutine_type, DW_AT_type(*DW$T$84)
+    2151                      .dwattr DW$T$100, DW_AT_language(DW_LANG_C)
+    2152              DW$216  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$84)
+    2153              DW$217  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$84)
+    2154                      .dwendtag DW$T$100
+    2155              
+    2156              
+    2157              DW$T$102        .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$83)
+    2158                      .dwattr DW$T$102, DW_AT_language(DW_LANG_C)
+    2159                      .dwattr DW$T$102, DW_AT_byte_size(0x0c)
+    2160              DW$218  .dwtag  DW_TAG_subrange_type
+    2161                      .dwattr DW$218, DW_AT_upper_bound(0x0b)
+    2162                      .dwendtag DW$T$102
+    2163              
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   42
+
+    2164              
+    2165              DW$T$29 .dwtag  DW_TAG_subroutine_type
+    2166                      .dwattr DW$T$29, DW_AT_language(DW_LANG_C)
+    2167              DW$219  .dwtag  DW_TAG_formal_parameter, DW_AT_type(*DW$T$3)
+    2168                      .dwendtag DW$T$29
+    2169              
+    2170              DW$T$54 .dwtag  DW_TAG_typedef, DW_AT_name("OS_STK"), DW_AT_type(*DW$T$11)
+    2171                      .dwattr DW$T$54, DW_AT_language(DW_LANG_C)
+    2172              DW$T$13 .dwtag  DW_TAG_base_type, DW_AT_name("unsigned long")
+    2173                      .dwattr DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    2174                      .dwattr DW$T$13, DW_AT_byte_size(0x02)
+    2175              DW$T$24 .dwtag  DW_TAG_typedef, DW_AT_name("OS_EVENT"), DW_AT_type(*DW$T$22)
+    2176                      .dwattr DW$T$24, DW_AT_language(DW_LANG_C)
+    2177              DW$T$42 .dwtag  DW_TAG_typedef, DW_AT_name("a_lock_t"), DW_AT_type(*DW$T$24)
+    2178                      .dwattr DW$T$42, DW_AT_language(DW_LANG_C)
+    2179              DW$T$47 .dwtag  DW_TAG_pointer_type, DW_AT_type(*DW$T$46)
+    2180                      .dwattr DW$T$47, DW_AT_address_class(0x16)
+    2181              DW$T$70 .dwtag  DW_TAG_typedef, DW_AT_name("a_sem_t"), DW_AT_type(*DW$T$24)
+    2182                      .dwattr DW$T$70, DW_AT_language(DW_LANG_C)
+    2183              DW$T$83 .dwtag  DW_TAG_base_type, DW_AT_name("signed char")
+    2184                      .dwattr DW$T$83, DW_AT_encoding(DW_ATE_signed_char)
+    2185                      .dwattr DW$T$83, DW_AT_byte_size(0x01)
+    2186              
+    2187              DW$T$22 .dwtag  DW_TAG_structure_type
+    2188                      .dwattr DW$T$22, DW_AT_name("os_event")
+    2189                      .dwattr DW$T$22, DW_AT_byte_size(0x0e)
+    2190              DW$220  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    2191                      .dwattr DW$220, DW_AT_name("OSEventType"), DW_AT_symbol_name("_OSEventType")
+    2192                      .dwattr DW$220, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    2193                      .dwattr DW$220, DW_AT_accessibility(DW_ACCESS_public)
+    2194              DW$221  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$3)
+    2195                      .dwattr DW$221, DW_AT_name("OSEventPtr"), DW_AT_symbol_name("_OSEventPtr")
+    2196                      .dwattr DW$221, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    2197                      .dwattr DW$221, DW_AT_accessibility(DW_ACCESS_public)
+    2198              DW$222  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$20)
+    2199                      .dwattr DW$222, DW_AT_name("OSEventCnt"), DW_AT_symbol_name("_OSEventCnt")
+    2200                      .dwattr DW$222, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+    2201                      .dwattr DW$222, DW_AT_accessibility(DW_ACCESS_public)
+    2202              DW$223  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$19)
+    2203                      .dwattr DW$223, DW_AT_name("OSEventGrp"), DW_AT_symbol_name("_OSEventGrp")
+    2204                      .dwattr DW$223, DW_AT_data_member_location[DW_OP_plus_uconst 0x5]
+    2205                      .dwattr DW$223, DW_AT_accessibility(DW_ACCESS_public)
+    2206              DW$224  .dwtag  DW_TAG_member, DW_AT_type(*DW$T$21)
+    2207                      .dwattr DW$224, DW_AT_name("OSEventTbl"), DW_AT_symbol_name("_OSEventTbl")
+    2208                      .dwattr DW$224, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+    2209                      .dwattr DW$224, DW_AT_accessibility(DW_ACCESS_public)
+    2210                      .dwendtag DW$T$22
+    2211              
+    2212              DW$T$46 .dwtag  DW_TAG_typedef, DW_AT_name("a_q_t"), DW_AT_type(*DW$T$24)
+    2213                      .dwattr DW$T$46, DW_AT_language(DW_LANG_C)
+    2214              
+    2215              DW$T$21 .dwtag  DW_TAG_array_type, DW_AT_type(*DW$T$19)
+    2216                      .dwattr DW$T$21, DW_AT_language(DW_LANG_C)
+    2217                      .dwattr DW$T$21, DW_AT_byte_size(0x08)
+    2218              DW$225  .dwtag  DW_TAG_subrange_type
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   43
+
+    2219                      .dwattr DW$225, DW_AT_upper_bound(0x07)
+    2220                      .dwendtag DW$T$21
+    2221              
+    2222              
+    2223                      .dwattr DW$159, DW_AT_external(0x01)
+    2224                      .dwattr DW$62, DW_AT_external(0x01)
+    2225                      .dwattr DW$72, DW_AT_external(0x01)
+    2226                      .dwattr DW$72, DW_AT_type(*DW$T$6)
+    2227                      .dwattr DW$69, DW_AT_external(0x01)
+    2228                      .dwattr DW$93, DW_AT_external(0x01)
+    2229                      .dwattr DW$75, DW_AT_external(0x01)
+    2230                      .dwattr DW$75, DW_AT_type(*DW$T$6)
+    2231                      .dwattr DW$87, DW_AT_external(0x01)
+    2232                      .dwattr DW$87, DW_AT_type(*DW$T$6)
+    2233                      .dwattr DW$81, DW_AT_external(0x01)
+    2234                      .dwattr DW$81, DW_AT_type(*DW$T$6)
+    2235                      .dwattr DW$112, DW_AT_external(0x01)
+    2236                      .dwattr DW$112, DW_AT_type(*DW$T$63)
+    2237                      .dwattr DW$122, DW_AT_external(0x01)
+    2238                      .dwattr DW$122, DW_AT_type(*DW$T$6)
+    2239                      .dwattr DW$132, DW_AT_external(0x01)
+    2240                      .dwattr DW$132, DW_AT_type(*DW$T$6)
+    2241                      .dwattr DW$136, DW_AT_external(0x01)
+    2242                      .dwattr DW$152, DW_AT_external(0x01)
+    2243                      .dwattr DW$152, DW_AT_type(*DW$T$6)
+    2244                      .dwattr DW$146, DW_AT_external(0x01)
+    2245                      .dwattr DW$146, DW_AT_type(*DW$T$6)
+    2246                      .dwattr DW$129, DW_AT_external(0x01)
+    2247                      .dwattr DW$129, DW_AT_type(*DW$T$6)
+    2248                      .dwattr DW$105, DW_AT_external(0x01)
+    2249                      .dwattr DW$100, DW_AT_external(0x01)
+    2250                      .dwattr DW$100, DW_AT_type(*DW$T$6)
+    2251                      .dwattr DW$66, DW_AT_external(0x01)
+    2252                      .dwattr DW$CU, DW_AT_language(DW_LANG_C)
+    2253              
+    2254              ;***************************************************************
+    2255              ;* DWARF CIE ENTRIES                                           *
+    2256              ;***************************************************************
+    2257              
+    2258              DW$CIE  .dwcie 1, 40
+    2259                      .dwcfa  0x0c, 20, 0
+    2260                      .dwcfa  0x07, 0
+    2261                      .dwcfa  0x07, 1
+    2262                      .dwcfa  0x07, 2
+    2263                      .dwcfa  0x07, 3
+    2264                      .dwcfa  0x07, 4
+    2265                      .dwcfa  0x07, 5
+    2266                      .dwcfa  0x08, 6
+    2267                      .dwcfa  0x08, 7
+    2268                      .dwcfa  0x08, 8
+    2269                      .dwcfa  0x08, 9
+    2270                      .dwcfa  0x08, 10
+    2271                      .dwcfa  0x08, 11
+    2272                      .dwcfa  0x07, 12
+    2273                      .dwcfa  0x07, 13
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   44
+
+    2274                      .dwcfa  0x07, 14
+    2275                      .dwcfa  0x07, 15
+    2276                      .dwcfa  0x07, 16
+    2277                      .dwcfa  0x07, 17
+    2278                      .dwcfa  0x07, 18
+    2279                      .dwcfa  0x07, 19
+    2280                      .dwcfa  0x07, 20
+    2281                      .dwcfa  0x07, 21
+    2282                      .dwcfa  0x07, 22
+    2283                      .dwcfa  0x07, 23
+    2284                      .dwcfa  0x07, 24
+    2285                      .dwcfa  0x07, 25
+    2286                      .dwcfa  0x07, 26
+    2287                      .dwcfa  0x08, 27
+    2288                      .dwcfa  0x07, 28
+    2289                      .dwcfa  0x07, 29
+    2290                      .dwcfa  0x07, 30
+    2291                      .dwcfa  0x07, 31
+    2292                      .dwcfa  0x07, 32
+    2293                      .dwcfa  0x07, 33
+    2294                      .dwcfa  0x07, 34
+    2295                      .dwcfa  0x07, 35
+    2296                      .dwcfa  0x07, 36
+    2297                      .dwcfa  0x07, 37
+    2298                      .dwcfa  0x07, 38
+    2299                      .dwcfa  0x07, 39
+    2300                      .dwcfa  0x07, 40
+    2301              
+    2302              ;***************************************************************
+    2303              ;* DWARF REGISTER MAP                                          *
+    2304              ;***************************************************************
+    2305              
+    2306              DW$226  .dwtag  DW_TAG_assign_register, DW_AT_name("AL")
+    2307                      .dwattr DW$226, DW_AT_location[DW_OP_reg0]
+    2308              DW$227  .dwtag  DW_TAG_assign_register, DW_AT_name("AH")
+    2309                      .dwattr DW$227, DW_AT_location[DW_OP_reg1]
+    2310              DW$228  .dwtag  DW_TAG_assign_register, DW_AT_name("PL")
+    2311                      .dwattr DW$228, DW_AT_location[DW_OP_reg2]
+    2312              DW$229  .dwtag  DW_TAG_assign_register, DW_AT_name("PH")
+    2313                      .dwattr DW$229, DW_AT_location[DW_OP_reg3]
+    2314              DW$230  .dwtag  DW_TAG_assign_register, DW_AT_name("AR0")
+    2315                      .dwattr DW$230, DW_AT_location[DW_OP_reg4]
+    2316              DW$231  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR0")
+    2317                      .dwattr DW$231, DW_AT_location[DW_OP_reg5]
+    2318              DW$232  .dwtag  DW_TAG_assign_register, DW_AT_name("AR1")
+    2319                      .dwattr DW$232, DW_AT_location[DW_OP_reg6]
+    2320              DW$233  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR1")
+    2321                      .dwattr DW$233, DW_AT_location[DW_OP_reg7]
+    2322              DW$234  .dwtag  DW_TAG_assign_register, DW_AT_name("AR2")
+    2323                      .dwattr DW$234, DW_AT_location[DW_OP_reg8]
+    2324              DW$235  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR2")
+    2325                      .dwattr DW$235, DW_AT_location[DW_OP_reg9]
+    2326              DW$236  .dwtag  DW_TAG_assign_register, DW_AT_name("AR3")
+    2327                      .dwattr DW$236, DW_AT_location[DW_OP_reg10]
+    2328              DW$237  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR3")
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   45
+
+    2329                      .dwattr DW$237, DW_AT_location[DW_OP_reg11]
+    2330              DW$238  .dwtag  DW_TAG_assign_register, DW_AT_name("AR4")
+    2331                      .dwattr DW$238, DW_AT_location[DW_OP_reg12]
+    2332              DW$239  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR4")
+    2333                      .dwattr DW$239, DW_AT_location[DW_OP_reg13]
+    2334              DW$240  .dwtag  DW_TAG_assign_register, DW_AT_name("AR5")
+    2335                      .dwattr DW$240, DW_AT_location[DW_OP_reg14]
+    2336              DW$241  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR5")
+    2337                      .dwattr DW$241, DW_AT_location[DW_OP_reg15]
+    2338              DW$242  .dwtag  DW_TAG_assign_register, DW_AT_name("AR6")
+    2339                      .dwattr DW$242, DW_AT_location[DW_OP_reg16]
+    2340              DW$243  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR6")
+    2341                      .dwattr DW$243, DW_AT_location[DW_OP_reg17]
+    2342              DW$244  .dwtag  DW_TAG_assign_register, DW_AT_name("AR7")
+    2343                      .dwattr DW$244, DW_AT_location[DW_OP_reg18]
+    2344              DW$245  .dwtag  DW_TAG_assign_register, DW_AT_name("XAR7")
+    2345                      .dwattr DW$245, DW_AT_location[DW_OP_reg19]
+    2346              DW$246  .dwtag  DW_TAG_assign_register, DW_AT_name("SP")
+    2347                      .dwattr DW$246, DW_AT_location[DW_OP_reg20]
+    2348              DW$247  .dwtag  DW_TAG_assign_register, DW_AT_name("XT")
+    2349                      .dwattr DW$247, DW_AT_location[DW_OP_reg21]
+    2350              DW$248  .dwtag  DW_TAG_assign_register, DW_AT_name("T")
+    2351                      .dwattr DW$248, DW_AT_location[DW_OP_reg22]
+    2352              DW$249  .dwtag  DW_TAG_assign_register, DW_AT_name("ST0")
+    2353                      .dwattr DW$249, DW_AT_location[DW_OP_reg23]
+    2354              DW$250  .dwtag  DW_TAG_assign_register, DW_AT_name("ST1")
+    2355                      .dwattr DW$250, DW_AT_location[DW_OP_reg24]
+    2356              DW$251  .dwtag  DW_TAG_assign_register, DW_AT_name("PC")
+    2357                      .dwattr DW$251, DW_AT_location[DW_OP_reg25]
+    2358              DW$252  .dwtag  DW_TAG_assign_register, DW_AT_name("RPC")
+    2359                      .dwattr DW$252, DW_AT_location[DW_OP_reg26]
+    2360              DW$253  .dwtag  DW_TAG_assign_register, DW_AT_name("FP")
+    2361                      .dwattr DW$253, DW_AT_location[DW_OP_reg27]
+    2362              DW$254  .dwtag  DW_TAG_assign_register, DW_AT_name("DP")
+    2363                      .dwattr DW$254, DW_AT_location[DW_OP_reg28]
+    2364              DW$255  .dwtag  DW_TAG_assign_register, DW_AT_name("SXM")
+    2365                      .dwattr DW$255, DW_AT_location[DW_OP_reg29]
+    2366              DW$256  .dwtag  DW_TAG_assign_register, DW_AT_name("PM")
+    2367                      .dwattr DW$256, DW_AT_location[DW_OP_reg30]
+    2368              DW$257  .dwtag  DW_TAG_assign_register, DW_AT_name("OVM")
+    2369                      .dwattr DW$257, DW_AT_location[DW_OP_reg31]
+    2370              DW$258  .dwtag  DW_TAG_assign_register, DW_AT_name("PAGE0")
+    2371                      .dwattr DW$258, DW_AT_location[DW_OP_regx 0x20]
+    2372              DW$259  .dwtag  DW_TAG_assign_register, DW_AT_name("AMODE")
+    2373                      .dwattr DW$259, DW_AT_location[DW_OP_regx 0x21]
+    2374              DW$260  .dwtag  DW_TAG_assign_register, DW_AT_name("IFR")
+    2375                      .dwattr DW$260, DW_AT_location[DW_OP_regx 0x22]
+    2376              DW$261  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    2377                      .dwattr DW$261, DW_AT_location[DW_OP_regx 0x23]
+    2378              DW$262  .dwtag  DW_TAG_assign_register, DW_AT_name("IER")
+    2379                      .dwattr DW$262, DW_AT_location[DW_OP_regx 0x24]
+    2380              DW$263  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDO")
+    2381                      .dwattr DW$263, DW_AT_location[DW_OP_regx 0x25]
+    2382              DW$264  .dwtag  DW_TAG_assign_register, DW_AT_name("PSEUDOH")
+    2383                      .dwattr DW$264, DW_AT_location[DW_OP_regx 0x26]
+TMS320C2000 COFF Assembler PC v4.1.3 Sat Sep 24 16:15:20 2011
+
+Tools Copyright (c) 1996-2006 Texas Instruments Incorporated
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\TI8602                            PAGE   46
+
+    2384              DW$265  .dwtag  DW_TAG_assign_register, DW_AT_name("VOL")
+    2385                      .dwattr DW$265, DW_AT_location[DW_OP_regx 0x27]
+    2386              DW$266  .dwtag  DW_TAG_assign_register, DW_AT_name("CIE_RETA")
+    2387                      .dwattr DW$266, DW_AT_location[DW_OP_regx 0x28]
+    2388                      .dwendtag DW$CU
+    2389              
+
+No Assembly Errors, No Assembly Warnings

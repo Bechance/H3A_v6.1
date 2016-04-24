@@ -1,0 +1,17 @@
+---- "START" Matches (16 in 15 files) ----
+app_DLparamJY_fun.c (user\app\app_dlparamjy_mod\src):240:			//app_module_assignExt("START");
+app_Esummod_fun.c (user\app\app_esum_mod\src):374:                app_module_assignExt("START");
+app_PTCTmod_fun.c (user\app\app_ptct_mod\src):158:		       	//app_module_assignExt("START");
+app_RM_fun.c (user\app\app_rm_mod\src):1530:				//app_module_assignExt("START");
+App_startmod_fun.c (user\app\app_start_mod\src):41:	    app_module_assignExt("START");
+app_TIME_ERRmod_fun.c (user\app\app_time_err_mod\src):102:		       	app_module_assignExt("START");
+app_USBmod_fun.c (user\app\app_usb_mod\src):83:		app_module_assignExt("START");
+app_USBmod_fun.c (user\app\app_usb_mod\src):92:				//app_module_assignExt("START");
+app_VM_fun.c (user\app\app_vm_mod\src):650:			//app_module_assignExt("START");
+App_wavemod_fun.c (user\app\app_wave_mod\src):264:				//app_module_assignExt("START");
+app_WIRmod_fun.c (user\app\app_ydwir_mod\src):117:				app_module_assignExt("START");
+app_XBmod_fun.c (user\app\app_xiebo_mod\src):45:				//app_module_assignExt("START");
+app_XCERRmod_connect.c (user\app\app_xcerr_mod\src):137:	"START",
+app_ZZmod_fun.c (user\app\app_zz_mod\src):966:			//app_module_assignExt("START");
+Main.c (user):128:	return app_module_ID_obtain((char*)"START");
+Os_connect.h (user\os_connect):280:#define  	MOD_SWITCH_STARTMOD()  app_module_assignExt("START")

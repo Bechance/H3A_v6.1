@@ -1,0 +1,12 @@
+D/Debug////
+D/lib////
+/IQmathLib.h/1.1/Tue Nov 26 04:36:02 2013/-kkv/
+/fft.h/1.1/Tue Nov 26 04:36:02 2013/-kkv/
+/cfft32c.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/cfft32i.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/fft_R1024.c/1.2/Sun Jan  4 03:37:51 2015/-kkv/
+/rfft32br.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/rfft32m.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/rfft32s.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/rfft32w.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
+/sel_q.asm/1.1/Sun Jan  4 03:37:51 2015/-kkv/
